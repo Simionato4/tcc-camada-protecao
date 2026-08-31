@@ -1,0 +1,23 @@
+# Segredos
+.env
+*.key
+
+# Python
+__pycache__/
+*.py[cod]
+.venv/
+venv/
+.pytest_cache/
+.ipynb_checkpoints/
+
+# Volumes e dados locais
+.dados/
+n8n_data/
+qdrant_data/
+
+# Consumo da API (gerado, nao versionado)
+resultados/consumo.json
+
+# Sistema
+.DS_Store
+Thumbs.db

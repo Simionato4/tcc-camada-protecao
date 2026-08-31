@@ -1,45 +1,79 @@
 # Versoes dos componentes
 
-Preencher com a saida de `python scripts/coletar_versoes.py`. Nao anote versao de
-memoria: o que vale e o que a maquina responde, no dia da instalacao.
+Coletado em **2026-08-31** com `python scripts/coletar_versoes.py`, na maquina em
+que o experimento e executado. Nenhum valor foi anotado de memoria: todos vieram
+da resposta do proprio componente.
+
+Equipamento: notebook Intel i5-13420H, 24 GB de memoria, Windows com WSL2.
 
 ## Ferramentas
 
-| Componente | Versao | Data |
-|---|---|---|
-| Windows | | |
-| WSL | | |
-| Docker Engine | | |
-| Docker Compose | | |
-| Python | | |
-| Git | | |
-| Spec Kit (specify-cli) | | |
+| Componente | Versao |
+|---|---|
+| Windows | 10.0.26200.9168 |
+| WSL | 2.7.3.0 |
+| Docker Engine | 29.5.2 (build 79eb04c) |
+| Docker Compose | v5.1.4 |
+| Python | 3.13.2 |
+| Git | 2.50.1.windows.1 |
+| Spec Kit (specify-cli) | 1.0.2 |
+
+O Spec Kit foi instalado com `uv tool install specify-cli`, o que exige o
+diretorio de ferramentas do `uv` no PATH (`uv tool update-shell`). Registrado aqui
+porque uma dependencia que so funciona com PATH ajustado a mao precisa ser
+reproduzivel por quem for repetir o procedimento.
 
 ## Imagens de conteiner
 
-As tags em `docker-compose.yml` estao em `latest` ate esta tabela ser preenchida.
-Depois de subir a primeira vez, copie o digest de cada imagem para ca e troque
-`latest` pelo digest no compose. Sem isso o ambiente nao e reproduzivel por
-terceiros, que e o que a proposta promete.
+Fixadas por digest em `docker-compose.yml`. Um digest identifica os bytes exatos
+da imagem e nao muda; uma tag como `latest` passa a apontar para outra imagem a
+qualquer momento. Sem esse pin, o ambiente descrito aqui deixaria de ser o mesmo
+que produziu os resultados.
 
-| Imagem | Digest | Data |
-|---|---|---|
-| docker.n8n.io/n8nio/n8n | | |
-| qdrant/qdrant | | |
-| ghcr.io/data-privacy-stack/presidio-analyzer | | |
-| ghcr.io/data-privacy-stack/presidio-anonymizer | | |
+| Imagem | Digest |
+|---|---|
+| docker.n8n.io/n8nio/n8n | `sha256:a9e2e3c8006ed453238266669ea1274be7136f515abe290a2f75a0ab9044c93d` |
+| qdrant/qdrant | `sha256:057ee3a8da769fe7310dd3537b4dc7583bf87a95ce8ac43c0af5a46bc580d1fc` |
+| ghcr.io/data-privacy-stack/presidio-analyzer | `sha256:ae8f6f111ac2f04e3fec552f7f80edd0dcbfa2dd69ee1b9e030475be31669885` |
+| ghcr.io/data-privacy-stack/presidio-anonymizer | `sha256:e567013893ebc80994e3799f6f55c86aa1f0b0fadb779571ab346f0ec45365c1` |
 
 ## Bibliotecas Python
 
-Fixadas em `camada/requirements.txt` e `executor/requirements.txt`.
+Fixadas por versao exata em `camada/requirements.txt` e
+`executor/requirements.txt`. Resolucao verificada por instalacao antes do primeiro
+commit.
+
+| Pacote | Versao | Onde |
+|---|---|---|
+| fastapi | 0.115.6 | camada |
+| uvicorn[standard] | 0.34.0 | camada |
+| pydantic | 2.10.4 | camada |
+| pydantic-settings | 2.7.1 | camada |
+| anthropic | 0.69.0 | executor |
+| httpx | 0.28.1 | executor |
+| pandas | 2.2.3 | executor |
+| matplotlib | 3.10.0 | executor |
+| python-dotenv | 1.0.1 | executor |
+| pytest | 8.3.4 | executor |
 
 ## Modelo de linguagem
 
 | Item | Valor |
 |---|---|
-| Identificador | (o valor de MODELO_ID no .env) |
+| Identificador | `claude-haiku-4-5-20251001` |
 | Temperatura | 0 |
 | Max tokens de saida | 400 |
-| Preco de entrada | US$ 1,00 / milhao de tokens |
-| Preco de saida | US$ 5,00 / milhao de tokens |
-| Preco verificado em | 2026-08-29 |
+| Preco de entrada | US$ 1,00 por milhao de tokens |
+| Preco de saida | US$ 5,00 por milhao de tokens |
+| Preco verificado em | 2026-08-31 |
+
+O identificador acima ainda **nao foi confirmado contra a API**. A confirmacao e a
+tarefa 0.3: `python scripts/fumaca_modelo.py --real -n 1`. Um snapshot inexistente
+e rejeitado pela API, entao o proprio teste de fumaca serve de verificacao.
+
+Preencher apos a execucao:
+
+| Item | Valor |
+|---|---|
+| Snapshot confirmado em | |
+| Custo unitario medido | |

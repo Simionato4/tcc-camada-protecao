@@ -1,10 +1,14 @@
 # Ambiente completo do experimento. Um comando sobe tudo:
 #   docker compose up -d
 #
-# As tags estao em 'latest' apenas ate a tarefa 0.10. Depois de subir a primeira
-# vez, rode scripts/coletar_versoes.py, registre o digest de cada imagem em
-# docs/versoes.md e TROQUE 'latest' pelo digest. A partir dai o ambiente e
-# reproduzivel por terceiros, que e o que a proposta promete.
+# As imagens estao fixadas por digest (sha256), coletado em 2026-08-31 com
+# scripts/coletar_versoes.py. Digest e imutavel: aponta sempre para os mesmos
+# bytes, enquanto uma tag como 'latest' passa a apontar para outra coisa a
+# qualquer momento. E isso que permite a um terceiro reconstruir o mesmo
+# ambiente que produziu os resultados, meses depois.
+#
+# Ao trocar de versao propositalmente, atualize tambem docs/versoes.md e
+# registre a troca em um ADR.
 
 name: tcc-camada-protecao
 
@@ -12,7 +16,7 @@ services:
 
   # Assistente de referencia. Variavel de controle: o fluxo e identico nas 4 condicoes.
   n8n:
-    image: docker.n8n.io/n8nio/n8n:latest
+    image: docker.n8n.io/n8nio/n8n@sha256:a9e2e3c8006ed453238266669ea1274be7136f515abe290a2f75a0ab9044c93d
     container_name: tcc-n8n
     restart: unless-stopped
     ports:
@@ -30,7 +34,7 @@ services:
 
   # Base vetorial da base de conhecimento (30 documentos sinteticos).
   qdrant:
-    image: qdrant/qdrant:latest
+    image: qdrant/qdrant@sha256:057ee3a8da769fe7310dd3537b4dc7583bf87a95ce8ac43c0af5a46bc580d1fc
     container_name: tcc-qdrant
     restart: unless-stopped
     ports:
@@ -44,7 +48,7 @@ services:
   # Condicao C, eixo de saida. Imagens atuais do projeto; as antigas em
   # mcr.microsoft.com estao descontinuadas.
   presidio-analyzer:
-    image: ghcr.io/data-privacy-stack/presidio-analyzer:latest
+    image: ghcr.io/data-privacy-stack/presidio-analyzer@sha256:ae8f6f111ac2f04e3fec552f7f80edd0dcbfa2dd69ee1b9e030475be31669885
     container_name: tcc-presidio-analyzer
     restart: unless-stopped
     ports:
@@ -53,7 +57,7 @@ services:
       - tcc
 
   presidio-anonymizer:
-    image: ghcr.io/data-privacy-stack/presidio-anonymizer:latest
+    image: ghcr.io/data-privacy-stack/presidio-anonymizer@sha256:e567013893ebc80994e3799f6f55c86aa1f0b0fadb779571ab346f0ec45365c1
     container_name: tcc-presidio-anonymizer
     restart: unless-stopped
     ports:

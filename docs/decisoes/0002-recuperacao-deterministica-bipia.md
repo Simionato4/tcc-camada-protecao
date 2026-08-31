@@ -26,4 +26,5 @@ pareamento e uma facilidade concedida ao atacante e precisa ser declarado como
 limitacao nos resultados.
 
 ## Data
-2026-08-29
+2026-08-31
+

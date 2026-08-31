@@ -30,4 +30,5 @@ so. Custa 2 repeticoes extras de LLM sobre 248 casos (ADR-0001) e mais tempo de
 julgamento manual.
 
 ## Data
-2026-08-29
+2026-08-31
+

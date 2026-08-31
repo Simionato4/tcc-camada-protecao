@@ -26,4 +26,5 @@ comportamento ponta a ponta. Uma amostra pequena em fluxo real e mantida como
 evidencia qualitativa complementar, sem entrar nos indices.
 
 ## Data
-2026-08-29
+2026-08-31
+

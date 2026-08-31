@@ -38,4 +38,5 @@ torna provavel. O custo unitario e uma estimativa ate a tarefa 0.4 medi-lo com
 `scripts/fumaca_modelo.py --real`; o numero medido substitui este.
 
 ## Data
-2026-08-29
+2026-08-31
+

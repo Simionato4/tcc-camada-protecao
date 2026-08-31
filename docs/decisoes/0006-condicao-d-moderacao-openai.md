@@ -27,4 +27,5 @@ pedem meio de pagamento cadastrado mesmo para endpoint gratuito. **Verificar
 isso na Etapa 0, nao no dia da execucao.**
 
 ## Data
-2026-08-29
+2026-08-31
+

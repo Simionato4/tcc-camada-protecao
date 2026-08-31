@@ -20,4 +20,5 @@ nao garante por si a recuperacao do documento alvo, o ADR-0002 e dependencia
 obrigatoria desta decisao.
 
 ## Data
-2026-08-29
+2026-08-31
+

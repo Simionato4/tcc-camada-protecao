@@ -23,4 +23,5 @@ funcionam tambem como verificacao da premissa de determinismo a temperatura zero
 se as respostas divergirem, a dispersao e reportada em vez de assumida.
 
 ## Data
-2026-08-29
+2026-08-31
+

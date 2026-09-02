@@ -15,8 +15,13 @@ venv/
 n8n_data/
 qdrant_data/
 
-# Consumo da API (gerado, nao versionado)
+# Consumo da API (estado local, gerado)
 resultados/consumo*.json
+
+# Log operacional da camada, escrito tambem pelos testes. Os registros brutos do
+# experimento sao gravados pelo executor com nome proprio por execucao e ESSES
+# sim vao para o repositorio: sao a evidencia.
+resultados/camada.jsonl
 
 # Sistema
 .DS_Store

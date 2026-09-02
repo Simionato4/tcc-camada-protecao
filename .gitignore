@@ -16,15 +16,8 @@ n8n_data/
 qdrant_data/
 
 # Consumo da API (gerado, nao versionado)
-resultados/consumo.json
+resultados/consumo*.json
 
 # Sistema
 .DS_Store
 Thumbs.db
-
-# Pasta do agente de codigo. Hoje ela contem apenas .claude/skills, instalado
-# pelo Spec Kit, que e artefato de metodo e deve ser versionado. Qualquer outra
-# coisa que um agente grave aqui no futuro (estado local, tokens, credenciais)
-# fica de fora por padrao, sem depender de sabermos o nome do arquivo de antemao.
-.claude/*
-!.claude/skills/

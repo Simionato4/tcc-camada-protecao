@@ -14,6 +14,7 @@ def guarda(tmp_path, **kwargs):
         arquivo=str(tmp_path / "consumo.json"),
         preco_entrada_usd_mtok=1.0,
         preco_saida_usd_mtok=5.0,
+        simulado=False,
     )
     padrao.update(kwargs)
     return GuardaOrcamento(**padrao)
@@ -56,7 +57,33 @@ def test_modo_simulado_nao_chama_a_api(tmp_path, monkeypatch):
 
     monkeypatch.setenv("MODO_SIMULADO", "1")
     monkeypatch.delenv("ANTHROPIC_API_KEY", raising=False)
-    cliente = ClienteModelo(guarda(tmp_path, teto_chamadas=10))
+    cliente = ClienteModelo(guarda(tmp_path, teto_chamadas=10, simulado=True))
     resposta = cliente.responder(sistema="s", mensagem="m")
     assert resposta.simulado is True
     assert cliente._cliente is None  # nenhum cliente HTTP foi sequer construido
+
+
+def test_simulado_e_real_gravam_em_arquivos_separados(tmp_path):
+    """Execucao de depuracao nao pode inflar o consumo real.
+
+    Sem essa separacao, as dezenas de rodadas simuladas da Etapa 5 fariam o teto
+    em dolares disparar por gasto que nunca existiu.
+    """
+    base = str(tmp_path / "consumo.json")
+    simulado = guarda(tmp_path, arquivo=base, simulado=True)
+    real = guarda(tmp_path, arquivo=base, simulado=False)
+
+    assert simulado.arquivo.name == "consumo-simulado.json"
+    assert real.arquivo.name == "consumo.json"
+
+    simulado.registrar(1000, 1000)
+    assert guarda(tmp_path, arquivo=base, simulado=False).consumo.chamadas == 0
+    assert guarda(tmp_path, arquivo=base, simulado=True).consumo.chamadas == 1
+
+
+def test_cliente_recusa_guarda_em_modo_divergente(tmp_path, monkeypatch):
+    from executor.cliente_modelo import ClienteModelo
+
+    monkeypatch.setenv("MODO_SIMULADO", "1")
+    with pytest.raises(RuntimeError, match="modos diferentes"):
+        ClienteModelo(guarda(tmp_path, simulado=False))

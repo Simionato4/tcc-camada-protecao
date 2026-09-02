@@ -34,6 +34,11 @@ class ClienteModelo:
         self.temperatura = float(os.getenv("TEMPERATURA", "0"))
         self.max_tokens = int(os.getenv("MAX_TOKENS_SAIDA", "400"))
         self.simulado = os.getenv("MODO_SIMULADO", "1") == "1"
+        if self.simulado != self.guarda.simulado:
+            raise RuntimeError(
+                "cliente e guarda em modos diferentes: o consumo iria para o livro-caixa "
+                f"errado (cliente simulado={self.simulado}, guarda simulado={self.guarda.simulado})"
+            )
         self._cliente = None
 
     def _obter_cliente(self):

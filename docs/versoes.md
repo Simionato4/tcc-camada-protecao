@@ -23,6 +23,9 @@ diretorio de ferramentas do `uv` no PATH (`uv tool update-shell`). Registrado aq
 porque uma dependencia que so funciona com PATH ajustado a mao precisa ser
 reproduzivel por quem for repetir o procedimento.
 
+O ambiente virtual de desenvolvimento fica fora da pasta do projeto, em
+`%USERPROFILE%\venvs\tcc-camada`, para nao ser sincronizado pelo OneDrive.
+
 ## Imagens de conteiner
 
 Fixadas por digest em `docker-compose.yml`. Um digest identifica os bytes exatos
@@ -61,19 +64,15 @@ commit.
 | Item | Valor |
 |---|---|
 | Identificador | `claude-haiku-4-5-20251001` |
+| Snapshot confirmado contra a API em | **2026-08-31** |
 | Temperatura | 0 |
 | Max tokens de saida | 400 |
 | Preco de entrada | US$ 1,00 por milhao de tokens |
 | Preco de saida | US$ 5,00 por milhao de tokens |
 | Preco verificado em | 2026-08-31 |
+| Custo unitario medido | **US$ 0,001646 por chamada** (836 tokens de entrada, 162 de saida) |
 
-O identificador acima ainda **nao foi confirmado contra a API**. A confirmacao e a
-tarefa 0.3: `python scripts/fumaca_modelo.py --real -n 1`. Um snapshot inexistente
-e rejeitado pela API, entao o proprio teste de fumaca serve de verificacao.
-
-Preencher apos a execucao:
-
-| Item | Valor |
-|---|---|
-| Snapshot confirmado em | |
-| Custo unitario medido | |
+A confirmacao do snapshot e a medicao do custo foram feitas com
+`python scripts/fumaca_modelo.py --real -n 3`, registrado em `docs/orcamento.md`.
+Na mesma execucao, as tres respostas sairam identicas, o que da verificacao
+preliminar a premissa de determinismo a temperatura zero (ver ADR-0004).

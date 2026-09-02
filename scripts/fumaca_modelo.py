@@ -71,6 +71,7 @@ def main() -> int:
 
     print(f"modelo:  {cliente.modelo}")
     print(f"modo:    {'REAL - gasta credito' if not cliente.simulado else 'simulado - custo zero'}")
+    print(f"livro:   {guarda.arquivo}")
     print(f"antes:   {guarda.consumo.como_dicionario()}")
     print(f"limites: {guarda.restante()}")
     print()

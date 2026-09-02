@@ -10,6 +10,11 @@ Tres protecoes independentes:
 
 O consumo e persistido em disco, entao o teto vale para a soma de todas as
 execucoes, e nao para cada processo isolado.
+
+Modo simulado e modo real gravam em ARQUIVOS SEPARADOS. Sem essa separacao, as
+dezenas de execucoes de depuracao inflariam o consumo registrado, o teto poderia
+disparar por gasto inexistente, e o livro-caixa que vai para docs/orcamento.md
+deixaria de refletir dolares reais.
 """
 
 from __future__ import annotations
@@ -49,7 +54,11 @@ class GuardaOrcamento:
         arquivo: str | None = None,
         preco_entrada_usd_mtok: float | None = None,
         preco_saida_usd_mtok: float | None = None,
+        simulado: bool | None = None,
     ) -> None:
+        self.simulado = (
+            simulado if simulado is not None else os.getenv("MODO_SIMULADO", "1") == "1"
+        )
         self.teto_chamadas = teto_chamadas or int(os.getenv("TETO_CHAMADAS", "4500"))
         self.teto_usd = teto_usd or float(os.getenv("TETO_USD", "16.00"))
         self.preco_entrada = preco_entrada_usd_mtok or float(
@@ -58,8 +67,17 @@ class GuardaOrcamento:
         self.preco_saida = preco_saida_usd_mtok or float(
             os.getenv("PRECO_SAIDA_USD_MTOK", "5.0")
         )
-        self.arquivo = Path(arquivo or os.getenv("ARQUIVO_CONSUMO", "resultados/consumo.json"))
+        self.arquivo = self._caminho(
+            arquivo or os.getenv("ARQUIVO_CONSUMO", "resultados/consumo.json")
+        )
         self.consumo = self._carregar()
+
+    def _caminho(self, bruto: str) -> Path:
+        """Acrescenta o sufixo -simulado quando nenhuma chamada real e feita."""
+        caminho = Path(bruto)
+        if self.simulado:
+            return caminho.with_name(f"{caminho.stem}-simulado{caminho.suffix}")
+        return caminho
 
     def _carregar(self) -> Consumo:
         if self.arquivo.exists():

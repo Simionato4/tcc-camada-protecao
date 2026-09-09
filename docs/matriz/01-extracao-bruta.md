@@ -44,12 +44,12 @@ subconjunto delimitado do `LLM08:2026`.
 
 | # | Controle (resumo) | Escopo | Metrica ou motivo |
 |---|---|---|---|
-| 1 | Restringir papel e capacidades no prompt de sistema, com declaracoes de permissao e negacao | parcial | Presente no prompt de sistema, identico nas 4 condicoes. Verificado pela taxa de contencao da condicao A, em que a recusa depende so do modelo. O proprio controle se declara parcial |
+| 1 | Restringir papel e capacidades no prompt de sistema, com declaracoes de permissao e negacao | fora | O prompt de sistema e variavel de controle, identico nas 4 condicoes. Medir a contribuicao do controle exigiria uma rodada sem as restricoes, para comparacao, que o desenho nao possui. A condicao A mede prompt e alinhamento do modelo em conjunto, sem separa-los |
 | 2 | Definir esquema de saida estrito e valida-lo em codigo confiavel | fora | Validacao de esquema de saida e `LLM10:2026`, excluido do recorte |
 | 3 | Filtrar em toda fronteira de modalidade, nao so texto | parcial | Apenas texto. Ataques multimodais estao explicitamente fora do escopo da proposta |
 | 4 | Manter credenciais e capacidade de mudanca de estado no codigo, com menor privilegio | fora | O assistente nao expoe ferramentas nem executa acoes privilegiadas |
 | 5 | Remover blocos de tag (U+E0000–E007F), seletores de variacao (U+FE00–FE0F) e largura zero (U+200B, U+200C, U+200D, U+2060) em toda fronteira | **avaliado** | Especificacao direta de `normalizacao.py`. Verificado pela revocacao da deteccao sobre casos com caracteres invisiveis. Ressalva da propria norma: nao detem carga em texto visivel |
-| 6 | Passar conteudo externo por canal separado e rotulado por procedencia | **avaliado** | O ponto de intercepcao de contexto e esse canal. Verificado pelo bloqueio de injecao indireta na condicao B contra a condicao A |
+| 6 | Passar conteudo externo por canal separado e rotulado por procedencia | parcial | Ha ponto de intercepcao distinto para o conteudo recuperado, mas apos o encaminhamento o texto entra no mesmo prompt do modelo, sem rotulo de procedencia. E canal separado de inspecao, nao de confianca |
 | 7 | Exigir confirmacao humana antes de acao privilegiada ou irreversivel | fora | Nao ha acao privilegiada no cenario |
 | 8 | Orcar capacidades do agente pela Regra de Dois | fora | O assistente nao e agentico |
 | 9 | Tratar escrita em memoria do agente como operacao privilegiada | fora | Ausencia de historico entre requisicoes e variavel de controle do experimento |
@@ -115,10 +115,10 @@ enunciado dos criterios desta categoria: mede-se reducao de sucesso, nao prevenc
 | Action ID | Acao (resumo) | Etiquetas | Escopo | Metrica ou motivo |
 |---|---|---|---|---|
 | MS-2.2-002 | Anonimizar dados; usar filtros de privacidade na saida; remover PII para evitar dano ou uso indevido | Data Privacy; Information Security | **avaliado** | Filtro de privacidade na saida e o ponto de saida da camada. Precisao e revocacao do mascaramento |
-| MS-2.6-005 | Verificar que a arquitetura monitora saidas e trata, recupera e repara erros quando anomalias e ameacas de seguranca sao detectadas | Information Security | **avaliado** | Decisao de alerta e registro estruturado da camada. Contagem de eventos registrados por categoria |
+| MS-2.6-005 | Verificar que a arquitetura monitora saidas e trata, recupera e repara erros quando anomalias e ameacas de seguranca sao detectadas | parcial | A camada detecta, alerta e registra. Nao ha recuperacao nem reparo no desenho. Verificado apenas quanto a monitoramento e registro |
 | MS-2.6-006 | Verificar que o sistema trata adequadamente consultas que possam dar origem a uso inadequado, malicioso ou ilegal, incluindo manipulacao e ataques | Information Security | **avaliado** | Correspondencia direta com o conjunto Do-Not-Answer. Taxa de bloqueio por tipo de dano |
 | MS-2.6-007 | Avaliar regularmente vulnerabilidades a circunvencao de medidas de seguranca | Information Security | parcial | A circunvencao por ofuscacao e avaliada; a circunvencao adaptativa nao (ADR-0008) |
-| MS-2.7-001 | Avaliar probabilidade e magnitude de ameacas como contorno, extracao e inferencia | Data Privacy; Information Security | parcial | Extracao de contexto e avaliada; as demais ameacas listadas estao fora do recorte |
+| MS-2.7-001 | Avaliar probabilidade e magnitude de ameacas como contorno, extracao e inferencia | fora | A acao lista oito ameacas e o trabalho alcanca uma. A extracao de contexto e coberta pelos criterios do grupo CTX, onde e objeto principal |
 | MS-2.7-007 | Realizar red-teaming para avaliar resiliencia contra ataques de IA generativa, entre eles injecao de instrucao | Information Security | parcial | Avaliado por conjuntos publicados, nao por red-teaming adaptativo (ADR-0008) |
 | MS-2.2-001 | Avaliar e gerir vieses estatisticos de procedencia de conteudo | Information Security e outras | fora | Vies e procedencia estao fora do recorte |
 | MS-2.2-003 | Oferecer a titulares opcao de retirar consentimento | Data Privacy | fora | Nao ha titular real; dados sinteticos |
@@ -142,18 +142,34 @@ linhas acima por tratarem do mesmo objeto.
 
 | Origem | Controles extraidos | Avaliados | Parciais | Fora |
 |---|---|---|---|---|
-| OWASP LLM01 | 11 | 2 | 2 | 7 |
+| OWASP LLM01 | 11 | 1 | 2 | 8 |
 | OWASP LLM02 | 19 | 3 | 1 | 15 |
 | OWASP LLM08 | 3 | 2 | 0 | 1 |
-| NIST MEASURE | 21 | 3 | 3 | 15 |
-| **Total** | **54** | **10** | **6** | **38** |
+| NIST MEASURE | 21 | 2 | 3 | 16 |
+| **Total** | **54** | **8** | **6** | **40** |
 
-Dezesseis controles avaliados ou parciais, contra trinta e oito fora do alcance do
+Quatorze controles avaliados ou parciais, contra quarenta fora do alcance do
 protocolo. A proporcao e o argumento quantitativo da afirmacao de cobertura
 amostral ja presente na proposta: a maior parte dos controles do referencial e
 arquitetural, organizacional ou atua no ciclo de treinamento, e nenhum experimento
 local com modelo consumido como servico os alcanca.
 
-Proximo passo: tarefa 1.6, conversao dos dezesseis em criterios numerados com
-identificador, enunciado, origem normativa e metodo de verificacao, seguida da
-conferencia cruzada da tarefa 1.7.
+Convertidos em criterios numerados em `docs/matriz_criterios.md` (tarefa 1.6).
+
+---
+
+## Revisao de 09/09/2026
+
+Quatro classificacoes foram revistas antes da numeracao dos criterios. Todas na
+direcao conservadora: a matriz passou a afirmar menos.
+
+| Controle | De | Para | Motivo |
+|---|---|---|---|
+| OWASP LLM01 #1 | parcial | fora | O desenho nao isola a contribuicao do prompt de sistema |
+| OWASP LLM01 #6 | avaliado | parcial | Canal separado de inspecao, nao de confianca |
+| NIST MS-2.6-005 | avaliado | parcial | Ha monitoramento e registro; nao ha recuperacao nem reparo |
+| NIST MS-2.7-001 | parcial | fora | Uma de oito ameacas listadas; coberta no grupo CTX |
+
+Na mesma revisao decidiu-se registrar o **tipo de verificacao** de cada criterio,
+uma vez que nem todo controle e verificavel por taxa experimental. Ver
+`docs/matriz_criterios.md`.

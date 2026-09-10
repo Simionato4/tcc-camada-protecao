@@ -25,6 +25,12 @@ SERVICOS = [
         {"text": "meu nome e Joao", "analyzer_results": []},
     ),
     ("camada", "GET", "http://localhost:8000/saude", None),
+    (
+        "recuperador",
+        "POST",
+        "http://localhost:8100/buscar",
+        {"pergunta": "verificacao de sanidade", "k": 3, "id_requisicao": "verificacao"},
+    ),
 ]
 
 

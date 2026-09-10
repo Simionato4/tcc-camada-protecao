@@ -61,6 +61,29 @@ services:
     networks:
       - tcc
 
+  # Parte do assistente de referencia, nao da camada. Fica separado de proposito:
+  # a camada e o objeto avaliado na condicao B, e sua latencia interna e um
+  # indicador do trabalho — acrescentar vetorizacao e consulta ao Qdrant dentro
+  # dela tornaria o tempo_ms incomparavel com as demais condicoes (ADR-0011).
+  recuperador:
+    build:
+      context: ./recuperador
+    container_name: tcc-recuperador
+    restart: unless-stopped
+    ports:
+      - "127.0.0.1:8100:8100"
+    environment:
+      - VERSAO_INDICE=${VERSAO_INDICE:-0.0.0-stub}
+      - QDRANT_URL=http://qdrant:6333
+    healthcheck:
+      test: ["CMD", "python", "-c", "import urllib.request; urllib.request.urlopen('http://localhost:8100/saude')"]
+      interval: 10s
+      timeout: 5s
+      retries: 5
+      start_period: 10s
+    networks:
+      - tcc
+
   # Condicao B. Na Etapa 0 apenas encaminha: nenhuma regra existe ainda.
   camada:
     build:

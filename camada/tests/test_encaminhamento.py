@@ -11,7 +11,7 @@ import uuid
 import pytest
 from fastapi.testclient import TestClient
 
-from app.main import app
+from camada.app.main import app
 
 cliente = TestClient(app)
 

@@ -16,8 +16,8 @@ import time
 
 from fastapi import FastAPI
 
-from app.contrato import Requisicao, Resposta
-from app.registro import registrador
+from .contrato import Requisicao, Resposta
+from .registro import registrador
 
 VERSAO_REGRAS = os.getenv("VERSAO_REGRAS", "0.0.0-encaminhamento")
 

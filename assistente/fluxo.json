@@ -1,0 +1,227 @@
+{
+  "name": "Assistente de referencia - TCC",
+  "nodes": [
+    {
+      "parameters": {
+        "httpMethod": "POST",
+        "path": "atendimento",
+        "responseMode": "responseNode",
+        "options": {}
+      },
+      "type": "n8n-nodes-base.webhook",
+      "typeVersion": 2,
+      "position": [
+        0,
+        0
+      ],
+      "name": "Entrada do usuario",
+      "id": "a351010a-12ac-4daa-8ae8-e14afa674bb9",
+      "webhookId": "d5b12a3a-a60a-440f-8b52-bae08ea38ce4"
+    },
+    {
+      "parameters": {
+        "method": "POST",
+        "url": "http://camada:8000/entrada",
+        "sendBody": true,
+        "specifyBody": "json",
+        "jsonBody": "={{ JSON.stringify({ ponto: 'entrada', texto: $json.body.mensagem, id_requisicao: $json.body.id_requisicao, condicao: $json.body.condicao }) }}",
+        "options": {}
+      },
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 4.2,
+      "position": [
+        224,
+        0
+      ],
+      "name": "Camada - entrada",
+      "id": "fe27799b-cf55-43ae-8588-ea25fda955a2"
+    },
+    {
+      "parameters": {
+        "method": "POST",
+        "url": "http://recuperador:8100/buscar",
+        "sendBody": true,
+        "specifyBody": "json",
+        "jsonBody": "={{ JSON.stringify({ pergunta: $json.texto, k: 3, id_requisicao: $('Entrada do usuario').item.json.body.id_requisicao }) }}",
+        "options": {}
+      },
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 4.2,
+      "position": [
+        448,
+        0
+      ],
+      "name": "Recuperador - buscar",
+      "id": "0a42ca8e-126c-472e-b721-ecd3373e6b92"
+    },
+    {
+      "parameters": {
+        "jsCode": "// Concatena os documentos recuperados num unico texto, que e o que\n// sera submetido ao ponto de interceptacao de contexto.\nconst d = $input.first().json;\nconst contexto = d.documentos\n  .map((doc, i) => `[documento ${i + 1} | pedido ${doc.numero_pedido}]\\n${doc.texto}`)\n  .join('\\n\\n');\nreturn [{ json: { contexto, ids_recuperados: d.ids_recuperados,\n                  versao_indice: d.versao_indice } }];"
+      },
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 2,
+      "position": [
+        672,
+        0
+      ],
+      "name": "Montar contexto",
+      "id": "719a25a4-78b0-4299-8f67-69dbadce106f"
+    },
+    {
+      "parameters": {
+        "method": "POST",
+        "url": "http://camada:8000/contexto",
+        "sendBody": true,
+        "specifyBody": "json",
+        "jsonBody": "={{ JSON.stringify({ ponto: 'contexto', texto: $json.contexto, id_requisicao: $('Entrada do usuario').item.json.body.id_requisicao, condicao: $('Entrada do usuario').item.json.body.condicao }) }}",
+        "options": {}
+      },
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 4.2,
+      "position": [
+        880,
+        0
+      ],
+      "name": "Camada - contexto",
+      "id": "4cc92991-65aa-46f6-93ea-111d9773bd6d"
+    },
+    {
+      "parameters": {
+        "jsCode": "// TAREFA 2.2: modelo simulado. Nenhuma chamada a API, custo zero.\n// Substituido pela chamada real na tarefa 2.7, apos o fluxo estar\n// validado de ponta a ponta.\nconst contexto = $input.first().json.texto;\nreturn [{ json: { resposta: '[MODELO SIMULADO] Recebi um contexto de '\n  + contexto.length + ' caracteres e responderia com base nele.' } }];"
+      },
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 2,
+      "position": [
+        1104,
+        0
+      ],
+      "name": "Modelo (simulado)",
+      "id": "aa6a1eab-0edf-498b-b0b7-e1910e5d8201"
+    },
+    {
+      "parameters": {
+        "method": "POST",
+        "url": "http://camada:8000/saida",
+        "sendBody": true,
+        "specifyBody": "json",
+        "jsonBody": "={{ JSON.stringify({ ponto: 'saida', texto: $json.resposta, id_requisicao: $('Entrada do usuario').item.json.body.id_requisicao, condicao: $('Entrada do usuario').item.json.body.condicao }) }}",
+        "options": {}
+      },
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 4.2,
+      "position": [
+        1328,
+        0
+      ],
+      "name": "Camada - saida",
+      "id": "15dfdb97-d461-477b-9c0e-760274fda378"
+    },
+    {
+      "parameters": {
+        "respondWith": "json",
+        "responseBody": "={{ JSON.stringify({ resposta: $json.texto, decisao: $json.decisao, tempo_ms: $json.tempo_ms, versao_regras: $json.versao_regras, id_requisicao: $('Entrada do usuario').item.json.body.id_requisicao, condicao: $('Entrada do usuario').item.json.body.condicao }) }}",
+        "options": {}
+      },
+      "type": "n8n-nodes-base.respondToWebhook",
+      "typeVersion": 1.1,
+      "position": [
+        1552,
+        0
+      ],
+      "name": "Responder",
+      "id": "9d81ad63-7d64-44be-ac7f-28c46463add8"
+    }
+  ],
+  "pinData": {},
+  "connections": {
+    "Entrada do usuario": {
+      "main": [
+        [
+          {
+            "node": "Camada - entrada",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Camada - entrada": {
+      "main": [
+        [
+          {
+            "node": "Recuperador - buscar",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Recuperador - buscar": {
+      "main": [
+        [
+          {
+            "node": "Montar contexto",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Montar contexto": {
+      "main": [
+        [
+          {
+            "node": "Camada - contexto",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Camada - contexto": {
+      "main": [
+        [
+          {
+            "node": "Modelo (simulado)",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Modelo (simulado)": {
+      "main": [
+        [
+          {
+            "node": "Camada - saida",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Camada - saida": {
+      "main": [
+        [
+          {
+            "node": "Responder",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    }
+  },
+  "active": true,
+  "settings": {
+    "executionOrder": "v1",
+    "binaryMode": "separate"
+  },
+  "versionId": "fbead3ed-1f34-482e-ae57-383770bbb9cb",
+  "meta": {
+    "instanceId": "b52dc35ec807d4a7716353ac8a5103d9f326b34bdad75b76294e27ad0b0da119"
+  },
+  "nodeGroups": [],
+  "id": "9Z4QsYA43Hc5kog4",
+  "tags": []
+}

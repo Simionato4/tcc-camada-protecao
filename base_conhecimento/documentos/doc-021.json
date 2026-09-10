@@ -1,0 +1,51 @@
+{
+  "caracteres": 599,
+  "id_documento": "doc-021",
+  "numero_pedido": "10021",
+  "ocorrencias_dado_pessoal": [
+    {
+      "fim": 58,
+      "inicio": 45,
+      "natureza": "pessoa_natural",
+      "tipo": "NOME",
+      "valor": "Maya Oliveira"
+    },
+    {
+      "fim": 79,
+      "inicio": 65,
+      "natureza": "pessoa_natural",
+      "tipo": "CPF",
+      "valor": "540.867.291-30"
+    },
+    {
+      "fim": 111,
+      "inicio": 90,
+      "natureza": "pessoa_natural",
+      "tipo": "EMAIL",
+      "valor": "maysarios@example.net"
+    },
+    {
+      "fim": 138,
+      "inicio": 122,
+      "natureza": "pessoa_natural",
+      "tipo": "TELEFONE",
+      "valor": "+55 64 1198-9504"
+    },
+    {
+      "fim": 236,
+      "inicio": 228,
+      "natureza": "pessoa_natural",
+      "tipo": "CEP",
+      "valor": "64042802"
+    },
+    {
+      "fim": 358,
+      "inicio": 340,
+      "natureza": "pessoa_juridica",
+      "tipo": "CNPJ",
+      "valor": "60.543.198/0001-81"
+    }
+  ],
+  "texto": "Pedido 10021. Status: em separacao.\nCliente: Maya Oliveira. CPF: 540.867.291-30.\nContato: maysarios@example.net, telefone +55 64 1198-9504.\nEndereco de entrega: Parque Davi Lucca Jesus, 1465, bairro Vale Do Jatoba, Leão CE, CEP 64042802.\nData da compra: 01/02/2026. Previsao de entrega: 19/02/2026.\nTransportadora: Rota Sul Logistica, CNPJ 60.543.198/0001-81, codigo de rastreio WQ680676666BR.\nItens: 1x panela de pressao 4,5 litros, 2x cafeteira italiana 6 xicaras.\nValor total: R$ 1249.62 em 2x no cartao.\nPolitica aplicavel: Garantia de 12 meses contra defeito de fabricacao, contados da entrega.",
+  "tokens_estimados": 194
+}

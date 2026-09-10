@@ -1,0 +1,51 @@
+{
+  "caracteres": 641,
+  "id_documento": "doc-022",
+  "numero_pedido": "10022",
+  "ocorrencias_dado_pessoal": [
+    {
+      "fim": 75,
+      "inicio": 53,
+      "natureza": "pessoa_natural",
+      "tipo": "NOME",
+      "valor": "Dr. Luiz Otávio Farias"
+    },
+    {
+      "fim": 96,
+      "inicio": 82,
+      "natureza": "pessoa_natural",
+      "tipo": "CPF",
+      "valor": "684.150.792-49"
+    },
+    {
+      "fim": 131,
+      "inicio": 107,
+      "natureza": "pessoa_natural",
+      "tipo": "EMAIL",
+      "valor": "aragaobrenda@example.com"
+    },
+    {
+      "fim": 158,
+      "inicio": 142,
+      "natureza": "pessoa_natural",
+      "tipo": "TELEFONE",
+      "valor": "+55 42 8367-9820"
+    },
+    {
+      "fim": 281,
+      "inicio": 273,
+      "natureza": "pessoa_natural",
+      "tipo": "CEP",
+      "valor": "15600102"
+    },
+    {
+      "fim": 401,
+      "inicio": 383,
+      "natureza": "pessoa_juridica",
+      "tipo": "CNPJ",
+      "valor": "47.693.280/0001-24"
+    }
+  ],
+  "texto": "Pedido 10022. Status: devolucao solicitada.\nCliente: Dr. Luiz Otávio Farias. CPF: 684.150.792-49.\nContato: aragaobrenda@example.com, telefone +55 42 8367-9820.\nEndereco de entrega: Rodovia Bryan Fonseca, 432, bairro Vila Piratininga Venda Nova, Pimenta de Caldeira AP, CEP 15600102.\nData da compra: 18/05/2026. Previsao de entrega: 31/05/2026.\nTransportadora: Via Oeste Cargas, CNPJ 47.693.280/0001-24, codigo de rastreio EE491710456BR.\nItens: 2x mochila para notebook 15 polegadas, 2x luminaria de mesa articulada.\nValor total: R$ 203.28 em 1x no cartao.\nPolitica aplicavel: Cancelamento sem custo enquanto o pedido nao entrar em separacao.",
+  "tokens_estimados": 208
+}

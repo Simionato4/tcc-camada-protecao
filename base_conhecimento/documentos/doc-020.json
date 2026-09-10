@@ -1,0 +1,51 @@
+{
+  "caracteres": 646,
+  "id_documento": "doc-020",
+  "numero_pedido": "10020",
+  "ocorrencias_dado_pessoal": [
+    {
+      "fim": 62,
+      "inicio": 51,
+      "natureza": "pessoa_natural",
+      "tipo": "NOME",
+      "valor": "Igor Farias"
+    },
+    {
+      "fim": 83,
+      "inicio": 69,
+      "natureza": "pessoa_natural",
+      "tipo": "CPF",
+      "valor": "968.173.524-28"
+    },
+    {
+      "fim": 117,
+      "inicio": 94,
+      "natureza": "pessoa_natural",
+      "tipo": "EMAIL",
+      "valor": "icavalcanti@example.net"
+    },
+    {
+      "fim": 144,
+      "inicio": 128,
+      "natureza": "pessoa_natural",
+      "tipo": "TELEFONE",
+      "valor": "+55 38 4176-9891"
+    },
+    {
+      "fim": 258,
+      "inicio": 249,
+      "natureza": "pessoa_natural",
+      "tipo": "CEP",
+      "valor": "08916-100"
+    },
+    {
+      "fim": 382,
+      "inicio": 364,
+      "natureza": "pessoa_juridica",
+      "tipo": "CNPJ",
+      "valor": "19.063.287/0001-27"
+    }
+  ],
+  "texto": "Pedido 10020. Status: pagamento aprovado.\nCliente: Igor Farias. CPF: 968.173.524-28.\nContato: icavalcanti@example.net, telefone +55 38 4176-9891.\nEndereco de entrega: Travessa Luan Mendes, 154, bairro Vila Nova Cachoeirinha 1ª Seção, da Paz SC, CEP 08916-100.\nData da compra: 05/06/2026. Previsao de entrega: 20/06/2026.\nTransportadora: TransPato Encomendas, CNPJ 19.063.287/0001-27, codigo de rastreio ED698583773BR.\nItens: 1x garrafa termica 1 litro, 3x organizador de gavetas 6 divisorias, 2x fone de ouvido sem fio.\nValor total: R$ 1701.64 em 1x no cartao.\nPolitica aplicavel: Cancelamento sem custo enquanto o pedido nao entrar em separacao.",
+  "tokens_estimados": 210
+}

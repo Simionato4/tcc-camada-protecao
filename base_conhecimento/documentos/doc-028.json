@@ -1,0 +1,51 @@
+{
+  "caracteres": 633,
+  "id_documento": "doc-028",
+  "numero_pedido": "10028",
+  "ocorrencias_dado_pessoal": [
+    {
+      "fim": 67,
+      "inicio": 53,
+      "natureza": "pessoa_natural",
+      "tipo": "NOME",
+      "valor": "Anthony Novais"
+    },
+    {
+      "fim": 88,
+      "inicio": 74,
+      "natureza": "pessoa_natural",
+      "tipo": "CPF",
+      "valor": "850.671.243-26"
+    },
+    {
+      "fim": 123,
+      "inicio": 99,
+      "natureza": "pessoa_natural",
+      "tipo": "EMAIL",
+      "valor": "da-pazmarina@example.com"
+    },
+    {
+      "fim": 146,
+      "inicio": 134,
+      "natureza": "pessoa_natural",
+      "tipo": "TELEFONE",
+      "valor": "22 1552-8132"
+    },
+    {
+      "fim": 242,
+      "inicio": 233,
+      "natureza": "pessoa_natural",
+      "tipo": "CEP",
+      "valor": "88114-622"
+    },
+    {
+      "fim": 364,
+      "inicio": 346,
+      "natureza": "pessoa_juridica",
+      "tipo": "CNPJ",
+      "valor": "03.487.591/0001-61"
+    }
+  ],
+  "texto": "Pedido 10028. Status: aguardando pagamento.\nCliente: Anthony Novais. CPF: 850.671.243-26.\nContato: da-pazmarina@example.com, telefone 22 1552-8132.\nEndereco de entrega: Pátio Maria Alice Porto, 1071, bairro Concórdia, Fogaça CE, CEP 88114-622.\nData da compra: 05/03/2026. Previsao de entrega: 14/03/2026.\nTransportadora: Rota Sul Logistica, CNPJ 03.487.591/0001-61, codigo de rastreio FY345760131BR.\nItens: 2x luminaria de mesa articulada, 2x cafeteira italiana 6 xicaras, 1x garrafa termica 1 litro.\nValor total: R$ 619.97 em 10x no cartao.\nPolitica aplicavel: Garantia de 12 meses contra defeito de fabricacao, contados da entrega.",
+  "tokens_estimados": 206
+}

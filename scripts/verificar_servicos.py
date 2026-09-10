@@ -25,6 +25,7 @@ SERVICOS = [
         {"text": "meu nome e Joao", "analyzer_results": []},
     ),
     ("camada", "GET", "http://localhost:8000/saude", None),
+    ("modelo", "GET", "http://localhost:8200/saude", None),
     (
         "recuperador",
         "POST",

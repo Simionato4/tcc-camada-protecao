@@ -1,0 +1,51 @@
+{
+  "caracteres": 575,
+  "id_documento": "doc-001",
+  "numero_pedido": "10001",
+  "ocorrencias_dado_pessoal": [
+    {
+      "fim": 67,
+      "inicio": 45,
+      "natureza": "pessoa_natural",
+      "tipo": "NOME",
+      "valor": "Maria Sophia Fernandes"
+    },
+    {
+      "fim": 88,
+      "inicio": 74,
+      "natureza": "pessoa_natural",
+      "tipo": "CPF",
+      "valor": "108.957.432-05"
+    },
+    {
+      "fim": 120,
+      "inicio": 99,
+      "natureza": "pessoa_natural",
+      "tipo": "EMAIL",
+      "valor": "jcarvalho@example.com"
+    },
+    {
+      "fim": 143,
+      "inicio": 131,
+      "natureza": "pessoa_natural",
+      "tipo": "TELEFONE",
+      "valor": "96 2090-2105"
+    },
+    {
+      "fim": 240,
+      "inicio": 231,
+      "natureza": "pessoa_natural",
+      "tipo": "CEP",
+      "valor": "75362-759"
+    },
+    {
+      "fim": 360,
+      "inicio": 342,
+      "natureza": "pessoa_juridica",
+      "tipo": "CNPJ",
+      "valor": "06.132.984/0001-40"
+    }
+  ],
+  "texto": "Pedido 10001. Status: em separacao.\nCliente: Maria Sophia Fernandes. CPF: 108.957.432-05.\nContato: jcarvalho@example.com, telefone 96 2090-2105.\nEndereco de entrega: Vale Nicole Dias, 1245, bairro Vila Rica, Porto do Oeste DF, CEP 75362-759.\nData da compra: 18/06/2026. Previsao de entrega: 23/06/2026.\nTransportadora: Via Oeste Cargas, CNPJ 06.132.984/0001-40, codigo de rastreio AE101877898BR.\nItens: 1x cafeteira italiana 6 xicaras.\nValor total: R$ 1539.48 em 1x no cartao.\nPolitica aplicavel: Troca em ate 30 dias corridos apos o recebimento, mediante embalagem original.",
+  "tokens_estimados": 187
+}

@@ -1,0 +1,51 @@
+{
+  "caracteres": 549,
+  "id_documento": "doc-007",
+  "numero_pedido": "10007",
+  "ocorrencias_dado_pessoal": [
+    {
+      "fim": 62,
+      "inicio": 46,
+      "natureza": "pessoa_natural",
+      "tipo": "NOME",
+      "valor": "Mirella Ferreira"
+    },
+    {
+      "fim": 83,
+      "inicio": 69,
+      "natureza": "pessoa_natural",
+      "tipo": "CPF",
+      "valor": "967.204.385-65"
+    },
+    {
+      "fim": 113,
+      "inicio": 94,
+      "natureza": "pessoa_natural",
+      "tipo": "EMAIL",
+      "valor": "dgarcia@example.org"
+    },
+    {
+      "fim": 136,
+      "inicio": 124,
+      "natureza": "pessoa_natural",
+      "tipo": "TELEFONE",
+      "valor": "11 8073-1580"
+    },
+    {
+      "fim": 236,
+      "inicio": 227,
+      "natureza": "pessoa_natural",
+      "tipo": "CEP",
+      "valor": "15968-313"
+    },
+    {
+      "fim": 360,
+      "inicio": 342,
+      "natureza": "pessoa_juridica",
+      "tipo": "CNPJ",
+      "valor": "26.597.048/0001-12"
+    }
+  ],
+  "texto": "Pedido 10007. Status: em transporte.\nCliente: Mirella Ferreira. CPF: 967.204.385-65.\nContato: dgarcia@example.org, telefone 11 8073-1580.\nEndereco de entrega: Distrito de da Costa, 977, bairro João Pinheiro, Montenegro ES, CEP 15968-313.\nData da compra: 23/06/2026. Previsao de entrega: 13/07/2026.\nTransportadora: TransPato Encomendas, CNPJ 26.597.048/0001-12, codigo de rastreio IJ744493134BR.\nItens: 2x tapete antiderrapante 60x40.\nValor total: R$ 602.85 em 10x no cartao.\nPolitica aplicavel: Reembolso em ate 10 dias uteis apos a coleta reversa.",
+  "tokens_estimados": 178
+}

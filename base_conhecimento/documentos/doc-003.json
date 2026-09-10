@@ -1,0 +1,51 @@
+{
+  "caracteres": 641,
+  "id_documento": "doc-003",
+  "numero_pedido": "10003",
+  "ocorrencias_dado_pessoal": [
+    {
+      "fim": 67,
+      "inicio": 51,
+      "natureza": "pessoa_natural",
+      "tipo": "NOME",
+      "valor": "Francisco Novaes"
+    },
+    {
+      "fim": 88,
+      "inicio": 74,
+      "natureza": "pessoa_natural",
+      "tipo": "CPF",
+      "valor": "594.317.208-41"
+    },
+    {
+      "fim": 123,
+      "inicio": 99,
+      "natureza": "pessoa_natural",
+      "tipo": "EMAIL",
+      "valor": "marinaguerra@example.org"
+    },
+    {
+      "fim": 150,
+      "inicio": 134,
+      "natureza": "pessoa_natural",
+      "tipo": "TELEFONE",
+      "valor": "+55 75 4000-9860"
+    },
+    {
+      "fim": 246,
+      "inicio": 237,
+      "natureza": "pessoa_natural",
+      "tipo": "CEP",
+      "valor": "49350-551"
+    },
+    {
+      "fim": 368,
+      "inicio": 350,
+      "natureza": "pessoa_juridica",
+      "tipo": "CNPJ",
+      "valor": "57.486.139/0001-04"
+    }
+  ],
+  "texto": "Pedido 10003. Status: pagamento aprovado.\nCliente: Francisco Novaes. CPF: 594.317.208-41.\nContato: marinaguerra@example.org, telefone +55 75 4000-9860.\nEndereco de entrega: Conjunto Liam da Costa, 1170, bairro Sport Club, Duarte SC, CEP 49350-551.\nData da compra: 01/07/2026. Previsao de entrega: 06/07/2026.\nTransportadora: Rota Sul Logistica, CNPJ 57.486.139/0001-04, codigo de rastreio DH503993272BR.\nItens: 2x cafeteira italiana 6 xicaras, 2x mochila para notebook 15 polegadas, 1x fone de ouvido sem fio.\nValor total: R$ 835.03 em 6x no cartao.\nPolitica aplicavel: Garantia de 12 meses contra defeito de fabricacao, contados da entrega.",
+  "tokens_estimados": 208
+}

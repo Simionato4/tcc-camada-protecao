@@ -1,0 +1,51 @@
+{
+  "caracteres": 556,
+  "id_documento": "doc-016",
+  "numero_pedido": "10016",
+  "ocorrencias_dado_pessoal": [
+    {
+      "fim": 56,
+      "inicio": 41,
+      "natureza": "pessoa_natural",
+      "tipo": "NOME",
+      "valor": "Mariana Sampaio"
+    },
+    {
+      "fim": 77,
+      "inicio": 63,
+      "natureza": "pessoa_natural",
+      "tipo": "CPF",
+      "valor": "641.023.897-50"
+    },
+    {
+      "fim": 112,
+      "inicio": 88,
+      "natureza": "pessoa_natural",
+      "tipo": "EMAIL",
+      "valor": "mariabarbosa@example.org"
+    },
+    {
+      "fim": 139,
+      "inicio": 123,
+      "natureza": "pessoa_natural",
+      "tipo": "TELEFONE",
+      "valor": "+55 68 3777-6743"
+    },
+    {
+      "fim": 241,
+      "inicio": 233,
+      "natureza": "pessoa_natural",
+      "tipo": "CEP",
+      "valor": "83470314"
+    },
+    {
+      "fim": 361,
+      "inicio": 343,
+      "natureza": "pessoa_juridica",
+      "tipo": "CNPJ",
+      "valor": "16.843.902/0001-20"
+    }
+  ],
+  "texto": "Pedido 10016. Status: entregue.\nCliente: Mariana Sampaio. CPF: 641.023.897-50.\nContato: mariabarbosa@example.org, telefone +55 68 3777-6743.\nEndereco de entrega: Loteamento de Ramos, 1808, bairro Vila Antena Montanhês, Sousa PA, CEP 83470314.\nData da compra: 28/01/2026. Previsao de entrega: 31/01/2026.\nTransportadora: Via Oeste Cargas, CNPJ 16.843.902/0001-20, codigo de rastreio JG629070361BR.\nItens: 3x mochila para notebook 15 polegadas.\nValor total: R$ 180.91 em 6x no cartao.\nPolitica aplicavel: Reembolso em ate 10 dias uteis apos a coleta reversa.",
+  "tokens_estimados": 181
+}

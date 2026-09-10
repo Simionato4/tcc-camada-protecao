@@ -1,0 +1,51 @@
+{
+  "caracteres": 553,
+  "id_documento": "doc-013",
+  "numero_pedido": "10013",
+  "ocorrencias_dado_pessoal": [
+    {
+      "fim": 58,
+      "inicio": 45,
+      "natureza": "pessoa_natural",
+      "tipo": "NOME",
+      "valor": "Sofia da Mata"
+    },
+    {
+      "fim": 79,
+      "inicio": 65,
+      "natureza": "pessoa_natural",
+      "tipo": "CPF",
+      "valor": "980.615.423-15"
+    },
+    {
+      "fim": 115,
+      "inicio": 90,
+      "natureza": "pessoa_natural",
+      "tipo": "EMAIL",
+      "valor": "santosana-liz@example.org"
+    },
+    {
+      "fim": 142,
+      "inicio": 126,
+      "natureza": "pessoa_natural",
+      "tipo": "TELEFONE",
+      "valor": "+55 82 5215-3174"
+    },
+    {
+      "fim": 235,
+      "inicio": 226,
+      "natureza": "pessoa_natural",
+      "tipo": "CEP",
+      "valor": "80844-410"
+    },
+    {
+      "fim": 357,
+      "inicio": 339,
+      "natureza": "pessoa_juridica",
+      "tipo": "CNPJ",
+      "valor": "50.762.381/0001-14"
+    }
+  ],
+  "texto": "Pedido 10013. Status: em separacao.\nCliente: Sofia da Mata. CPF: 980.615.423-15.\nContato: santosana-liz@example.org, telefone +55 82 5215-3174.\nEndereco de entrega: Viaduto Cavalcanti, 771, bairro Vila Paraíso, Macedo BA, CEP 80844-410.\nData da compra: 25/06/2026. Previsao de entrega: 08/07/2026.\nTransportadora: Rota Sul Logistica, CNPJ 50.762.381/0001-14, codigo de rastreio IU739391078BR.\nItens: 1x mochila para notebook 15 polegadas.\nValor total: R$ 1398.72 em 2x no cartao.\nPolitica aplicavel: Reembolso em ate 10 dias uteis apos a coleta reversa.",
+  "tokens_estimados": 180
+}

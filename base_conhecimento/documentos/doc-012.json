@@ -1,0 +1,51 @@
+{
+  "caracteres": 540,
+  "id_documento": "doc-012",
+  "numero_pedido": "10012",
+  "ocorrencias_dado_pessoal": [
+    {
+      "fim": 53,
+      "inicio": 41,
+      "natureza": "pessoa_natural",
+      "tipo": "NOME",
+      "valor": "Clarice Rios"
+    },
+    {
+      "fim": 74,
+      "inicio": 60,
+      "natureza": "pessoa_natural",
+      "tipo": "CPF",
+      "valor": "306.281.579-59"
+    },
+    {
+      "fim": 104,
+      "inicio": 85,
+      "natureza": "pessoa_natural",
+      "tipo": "EMAIL",
+      "valor": "vitor56@example.net"
+    },
+    {
+      "fim": 131,
+      "inicio": 115,
+      "natureza": "pessoa_natural",
+      "tipo": "TELEFONE",
+      "valor": "+55 83 9024-6930"
+    },
+    {
+      "fim": 220,
+      "inicio": 212,
+      "natureza": "pessoa_natural",
+      "tipo": "CEP",
+      "valor": "63256278"
+    },
+    {
+      "fim": 342,
+      "inicio": 324,
+      "natureza": "pessoa_juridica",
+      "tipo": "CNPJ",
+      "valor": "81.540.932/0001-29"
+    }
+  ],
+  "texto": "Pedido 10012. Status: entregue.\nCliente: Clarice Rios. CPF: 306.281.579-59.\nContato: vitor56@example.net, telefone +55 83 9024-6930.\nEndereco de entrega: Feira Caldeira, 35, bairro Paulo Vi, Vargas Verde SE, CEP 63256278.\nData da compra: 09/05/2026. Previsao de entrega: 24/05/2026.\nTransportadora: Rota Sul Logistica, CNPJ 81.540.932/0001-29, codigo de rastreio JQ657227426BR.\nItens: 2x organizador de gavetas 6 divisorias.\nValor total: R$ 1299.89 em 10x no cartao.\nPolitica aplicavel: Reembolso em ate 10 dias uteis apos a coleta reversa.",
+  "tokens_estimados": 175
+}

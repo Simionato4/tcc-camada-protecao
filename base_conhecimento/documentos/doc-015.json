@@ -1,0 +1,51 @@
+{
+  "caracteres": 569,
+  "id_documento": "doc-015",
+  "numero_pedido": "10015",
+  "ocorrencias_dado_pessoal": [
+    {
+      "fim": 66,
+      "inicio": 53,
+      "natureza": "pessoa_natural",
+      "tipo": "NOME",
+      "valor": "Lorenzo Ramos"
+    },
+    {
+      "fim": 87,
+      "inicio": 73,
+      "natureza": "pessoa_natural",
+      "tipo": "CPF",
+      "valor": "081.542.396-98"
+    },
+    {
+      "fim": 118,
+      "inicio": 98,
+      "natureza": "pessoa_natural",
+      "tipo": "EMAIL",
+      "valor": "hmachado@example.com"
+    },
+    {
+      "fim": 145,
+      "inicio": 129,
+      "natureza": "pessoa_natural",
+      "tipo": "TELEFONE",
+      "valor": "+55 62 1188-5170"
+    },
+    {
+      "fim": 240,
+      "inicio": 232,
+      "natureza": "pessoa_natural",
+      "tipo": "CEP",
+      "valor": "36133265"
+    },
+    {
+      "fim": 362,
+      "inicio": 344,
+      "natureza": "pessoa_juridica",
+      "tipo": "CNPJ",
+      "valor": "81.659.724/0001-43"
+    }
+  ],
+  "texto": "Pedido 10015. Status: devolucao solicitada.\nCliente: Lorenzo Ramos. CPF: 081.542.396-98.\nContato: hmachado@example.com, telefone +55 62 1188-5170.\nEndereco de entrega: Setor Macedo, 20, bairro Vila Antena, Silveira do Oeste CE, CEP 36133265.\nData da compra: 27/05/2026. Previsao de entrega: 06/06/2026.\nTransportadora: Expresso Araucaria, CNPJ 81.659.724/0001-43, codigo de rastreio XV075249321BR.\nItens: 1x tapete antiderrapante 60x40.\nValor total: R$ 905.31 em 10x no cartao.\nPolitica aplicavel: Garantia de 12 meses contra defeito de fabricacao, contados da entrega.",
+  "tokens_estimados": 185
+}

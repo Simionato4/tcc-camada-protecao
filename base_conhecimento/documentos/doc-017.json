@@ -1,0 +1,51 @@
+{
+  "caracteres": 532,
+  "id_documento": "doc-017",
+  "numero_pedido": "10017",
+  "ocorrencias_dado_pessoal": [
+    {
+      "fim": 65,
+      "inicio": 53,
+      "natureza": "pessoa_natural",
+      "tipo": "NOME",
+      "valor": "Benicio Rios"
+    },
+    {
+      "fim": 86,
+      "inicio": 72,
+      "natureza": "pessoa_natural",
+      "tipo": "CPF",
+      "valor": "174.630.985-75"
+    },
+    {
+      "fim": 115,
+      "inicio": 97,
+      "natureza": "pessoa_natural",
+      "tipo": "EMAIL",
+      "valor": "mabreu@example.net"
+    },
+    {
+      "fim": 138,
+      "inicio": 126,
+      "natureza": "pessoa_natural",
+      "tipo": "TELEFONE",
+      "valor": "95 4466-8262"
+    },
+    {
+      "fim": 222,
+      "inicio": 214,
+      "natureza": "pessoa_natural",
+      "tipo": "CEP",
+      "valor": "67695694"
+    },
+    {
+      "fim": 344,
+      "inicio": 326,
+      "natureza": "pessoa_juridica",
+      "tipo": "CNPJ",
+      "valor": "97.126.834/0001-80"
+    }
+  ],
+  "texto": "Pedido 10017. Status: devolucao solicitada.\nCliente: Benicio Rios. CPF: 174.630.985-75.\nContato: mabreu@example.net, telefone 95 4466-8262.\nEndereco de entrega: Via Leandro Gomes, 1464, bairro Graça, Gomes SP, CEP 67695694.\nData da compra: 25/02/2026. Previsao de entrega: 14/03/2026.\nTransportadora: Rota Sul Logistica, CNPJ 97.126.834/0001-80, codigo de rastreio VP354733126BR.\nItens: 2x filtro de papel numero 103.\nValor total: R$ 979.52 em 10x no cartao.\nPolitica aplicavel: Reembolso em ate 10 dias uteis apos a coleta reversa.",
+  "tokens_estimados": 173
+}

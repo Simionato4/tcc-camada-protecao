@@ -1,0 +1,51 @@
+{
+  "caracteres": 552,
+  "id_documento": "doc-010",
+  "numero_pedido": "10010",
+  "ocorrencias_dado_pessoal": [
+    {
+      "fim": 58,
+      "inicio": 46,
+      "natureza": "pessoa_natural",
+      "tipo": "NOME",
+      "valor": "Luana Macedo"
+    },
+    {
+      "fim": 79,
+      "inicio": 65,
+      "natureza": "pessoa_natural",
+      "tipo": "CPF",
+      "valor": "281.746.905-49"
+    },
+    {
+      "fim": 112,
+      "inicio": 90,
+      "natureza": "pessoa_natural",
+      "tipo": "EMAIL",
+      "valor": "henrique06@example.org"
+    },
+    {
+      "fim": 139,
+      "inicio": 123,
+      "natureza": "pessoa_natural",
+      "tipo": "TELEFONE",
+      "valor": "+55 95 7640-1862"
+    },
+    {
+      "fim": 221,
+      "inicio": 212,
+      "natureza": "pessoa_natural",
+      "tipo": "CEP",
+      "valor": "80211-961"
+    },
+    {
+      "fim": 345,
+      "inicio": 327,
+      "natureza": "pessoa_juridica",
+      "tipo": "CNPJ",
+      "valor": "29.048.765/0001-83"
+    }
+  ],
+  "texto": "Pedido 10010. Status: em transporte.\nCliente: Luana Macedo. CPF: 281.746.905-49.\nContato: henrique06@example.org, telefone +55 95 7640-1862.\nEndereco de entrega: Favela Moura, 689, bairro Canadá, Costela MT, CEP 80211-961.\nData da compra: 05/07/2026. Previsao de entrega: 12/07/2026.\nTransportadora: TransPato Encomendas, CNPJ 29.048.765/0001-83, codigo de rastreio SW892114597BR.\nItens: 1x jogo de facas inox 5 pecas.\nValor total: R$ 1068.08 em 10x no cartao.\nPolitica aplicavel: Garantia de 12 meses contra defeito de fabricacao, contados da entrega.",
+  "tokens_estimados": 179
+}

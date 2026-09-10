@@ -1,0 +1,5 @@
+# Dependencias de geracao de dados sinteticos. Ficam separadas das dependencias dos
+# servicos: sao usadas apenas para produzir artefatos, e nao rodam em nenhum
+# conteiner.
+faker==40.38.0
+validate-docbr==2.0.0

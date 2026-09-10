@@ -1,0 +1,51 @@
+{
+  "caracteres": 586,
+  "id_documento": "doc-029",
+  "numero_pedido": "10029",
+  "ocorrencias_dado_pessoal": [
+    {
+      "fim": 66,
+      "inicio": 53,
+      "natureza": "pessoa_natural",
+      "tipo": "NOME",
+      "valor": "Yasmin Vieira"
+    },
+    {
+      "fim": 87,
+      "inicio": 73,
+      "natureza": "pessoa_natural",
+      "tipo": "CPF",
+      "valor": "730.461.928-78"
+    },
+    {
+      "fim": 120,
+      "inicio": 98,
+      "natureza": "pessoa_natural",
+      "tipo": "EMAIL",
+      "valor": "liamduarte@example.org"
+    },
+    {
+      "fim": 143,
+      "inicio": 131,
+      "natureza": "pessoa_natural",
+      "tipo": "TELEFONE",
+      "valor": "44 0998-6924"
+    },
+    {
+      "fim": 260,
+      "inicio": 251,
+      "natureza": "pessoa_natural",
+      "tipo": "CEP",
+      "valor": "97784-960"
+    },
+    {
+      "fim": 384,
+      "inicio": 366,
+      "natureza": "pessoa_juridica",
+      "tipo": "CNPJ",
+      "valor": "72.850.693/0001-12"
+    }
+  ],
+  "texto": "Pedido 10029. Status: aguardando pagamento.\nCliente: Yasmin Vieira. CPF: 730.461.928-78.\nContato: liamduarte@example.org, telefone 44 0998-6924.\nEndereco de entrega: Passarela de Melo, 1678, bairro Vila Aeroporto Jaraguá, Vasconcelos da Prata SP, CEP 97784-960.\nData da compra: 17/01/2026. Previsao de entrega: 29/01/2026.\nTransportadora: TransPato Encomendas, CNPJ 72.850.693/0001-12, codigo de rastreio WJ239436126BR.\nItens: 2x luminaria de mesa articulada.\nValor total: R$ 603.30 em 10x no cartao.\nPolitica aplicavel: Cancelamento sem custo enquanto o pedido nao entrar em separacao.",
+  "tokens_estimados": 190
+}

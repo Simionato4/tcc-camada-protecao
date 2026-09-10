@@ -1,0 +1,51 @@
+{
+  "caracteres": 627,
+  "id_documento": "doc-008",
+  "numero_pedido": "10008",
+  "ocorrencias_dado_pessoal": [
+    {
+      "fim": 59,
+      "inicio": 41,
+      "natureza": "pessoa_natural",
+      "tipo": "NOME",
+      "valor": "Asafe da Conceição"
+    },
+    {
+      "fim": 80,
+      "inicio": 66,
+      "natureza": "pessoa_natural",
+      "tipo": "CPF",
+      "valor": "750.261.384-62"
+    },
+    {
+      "fim": 111,
+      "inicio": 91,
+      "natureza": "pessoa_natural",
+      "tipo": "EMAIL",
+      "valor": "agatha07@example.org"
+    },
+    {
+      "fim": 138,
+      "inicio": 122,
+      "natureza": "pessoa_natural",
+      "tipo": "TELEFONE",
+      "valor": "+55 62 6951-6051"
+    },
+    {
+      "fim": 243,
+      "inicio": 234,
+      "natureza": "pessoa_natural",
+      "tipo": "CEP",
+      "valor": "93520-147"
+    },
+    {
+      "fim": 365,
+      "inicio": 347,
+      "natureza": "pessoa_juridica",
+      "tipo": "CNPJ",
+      "valor": "45.728.309/0001-30"
+    }
+  ],
+  "texto": "Pedido 10008. Status: entregue.\nCliente: Asafe da Conceição. CPF: 750.261.384-62.\nContato: agatha07@example.org, telefone +55 62 6951-6051.\nEndereco de entrega: Esplanada Sales, 453, bairro Maria Virgínia, da Cruz de Cassiano DF, CEP 93520-147.\nData da compra: 12/03/2026. Previsao de entrega: 24/03/2026.\nTransportadora: Expresso Araucaria, CNPJ 45.728.309/0001-30, codigo de rastreio VO443499211BR.\nItens: 1x cafeteira italiana 6 xicaras, 2x luminaria de mesa articulada, 3x garrafa termica 1 litro.\nValor total: R$ 542.02 em 1x no cartao.\nPolitica aplicavel: Cancelamento sem custo enquanto o pedido nao entrar em separacao.",
+  "tokens_estimados": 204
+}

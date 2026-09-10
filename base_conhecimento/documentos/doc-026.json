@@ -1,0 +1,51 @@
+{
+  "caracteres": 631,
+  "id_documento": "doc-026",
+  "numero_pedido": "10026",
+  "ocorrencias_dado_pessoal": [
+    {
+      "fim": 64,
+      "inicio": 46,
+      "natureza": "pessoa_natural",
+      "tipo": "NOME",
+      "valor": "Maria Clara Vargas"
+    },
+    {
+      "fim": 85,
+      "inicio": 71,
+      "natureza": "pessoa_natural",
+      "tipo": "CPF",
+      "valor": "879.605.431-00"
+    },
+    {
+      "fim": 121,
+      "inicio": 96,
+      "natureza": "pessoa_natural",
+      "tipo": "EMAIL",
+      "valor": "apollocamargo@example.org"
+    },
+    {
+      "fim": 148,
+      "inicio": 132,
+      "natureza": "pessoa_natural",
+      "tipo": "TELEFONE",
+      "valor": "+55 77 2523-2041"
+    },
+    {
+      "fim": 243,
+      "inicio": 234,
+      "natureza": "pessoa_natural",
+      "tipo": "CEP",
+      "valor": "84458-175"
+    },
+    {
+      "fim": 365,
+      "inicio": 347,
+      "natureza": "pessoa_juridica",
+      "tipo": "CNPJ",
+      "valor": "06.238.719/0001-41"
+    }
+  ],
+  "texto": "Pedido 10026. Status: em transporte.\nCliente: Maria Clara Vargas. CPF: 879.605.431-00.\nContato: apollocamargo@example.org, telefone +55 77 2523-2041.\nEndereco de entrega: Feira Fernanda Novaes, 1402, bairro São Marcos, Aragão PB, CEP 84458-175.\nData da compra: 05/03/2026. Previsao de entrega: 20/03/2026.\nTransportadora: Expresso Araucaria, CNPJ 06.238.719/0001-41, codigo de rastreio YU770738913BR.\nItens: 2x panela de pressao 4,5 litros, 3x luminaria de mesa articulada, 3x filtro de papel numero 103.\nValor total: R$ 1076.22 em 3x no cartao.\nPolitica aplicavel: Cancelamento sem custo enquanto o pedido nao entrar em separacao.",
+  "tokens_estimados": 205
+}

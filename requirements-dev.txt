@@ -1,0 +1,11 @@
+# Dependencias para rodar a suite de testes na maquina, fora dos conteineres.
+# Os servicos declaram as suas em camada/, recuperador/, modelo/ e executor/.
+-r camada/requirements.txt
+-r executor/requirements.txt
+-r modelo/requirements.txt
+-r scripts/requirements.txt
+
+# Exigida pelos testes de recuperacao pareada (ADR-0012), que rodam o Qdrant em
+# memoria. Sem ela, esses testes pulam em silencio e a evidencia do ADR-0012 nao e
+# verificada na maquina.
+qdrant-client==1.19.0

@@ -1,0 +1,51 @@
+{
+  "caracteres": 613,
+  "id_documento": "doc-027",
+  "numero_pedido": "10027",
+  "ocorrencias_dado_pessoal": [
+    {
+      "fim": 57,
+      "inicio": 41,
+      "natureza": "pessoa_natural",
+      "tipo": "NOME",
+      "valor": "Leandro da Cunha"
+    },
+    {
+      "fim": 78,
+      "inicio": 64,
+      "natureza": "pessoa_natural",
+      "tipo": "CPF",
+      "valor": "273.914.056-80"
+    },
+    {
+      "fim": 107,
+      "inicio": 89,
+      "natureza": "pessoa_natural",
+      "tipo": "EMAIL",
+      "valor": "ravi16@example.com"
+    },
+    {
+      "fim": 130,
+      "inicio": 118,
+      "natureza": "pessoa_natural",
+      "tipo": "TELEFONE",
+      "valor": "61 9250-2799"
+    },
+    {
+      "fim": 235,
+      "inicio": 227,
+      "natureza": "pessoa_natural",
+      "tipo": "CEP",
+      "valor": "44139469"
+    },
+    {
+      "fim": 359,
+      "inicio": 341,
+      "natureza": "pessoa_juridica",
+      "tipo": "CNPJ",
+      "valor": "27.019.348/0001-87"
+    }
+  ],
+  "texto": "Pedido 10027. Status: entregue.\nCliente: Leandro da Cunha. CPF: 273.914.056-80.\nContato: ravi16@example.com, telefone 61 9250-2799.\nEndereco de entrega: Favela de Oliveira, 1625, bairro Vila Maloca, Barbosa de Ferreira DF, CEP 44139469.\nData da compra: 18/05/2026. Previsao de entrega: 02/06/2026.\nTransportadora: TransPato Encomendas, CNPJ 27.019.348/0001-87, codigo de rastreio BP484275984BR.\nItens: 3x mochila para notebook 15 polegadas, 2x panela de pressao 4,5 litros.\nValor total: R$ 1707.95 em 2x no cartao.\nPolitica aplicavel: Troca em ate 30 dias corridos apos o recebimento, mediante embalagem original.",
+  "tokens_estimados": 199
+}

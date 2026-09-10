@@ -1,0 +1,51 @@
+{
+  "caracteres": 542,
+  "id_documento": "doc-019",
+  "numero_pedido": "10019",
+  "ocorrencias_dado_pessoal": [
+    {
+      "fim": 60,
+      "inicio": 46,
+      "natureza": "pessoa_natural",
+      "tipo": "NOME",
+      "valor": "Beatriz Novaes"
+    },
+    {
+      "fim": 81,
+      "inicio": 67,
+      "natureza": "pessoa_natural",
+      "tipo": "CPF",
+      "valor": "897.623.504-56"
+    },
+    {
+      "fim": 117,
+      "inicio": 92,
+      "natureza": "pessoa_natural",
+      "tipo": "EMAIL",
+      "valor": "fernandaramos@example.org"
+    },
+    {
+      "fim": 140,
+      "inicio": 128,
+      "natureza": "pessoa_natural",
+      "tipo": "TELEFONE",
+      "valor": "15 4009-1534"
+    },
+    {
+      "fim": 229,
+      "inicio": 221,
+      "natureza": "pessoa_natural",
+      "tipo": "CEP",
+      "valor": "22238157"
+    },
+    {
+      "fim": 353,
+      "inicio": 335,
+      "natureza": "pessoa_juridica",
+      "tipo": "CNPJ",
+      "valor": "75.836.942/0001-03"
+    }
+  ],
+  "texto": "Pedido 10019. Status: em transporte.\nCliente: Beatriz Novaes. CPF: 897.623.504-56.\nContato: fernandaramos@example.org, telefone 15 4009-1534.\nEndereco de entrega: Conjunto de Dias, 1787, bairro Bernadete, Peixoto PE, CEP 22238157.\nData da compra: 14/04/2026. Previsao de entrega: 17/04/2026.\nTransportadora: TransPato Encomendas, CNPJ 75.836.942/0001-03, codigo de rastreio LI204072407BR.\nItens: 1x luminaria de mesa articulada.\nValor total: R$ 200.91 em 2x no cartao.\nPolitica aplicavel: Reembolso em ate 10 dias uteis apos a coleta reversa.",
+  "tokens_estimados": 176
+}

@@ -10,7 +10,12 @@ import uuid
 import pytest
 from fastapi.testclient import TestClient
 
-from recuperador.app.main import app
+from recuperador.app.indice import IndiceFalso
+from recuperador.app.main import app, obter_indice
+
+# O contrato e testado contra o indice falso: um teste de contrato nao deve exigir
+# que haja um Qdrant de pe, nem baixar 1 GB de modelo.
+app.dependency_overrides[obter_indice] = IndiceFalso
 
 cliente = TestClient(app)
 
@@ -21,7 +26,7 @@ def requisicao(**extra) -> dict:
     return corpo
 
 
-@pytest.mark.parametrize("k", [1, 2, 3])
+@pytest.mark.parametrize("k", [1, 2, 3, 5])
 def test_devolve_exatamente_k_documentos(k: int) -> None:
     resposta = cliente.post("/buscar", json=requisicao(k=k))
     assert resposta.status_code == 200

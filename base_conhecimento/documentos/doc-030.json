@@ -1,0 +1,51 @@
+{
+  "caracteres": 581,
+  "id_documento": "doc-030",
+  "numero_pedido": "10030",
+  "ocorrencias_dado_pessoal": [
+    {
+      "fim": 71,
+      "inicio": 53,
+      "natureza": "pessoa_natural",
+      "tipo": "NOME",
+      "valor": "Maria Helena Silva"
+    },
+    {
+      "fim": 92,
+      "inicio": 78,
+      "natureza": "pessoa_natural",
+      "tipo": "CPF",
+      "valor": "359.407.126-06"
+    },
+    {
+      "fim": 118,
+      "inicio": 103,
+      "natureza": "pessoa_natural",
+      "tipo": "EMAIL",
+      "valor": "zsa@example.net"
+    },
+    {
+      "fim": 141,
+      "inicio": 129,
+      "natureza": "pessoa_natural",
+      "tipo": "TELEFONE",
+      "valor": "63 6087-2796"
+    },
+    {
+      "fim": 252,
+      "inicio": 244,
+      "natureza": "pessoa_natural",
+      "tipo": "CEP",
+      "valor": "42661096"
+    },
+    {
+      "fim": 372,
+      "inicio": 354,
+      "natureza": "pessoa_juridica",
+      "tipo": "CNPJ",
+      "valor": "28.764.150/0001-90"
+    }
+  ],
+  "texto": "Pedido 10030. Status: devolucao solicitada.\nCliente: Maria Helena Silva. CPF: 359.407.126-06.\nContato: zsa@example.net, telefone 63 6087-2796.\nEndereco de entrega: Praça Davi Luiz Casa Grande, 719, bairro Olhos D'água, Moreira de Nunes RR, CEP 42661096.\nData da compra: 07/05/2026. Previsao de entrega: 20/05/2026.\nTransportadora: Via Oeste Cargas, CNPJ 28.764.150/0001-90, codigo de rastreio CF486066168BR.\nItens: 2x organizador de gavetas 6 divisorias.\nValor total: R$ 1072.82 em 6x no cartao.\nPolitica aplicavel: Cancelamento sem custo enquanto o pedido nao entrar em separacao.",
+  "tokens_estimados": 189
+}

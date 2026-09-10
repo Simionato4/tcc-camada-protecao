@@ -11,12 +11,12 @@
       "type": "n8n-nodes-base.webhook",
       "typeVersion": 2,
       "position": [
-        0,
-        0
+        3088,
+        544
       ],
       "name": "Entrada do usuario",
-      "id": "a351010a-12ac-4daa-8ae8-e14afa674bb9",
-      "webhookId": "d5b12a3a-a60a-440f-8b52-bae08ea38ce4"
+      "id": "788b0cf2-5eb7-4b21-aa99-8e51e2e4d214",
+      "webhookId": "8ec9179c-dc53-4478-beb3-19c0a1e197a3"
     },
     {
       "parameters": {
@@ -30,11 +30,11 @@
       "type": "n8n-nodes-base.httpRequest",
       "typeVersion": 4.2,
       "position": [
-        224,
-        0
+        3312,
+        544
       ],
       "name": "Camada - entrada",
-      "id": "fe27799b-cf55-43ae-8588-ea25fda955a2"
+      "id": "2fd29270-68e3-4c07-82e4-8ea9e7b57cd9"
     },
     {
       "parameters": {
@@ -48,11 +48,11 @@
       "type": "n8n-nodes-base.httpRequest",
       "typeVersion": 4.2,
       "position": [
-        448,
-        0
+        3536,
+        544
       ],
       "name": "Recuperador - buscar",
-      "id": "0a42ca8e-126c-472e-b721-ecd3373e6b92"
+      "id": "a75821eb-36f7-4271-ae37-e6633bc9dbc1"
     },
     {
       "parameters": {
@@ -61,11 +61,11 @@
       "type": "n8n-nodes-base.code",
       "typeVersion": 2,
       "position": [
-        672,
-        0
+        3760,
+        544
       ],
       "name": "Montar contexto",
-      "id": "719a25a4-78b0-4299-8f67-69dbadce106f"
+      "id": "d048692d-e387-42a2-a3df-494082da8d76"
     },
     {
       "parameters": {
@@ -79,24 +79,29 @@
       "type": "n8n-nodes-base.httpRequest",
       "typeVersion": 4.2,
       "position": [
-        880,
-        0
+        3968,
+        544
       ],
       "name": "Camada - contexto",
-      "id": "4cc92991-65aa-46f6-93ea-111d9773bd6d"
+      "id": "d59fdbda-06ac-45b0-9b54-ba91ccde41c9"
     },
     {
       "parameters": {
-        "jsCode": "// TAREFA 2.2: modelo simulado. Nenhuma chamada a API, custo zero.\n// Substituido pela chamada real na tarefa 2.7, apos o fluxo estar\n// validado de ponta a ponta.\nconst contexto = $input.first().json.texto;\nreturn [{ json: { resposta: '[MODELO SIMULADO] Recebi um contexto de '\n  + contexto.length + ' caracteres e responderia com base nele.' } }];"
+        "method": "POST",
+        "url": "http://modelo:8200/gerar",
+        "sendBody": true,
+        "specifyBody": "json",
+        "jsonBody": "={{ JSON.stringify({ mensagem: 'Contexto recuperado:\\n' + $json.texto + '\\n\\nPergunta do cliente:\\n' + $('Camada - entrada').item.json.texto, id_requisicao: $('Entrada do usuario').item.json.body.id_requisicao }) }}",
+        "options": {}
       },
-      "type": "n8n-nodes-base.code",
-      "typeVersion": 2,
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 4.2,
       "position": [
-        1104,
-        0
+        4192,
+        544
       ],
-      "name": "Modelo (simulado)",
-      "id": "aa6a1eab-0edf-498b-b0b7-e1910e5d8201"
+      "name": "Modelo",
+      "id": "267d785c-68a9-44ff-b80d-452fbd06dc93"
     },
     {
       "parameters": {
@@ -110,11 +115,11 @@
       "type": "n8n-nodes-base.httpRequest",
       "typeVersion": 4.2,
       "position": [
-        1328,
-        0
+        4416,
+        544
       ],
       "name": "Camada - saida",
-      "id": "15dfdb97-d461-477b-9c0e-760274fda378"
+      "id": "a7513deb-490a-49bf-87a6-3d35e758a3e0"
     },
     {
       "parameters": {
@@ -125,11 +130,11 @@
       "type": "n8n-nodes-base.respondToWebhook",
       "typeVersion": 1.1,
       "position": [
-        1552,
-        0
+        4640,
+        544
       ],
       "name": "Responder",
-      "id": "9d81ad63-7d64-44be-ac7f-28c46463add8"
+      "id": "c8236439-8573-439b-9ef4-7f6522be3154"
     }
   ],
   "pinData": {},
@@ -182,14 +187,14 @@
       "main": [
         [
           {
-            "node": "Modelo (simulado)",
+            "node": "Modelo",
             "type": "main",
             "index": 0
           }
         ]
       ]
     },
-    "Modelo (simulado)": {
+    "Modelo": {
       "main": [
         [
           {
@@ -217,7 +222,7 @@
     "executionOrder": "v1",
     "binaryMode": "separate"
   },
-  "versionId": "fbead3ed-1f34-482e-ae57-383770bbb9cb",
+  "versionId": "7f8ae66a-fb6e-4633-9dc6-129e166a48b0",
   "meta": {
     "instanceId": "b52dc35ec807d4a7716353ac8a5103d9f326b34bdad75b76294e27ad0b0da119"
   },

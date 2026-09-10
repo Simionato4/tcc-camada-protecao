@@ -1,0 +1,51 @@
+{
+  "caracteres": 655,
+  "id_documento": "doc-011",
+  "numero_pedido": "10011",
+  "ocorrencias_dado_pessoal": [
+    {
+      "fim": 61,
+      "inicio": 46,
+      "natureza": "pessoa_natural",
+      "tipo": "NOME",
+      "valor": "Marcela Camargo"
+    },
+    {
+      "fim": 82,
+      "inicio": 68,
+      "natureza": "pessoa_natural",
+      "tipo": "CPF",
+      "valor": "791.285.364-28"
+    },
+    {
+      "fim": 111,
+      "inicio": 93,
+      "natureza": "pessoa_natural",
+      "tipo": "EMAIL",
+      "valor": "yago45@example.net"
+    },
+    {
+      "fim": 138,
+      "inicio": 122,
+      "natureza": "pessoa_natural",
+      "tipo": "TELEFONE",
+      "valor": "+55 34 9887-9960"
+    },
+    {
+      "fim": 246,
+      "inicio": 238,
+      "natureza": "pessoa_natural",
+      "tipo": "CEP",
+      "valor": "24185201"
+    },
+    {
+      "fim": 370,
+      "inicio": 352,
+      "natureza": "pessoa_juridica",
+      "tipo": "CNPJ",
+      "valor": "76.290.815/0001-14"
+    }
+  ],
+  "texto": "Pedido 10011. Status: em transporte.\nCliente: Marcela Camargo. CPF: 791.285.364-28.\nContato: yago45@example.net, telefone +55 34 9887-9960.\nEndereco de entrega: Viaduto Heitor Fogaça, 1178, bairro Jardim América, Pereira do Galho GO, CEP 24185201.\nData da compra: 28/02/2026. Previsao de entrega: 19/03/2026.\nTransportadora: TransPato Encomendas, CNPJ 76.290.815/0001-14, codigo de rastreio BT218265913BR.\nItens: 1x mochila para notebook 15 polegadas, 2x luminaria de mesa articulada, 2x tapete antiderrapante 60x40.\nValor total: R$ 398.37 em 3x no cartao.\nPolitica aplicavel: Troca em ate 30 dias corridos apos o recebimento, mediante embalagem original.",
+  "tokens_estimados": 213
+}

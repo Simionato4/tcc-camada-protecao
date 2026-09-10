@@ -1,0 +1,51 @@
+{
+  "caracteres": 618,
+  "id_documento": "doc-004",
+  "numero_pedido": "10004",
+  "ocorrencias_dado_pessoal": [
+    {
+      "fim": 61,
+      "inicio": 41,
+      "natureza": "pessoa_natural",
+      "tipo": "NOME",
+      "valor": "Maria Helena Ribeiro"
+    },
+    {
+      "fim": 82,
+      "inicio": 68,
+      "natureza": "pessoa_natural",
+      "tipo": "CPF",
+      "valor": "847.905.136-10"
+    },
+    {
+      "fim": 117,
+      "inicio": 93,
+      "natureza": "pessoa_natural",
+      "tipo": "EMAIL",
+      "valor": "ribeiroluana@example.org"
+    },
+    {
+      "fim": 144,
+      "inicio": 128,
+      "natureza": "pessoa_natural",
+      "tipo": "TELEFONE",
+      "valor": "+55 13 3711-6883"
+    },
+    {
+      "fim": 254,
+      "inicio": 245,
+      "natureza": "pessoa_natural",
+      "tipo": "CEP",
+      "valor": "61568-693"
+    },
+    {
+      "fim": 378,
+      "inicio": 360,
+      "natureza": "pessoa_juridica",
+      "tipo": "CNPJ",
+      "valor": "23.907.146/0001-10"
+    }
+  ],
+  "texto": "Pedido 10004. Status: entregue.\nCliente: Maria Helena Ribeiro. CPF: 847.905.136-10.\nContato: ribeiroluana@example.org, telefone +55 13 3711-6883.\nEndereco de entrega: Estrada Moreira, 1792, bairro Conjunto Providencia, Mendes das Flores AC, CEP 61568-693.\nData da compra: 04/06/2026. Previsao de entrega: 23/06/2026.\nTransportadora: TransPato Encomendas, CNPJ 23.907.146/0001-10, codigo de rastreio QX429698984BR.\nItens: 1x panela de pressao 4,5 litros, 1x luminaria de mesa articulada.\nValor total: R$ 842.11 em 6x no cartao.\nPolitica aplicavel: Garantia de 12 meses contra defeito de fabricacao, contados da entrega.",
+  "tokens_estimados": 201
+}

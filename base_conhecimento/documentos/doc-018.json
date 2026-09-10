@@ -1,0 +1,51 @@
+{
+  "caracteres": 607,
+  "id_documento": "doc-018",
+  "numero_pedido": "10018",
+  "ocorrencias_dado_pessoal": [
+    {
+      "fim": 77,
+      "inicio": 53,
+      "natureza": "pessoa_natural",
+      "tipo": "NOME",
+      "valor": "Sr. Luiz Felipe Siqueira"
+    },
+    {
+      "fim": 98,
+      "inicio": 84,
+      "natureza": "pessoa_natural",
+      "tipo": "CPF",
+      "valor": "926.348.701-40"
+    },
+    {
+      "fim": 136,
+      "inicio": 109,
+      "natureza": "pessoa_natural",
+      "tipo": "EMAIL",
+      "valor": "benjaminrezende@example.com"
+    },
+    {
+      "fim": 163,
+      "inicio": 147,
+      "natureza": "pessoa_natural",
+      "tipo": "TELEFONE",
+      "valor": "+55 96 1560-7729"
+    },
+    {
+      "fim": 270,
+      "inicio": 262,
+      "natureza": "pessoa_natural",
+      "tipo": "CEP",
+      "valor": "11431052"
+    },
+    {
+      "fim": 390,
+      "inicio": 372,
+      "natureza": "pessoa_juridica",
+      "tipo": "CNPJ",
+      "valor": "68.235.917/0001-09"
+    }
+  ],
+  "texto": "Pedido 10018. Status: devolucao solicitada.\nCliente: Sr. Luiz Felipe Siqueira. CPF: 926.348.701-40.\nContato: benjaminrezende@example.com, telefone +55 96 1560-7729.\nEndereco de entrega: Largo de Mendes, 1479, bairro Inconfidência, Mendonça de Montenegro RS, CEP 11431052.\nData da compra: 19/04/2026. Previsao de entrega: 25/04/2026.\nTransportadora: Via Oeste Cargas, CNPJ 68.235.917/0001-09, codigo de rastreio LM844806872BR.\nItens: 2x panela de pressao 4,5 litros, 3x garrafa termica 1 litro.\nValor total: R$ 445.89 em 2x no cartao.\nPolitica aplicavel: Reembolso em ate 10 dias uteis apos a coleta reversa.",
+  "tokens_estimados": 197
+}

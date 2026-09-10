@@ -1,0 +1,51 @@
+{
+  "caracteres": 642,
+  "id_documento": "doc-009",
+  "numero_pedido": "10009",
+  "ocorrencias_dado_pessoal": [
+    {
+      "fim": 74,
+      "inicio": 53,
+      "natureza": "pessoa_natural",
+      "tipo": "NOME",
+      "valor": "Arthur Miguel Azevedo"
+    },
+    {
+      "fim": 95,
+      "inicio": 81,
+      "natureza": "pessoa_natural",
+      "tipo": "CPF",
+      "valor": "975.846.013-75"
+    },
+    {
+      "fim": 131,
+      "inicio": 106,
+      "natureza": "pessoa_natural",
+      "tipo": "EMAIL",
+      "valor": "brayanrezende@example.net"
+    },
+    {
+      "fim": 154,
+      "inicio": 142,
+      "natureza": "pessoa_natural",
+      "tipo": "TELEFONE",
+      "valor": "11 9656-1226"
+    },
+    {
+      "fim": 271,
+      "inicio": 262,
+      "natureza": "pessoa_natural",
+      "tipo": "CEP",
+      "valor": "34465-693"
+    },
+    {
+      "fim": 395,
+      "inicio": 377,
+      "natureza": "pessoa_juridica",
+      "tipo": "CNPJ",
+      "valor": "41.678.059/0001-10"
+    }
+  ],
+  "texto": "Pedido 10009. Status: aguardando pagamento.\nCliente: Arthur Miguel Azevedo. CPF: 975.846.013-75.\nContato: brayanrezende@example.net, telefone 11 9656-1226.\nEndereco de entrega: Viaduto da Conceição, 1948, bairro Vila Jardim Montanhes, Oliveira de Moraes DF, CEP 34465-693.\nData da compra: 10/03/2026. Previsao de entrega: 23/03/2026.\nTransportadora: TransPato Encomendas, CNPJ 41.678.059/0001-10, codigo de rastreio UU400572245BR.\nItens: 1x luminaria de mesa articulada, 1x organizador de gavetas 6 divisorias.\nValor total: R$ 485.06 em 6x no cartao.\nPolitica aplicavel: Garantia de 12 meses contra defeito de fabricacao, contados da entrega.",
+  "tokens_estimados": 208
+}

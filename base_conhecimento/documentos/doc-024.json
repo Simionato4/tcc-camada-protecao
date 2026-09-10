@@ -1,0 +1,51 @@
+{
+  "caracteres": 572,
+  "id_documento": "doc-024",
+  "numero_pedido": "10024",
+  "ocorrencias_dado_pessoal": [
+    {
+      "fim": 59,
+      "inicio": 46,
+      "natureza": "pessoa_natural",
+      "tipo": "NOME",
+      "valor": "Apollo Fogaça"
+    },
+    {
+      "fim": 80,
+      "inicio": 66,
+      "natureza": "pessoa_natural",
+      "tipo": "CPF",
+      "valor": "459.713.802-14"
+    },
+    {
+      "fim": 120,
+      "inicio": 91,
+      "natureza": "pessoa_natural",
+      "tipo": "EMAIL",
+      "valor": "nicolevasconcelos@example.com"
+    },
+    {
+      "fim": 147,
+      "inicio": 131,
+      "natureza": "pessoa_natural",
+      "tipo": "TELEFONE",
+      "valor": "+55 33 2357-1827"
+    },
+    {
+      "fim": 243,
+      "inicio": 234,
+      "natureza": "pessoa_natural",
+      "tipo": "CEP",
+      "valor": "55576-691"
+    },
+    {
+      "fim": 363,
+      "inicio": 345,
+      "natureza": "pessoa_juridica",
+      "tipo": "CNPJ",
+      "valor": "05.364.279/0001-06"
+    }
+  ],
+  "texto": "Pedido 10024. Status: em transporte.\nCliente: Apollo Fogaça. CPF: 459.713.802-14.\nContato: nicolevasconcelos@example.com, telefone +55 33 2357-1827.\nEndereco de entrega: Travessa de Dias, 962, bairro Conjunto Taquaril, Câmara RJ, CEP 55576-691.\nData da compra: 05/02/2026. Previsao de entrega: 25/02/2026.\nTransportadora: Via Oeste Cargas, CNPJ 05.364.279/0001-06, codigo de rastreio XE384228060BR.\nItens: 2x fone de ouvido sem fio.\nValor total: R$ 1356.34 em 2x no cartao.\nPolitica aplicavel: Troca em ate 30 dias corridos apos o recebimento, mediante embalagem original.",
+  "tokens_estimados": 186
+}

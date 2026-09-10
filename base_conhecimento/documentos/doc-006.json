@@ -1,0 +1,51 @@
+{
+  "caracteres": 549,
+  "id_documento": "doc-006",
+  "numero_pedido": "10006",
+  "ocorrencias_dado_pessoal": [
+    {
+      "fim": 66,
+      "inicio": 53,
+      "natureza": "pessoa_natural",
+      "tipo": "NOME",
+      "valor": "Amanda Castro"
+    },
+    {
+      "fim": 87,
+      "inicio": 73,
+      "natureza": "pessoa_natural",
+      "tipo": "CPF",
+      "valor": "861.407.359-39"
+    },
+    {
+      "fim": 116,
+      "inicio": 98,
+      "natureza": "pessoa_natural",
+      "tipo": "EMAIL",
+      "valor": "nsilva@example.org"
+    },
+    {
+      "fim": 139,
+      "inicio": 127,
+      "natureza": "pessoa_natural",
+      "tipo": "TELEFONE",
+      "valor": "54 8849-6949"
+    },
+    {
+      "fim": 231,
+      "inicio": 222,
+      "natureza": "pessoa_natural",
+      "tipo": "CEP",
+      "valor": "65996-773"
+    },
+    {
+      "fim": 353,
+      "inicio": 335,
+      "natureza": "pessoa_juridica",
+      "tipo": "CNPJ",
+      "valor": "30.862.914/0001-22"
+    }
+  ],
+  "texto": "Pedido 10006. Status: devolucao solicitada.\nCliente: Amanda Castro. CPF: 861.407.359-39.\nContato: nsilva@example.org, telefone 54 8849-6949.\nEndereco de entrega: Aeroporto de Moreira, 58, bairro Boa Vista, da Cruz DF, CEP 65996-773.\nData da compra: 07/05/2026. Previsao de entrega: 12/05/2026.\nTransportadora: Rota Sul Logistica, CNPJ 30.862.914/0001-22, codigo de rastreio JM451142374BR.\nItens: 3x garrafa termica 1 litro.\nValor total: R$ 745.38 em 1x no cartao.\nPolitica aplicavel: Cancelamento sem custo enquanto o pedido nao entrar em separacao.",
+  "tokens_estimados": 178
+}

@@ -28,3 +28,20 @@ limitacao nos resultados.
 ## Data
 2026-08-31
 
+
+---
+
+## Revisado em 10/09/2026 pelo ADR-0012
+
+A premissa central deste registro — de que parear a pergunta ao numero do pedido
+torna a recuperacao deterministica — **foi falsificada por medicao**. A primeira
+indexacao real recuperou o documento alvo em apenas 3 de 30 casos, com 27 perguntas
+devolvendo o mesmo trio de documentos.
+
+Busca vetorial densa nao preserva identificadores exatos. A garantia passou a ser
+obtida por filtro sobre o campo `numero_pedido`, com complemento por similaridade
+(ADR-0012).
+
+O que permanece valido deste registro: o pareamento entre pergunta e documento, a
+exigencia de numero de pedido unico, o registro do top-k em cada requisicao e a
+marcacao como invalido do caso em que o documento alvo nao foi recuperado.

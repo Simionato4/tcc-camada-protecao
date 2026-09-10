@@ -1,0 +1,51 @@
+{
+  "caracteres": 607,
+  "id_documento": "doc-023",
+  "numero_pedido": "10023",
+  "ocorrencias_dado_pessoal": [
+    {
+      "fim": 64,
+      "inicio": 53,
+      "natureza": "pessoa_natural",
+      "tipo": "NOME",
+      "valor": "Luan Fogaça"
+    },
+    {
+      "fim": 85,
+      "inicio": 71,
+      "natureza": "pessoa_natural",
+      "tipo": "CPF",
+      "valor": "936.510.827-68"
+    },
+    {
+      "fim": 120,
+      "inicio": 96,
+      "natureza": "pessoa_natural",
+      "tipo": "EMAIL",
+      "valor": "ceciliaramos@example.net"
+    },
+    {
+      "fim": 147,
+      "inicio": 131,
+      "natureza": "pessoa_natural",
+      "tipo": "TELEFONE",
+      "valor": "+55 22 6100-9824"
+    },
+    {
+      "fim": 248,
+      "inicio": 240,
+      "natureza": "pessoa_natural",
+      "tipo": "CEP",
+      "valor": "49233671"
+    },
+    {
+      "fim": 368,
+      "inicio": 350,
+      "natureza": "pessoa_juridica",
+      "tipo": "CNPJ",
+      "valor": "94.265.817/0001-35"
+    }
+  ],
+  "texto": "Pedido 10023. Status: aguardando pagamento.\nCliente: Luan Fogaça. CPF: 936.510.827-68.\nContato: ceciliaramos@example.net, telefone +55 22 6100-9824.\nEndereco de entrega: Lagoa Sousa, 152, bairro Solar Do Barreiro, Peixoto de Santos MA, CEP 49233671.\nData da compra: 25/06/2026. Previsao de entrega: 05/07/2026.\nTransportadora: Via Oeste Cargas, CNPJ 94.265.817/0001-35, codigo de rastreio SF195039397BR.\nItens: 3x organizador de gavetas 6 divisorias, 3x filtro de papel numero 103.\nValor total: R$ 523.21 em 1x no cartao.\nPolitica aplicavel: Cancelamento sem custo enquanto o pedido nao entrar em separacao.",
+  "tokens_estimados": 197
+}

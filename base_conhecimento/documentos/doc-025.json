@@ -1,0 +1,51 @@
+{
+  "caracteres": 658,
+  "id_documento": "doc-025",
+  "numero_pedido": "10025",
+  "ocorrencias_dado_pessoal": [
+    {
+      "fim": 77,
+      "inicio": 53,
+      "natureza": "pessoa_natural",
+      "tipo": "NOME",
+      "valor": "Sr. Luiz Otávio Monteiro"
+    },
+    {
+      "fim": 98,
+      "inicio": 84,
+      "natureza": "pessoa_natural",
+      "tipo": "CPF",
+      "valor": "840.751.639-20"
+    },
+    {
+      "fim": 131,
+      "inicio": 109,
+      "natureza": "pessoa_natural",
+      "tipo": "EMAIL",
+      "valor": "alanagomes@example.com"
+    },
+    {
+      "fim": 154,
+      "inicio": 142,
+      "natureza": "pessoa_natural",
+      "tipo": "TELEFONE",
+      "valor": "82 0264-9801"
+    },
+    {
+      "fim": 254,
+      "inicio": 245,
+      "natureza": "pessoa_natural",
+      "tipo": "CEP",
+      "valor": "42260-566"
+    },
+    {
+      "fim": 376,
+      "inicio": 358,
+      "natureza": "pessoa_juridica",
+      "tipo": "CNPJ",
+      "valor": "64.018.253/0001-75"
+    }
+  ],
+  "texto": "Pedido 10025. Status: aguardando pagamento.\nCliente: Sr. Luiz Otávio Monteiro. CPF: 840.751.639-20.\nContato: alanagomes@example.com, telefone 82 0264-9801.\nEndereco de entrega: Via Peixoto, 1467, bairro Novo São Lucas, da Cunha de Minas MA, CEP 42260-566.\nData da compra: 02/05/2026. Previsao de entrega: 16/05/2026.\nTransportadora: Rota Sul Logistica, CNPJ 64.018.253/0001-75, codigo de rastreio RW792887011BR.\nItens: 1x organizador de gavetas 6 divisorias, 3x cafeteira italiana 6 xicaras, 3x garrafa termica 1 litro.\nValor total: R$ 757.98 em 1x no cartao.\nPolitica aplicavel: Troca em ate 30 dias corridos apos o recebimento, mediante embalagem original.",
+  "tokens_estimados": 214
+}

@@ -1,0 +1,51 @@
+{
+  "caracteres": 548,
+  "id_documento": "doc-002",
+  "numero_pedido": "10002",
+  "ocorrencias_dado_pessoal": [
+    {
+      "fim": 56,
+      "inicio": 41,
+      "natureza": "pessoa_natural",
+      "tipo": "NOME",
+      "valor": "Apollo Oliveira"
+    },
+    {
+      "fim": 77,
+      "inicio": 63,
+      "natureza": "pessoa_natural",
+      "tipo": "CPF",
+      "valor": "071.842.596-02"
+    },
+    {
+      "fim": 107,
+      "inicio": 88,
+      "natureza": "pessoa_natural",
+      "tipo": "EMAIL",
+      "valor": "cda-paz@example.net"
+    },
+    {
+      "fim": 131,
+      "inicio": 118,
+      "natureza": "pessoa_natural",
+      "tipo": "TELEFONE",
+      "valor": "0900 076 4933"
+    },
+    {
+      "fim": 216,
+      "inicio": 208,
+      "natureza": "pessoa_natural",
+      "tipo": "CEP",
+      "valor": "84490393"
+    },
+    {
+      "fim": 338,
+      "inicio": 320,
+      "natureza": "pessoa_juridica",
+      "tipo": "CNPJ",
+      "valor": "40.972.318/0001-59"
+    }
+  ],
+  "texto": "Pedido 10002. Status: entregue.\nCliente: Apollo Oliveira. CPF: 071.842.596-02.\nContato: cda-paz@example.net, telefone 0900 076 4933.\nEndereco de entrega: Largo Moreira, 1816, bairro Havaí, Nascimento PA, CEP 84490393.\nData da compra: 11/02/2026. Previsao de entrega: 28/02/2026.\nTransportadora: Rota Sul Logistica, CNPJ 40.972.318/0001-59, codigo de rastreio EK366555720BR.\nItens: 2x garrafa termica 1 litro.\nValor total: R$ 1883.69 em 2x no cartao.\nPolitica aplicavel: Troca em ate 30 dias corridos apos o recebimento, mediante embalagem original.",
+  "tokens_estimados": 178
+}

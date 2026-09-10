@@ -75,8 +75,55 @@ services:
     environment:
       - VERSAO_INDICE=${VERSAO_INDICE:-0.0.0-stub}
       - QDRANT_URL=http://qdrant:6333
+      - MODO_INDICE=${MODO_INDICE:-qdrant}
+      - MODELO_EMBEDDINGS=sentence-transformers/paraphrase-multilingual-mpnet-base-v2
+      - COLECAO_QDRANT=base_conhecimento
+      - CACHE_MODELOS=/opt/modelos
+      - PASTA_BASE_CONHECIMENTO=/app/base_conhecimento
+    volumes:
+      # Somente leitura: o servico consulta a base, nunca a altera. Quem altera e o
+      # gerador, na maquina, e o procedimento de indexacao, que recria a colecao.
+      - ./base_conhecimento:/app/base_conhecimento:ro
     healthcheck:
       test: ["CMD", "python", "-c", "import urllib.request; urllib.request.urlopen('http://localhost:8100/saude')"]
+      interval: 10s
+      timeout: 5s
+      retries: 5
+      start_period: 10s
+    networks:
+      - tcc
+
+  # Unico ponto do fluxo autorizado a chamar o modelo de linguagem. Existe para que
+  # o n8n nao chame a API diretamente: o gasto ocorreria fora do guarda de
+  # orcamento, fora do contador e fora do teto.
+  modelo:
+    build:
+      context: .
+      dockerfile: modelo/Dockerfile
+    container_name: tcc-modelo
+    restart: unless-stopped
+    ports:
+      - "127.0.0.1:8200:8200"
+    environment:
+      # Menor privilegio: recebe apenas o que usa. Nao recebe QDRANT_URL, nem as
+      # credenciais de outros servicos (RQ-15).
+      - ANTHROPIC_API_KEY=${ANTHROPIC_API_KEY}
+      - MODELO_ID=${MODELO_ID}
+      - TEMPERATURA=${TEMPERATURA:-0}
+      - MAX_TOKENS_SAIDA=${MAX_TOKENS_SAIDA:-400}
+      - MODO_SIMULADO=${MODO_SIMULADO:-1}
+      - TETO_CHAMADAS=${TETO_CHAMADAS:-8500}
+      - TETO_USD=${TETO_USD:-16.00}
+      - CUSTO_ESTIMADO_CHAMADA_USD=${CUSTO_ESTIMADO_CHAMADA_USD:-0.0025}
+      - PRECO_ENTRADA_USD_MTOK=${PRECO_ENTRADA_USD_MTOK:-1.0}
+      - PRECO_SAIDA_USD_MTOK=${PRECO_SAIDA_USD_MTOK:-5.0}
+      - ARQUIVO_CONSUMO=/app/resultados/consumo.json
+      - CAMINHO_PROMPT=/app/assistente/prompt_sistema.md
+    volumes:
+      - ./assistente:/app/assistente:ro
+      - ./resultados:/app/resultados
+    healthcheck:
+      test: ["CMD", "python", "-c", "import urllib.request; urllib.request.urlopen('http://localhost:8200/saude')"]
       interval: 10s
       timeout: 5s
       retries: 5

@@ -72,6 +72,32 @@ o objeto avaliado na condicao B, e sua latencia interna e um indicador do trabal
 Acrescentar vetorizacao e consulta ao Qdrant dentro dela tornaria o `tempo_ms`
 incomparavel com as demais condicoes.
 
+## O identificador do modelo nao basta para reproduzir o indice
+
+Descoberto ao montar a indexacao, em 10/09/2026. Ao carregar o modelo, a biblioteca
+emite:
+
+> *The model paraphrase-multilingual-mpnet-base-v2 now uses mean pooling instead of
+> CLS embedding. In order to preserve the previous behaviour, consider either
+> pinning fastembed version to 0.5.1 or using `add_custom_model` functionality.*
+
+Isto e: **o mesmo identificador de modelo produz vetores diferentes conforme a
+versao da biblioteca**, porque a estrategia de agregacao dos vetores de token mudou.
+Um indice construido com `fastembed` 0.5.1 e outro com 0.8.0 nao sao comparaveis,
+ainda que ambos declarem o mesmo modelo.
+
+Consequencias registradas:
+
+1. A unidade de reproducao e o par **modelo + versao da biblioteca**, e nao o
+   identificador do modelo. `fastembed==0.8.0` e `onnxruntime==1.30.0` estao fixados
+   em `recuperador/requirements.txt` e registrados em `docs/versoes.md`.
+2. O modelo e baixado na construcao da imagem, de modo que a versao efetivamente
+   usada fica fixada pelo digest da imagem, e nao pelo que a internet devolver no
+   dia da execucao.
+3. Atualizar a biblioteca depois da indexacao obriga a reindexar; depois do
+   congelamento, obriga tambem a nova execucao do protocolo. Uma atualizacao de
+   dependencia aparentemente inocua invalidaria o experimento em silencio.
+
 ## Consequencia
 
 O ambiente ganha um quinto servico, `recuperador`, que precisa entrar no

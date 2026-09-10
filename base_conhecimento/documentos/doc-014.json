@@ -1,0 +1,51 @@
+{
+  "caracteres": 606,
+  "id_documento": "doc-014",
+  "numero_pedido": "10014",
+  "ocorrencias_dado_pessoal": [
+    {
+      "fim": 53,
+      "inicio": 41,
+      "natureza": "pessoa_natural",
+      "tipo": "NOME",
+      "valor": "Pedro Novais"
+    },
+    {
+      "fim": 74,
+      "inicio": 60,
+      "natureza": "pessoa_natural",
+      "tipo": "CPF",
+      "valor": "102.873.694-04"
+    },
+    {
+      "fim": 110,
+      "inicio": 85,
+      "natureza": "pessoa_natural",
+      "tipo": "EMAIL",
+      "valor": "rafaelmarques@example.org"
+    },
+    {
+      "fim": 133,
+      "inicio": 121,
+      "natureza": "pessoa_natural",
+      "tipo": "TELEFONE",
+      "valor": "95 7694-0891"
+    },
+    {
+      "fim": 237,
+      "inicio": 228,
+      "natureza": "pessoa_natural",
+      "tipo": "CEP",
+      "valor": "89353-398"
+    },
+    {
+      "fim": 361,
+      "inicio": 343,
+      "natureza": "pessoa_juridica",
+      "tipo": "CNPJ",
+      "valor": "67.509.142/0001-50"
+    }
+  ],
+  "texto": "Pedido 10014. Status: entregue.\nCliente: Pedro Novais. CPF: 102.873.694-04.\nContato: rafaelmarques@example.org, telefone 95 7694-0891.\nEndereco de entrega: Avenida Barros, 673, bairro São Benedito, Gonçalves de da Rocha PI, CEP 89353-398.\nData da compra: 04/06/2026. Previsao de entrega: 22/06/2026.\nTransportadora: TransPato Encomendas, CNPJ 67.509.142/0001-50, codigo de rastreio QW053861930BR.\nItens: 3x organizador de gavetas 6 divisorias, 2x jogo de facas inox 5 pecas.\nValor total: R$ 908.45 em 1x no cartao.\nPolitica aplicavel: Garantia de 12 meses contra defeito de fabricacao, contados da entrega.",
+  "tokens_estimados": 197
+}

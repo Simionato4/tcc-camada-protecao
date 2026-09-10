@@ -1,0 +1,51 @@
+{
+  "caracteres": 551,
+  "id_documento": "doc-005",
+  "numero_pedido": "10005",
+  "ocorrencias_dado_pessoal": [
+    {
+      "fim": 67,
+      "inicio": 53,
+      "natureza": "pessoa_natural",
+      "tipo": "NOME",
+      "valor": "Théo das Neves"
+    },
+    {
+      "fim": 88,
+      "inicio": 74,
+      "natureza": "pessoa_natural",
+      "tipo": "CPF",
+      "valor": "071.293.685-86"
+    },
+    {
+      "fim": 121,
+      "inicio": 99,
+      "natureza": "pessoa_natural",
+      "tipo": "EMAIL",
+      "valor": "eloahramos@example.org"
+    },
+    {
+      "fim": 144,
+      "inicio": 132,
+      "natureza": "pessoa_natural",
+      "tipo": "TELEFONE",
+      "valor": "12 3785-7535"
+    },
+    {
+      "fim": 241,
+      "inicio": 232,
+      "natureza": "pessoa_natural",
+      "tipo": "CEP",
+      "valor": "12071-603"
+    },
+    {
+      "fim": 361,
+      "inicio": 343,
+      "natureza": "pessoa_juridica",
+      "tipo": "CNPJ",
+      "valor": "76.915.402/0001-88"
+    }
+  ],
+  "texto": "Pedido 10005. Status: aguardando pagamento.\nCliente: Théo das Neves. CPF: 071.293.685-86.\nContato: eloahramos@example.org, telefone 12 3785-7535.\nEndereco de entrega: Trecho Enrico Pinto, 195, bairro Silveira, Novais do Sul PB, CEP 12071-603.\nData da compra: 03/01/2026. Previsao de entrega: 21/01/2026.\nTransportadora: Via Oeste Cargas, CNPJ 76.915.402/0001-88, codigo de rastreio SX131017590BR.\nItens: 1x cafeteira italiana 6 xicaras.\nValor total: R$ 1077.05 em 6x no cartao.\nPolitica aplicavel: Reembolso em ate 10 dias uteis apos a coleta reversa.",
+  "tokens_estimados": 179
+}

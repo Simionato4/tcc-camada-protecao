@@ -2,9 +2,9 @@
 # `executor/cliente_modelo.py` que o executor, para que as chamadas do fluxo e as do
 # executor passem pelo mesmo guarda de orcamento e entrem no mesmo livro-caixa.
 #
-# A tag e mutavel. Depois da primeira construcao, registre o digest em
-# docs/versoes.md e troque a tag pelo digest.
-FROM python:3.12-slim
+# Imagem base fixada por digest, coletado em 10/09/2026. A tag `3.12-slim` e
+# mutavel: aponta para outra imagem a cada correcao de seguranca do Debian.
+FROM python@sha256:78387bc3881b8273120a12ebe6c1ab22b018ccc2c9adf565ae1ac9b536e184ea
 
 WORKDIR /app
 

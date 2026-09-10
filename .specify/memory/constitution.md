@@ -25,10 +25,18 @@ Verificacao: a data de `CONGELADO.md` precede o primeiro commit que introduz
 qualquer regra; o campo `versao_regras`, presente em toda resposta da camada e em
 todo registro bruto, permite reconstruir qual configuracao gerou cada medida.
 
-### II. Somente dados sinteticos (NAO NEGOCIAVEL)
+### II. Nenhum dado pessoal real (NAO NEGOCIAVEL)
 
 Nenhum dado pessoal real entra em qualquer etapa, em qualquer arquivo, em
-qualquer registro. O corpus de documentos brasileiros e gerado com semente fixa.
+qualquer registro. O corpus de documentos brasileiros e integralmente sintetico,
+gerado com semente fixa.
+
+Precisao necessaria: os conjuntos de ataque publicados sao **prompts reais**,
+publicados em artigos revisados por pares, e nao texto sintetico. O que a regra
+proibe e dado pessoal real, nao texto de origem real. O conteudo e a licenca de
+cada conjunto sao verificados quanto a presenca de dados pessoais antes do
+congelamento.
+
 Os ataques sao executados exclusivamente contra o ambiente local construido para
 a pesquisa, nunca contra servicos de terceiros.
 
@@ -67,6 +75,20 @@ usa semente fixa, registrada em `.env` e documentada.
 ### V. Registro bruto imutavel e rastreavel
 
 Registros de execucao nunca sao editados. Correcao gera nova execucao completa.
+
+Distincao necessaria entre dois casos que nao sao equivalentes:
+
+- **Defeito de instrumentacao** — erro no executor, no formato de registro, na
+  medicao de tempo ou no tratamento de erro de API. Corrigir e legitimo e gera
+  nova execucao. **Ambas as execucoes sao preservadas**, e o ADR correspondente
+  registra o defeito, a correcao e por que a execucao anterior foi descartada.
+- **Ajuste orientado ao resultado** — alterar regra da camada, criterio de
+  julgamento ou formula de indicador apos observar o resultado. Proibido, sem
+  excecao, e nenhuma justificativa de prazo o autoriza.
+
+A diferenca esta na direcao da causa: no primeiro caso a correcao decorre de um
+defeito identificavel independentemente do resultado; no segundo, decorre do
+resultado.
 Cada requisicao produz um registro com identificador, condicao, conjunto de
 origem, categoria de risco, entrada, decisao, resposta final, tempo interno,
 tempo total, numero da repeticao e versao das regras vigente.

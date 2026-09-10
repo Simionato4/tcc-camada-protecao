@@ -19,7 +19,10 @@ O experimento executa 3.883 chamadas ao modelo, distribuidas assim:
 | **Total** | | | **3.883** |
 
 Tetos configurados em `.env`, aplicados pelo `GuardaOrcamento` antes de cada
-chamada: `TETO_CHAMADAS=4500` e `TETO_USD=16.00`. Nenhum modulo do projeto chama
+chamada: `TETO_USD=16.00`, que e o limite efetivo, e `TETO_CHAMADAS=8500`, que
+funciona como guarda contra laco infinito e precisa comportar duas execucoes
+completas (2 x 3.883) mais piloto e testes de fumaca. O guarda reserva o custo
+estimado da proxima chamada antes de autoriza-la. Nenhum modulo do projeto chama
 o modelo fora de `executor/cliente_modelo.py`. `MODO_SIMULADO=1` e o padrao, e o
 consumo simulado e gravado em livro-caixa separado do real.
 
@@ -53,5 +56,13 @@ prompt de sistema, k=3 documentos e uma pergunta de atendimento.
 O snapshot `claude-haiku-4-5-20251001` foi confirmado na mesma execucao: um
 identificador inexistente e rejeitado pela API.
 
+## Correcao de 10/09/2026
+
+O teto de chamadas foi originalmente fixado em 4.500, valor incoerente com a
+afirmacao, no mesmo ADR, de que a margem comportava duas reexecucoes completas:
+duas execucoes somam 7.766 chamadas. O teto em dolares comportava (US$ 12,78 contra
+US$ 16,00), o de chamadas nao. Corrigido para 8.500. Inconsistencia apontada por
+revisao externa dos artefatos.
+
 ## Data
-2026-08-31
+2026-08-31, com correcao em 2026-09-10

@@ -3,10 +3,16 @@
 Motivo de existir: o credito e finito (US$ 20) e um laco mal fechado inviabiliza
 o trabalho. Nenhuma chamada ao modelo pode ser feita fora daqui.
 
-Tres protecoes independentes:
+Quatro protecoes independentes:
   1. teto de chamadas       - impede laco infinito
   2. teto em dolares        - impede laco caro com poucas chamadas
-  3. modo simulado          - permite desenvolver o executor sem gastar nada
+  3. reserva previa         - recusa a chamada cujo custo estimado ultrapassaria o
+                              teto, em vez de so constatar o estouro depois
+  4. modo simulado          - permite desenvolver o executor sem gastar nada
+
+O teto em dolares e o limite que de fato importa; o teto de chamadas existe apenas
+como guarda contra laco infinito, e por isso e folgado o suficiente para nao
+impedir uma reexecucao completa do protocolo.
 
 O consumo e persistido em disco, entao o teto vale para a soma de todas as
 execucoes, e nao para cada processo isolado.
@@ -55,6 +61,7 @@ class GuardaOrcamento:
         preco_entrada_usd_mtok: float | None = None,
         preco_saida_usd_mtok: float | None = None,
         simulado: bool | None = None,
+        custo_estimado_chamada: float | None = None,
     ) -> None:
         self.simulado = (
             simulado if simulado is not None else os.getenv("MODO_SIMULADO", "1") == "1"
@@ -66,6 +73,9 @@ class GuardaOrcamento:
         )
         self.preco_saida = preco_saida_usd_mtok or float(
             os.getenv("PRECO_SAIDA_USD_MTOK", "5.0")
+        )
+        self.custo_estimado_chamada = custo_estimado_chamada or float(
+            os.getenv("CUSTO_ESTIMADO_CHAMADA_USD", "0.0025")
         )
         self.arquivo = self._caminho(
             arquivo or os.getenv("ARQUIVO_CONSUMO", "resultados/consumo.json")
@@ -93,13 +103,23 @@ class GuardaOrcamento:
         )
 
     def antes_de_chamar(self) -> None:
+        """Verifica os tres limites ANTES da chamada. O gasto nunca acontece aqui.
+
+        A reserva usa uma estimativa conservadora do custo da proxima chamada, em
+        vez de apenas constatar que o teto ja foi ultrapassado. Sem ela, a ultima
+        chamada de uma execucao longa poderia estourar o teto por um valor que
+        ninguem autorizou.
+        """
         if self.consumo.chamadas >= self.teto_chamadas:
             raise OrcamentoExcedido(
                 f"teto de chamadas atingido: {self.consumo.chamadas}/{self.teto_chamadas}"
             )
-        if self.consumo.usd >= self.teto_usd:
+        projetado = self.consumo.usd + self.custo_estimado_chamada
+        if projetado > self.teto_usd:
             raise OrcamentoExcedido(
-                f"teto em dolares atingido: {self.consumo.usd:.4f}/{self.teto_usd:.2f}"
+                f"reserva recusada: consumo {self.consumo.usd:.4f} mais estimativa "
+                f"{self.custo_estimado_chamada:.4f} ultrapassaria o teto de "
+                f"{self.teto_usd:.2f}"
             )
 
     def custo(self, tokens_entrada: int, tokens_saida: int) -> float:
@@ -121,4 +141,10 @@ class GuardaOrcamento:
         return {
             "chamadas_restantes": self.teto_chamadas - self.consumo.chamadas,
             "usd_restante": round(self.teto_usd - self.consumo.usd, 4),
+            # A tolerancia evita que aritmetica de ponto flutuante devolva 399
+            # onde o valor exato e 400.
+            "chamadas_cabendo_no_teto_usd": int(
+                max(0.0, self.teto_usd - self.consumo.usd) / self.custo_estimado_chamada
+                + 1e-9
+            ),
         }

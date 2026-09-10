@@ -1,3 +1,7 @@
+# A tag e mutavel: `3.12-slim` aponta para outra imagem a cada correcao de
+# seguranca do Debian. Depois da primeira construcao, rode
+# scripts/coletar_versoes.py, registre o digest em docs/versoes.md e troque a tag
+# pelo digest, como ja feito com as quatro imagens de servico.
 FROM python:3.12-slim
 
 WORKDIR /app

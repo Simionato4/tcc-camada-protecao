@@ -1,14 +1,10 @@
 # Ambiente completo do experimento. Um comando sobe tudo:
 #   docker compose up -d
 #
-# As imagens estao fixadas por digest (sha256), coletado em 2026-08-31 com
-# scripts/coletar_versoes.py. Digest e imutavel: aponta sempre para os mesmos
-# bytes, enquanto uma tag como 'latest' passa a apontar para outra coisa a
-# qualquer momento. E isso que permite a um terceiro reconstruir o mesmo
-# ambiente que produziu os resultados, meses depois.
-#
-# Ao trocar de versao propositalmente, atualize tambem docs/versoes.md e
-# registre a troca em um ADR.
+# As tags estao em 'latest' apenas ate a tarefa 0.10. Depois de subir a primeira
+# vez, rode scripts/coletar_versoes.py, registre o digest de cada imagem em
+# docs/versoes.md e TROQUE 'latest' pelo digest. A partir dai o ambiente e
+# reproduzivel por terceiros, que e o que a proposta promete.
 
 name: tcc-camada-protecao
 
@@ -16,11 +12,11 @@ services:
 
   # Assistente de referencia. Variavel de controle: o fluxo e identico nas 4 condicoes.
   n8n:
-    image: docker.n8n.io/n8nio/n8n@sha256:a9e2e3c8006ed453238266669ea1274be7136f515abe290a2f75a0ab9044c93d
+    image: docker.n8n.io/n8nio/n8n:latest
     container_name: tcc-n8n
     restart: unless-stopped
     ports:
-      - "5678:5678"
+      - "127.0.0.1:5678:5678"
     environment:
       - GENERIC_TIMEZONE=America/Sao_Paulo
       - TZ=America/Sao_Paulo
@@ -34,12 +30,12 @@ services:
 
   # Base vetorial da base de conhecimento (30 documentos sinteticos).
   qdrant:
-    image: qdrant/qdrant@sha256:057ee3a8da769fe7310dd3537b4dc7583bf87a95ce8ac43c0af5a46bc580d1fc
+    image: qdrant/qdrant:latest
     container_name: tcc-qdrant
     restart: unless-stopped
     ports:
-      - "6333:6333"
-      - "6334:6334"
+      - "127.0.0.1:6333:6333"
+      - "127.0.0.1:6334:6334"
     volumes:
       - qdrant_data:/qdrant/storage
     networks:
@@ -48,20 +44,20 @@ services:
   # Condicao C, eixo de saida. Imagens atuais do projeto; as antigas em
   # mcr.microsoft.com estao descontinuadas.
   presidio-analyzer:
-    image: ghcr.io/data-privacy-stack/presidio-analyzer@sha256:ae8f6f111ac2f04e3fec552f7f80edd0dcbfa2dd69ee1b9e030475be31669885
+    image: ghcr.io/data-privacy-stack/presidio-analyzer:latest
     container_name: tcc-presidio-analyzer
     restart: unless-stopped
     ports:
-      - "5002:3000"
+      - "127.0.0.1:5002:3000"
     networks:
       - tcc
 
   presidio-anonymizer:
-    image: ghcr.io/data-privacy-stack/presidio-anonymizer@sha256:e567013893ebc80994e3799f6f55c86aa1f0b0fadb779571ab346f0ec45365c1
+    image: ghcr.io/data-privacy-stack/presidio-anonymizer:latest
     container_name: tcc-presidio-anonymizer
     restart: unless-stopped
     ports:
-      - "5001:3000"
+      - "127.0.0.1:5001:3000"
     networks:
       - tcc
 
@@ -72,7 +68,7 @@ services:
     container_name: tcc-camada
     restart: unless-stopped
     ports:
-      - "8000:8000"
+      - "127.0.0.1:8000:8000"
     env_file:
       - .env
     volumes:

@@ -25,6 +25,7 @@ IMAGENS = [
     "qdrant/qdrant:latest",
     "ghcr.io/data-privacy-stack/presidio-analyzer:latest",
     "ghcr.io/data-privacy-stack/presidio-anonymizer:latest",
+    "python:3.12-slim",
 ]
 
 

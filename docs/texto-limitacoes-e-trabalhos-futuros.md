@@ -45,9 +45,9 @@ nao amostrou.
 > Como o codigo da camada e publico, a hipotese de um adversario que conhece as
 > regras e realista, e nao pessimista.
 >
-> Decorre disso que os valores aqui reportados devem ser lidos como limite
-> superior do desempenho da camada, e nao como estimativa de sua eficacia diante
-> de um adversario informado. A comparacao entre as quatro condicoes permanece
+> Decorre disso que **o experimento nao demonstra robustez diante de adversarios
+> adaptativos**, e os valores aqui reportados nao autorizam conclusao sobre o
+> desempenho da camada nesse cenario. A comparacao entre as quatro condicoes permanece
 > valida, uma vez que todas enfrentam exatamente o mesmo conjunto de casos, e e o
 > mesmo desenho adotado por Alves et al. (2025). O que nao se sustenta e a
 > extrapolacao de qualquer uma das taxas para cenarios adversariais adaptativos.
@@ -70,7 +70,11 @@ nao amostrou.
 > possui mecanismo especifico a ser posto a prova: normalizacao seguida de
 > validacao de digito verificador. Consiste em um motor de mutacao deterministico,
 > com semente registrada, aplicado as 350 ocorrencias sinteticas do corpus, com
-> operadores que representam classes conhecidas de ofuscacao: separadores
+> operadores fixos que representam classes conhecidas de ofuscacao. Cabe distinguir
+> desde ja: mutacao por operador fixo **nao e ataque adaptativo**, porque nao
+> considera nem explora a defesa especifica; e um teste de robustez a ofuscacao
+> conhecida, mais forte que o estatico e mais fraco que o adaptativo. Os operadores
+> propostos sao: separadores
 > alternativos entre digitos; caracteres de largura zero intercalados; seletores de
 > variacao e blocos de tag Unicode; homoglifos e digitos de largura completa;
 > codificacao em base64, hexadecimal e percent-encoding; fragmentacao do documento

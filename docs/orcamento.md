@@ -47,9 +47,19 @@ chamada, nunca depois:
 
 | Variavel | Valor | Funcao |
 |---|---|---|
-| `TETO_CHAMADAS` | 4500 | impede laco infinito |
-| `TETO_USD` | 16.00 | impede laco caro com poucas chamadas |
+| `TETO_USD` | 16.00 | limite que de fato importa; comporta duas execucoes completas (US$ 12,78) |
+| `TETO_CHAMADAS` | 8500 | guarda contra laco infinito; comporta 2 x 3.883 mais piloto e testes |
+| `CUSTO_ESTIMADO_CHAMADA_USD` | 0.0025 | reserva conservadora, acima do custo medido de 0,001646 |
 | `MODO_SIMULADO` | 1 (padrao) | desenvolvimento com custo zero |
+
+Os dois tetos precisam ser coerentes entre si. Na primeira versao o teto de
+chamadas era 4.500, o que **nao comportava a reexecucao** de um protocolo de 3.883
+chamadas que o teto em dolares permitia — inconsistencia apontada em revisao
+externa e corrigida em 10/09/2026.
+
+O guarda **reserva** o custo estimado da proxima chamada antes de autoriza-la, em
+vez de apenas constatar que o teto ja foi ultrapassado. Sem a reserva, a ultima
+chamada de uma execucao longa gastaria um valor que nenhum teto autorizou.
 
 Modo simulado e modo real gravam em arquivos separados —
 `resultados/consumo-simulado.json` e `resultados/consumo.json`. Sem essa

@@ -124,17 +124,19 @@ enunciado dos criterios desta categoria: mede-se reducao de sucesso, nao prevenc
 | MS-2.2-003 | Oferecer a titulares opcao de retirar consentimento | Data Privacy | fora | Nao ha titular real; dados sinteticos |
 | MS-2.2-004 | Usar anonimizacao e privacidade diferencial para impedir religacao ao individuo | Data Privacy | fora | Atua sobre dados de treinamento |
 | MS-2.3-001 | Considerar desempenho de referencia em benchmarks ao selecionar modelo | Information Security | fora | Comparacao entre modelos esta fora do escopo |
+| MS-2.3-002 | Avaliar alegacoes de capacidade do modelo por metodos empiricamente validados | Confabulation; Information Security | fora | Trata de alegacoes do fornecedor sobre o modelo; comparacao entre modelos esta fora do escopo |
 | MS-2.3-003 | Compartilhar resultados de teste pre-implantacao com autoridade de liberacao | — | fora | Processo organizacional |
 | MS-2.3-004 | Usar ambiente de teste dedicado, como o NIST Dioptra | varias | fora | Ferramenta adicional; escopo fechado quanto a comparacao de ferramentas |
 | MS-2.5-005 | Verificar procedencia dos dados de treinamento e de avaliacao | Information Integrity | fora | Atua sobre o ciclo de treinamento |
 | MS-2.5-006 | Revisar periodicamente barreiras de seguranca em circunstancias novas | Information Security | fora | Processo longitudinal, incompativel com execucao unica |
-| MS-2.6-001 | Avaliar presenca de violacao de privacidade e conteudo nocivo nos dados de treinamento | Data Privacy e outras | fora | Atua sobre dados de treinamento |
+| MS-2.6-001 | Avaliar impactos adversos, inclusive de saude e bem-estar, sobre pessoas da cadeia de valor expostas a conteudo sexual explicito, ofensivo ou violento durante o treinamento e a manutencao | Human-AI Configuration; Obscene, Degrading, and/or Abusive Content; Value Chain; Dangerous, Violent, or Hateful Content | fora | Trata de impacto sobre trabalhadores da cadeia de valor, nao de comportamento do sistema |
+| MS-2.6-002 | Avaliar existencia ou nivel de vies nocivo, violacao de propriedade intelectual, violacao de privacidade, obscenidade, extremismo, violencia ou informacao CBRN **nos dados de treinamento do sistema** | Data Privacy; Intellectual Property; Obscene...; Harmful Bias; Dangerous...; CBRN | fora | Atua sobre dados de treinamento; o modelo e consumido como servico |
+| MS-2.7-002 | Comparar seguranca e resiliencia do sistema quanto a procedencia de conteudo contra padroes e melhores praticas da industria | Information Integrity; Information Security | fora | Exige referencial de comparacao setorial e trata de procedencia de conteudo, fora do recorte |
 | MS-2.7-006 | Medir a taxa de implementacao de recomendacoes de seguranca | Information Security | fora | Metrica organizacional de processo |
 | MS-2.7-009 | Verificar periodicamente que as medidas permanecem eficazes | Information Security | fora | Processo longitudinal |
 | MS-4.2-005 | Documentar incorporacao de retorno publico estruturado nas decisoes | Information Security | fora | Processo organizacional |
 
-Tres acoes adicionais do recorte (MS-2.2-001 e correlatas) foram absorvidas nas
-linhas acima por tratarem do mesmo objeto.
+As 21 acoes selecionadas estao integralmente enumeradas acima, uma por linha.
 
 ---
 
@@ -169,6 +171,29 @@ direcao conservadora: a matriz passou a afirmar menos.
 | OWASP LLM01 #6 | avaliado | parcial | Canal separado de inspecao, nao de confianca |
 | NIST MS-2.6-005 | avaliado | parcial | Ha monitoramento e registro; nao ha recuperacao nem reparo |
 | NIST MS-2.7-001 | parcial | fora | Uma de oito ameacas listadas; coberta no grupo CTX |
+
+## Revisao de 10/09/2026 — correcoes apontadas por revisao externa
+
+Uma revisao independente conferiu esta extracao contra os PDFs originais e
+identificou tres defeitos, todos confirmados e corrigidos:
+
+1. **Enumeracao incompleta.** O texto declarava 21 acoes MEASURE selecionadas, mas
+   a tabela continha 18, com a observacao de que tres teriam sido "absorvidas" —
+   sem identifica-las. As tres ausentes eram `MS-2.3-002`, `MS-2.6-002` e
+   `MS-2.7-002`, que nunca haviam sido examinadas: a extracao de texto do PDF, cuja
+   secao 3 e composta de tabelas, as havia perdido. As tres foram recuperadas,
+   examinadas e classificadas. Todas ficam `fora`, entao a classificacao final nao
+   muda — o que estava errado era o metodo, nao o resultado, e isso e mais grave.
+2. **Descricao trocada.** O texto atribuido a `MS-2.6-001` pertence a `MS-2.6-002`.
+   A extracao por camadas do PDF deslocou conteudo entre linhas adjacentes da
+   tabela. Ambas corrigidas contra o documento original.
+3. **Contagem dos tipos de verificacao** na matriz, corrigida em
+   `docs/matriz_criterios.md`.
+
+Licao registrada para as proximas extracoes: texto proveniente de tabela de PDF
+exige conferencia por identificador, um a um, contra o documento original. A
+contagem de itens selecionados e a contagem de itens tabulados precisam bater
+antes de a extracao ser considerada concluida.
 
 Na mesma revisao decidiu-se registrar o **tipo de verificacao** de cada criterio,
 uma vez que nem todo controle e verificavel por taxa experimental. Ver

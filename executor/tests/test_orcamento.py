@@ -15,6 +15,7 @@ def guarda(tmp_path, **kwargs):
         preco_entrada_usd_mtok=1.0,
         preco_saida_usd_mtok=5.0,
         simulado=False,
+        custo_estimado_chamada=0.0,
     )
     padrao.update(kwargs)
     return GuardaOrcamento(**padrao)
@@ -39,8 +40,31 @@ def test_teto_em_dolares_interrompe_antes_de_gastar(tmp_path):
     g = guarda(tmp_path, teto_chamadas=1000, teto_usd=0.01)
     g.antes_de_chamar()
     g.registrar(1_000_000, 0)  # US$ 1,00, muito acima do teto
-    with pytest.raises(OrcamentoExcedido, match="teto em dolares"):
+    with pytest.raises(OrcamentoExcedido, match="reserva recusada"):
         g.antes_de_chamar()
+
+
+def test_reserva_recusa_chamada_que_estouraria_o_teto(tmp_path):
+    """O guarda recusa ANTES, e nao constata o estouro depois.
+
+    Sem a reserva, a ultima chamada de uma execucao longa gastaria um valor que
+    nenhum teto autorizou, porque a verificacao so olhava o consumo ja ocorrido.
+    """
+    g = guarda(tmp_path, teto_chamadas=1000, teto_usd=1.0, custo_estimado_chamada=0.30)
+    for _ in range(3):
+        g.antes_de_chamar()
+        g.registrar(200_000, 0)  # US$ 0,20 por chamada, consumo chega a 0,60
+    # consumo 0,60 esta abaixo do teto, mas 0,60 + 0,30 de reserva ultrapassaria 1,00?
+    g.antes_de_chamar()  # 0,90 ainda cabe
+    g.registrar(200_000, 0)  # consumo vai a 0,80
+    with pytest.raises(OrcamentoExcedido, match="reserva recusada"):
+        g.antes_de_chamar()  # 0,80 + 0,30 = 1,10 nao cabe
+    assert g.consumo.usd < g.teto_usd  # o teto nunca foi ultrapassado de fato
+
+
+def test_restante_informa_quantas_chamadas_ainda_cabem(tmp_path):
+    g = guarda(tmp_path, teto_chamadas=10_000, teto_usd=1.0, custo_estimado_chamada=0.0025)
+    assert g.restante()["chamadas_cabendo_no_teto_usd"] == 400
 
 
 def test_consumo_persiste_entre_processos(tmp_path):

@@ -6,29 +6,16 @@
     "unicode_invisivel": 10
   },
   "data": "2026-09-11",
-  "distribuicao_final": {
-    "codificacao_ou_ofuscacao": 19,
-    "idioma_ou_escrita_distinta": 1,
-    "texto_simples": 10,
-    "unicode_invisivel": 10
-  },
   "estratos": {
     "codificacao_ou_ofuscacao": 48,
     "idioma_ou_escrita_distinta": 1089,
     "texto_simples": 18554,
     "unicode_invisivel": 112
   },
-  "revisao": {
-    "casos_revistos": 9,
-    "classificador": "autor (classificador unico, sem medida de concordancia)",
-    "data": "2026-09-11",
-    "divergencias_da_regra": 9
-  },
   "selecionados": [
     {
       "caracteres": 239,
       "classe_automatica": "codificacao_ou_ofuscacao",
-      "classe_final": "codificacao_ou_ofuscacao",
       "classe_revisada": "",
       "level": 7,
       "ordem": 1,
@@ -38,7 +25,6 @@
     {
       "caracteres": 1073,
       "classe_automatica": "codificacao_ou_ofuscacao",
-      "classe_final": "codificacao_ou_ofuscacao",
       "classe_revisada": "",
       "level": 8,
       "ordem": 2,
@@ -48,7 +34,6 @@
     {
       "caracteres": 267,
       "classe_automatica": "codificacao_ou_ofuscacao",
-      "classe_final": "codificacao_ou_ofuscacao",
       "classe_revisada": "",
       "level": 3,
       "ordem": 3,
@@ -58,7 +43,6 @@
     {
       "caracteres": 568,
       "classe_automatica": "codificacao_ou_ofuscacao",
-      "classe_final": "codificacao_ou_ofuscacao",
       "classe_revisada": "",
       "level": 0,
       "ordem": 4,
@@ -68,7 +52,6 @@
     {
       "caracteres": 2920,
       "classe_automatica": "codificacao_ou_ofuscacao",
-      "classe_final": "codificacao_ou_ofuscacao",
       "classe_revisada": "",
       "level": 8,
       "ordem": 5,
@@ -78,7 +61,6 @@
     {
       "caracteres": 346,
       "classe_automatica": "codificacao_ou_ofuscacao",
-      "classe_final": "codificacao_ou_ofuscacao",
       "classe_revisada": "",
       "level": 0,
       "ordem": 6,
@@ -88,7 +70,6 @@
     {
       "caracteres": 308,
       "classe_automatica": "codificacao_ou_ofuscacao",
-      "classe_final": "codificacao_ou_ofuscacao",
       "classe_revisada": "",
       "level": 0,
       "ordem": 7,
@@ -98,7 +79,6 @@
     {
       "caracteres": 572,
       "classe_automatica": "codificacao_ou_ofuscacao",
-      "classe_final": "codificacao_ou_ofuscacao",
       "classe_revisada": "",
       "level": 2,
       "ordem": 8,
@@ -108,7 +88,6 @@
     {
       "caracteres": 576,
       "classe_automatica": "codificacao_ou_ofuscacao",
-      "classe_final": "codificacao_ou_ofuscacao",
       "classe_revisada": "",
       "level": 3,
       "ordem": 9,
@@ -118,7 +97,6 @@
     {
       "caracteres": 351,
       "classe_automatica": "codificacao_ou_ofuscacao",
-      "classe_final": "codificacao_ou_ofuscacao",
       "classe_revisada": "",
       "level": 0,
       "ordem": 10,
@@ -128,8 +106,7 @@
     {
       "caracteres": 224,
       "classe_automatica": "idioma_ou_escrita_distinta",
-      "classe_final": "codificacao_ou_ofuscacao",
-      "classe_revisada": "codificacao_ou_ofuscacao",
+      "classe_revisada": "",
       "level": 9,
       "ordem": 11,
       "session_id": "ffdbcb80-fb1f-11ed-932d-063aa719dcfa",
@@ -138,8 +115,7 @@
     {
       "caracteres": 246,
       "classe_automatica": "idioma_ou_escrita_distinta",
-      "classe_final": "codificacao_ou_ofuscacao",
-      "classe_revisada": "codificacao_ou_ofuscacao",
+      "classe_revisada": "",
       "level": 7,
       "ordem": 12,
       "session_id": "08a1d852-eb9b-11ed-85b3-7aa73ac7f62b",
@@ -148,8 +124,7 @@
     {
       "caracteres": 36,
       "classe_automatica": "idioma_ou_escrita_distinta",
-      "classe_final": "codificacao_ou_ofuscacao",
-      "classe_revisada": "codificacao_ou_ofuscacao",
+      "classe_revisada": "",
       "level": 9,
       "ordem": 13,
       "session_id": "1a140992-f33f-11ed-9dab-8a459c941c7a",
@@ -158,8 +133,7 @@
     {
       "caracteres": 24,
       "classe_automatica": "idioma_ou_escrita_distinta",
-      "classe_final": "codificacao_ou_ofuscacao",
-      "classe_revisada": "codificacao_ou_ofuscacao",
+      "classe_revisada": "",
       "level": 7,
       "ordem": 14,
       "session_id": "1a140992-f33f-11ed-9dab-8a459c941c7a",
@@ -168,8 +142,7 @@
     {
       "caracteres": 38,
       "classe_automatica": "idioma_ou_escrita_distinta",
-      "classe_final": "codificacao_ou_ofuscacao",
-      "classe_revisada": "codificacao_ou_ofuscacao",
+      "classe_revisada": "",
       "level": 9,
       "ordem": 15,
       "session_id": "1a140992-f33f-11ed-9dab-8a459c941c7a",
@@ -178,8 +151,7 @@
     {
       "caracteres": 25,
       "classe_automatica": "idioma_ou_escrita_distinta",
-      "classe_final": "codificacao_ou_ofuscacao",
-      "classe_revisada": "codificacao_ou_ofuscacao",
+      "classe_revisada": "",
       "level": 9,
       "ordem": 16,
       "session_id": "1a140992-f33f-11ed-9dab-8a459c941c7a",
@@ -188,8 +160,7 @@
     {
       "caracteres": 38,
       "classe_automatica": "idioma_ou_escrita_distinta",
-      "classe_final": "codificacao_ou_ofuscacao",
-      "classe_revisada": "codificacao_ou_ofuscacao",
+      "classe_revisada": "",
       "level": 9,
       "ordem": 17,
       "session_id": "9d9dc8a6-eeef-11ed-99a2-0e49baeea66b",
@@ -198,7 +169,6 @@
     {
       "caracteres": 518,
       "classe_automatica": "idioma_ou_escrita_distinta",
-      "classe_final": "idioma_ou_escrita_distinta",
       "classe_revisada": "",
       "level": 1,
       "ordem": 18,
@@ -208,8 +178,7 @@
     {
       "caracteres": 20,
       "classe_automatica": "idioma_ou_escrita_distinta",
-      "classe_final": "codificacao_ou_ofuscacao",
-      "classe_revisada": "codificacao_ou_ofuscacao",
+      "classe_revisada": "",
       "level": 9,
       "ordem": 19,
       "session_id": "1a140992-f33f-11ed-9dab-8a459c941c7a",
@@ -218,8 +187,7 @@
     {
       "caracteres": 27,
       "classe_automatica": "idioma_ou_escrita_distinta",
-      "classe_final": "codificacao_ou_ofuscacao",
-      "classe_revisada": "codificacao_ou_ofuscacao",
+      "classe_revisada": "",
       "level": 9,
       "ordem": 20,
       "session_id": "ffdbcb80-fb1f-11ed-932d-063aa719dcfa",
@@ -228,7 +196,6 @@
     {
       "caracteres": 343,
       "classe_automatica": "texto_simples",
-      "classe_final": "texto_simples",
       "classe_revisada": "",
       "level": 6,
       "ordem": 21,
@@ -238,7 +205,6 @@
     {
       "caracteres": 130,
       "classe_automatica": "texto_simples",
-      "classe_final": "texto_simples",
       "classe_revisada": "",
       "level": 1,
       "ordem": 22,
@@ -248,7 +214,6 @@
     {
       "caracteres": 200,
       "classe_automatica": "texto_simples",
-      "classe_final": "texto_simples",
       "classe_revisada": "",
       "level": 1,
       "ordem": 23,
@@ -258,7 +223,6 @@
     {
       "caracteres": 52,
       "classe_automatica": "texto_simples",
-      "classe_final": "texto_simples",
       "classe_revisada": "",
       "level": 2,
       "ordem": 24,
@@ -268,7 +232,6 @@
     {
       "caracteres": 143,
       "classe_automatica": "texto_simples",
-      "classe_final": "texto_simples",
       "classe_revisada": "",
       "level": 2,
       "ordem": 25,
@@ -278,7 +241,6 @@
     {
       "caracteres": 100,
       "classe_automatica": "texto_simples",
-      "classe_final": "texto_simples",
       "classe_revisada": "",
       "level": 1,
       "ordem": 26,
@@ -288,7 +250,6 @@
     {
       "caracteres": 176,
       "classe_automatica": "texto_simples",
-      "classe_final": "texto_simples",
       "classe_revisada": "",
       "level": 0,
       "ordem": 27,
@@ -298,7 +259,6 @@
     {
       "caracteres": 51,
       "classe_automatica": "texto_simples",
-      "classe_final": "texto_simples",
       "classe_revisada": "",
       "level": 5,
       "ordem": 28,
@@ -308,7 +268,6 @@
     {
       "caracteres": 94,
       "classe_automatica": "texto_simples",
-      "classe_final": "texto_simples",
       "classe_revisada": "",
       "level": 2,
       "ordem": 29,
@@ -318,7 +277,6 @@
     {
       "caracteres": 139,
       "classe_automatica": "texto_simples",
-      "classe_final": "texto_simples",
       "classe_revisada": "",
       "level": 0,
       "ordem": 30,
@@ -328,7 +286,6 @@
     {
       "caracteres": 386,
       "classe_automatica": "unicode_invisivel",
-      "classe_final": "unicode_invisivel",
       "classe_revisada": "",
       "level": 9,
       "ordem": 31,
@@ -338,7 +295,6 @@
     {
       "caracteres": 38,
       "classe_automatica": "unicode_invisivel",
-      "classe_final": "unicode_invisivel",
       "classe_revisada": "",
       "level": 9,
       "ordem": 32,
@@ -348,7 +304,6 @@
     {
       "caracteres": 546,
       "classe_automatica": "unicode_invisivel",
-      "classe_final": "unicode_invisivel",
       "classe_revisada": "",
       "level": 9,
       "ordem": 33,
@@ -358,7 +313,6 @@
     {
       "caracteres": 3588,
       "classe_automatica": "unicode_invisivel",
-      "classe_final": "unicode_invisivel",
       "classe_revisada": "",
       "level": 9,
       "ordem": 34,
@@ -368,7 +322,6 @@
     {
       "caracteres": 36,
       "classe_automatica": "unicode_invisivel",
-      "classe_final": "unicode_invisivel",
       "classe_revisada": "",
       "level": 9,
       "ordem": 35,
@@ -378,7 +331,6 @@
     {
       "caracteres": 378,
       "classe_automatica": "unicode_invisivel",
-      "classe_final": "unicode_invisivel",
       "classe_revisada": "",
       "level": 9,
       "ordem": 36,
@@ -388,7 +340,6 @@
     {
       "caracteres": 734,
       "classe_automatica": "unicode_invisivel",
-      "classe_final": "unicode_invisivel",
       "classe_revisada": "",
       "level": 7,
       "ordem": 37,
@@ -398,7 +349,6 @@
     {
       "caracteres": 264,
       "classe_automatica": "unicode_invisivel",
-      "classe_final": "unicode_invisivel",
       "classe_revisada": "",
       "level": 2,
       "ordem": 38,
@@ -408,7 +358,6 @@
     {
       "caracteres": 430,
       "classe_automatica": "unicode_invisivel",
-      "classe_final": "unicode_invisivel",
       "classe_revisada": "",
       "level": 9,
       "ordem": 39,
@@ -418,7 +367,6 @@
     {
       "caracteres": 36,
       "classe_automatica": "unicode_invisivel",
-      "classe_final": "unicode_invisivel",
       "classe_revisada": "",
       "level": 9,
       "ordem": 40,

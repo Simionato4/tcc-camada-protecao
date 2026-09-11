@@ -3,3 +3,10 @@
 # conteiner.
 faker==40.38.0
 validate-docbr==2.0.0
+
+# Obtencao dos conjuntos publicos (ADR-0016).
+huggingface_hub==1.31.0
+
+# Leitura dos conjuntos obtidos (parquet do HackAPrompt).
+pandas==2.2.3
+pyarrow==18.1.0

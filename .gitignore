@@ -23,6 +23,20 @@ resultados/consumo*.json
 # sim vao para o repositorio: sao a evidencia.
 resultados/camada.jsonl
 
+# Conjuntos publicos: NAO sao redistribuidos (ADR-0016). Cada um tem licenca propria,
+# e o Do-Not-Answer usa CC BY-NC-SA, incompativel com a licenca MIT declarada neste
+# repositorio. Versiona-se a selecao e os hashes, nunca o conteudo.
+conjunto_teste/origem/
+# Arquivo de revisao manual: contem o texto dos ataques, que nao e redistribuido.
+# A selecao versionada guarda identificador, nivel, hash e classe.
+conjunto_teste/revisao/
+
 # Sistema
 .DS_Store
 Thumbs.db
+
+# Pasta do agente de codigo: versionar apenas as skills do Spec Kit (artefato de
+# metodo). Qualquer outra coisa que um agente grave aqui (estado local, tokens,
+# credenciais) fica de fora por padrao, sem depender de sabermos o nome do arquivo.
+.claude/*
+!.claude/skills/

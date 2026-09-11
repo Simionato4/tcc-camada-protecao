@@ -1,0 +1,600 @@
+[
+  {
+    "acesso": "publico",
+    "arquivos": [
+      {
+        "bytes": 2307,
+        "caminho": ".gitattributes",
+        "sha256": "f4e703ea6e44bbebe53aceed2a89c11e40b88b7ae130c480c89860ab805ffc8f"
+      },
+      {
+        "bytes": 248555,
+        "caminho": "assets/action.png",
+        "sha256": "f1037830797b05b39d546a481eeaf5faceb4f8db8168b385345ca5601760f765"
+      },
+      {
+        "bytes": 44815,
+        "caminho": "assets/action_dist.png",
+        "sha256": "f326083a9ddc64b1e3cbd80776d8fe51e683eb32f862952731638ca9b8a4357f"
+      },
+      {
+        "bytes": 34442,
+        "caminho": "assets/auto_eval.png",
+        "sha256": "2bfad6762e091e5e50c177257c1e2a46feb601de684ce5a09f143f0edd163c21"
+      },
+      {
+        "bytes": 409691,
+        "caminho": "assets/dna.png",
+        "sha256": "8e6192dcc6a37361d360e15f152c8f28cfe19cab49a61adeb8c460ec9e6a96a3"
+      },
+      {
+        "bytes": 13680,
+        "caminho": "assets/harmful_num.png",
+        "sha256": "9edebefa4520ec197e2f2230a5dee825c3bd3072dddbf2e37711a2a9fca5e642"
+      },
+      {
+        "bytes": 129648,
+        "caminho": "assets/instruction_dist.png",
+        "sha256": "759be460916c6fb1c91f49b64294203119180ba40eab649f9aedf2c172ec2239"
+      },
+      {
+        "bytes": 455238,
+        "caminho": "assets/radar_plot.png",
+        "sha256": "931fb46c161f442c9b59d781672b3e0586c93b28569061091536c4309251b676"
+      },
+      {
+        "bytes": 1709142,
+        "caminho": "data/train-00000-of-00001-6ba0076b818accff.parquet",
+        "sha256": "cc03d6e34df834c4272ccb67eacb21f8016c1ac59c9dda77b74f93cc4154c04b"
+      },
+      {
+        "bytes": 3912791,
+        "caminho": "data_en.csv",
+        "sha256": "410449674780aa7304512043706f7981f666a79528d11546da34ebdd9595681c"
+      },
+      {
+        "bytes": 4181,
+        "caminho": "README.md",
+        "sha256": "b0e3ec62f87b1e52c1cd47c9cb5d82120939caa0a5e962e32db7045e2365f544"
+      }
+    ],
+    "data_obtencao": "2026-09-11",
+    "licenca": "CC BY-NC-SA 4.0 (dados) / Apache-2.0 (codigo)",
+    "nome": "do-not-answer",
+    "origem": "LibrAI/do-not-answer",
+    "papel": "Solicitacoes nocivas — grupos NOC e PII",
+    "versao": "74e74f2e4507ef256fe536f78a776f4a1ff67955"
+  },
+  {
+    "acesso": "restrito — exige aceite das condicoes e token de leitura",
+    "arquivos": [
+      {
+        "bytes": 2438,
+        "caminho": ".gitattributes",
+        "sha256": "5d4d3015ba3d332a300b960f60d3c024880a6f8da28bcacc0283857e37f4ff8e"
+      },
+      {
+        "bytes": 150419795,
+        "caminho": "hackaprompt.parquet",
+        "sha256": "bedca308fbd71be57793930e4e4a0dcfbda2a27b6d0f2ad3191bb20a6a315928"
+      },
+      {
+        "bytes": 5555,
+        "caminho": "README.md",
+        "sha256": "627ac0ec7ebfcb5baf93bbc9b80c72a73443846debf06196803aee1138486d2a"
+      }
+    ],
+    "data_obtencao": "2026-09-11",
+    "licenca": "MIT",
+    "nome": "hackaprompt",
+    "origem": "hackaprompt/hackaprompt-dataset",
+    "papel": "Injecao direta — grupo INJ",
+    "versao": "25b87fbedfb86840abaf8cd09af7a029208a971a"
+  },
+  {
+    "acesso": "publico",
+    "arquivos": [
+      {
+        "bytes": 110,
+        "caminho": ".gitignore",
+        "sha256": "9cabf31ce1eca598c575eaec80d27f8c14ed03953f9f7f2f43ebe16e0814bf81"
+      },
+      {
+        "bytes": 7360,
+        "caminho": "benchmark/abstract/index.json",
+        "sha256": "f1d03600683089a7d58d900c32d91a27238eda2220eef69da9850a99e11cf365"
+      },
+      {
+        "bytes": 93,
+        "caminho": "benchmark/abstract/md5.txt",
+        "sha256": "d409f75aed61991c8376a8d28de49b5f85ed737e98457f6414901ac1b40e07f1"
+      },
+      {
+        "bytes": 1795,
+        "caminho": "benchmark/abstract/process.py",
+        "sha256": "d356ea500cb9a1294db3191bfa610018c698174d2b3b346d33133474f79424bd"
+      },
+      {
+        "bytes": 100501,
+        "caminho": "benchmark/code/test.jsonl",
+        "sha256": "70fb021fd4977c620ddf3049e834fc533bf762db6a26157a0b1b761cbc34364c"
+      },
+      {
+        "bytes": 125976,
+        "caminho": "benchmark/code/train.jsonl",
+        "sha256": "d7644a1e496883842918f96ed29e16e13b7ddf3da9911000f569bf60f08746f7"
+      },
+      {
+        "bytes": 16427,
+        "caminho": "benchmark/code_attack_test.json",
+        "sha256": "ab9f0563c7674074fb1cf82cb624196e9b5e3d62ac57b324b0745d23b7e55f87"
+      },
+      {
+        "bytes": 16414,
+        "caminho": "benchmark/code_attack_train.json",
+        "sha256": "ab13b6cf99afd82ac2d34ccfca835ce3636dd27e1591945b222893e83d5a0184"
+      },
+      {
+        "bytes": 30384,
+        "caminho": "benchmark/email/test.jsonl",
+        "sha256": "2d71aae20a84373089eadd20d7317e6040b4ef75a324588cbdc2e06e9c1a88c9"
+      },
+      {
+        "bytes": 31636,
+        "caminho": "benchmark/email/train.jsonl",
+        "sha256": "0130a694116e295d821fcc186eb225cdef2b222c3dc96a1cd13d0766f964e3d9"
+      },
+      {
+        "bytes": 7123,
+        "caminho": "benchmark/qa/index.json",
+        "sha256": "515ebe056b6e63d517d03f30c7b9f81026dbde49baf04fa8e6c2b20dba90bc97"
+      },
+      {
+        "bytes": 93,
+        "caminho": "benchmark/qa/md5.txt",
+        "sha256": "ec0a8584c17a278a0243a7eb4eb952af8684dd27a2db7696d23be7be8a4a4fff"
+      },
+      {
+        "bytes": 3171,
+        "caminho": "benchmark/qa/process.py",
+        "sha256": "58ee700ac5eb45e319daad3f8a6c18370b58f003349366d258d22076b16781b5"
+      },
+      {
+        "bytes": 2449,
+        "caminho": "benchmark/README.md",
+        "sha256": "bc6cab3619deba4901cec61bca34438e990685f42288a471d8bf612de09e36fa"
+      },
+      {
+        "bytes": 183402,
+        "caminho": "benchmark/table/test.jsonl",
+        "sha256": "b84d81e80f5ab9e3a245387309ee38222d11bef1ae65be6daafdaba95dc5deed"
+      },
+      {
+        "bytes": 1639381,
+        "caminho": "benchmark/table/train.jsonl",
+        "sha256": "495491f72a499bf72b062754b5553b37ea02f8b68f9a9dc7bb8d2f79f96cdc7d"
+      },
+      {
+        "bytes": 6428,
+        "caminho": "benchmark/text_attack_test.json",
+        "sha256": "e828d3e9e273ddf43c4b0c91e5803998f4314555d865e32bd4e0903ab746a3b9"
+      },
+      {
+        "bytes": 6105,
+        "caminho": "benchmark/text_attack_train.json",
+        "sha256": "ff08e5deda616db5f54acc2367683c4bfde20d0ce5c4c5857e6764dde505c747"
+      },
+      {
+        "bytes": 73,
+        "caminho": "bipia/__init__.py",
+        "sha256": "8394f16a6e26147d8350cab2352022fcf9a4ec6496ad88c92016186fc56f2ccf"
+      },
+      {
+        "bytes": 763,
+        "caminho": "bipia/data/__init__.py",
+        "sha256": "458936a7ea21967978b497fce5b78a753ec5aee68fe5abba3a40b10f862602a0"
+      },
+      {
+        "bytes": 2859,
+        "caminho": "bipia/data/abstract.py",
+        "sha256": "f29621c733071a0697383edf656e5a03040f03f75c06edca8f84952c38effb9f"
+      },
+      {
+        "bytes": 4021,
+        "caminho": "bipia/data/base.py",
+        "sha256": "3a4be41b887cf199eba66094667fb6ce2b456a94d58f99c028d0b6eaa0070fbc"
+      },
+      {
+        "bytes": 3671,
+        "caminho": "bipia/data/code.py",
+        "sha256": "2f3524519ef89b635e86bd0f56f653b56fd07355d25cb2bf928c364d8d3a21ad"
+      },
+      {
+        "bytes": 1970,
+        "caminho": "bipia/data/email.py",
+        "sha256": "732a2f38ca468a9360f0d2d69bd680d6b5f760eb6e0ef47445053caf759ef10f"
+      },
+      {
+        "bytes": 2028,
+        "caminho": "bipia/data/qa.py",
+        "sha256": "7daebb1e99db611947794a470bca4b4f33dcdd6d46b0c27f3cc8a5c680ff7f77"
+      },
+      {
+        "bytes": 1804,
+        "caminho": "bipia/data/table.py",
+        "sha256": "9a89df9dd26aee07300206d7910538db41378dbb3f79377f3f4933407c38fc1a"
+      },
+      {
+        "bytes": 2978,
+        "caminho": "bipia/data/utils.py",
+        "sha256": "9ba1be010ef5493e23c3036deac2cfb6cdc58d9cb15280baf3782cbc2afbc9cf"
+      },
+      {
+        "bytes": 338,
+        "caminho": "bipia/metrics/__init__.py",
+        "sha256": "27470d1fb240ea28663ebb5694485bfa440aea74ce63794d36a74bac594b2fe8"
+      },
+      {
+        "bytes": 1223,
+        "caminho": "bipia/metrics/eval/base.py",
+        "sha256": "67fc5cf1f296b3795a361e4d5d78a50d383903477241fd31047d4510ca8a34b5"
+      },
+      {
+        "bytes": 1556,
+        "caminho": "bipia/metrics/eval/encode.py",
+        "sha256": "f273da17422fd784523aa2620dd09fea5d22314cd1229cd74ed529bc52626b7d"
+      },
+      {
+        "bytes": 983,
+        "caminho": "bipia/metrics/eval/encrypt.py",
+        "sha256": "b522213aabc5003eb652543ae6b2aa6c7d37fb95d336b48ee3f20116f2f0a416"
+      },
+      {
+        "bytes": 975,
+        "caminho": "bipia/metrics/eval/language.py",
+        "sha256": "b6b8e52e36971c29a7a24fa1f8efd46fece268002219eca7d7bc3e684a279bc2"
+      },
+      {
+        "bytes": 1146,
+        "caminho": "bipia/metrics/eval/match.py",
+        "sha256": "3599898a4783432d7f6c9d76373c0a133796beba965c17ea14ce967c82f219de"
+      },
+      {
+        "bytes": 6894,
+        "caminho": "bipia/metrics/eval/model.py",
+        "sha256": "67e29c31ffa9a61ac57c43b64d0e43a5f25850fc79e94a8a6f5f764e0330397e"
+      },
+      {
+        "bytes": 1579,
+        "caminho": "bipia/metrics/eval/utils.py",
+        "sha256": "1826936adbea17aaf37f6583c824a88bf69b5112a342fb828ffb3e23e9cca92d"
+      },
+      {
+        "bytes": 2449,
+        "caminho": "bipia/metrics/eval_factory.py",
+        "sha256": "21ff276154c548e2a7d03e3f64e2b5dd28744d75c18bffb02f3eeb8aa9f27768"
+      },
+      {
+        "bytes": 23315,
+        "caminho": "bipia/metrics/regist.py",
+        "sha256": "908670766b6321669aaf55f2d3e3e87deb6244609c4d8f57d82cc1bdd53c8d04"
+      },
+      {
+        "bytes": 1943,
+        "caminho": "bipia/model/__init__.py",
+        "sha256": "3c12ca0d3a0280cbd30712990a529c838bade4379ccb68e845cde10edd291931"
+      },
+      {
+        "bytes": 559,
+        "caminho": "bipia/model/base.py",
+        "sha256": "b1df3a5a981f549e430ebf310f794999d64e11212b86a3b7531e247ea5bc7413"
+      },
+      {
+        "bytes": 7799,
+        "caminho": "bipia/model/gpt.py",
+        "sha256": "9b4a0b293c1ed4987243fd5e63dbcdc4206fdf72009b636a17a7c37ed2a4ca11"
+      },
+      {
+        "bytes": 2183,
+        "caminho": "bipia/model/llama.py",
+        "sha256": "de6f387e7b71f99cc3d6a1f3eb69f981e4ea3c9962125e13426ef91065a5afd0"
+      },
+      {
+        "bytes": 11241,
+        "caminho": "bipia/model/llm_worker.py",
+        "sha256": "42b04bead2d7d260908b34ab7f46c4d25eed901bcf39f6b5cad23b17cc115aaa"
+      },
+      {
+        "bytes": 1521,
+        "caminho": "bipia/model/utils.py",
+        "sha256": "1572cc21d6a6c1b6de2c67baef53d5a874b3c237d91b6937ba19c42400f92645"
+      },
+      {
+        "bytes": 5427,
+        "caminho": "bipia/model/vllm_worker.py",
+        "sha256": "90b77c89b90f7e437553d60abcdc6bf093552d788e836aea3e70d9d900e85a57"
+      },
+      {
+        "bytes": 453,
+        "caminho": "CODE_OF_CONDUCT.md",
+        "sha256": "539b1bfc810aa62738af95866bfe584d568b0dca71aebed0bd81db0bdaebade3"
+      },
+      {
+        "bytes": 69,
+        "caminho": "config/alpaca_13b.yaml",
+        "sha256": "0abdc8c61db2368d8e389e28a2f10cad29389c6a5c56abdba959be6528aa1274"
+      },
+      {
+        "bytes": 113,
+        "caminho": "config/alpaca_7b.yaml",
+        "sha256": "aa224fb6544b346d8b2c34ef5f02821783f1f54195742c349f8e60b8b4396eff"
+      },
+      {
+        "bytes": 105,
+        "caminho": "config/alpaca_lora_7b.yaml",
+        "sha256": "10ce1a0542d49b4ee84cd37b83cb35e193436ffd2e4cbbc88e88f3ff1a6d32b4"
+      },
+      {
+        "bytes": 77,
+        "caminho": "config/baize_13b.yaml",
+        "sha256": "32178468c6e1174884670da73eaf9fb23463e80147828927a4c7d3363b26ed76"
+      },
+      {
+        "bytes": 74,
+        "caminho": "config/baize_7b.yaml",
+        "sha256": "088a5068911c253cf165740cecc51ee9ca9deafad8876f7a9627cd2ca9b6c742"
+      },
+      {
+        "bytes": 72,
+        "caminho": "config/chatglm2_6b.yaml",
+        "sha256": "2aa49932d87fad3dccffe2a605530274d9900c655c7cf28914ae9c3024da7e95"
+      },
+      {
+        "bytes": 71,
+        "caminho": "config/chatglm_6b.yaml",
+        "sha256": "47362773d2d8103411d05894c7031b49eec330fcba4c9f6de6296dcea36a0498"
+      },
+      {
+        "bytes": 87,
+        "caminho": "config/code_llama_34b.yaml",
+        "sha256": "9f10664e454451412a85a4758f2501680affa3c5fc9ffa809360da012b2f2ee2"
+      },
+      {
+        "bytes": 72,
+        "caminho": "config/dolly.yaml",
+        "sha256": "f885d2752df979005f5c511f1dfa685f86f5a450d76abffff20ff97144fab266"
+      },
+      {
+        "bytes": 73,
+        "caminho": "config/fastchat_t5.yaml",
+        "sha256": "e3f8b16cf18d1ca386dea6cdf5adf84db9eecd8ff9e4fcae2dd0e88251397439"
+      },
+      {
+        "bytes": 96,
+        "caminho": "config/gpt35.yaml",
+        "sha256": "2b0973e5959b62bace54cee56a2cf80f0be91c7d0bf8d1e855166a26d1dc90be"
+      },
+      {
+        "bytes": 102,
+        "caminho": "config/gpt35_wosys.yaml",
+        "sha256": "f8518b5889756a50c36bce9bb01430c96bef89a1abf72c85367a2c88d9885cd6"
+      },
+      {
+        "bytes": 95,
+        "caminho": "config/gpt4.yaml",
+        "sha256": "37561062e90340db65a2a75d5b53f161c5cde87aa2e9575fa717266ee35e1b78"
+      },
+      {
+        "bytes": 101,
+        "caminho": "config/gpt4_wosys.yaml",
+        "sha256": "481cc12eed799dde1e7056179a257f34b51249db31f2483b2318fdf0400cc527"
+      },
+      {
+        "bytes": 80,
+        "caminho": "config/gpt4all.yaml",
+        "sha256": "97668088d5752cf264d5a44f1c56013c4166a9fa5507a5feb4fa4debce13e982"
+      },
+      {
+        "bytes": 83,
+        "caminho": "config/guanaco_13b.yaml",
+        "sha256": "a4fdce9088d40ab3bef3a9863a75394d961eb225839757f91ee082d44e2dbc66"
+      },
+      {
+        "bytes": 83,
+        "caminho": "config/guanaco_33b.yaml",
+        "sha256": "3d7ab35f56a6fd914cf3112a2dbf09790c2d8eba376b742f4365a4f481754dc0"
+      },
+      {
+        "bytes": 83,
+        "caminho": "config/guanaco_65b.yaml",
+        "sha256": "6844afb72bfb5b5578e0639b0496096719923dfd0195368a57c794ec157623de"
+      },
+      {
+        "bytes": 110,
+        "caminho": "config/guanaco_7b.yaml",
+        "sha256": "7744e9d56969a715092b9b97d9c424fa93b53b23a451a9895266202b655c7b33"
+      },
+      {
+        "bytes": 72,
+        "caminho": "config/koala_13b.yaml",
+        "sha256": "781709d596168ec137639d2d07740329f6228336d90743adb2010cc4b518d7fa"
+      },
+      {
+        "bytes": 71,
+        "caminho": "config/koala_7b.yaml",
+        "sha256": "008928676f31b6065a6268ae91dd2301b15525e26f8fca8098f2978f3f0d58e2"
+      },
+      {
+        "bytes": 82,
+        "caminho": "config/llama2_13b.yaml",
+        "sha256": "d65120d6a7eaaed685f60ed9fbb23f605b3c7396a8a739da88c8348447c8f768"
+      },
+      {
+        "bytes": 82,
+        "caminho": "config/llama2_70b.yaml",
+        "sha256": "157fca1c32064fac4b23376b28ec48e83769a9d1c0c796bd89f1401306e437a5"
+      },
+      {
+        "bytes": 81,
+        "caminho": "config/llama2_7b.yaml",
+        "sha256": "5cb93d0f10fb5fa83633dcb9a315eeb9ac27889116c1d280597d090b60546cd6"
+      },
+      {
+        "bytes": 87,
+        "caminho": "config/mistral_7b.yaml",
+        "sha256": "72cd8c38566399519689c7f45aa0ea5556b1e5225f5b4731d13e571a8dae9af8"
+      },
+      {
+        "bytes": 70,
+        "caminho": "config/mpt_33b.yaml",
+        "sha256": "efe68d0c2db5571601cdc8b6304389181b86dca84f4ef0324b692ebdbe2c35bf"
+      },
+      {
+        "bytes": 69,
+        "caminho": "config/mpt_7b.yaml",
+        "sha256": "98071d5f7627c7c18c196133a0d2f640887c3c165fc41294b353733476542dec"
+      },
+      {
+        "bytes": 87,
+        "caminho": "config/oasst.yaml",
+        "sha256": "e0445000ed0d4694324cc2d714a322c248d51e7d6cea20c82f2b29cb85be4fa1"
+      },
+      {
+        "bytes": 70,
+        "caminho": "config/rwkv.yaml",
+        "sha256": "97bfabeabf87c2160bfdd7439e3f88319f86d04932529cec889521f9febc002d"
+      },
+      {
+        "bytes": 89,
+        "caminho": "config/stablelm.yaml",
+        "sha256": "f48bdda10da4bdbacef700e43c73c5cfb800b8f1d4e84679b2df0cac1d52cae7"
+      },
+      {
+        "bytes": 125,
+        "caminho": "config/stablevicuna.yaml",
+        "sha256": "a5cddf3ca31776bb0a4dcadf0ecac4f5119ab261bc61126b1f077ce35b611175"
+      },
+      {
+        "bytes": 73,
+        "caminho": "config/vicuna_13b.yaml",
+        "sha256": "a7fd73cf987669234fa94304128f94ba03860185684057d73292dd86dc960d63"
+      },
+      {
+        "bytes": 73,
+        "caminho": "config/vicuna_33b.yaml",
+        "sha256": "88b94cb65e953f2ac93173cf25c25ad03e2f4a149a685755e89064a70179a10a"
+      },
+      {
+        "bytes": 72,
+        "caminho": "config/vicuna_7b.yaml",
+        "sha256": "3dfb6a380a3df30b0f27ea2a9cd3e908fb6b498df159845cfebefbad3d18d291"
+      },
+      {
+        "bytes": 115,
+        "caminho": "config/wizard_13b.yaml",
+        "sha256": "a3c2dbe57c05c111b43150339686861dd2d62ff1b501631d915b4321130b8e1f"
+      },
+      {
+        "bytes": 115,
+        "caminho": "config/wizard_70b.yaml",
+        "sha256": "19c8d832eeb28c8bb076d01aecb452fb90b810b71ff8a34993ac1253488210d1"
+      },
+      {
+        "bytes": 17027,
+        "caminho": "defense/black_box/few_shot.py",
+        "sha256": "a7233246e95bbd88d6b9bd7dece799aff7d23ab4084350f6cada03ec40cabd5c"
+      },
+      {
+        "bytes": 8219,
+        "caminho": "defense/README.md",
+        "sha256": "09398c6f5865cccd5fe94a2385ecbde60d9edc7a1af94ecedb207d9a01194d0f"
+      },
+      {
+        "bytes": 497,
+        "caminho": "defense/white_box/ds_config.json",
+        "sha256": "a59c68e292154af8403872c2d1c0ae08d913ea03ac1499ee7f95c766780b196e"
+      },
+      {
+        "bytes": 11618,
+        "caminho": "defense/white_box/eval.py",
+        "sha256": "a906f7b069f9d0f56a9fa2a5eeb0ea5b186060eacd6e2294c94e1d5f12e1216e"
+      },
+      {
+        "bytes": 20037,
+        "caminho": "defense/white_box/finetune.py",
+        "sha256": "36930b3eb0ee636f40052a3d1ca019e42d109792c0ee2f5aa37196cef452c9f9"
+      },
+      {
+        "bytes": 3339,
+        "caminho": "defense/white_box/utils.py",
+        "sha256": "1282008343c48fa4e17ade43a5782cf8ae4f3003e838729378ffd5ee4890643b"
+      },
+      {
+        "bytes": 15198,
+        "caminho": "demo.ipynb",
+        "sha256": "4990388f0c7b78c65b1cb71bdeea1ed3a2b01b0200f2db223301044d39d23adc"
+      },
+      {
+        "bytes": 19350,
+        "caminho": "examples/collect_clean_response.py",
+        "sha256": "1c3ebb4a8dbffc8adcf02bafcf63e22f80082598670996c046b0d07b93e98dda"
+      },
+      {
+        "bytes": 3201,
+        "caminho": "examples/parameters.py",
+        "sha256": "13fa719a3d7daae8e8c92b5cdbb48328272af3c54f881ef2349cb36897c923fc"
+      },
+      {
+        "bytes": 1526,
+        "caminho": "examples/README.md",
+        "sha256": "4e448a71caa63dff5ef4b9c89e460dcedfe07d071335bdb22ba5eff90fe55b51"
+      },
+      {
+        "bytes": 5626,
+        "caminho": "examples/rouge.py",
+        "sha256": "3786f472d67d4d96dbed41d89a88bc5067d5f8f715edbcacbe8aa8bd5caaeb15"
+      },
+      {
+        "bytes": 16832,
+        "caminho": "examples/run.py",
+        "sha256": "3968253de93c6d33a984b5a285535842f2508496b6019e711c64cdc516c56e34"
+      },
+      {
+        "bytes": 2680,
+        "caminho": "LICENSE",
+        "sha256": "3b1e3eb1ad5e76ba83a2534807b4bb4b010a673f6bbf2bc752f2b4e098494a87"
+      },
+      {
+        "bytes": 59893,
+        "caminho": "NOTICE.md",
+        "sha256": "39732640c4798db5cf218aa33f1ee8df9e60c5bd6bda43f1e9cf6280191175fb"
+      },
+      {
+        "bytes": 1221,
+        "caminho": "pyproject.toml",
+        "sha256": "d3895d314ff7cfbed88363e7ae2e4cf0dafd3cad431a587d27b675f8ef38a0fb"
+      },
+      {
+        "bytes": 9945,
+        "caminho": "README.md",
+        "sha256": "6544c919b27446a3cc3b47255f4aac1f009ca4fc74d934ad197664aa7958deb3"
+      },
+      {
+        "bytes": 2697,
+        "caminho": "SECURITY.md",
+        "sha256": "891c6326bdd8ea026af23af20fd7dd7167b666f4bd4f63cf22dfdef09d5e78b2"
+      },
+      {
+        "bytes": 390,
+        "caminho": "SUPPORT.md",
+        "sha256": "8d94ae69d40580e2e549cdfc891643965b4e0eb4eeff95a7817ceaeef833288c"
+      }
+    ],
+    "data_obtencao": "2026-09-11",
+    "licenca": "confirmar no arquivo LICENSE do repositorio",
+    "nome": "bipia",
+    "origem": "https://github.com/microsoft/BIPIA.git",
+    "papel": "Injecao indireta — grupo INJ",
+    "versao": "a004b69ec0dd446e0afd461d98cb5e96e120a5d0"
+  }
+]

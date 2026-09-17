@@ -70,7 +70,7 @@ Maiores arquivos (hash completo em `origem.json`):
 | Origem | `https://github.com/microsoft/BIPIA.git` |
 | Versao | `a004b69ec0dd446e0afd461d98cb5e96e120a5d0` |
 | Data de obtencao | 2026-09-11 |
-| Licenca | confirmar no arquivo LICENSE do repositorio |
+| Licenca | MIT (Microsoft Corporation), com ressalva para tres conjuntos de terceiros em `benchmark` — ver "Licenca do BIPIA" abaixo |
 | Acesso | publico |
 | Papel no experimento | Injecao indireta — grupo INJ |
 | Arquivos | 99 |
@@ -94,6 +94,53 @@ Maiores arquivos (hash completo em `origem.json`):
 | `benchmark/code_attack_test.json` | 16,427 | `ab9f0563c7674074...` |
 | `benchmark/code_attack_train.json` | 16,414 | `ab13b6cf99afd82a...` |
 | `demo.ipynb` | 15,198 | `4990388f0c7b78c6...` |
+
+## Licenca do BIPIA — reconciliada em 2026-09-17
+
+Lida no arquivo `LICENSE` da versao obtida (`a004b69ec0dd446e0afd461d98cb5e96e120a5d0`),
+e nao na descricao do repositorio.
+
+O repositorio e **MIT, Microsoft Corporation**, com uma ressalva textual:
+
+> NOTE: This license applies to all parts of this repository except for the datasets
+> specified below. See the respective datasets for their individual licenses.
+
+Os conjuntos de terceiros excetuados estao em `benchmark` e sao **tres, nomeados um a um**:
+
+| Componente | Licenca declarada | Onde |
+|---|---|---|
+| WikiTableQuestions | CC BY-SA 4.0 | tarefa TableQA |
+| Stack Exchange (100 questoes do Stack Overflow) | CC BY-SA 4.0 | tarefa CodeQA |
+| Invoices data do OpenAI Evals | MIT | — |
+
+**O que este trabalho usa:** apenas `benchmark/text_attack_test.json`, o arquivo de cargas
+de ataque de texto — 75 cargas em 15 categorias (ADR-0014). Esse arquivo **nao e** nenhum
+dos tres componentes de terceiros nomeados: e contribuicao propria do BIPIA. Pela leitura
+do texto da licenca, a ressalva e delimitada por componente, e nao pelo diretorio inteiro;
+do contrario os arquivos de ataque ficariam sem licenca alguma, o que contraria a propria
+frase "See the respective datasets for their individual licenses", que pressupoe
+conjuntos identificados. **Conclusao adotada: MIT.**
+
+**Ressalva registrada.** A conclusao acima e leitura do texto da licenca, feita pelo autor
+com apoio de assistente, e nao parecer juridico. O proprio arquivo `LICENSE` adverte que o
+usuario deve consultar a fonte original de cada conjunto. Se a monografia afirmar algo
+sobre a licenca, convem submeter a redacao ao orientador.
+
+**Nao ha redistribuicao.** Os arquivos de origem ficam fora do versionamento (ADR-0016),
+de modo que a questao relevante e o **uso**, nao a redistribuicao. MIT e CC BY-SA 4.0
+permitem o uso feito aqui.
+
+### O clone do BIPIA e incompleto por construcao
+
+`benchmark/qa` e `benchmark/abstract` **nao contem** os arquivos de contexto
+`test.jsonl` e `train.jsonl`. O proprio repositorio declara o motivo — "Due to the license
+issue" — e fornece `process.py`, `index.json` e `md5.txt` para que o usuario os gere a
+partir do NewsQA e do XSum.
+
+Isso **nao bloqueia este trabalho**: as cargas do BIPIA sao embutidas nos 30 documentos
+sinteticos proprios (ADR-0002, ADR-0014), e os arquivos de contexto do BIPIA nao sao
+usados. Fica registrado porque a contagem de 99 arquivos, acima, poderia sugerir que o
+conjunto foi obtido completo.
 
 ## Licencas
 

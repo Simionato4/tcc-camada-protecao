@@ -20,6 +20,7 @@ import argparse
 import csv
 import hashlib
 import importlib.util
+import io
 import json
 import os
 import random
@@ -41,10 +42,19 @@ sys.modules["classificar_codificacao"] = clf
 _spec.loader.exec_module(clf)
 
 
-def escrever_texto(caminho: Path, conteudo: str) -> None:
+def escrever_texto(caminho: Path, conteudo: str, codificacao: str = "utf-8") -> None:
+    """Escrita atomica: arquivo temporario ao lado, depois substituicao.
+
+    Em 11/09/2026 uma execucao quebrou no meio de `escrever` porque o CSV estava aberto
+    no Excel, que mantem trava exclusiva. O JSON ja havia sido reescrito e o CSV nao:
+    selecao e revisao passaram a descrever amostras diferentes. `os.replace` e atomico
+    nos dois sistemas; ou os dois arquivos trocam, ou nenhum troca.
+    """
     caminho.parent.mkdir(parents=True, exist_ok=True)
-    with caminho.open("w", encoding="utf-8", newline="") as arquivo:
+    temporario = caminho.with_suffix(caminho.suffix + ".tmp")
+    with temporario.open("w", encoding=codificacao, newline="") as arquivo:
         arquivo.write(conteudo)
+    os.replace(temporario, caminho)
 
 
 def sha256(texto: str) -> str:
@@ -149,24 +159,53 @@ def escrever(resultado: dict) -> None:
             for item in resultado["selecionados"]
         ],
     }
-    escrever_texto(
-        SELECAO / "hackaprompt.json",
-        json.dumps(versionavel, indent=2, ensure_ascii=False, sort_keys=True) + "\n",
-    )
+    conteudo_json = json.dumps(
+        versionavel, indent=2, ensure_ascii=False, sort_keys=True
+    ) + "\n"
 
     # Nao versionado: contem o texto, para a revisao manual.
-    REVISAO.mkdir(parents=True, exist_ok=True)
-    caminho = REVISAO / "hackaprompt_revisao.csv"
-    with caminho.open("w", encoding="utf-8-sig", newline="") as arquivo:
-        escritor = csv.writer(arquivo, delimiter=";")
+    buffer = io.StringIO(newline="")
+    escritor = csv.writer(buffer, delimiter=";", lineterminator="\r\n")
+    escritor.writerow(
+        ["ordem", "level", "classe_automatica", "classe_revisada", "user_input"]
+    )
+    for item in resultado["selecionados"]:
         escritor.writerow(
-            ["ordem", "level", "classe_automatica", "classe_revisada", "user_input"]
+            [item["ordem"], item["level"], item["classe_automatica"], "",
+             item["_texto"].replace("\n", "\\n")]
         )
-        for item in resultado["selecionados"]:
-            escritor.writerow(
-                [item["ordem"], item["level"], item["classe_automatica"], "",
-                 item["_texto"].replace("\n", "\\n")]
-            )
+
+    # O CSV troca primeiro: e o arquivo que o Excel costuma estar segurando. Se a
+    # substituicao dele falhar, o JSON permanece intacto e os dois seguem coerentes.
+    escrever_texto(REVISAO / "hackaprompt_revisao.csv", buffer.getvalue(), "utf-8-sig")
+    escrever_texto(SELECAO / "hackaprompt.json", conteudo_json)
+
+
+def impedir_descarte_de_revisao(refazer: bool) -> str | None:
+    """Recusa sobrescrever uma selecao que ja recebeu revisao manual.
+
+    Em 11/09/2026 uma reexecucao apagou em silencio nove decisoes de classificacao
+    feitas a mao. A revisao manual e trabalho humano registrado, exigido pela ADR-0017
+    e pelo RQ-04: destrui-la sem aviso e perda de registro, nao inconveniencia.
+    """
+    caminho = SELECAO / "hackaprompt.json"
+    if refazer or not caminho.exists():
+        return None
+    try:
+        selecao = json.loads(caminho.read_text(encoding="utf-8"))
+    except (json.JSONDecodeError, OSError):
+        return None
+    revisao = selecao.get("revisao")
+    if not revisao:
+        return None
+    return (
+        f"a selecao em {caminho} ja tem revisao manual aplicada "
+        f"({revisao.get('casos_revistos', '?')} casos revistos, "
+        f"{revisao.get('divergencias_da_regra', '?')} divergencias, "
+        f"data {revisao.get('data', '?')}).\n"
+        "Reamostrar apagaria esse trabalho. Arquive a selecao e o CSV de revisao, "
+        "commite o arquivamento, e so entao rode de novo com --refazer."
+    )
 
 
 def aplicar_revisao() -> int:
@@ -230,10 +269,20 @@ def main() -> int:
     analisador = argparse.ArgumentParser()
     analisador.add_argument("--aplicar-revisao", action="store_true")
     analisador.add_argument("--semente", type=int, default=None)
+    analisador.add_argument(
+        "--refazer",
+        action="store_true",
+        help="reamostra mesmo que a selecao atual ja tenha revisao manual aplicada",
+    )
     argumentos = analisador.parse_args()
 
     if argumentos.aplicar_revisao:
         return aplicar_revisao()
+
+    impedimento = impedir_descarte_de_revisao(argumentos.refazer)
+    if impedimento:
+        print(impedimento, file=sys.stderr)
+        return 1
 
     semente = argumentos.semente or int(os.getenv("SEMENTE_MESTRA", "20260829"))
     resultado = amostrar(semente)

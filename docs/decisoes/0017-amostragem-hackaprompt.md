@@ -313,5 +313,15 @@ mantem trava exclusiva, e o JSON ja havia sido reescrito.
 `impedir_descarte_de_revisao` recusa reamostrar quando a selecao vigente ja tem revisao
 aplicada, exigindo `--refazer` explicito.
 
+**Concordancia por silencio.** A convencao de deixar `classe_revisada` em branco para
+concordar com a regra e comoda para quem revisou, e indistinguivel de quem nao abriu o
+arquivo. Em 11/09 e de novo em 17/09 a segunda coisa aconteceu: `--aplicar-revisao` foi
+executado logo apos a amostragem, e o registro passou a declarar uma revisao que nao
+existia. `aplicar_revisao` passa a recusar o caso em que **nenhuma** linha esta
+preenchida, exigindo `--concordancia-total` — a concordancia vira ato afirmativo e fica
+gravada como tal no campo `forma`, que distingue "com divergencias anotadas" de
+"concordancia total declarada pelo autor". O registro deixa de ser ambiguo para quem o
+ler depois.
+
 ## Data
 2026-09-17

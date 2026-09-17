@@ -208,7 +208,15 @@ def impedir_descarte_de_revisao(refazer: bool) -> str | None:
     )
 
 
-def aplicar_revisao() -> int:
+def aplicar_revisao(concordancia_total: bool = False) -> int:
+    """Aplica a revisao manual a selecao vigente.
+
+    Coluna `classe_revisada` em branco significa concordar com a regra. Isso e comodo
+    para quem revisou e nao discordou, e indistinguivel de quem nao abriu o arquivo —
+    em 11/09 e em 17/09 a segunda coisa aconteceu, e o registro passou a declarar uma
+    revisao inexistente. Quando nenhuma linha esta preenchida, a concordancia precisa
+    ser um ato afirmativo (`--concordancia-total`), nao o silencio.
+    """
     caminho_selecao = SELECAO / "hackaprompt.json"
     caminho_revisao = REVISAO / "hackaprompt_revisao.csv"
     if not caminho_selecao.exists() or not caminho_revisao.exists():
@@ -240,14 +248,35 @@ def aplicar_revisao() -> int:
         print(f"validas: {', '.join(clf.CLASSES)}")
         return 1
 
+    preenchidas = sum(1 for l in linhas if (l.get("classe_revisada") or "").strip())
+    if preenchidas == 0 and not concordancia_total:
+        print(
+            f"nenhuma linha de {caminho_revisao} tem `classe_revisada` preenchida.\n"
+            "Isso tanto pode significar que voce revisou os 40 e concordou com todos "
+            "quanto que o arquivo nao foi aberto. A ADR-0017 e o RQ-04 exigem revisao "
+            "caso a caso com autoria registrada, e o registro nao pode ficar ambiguo.\n"
+            "Se revisou e concorda com todos, declare: "
+            "python scripts/amostrar_hackaprompt.py --aplicar-revisao --concordancia-total",
+            file=sys.stderr,
+        )
+        return 1
+
     for item in selecao["selecionados"]:
         item["classe_final"] = item["classe_revisada"] or item["classe_automatica"]
 
     selecao["revisao"] = {
         "data": date.today().isoformat(),
         "classificador": "autor (classificador unico, sem medida de concordancia)",
-        "casos_revistos": sum(1 for i in selecao["selecionados"] if i["classe_revisada"]),
+        "casos_revistos": len(linhas),
+        "casos_com_rotulo_alterado": sum(
+            1 for i in selecao["selecionados"] if i["classe_revisada"]
+        ),
         "divergencias_da_regra": alteradas,
+        "forma": (
+            "caso a caso, com divergencias anotadas"
+            if preenchidas
+            else "caso a caso, concordancia total declarada pelo autor"
+        ),
     }
 
     distribuicao: dict[str, int] = {}
@@ -268,6 +297,11 @@ def aplicar_revisao() -> int:
 def main() -> int:
     analisador = argparse.ArgumentParser()
     analisador.add_argument("--aplicar-revisao", action="store_true")
+    analisador.add_argument(
+        "--concordancia-total",
+        action="store_true",
+        help="declara ter revisto os 40 casos sem discordar de nenhum",
+    )
     analisador.add_argument("--semente", type=int, default=None)
     analisador.add_argument(
         "--refazer",
@@ -277,7 +311,7 @@ def main() -> int:
     argumentos = analisador.parse_args()
 
     if argumentos.aplicar_revisao:
-        return aplicar_revisao()
+        return aplicar_revisao(argumentos.concordancia_total)
 
     impedimento = impedir_descarte_de_revisao(argumentos.refazer)
     if impedimento:

@@ -164,3 +164,63 @@ def test_nenhum_nome_unicode_comeca_por_common_ou_inherited() -> None:
 def test_descrever_registra_versao_da_tabela_unicode() -> None:
     """A versao precisa entrar no congelamento: a tabela muda entre versoes do Python."""
     assert descrever(NEGRITO)["unidata_version"] == unicodedata.unidata_version
+
+
+# ------------------------------------------ revisao 3: categoria nao decide latinidade
+
+CIRCULADAS = "".join(chr(0x24B6 + ord(c) - ord("A")) for c in "PWNED")
+
+
+def test_letras_circuladas_sao_ofuscacao() -> None:
+    """O defeito da revisao 3: categoria `So` nunca chegava ao teste."""
+    assert classificar(CIRCULADAS) == CODIFICACAO
+
+
+def test_letras_circuladas_reconstroem_a_palavra() -> None:
+    assert unicodedata.normalize("NFKC", CIRCULADAS) == "PWNED"
+
+
+def test_categoria_das_circuladas_e_simbolo_e_nao_letra() -> None:
+    """Registro do porque o filtro `isalpha()` as descartava.
+
+    Se uma versao futura do Unicode reclassificar esses codepoints, este teste falha e
+    avisa que a justificativa escrita na ADR-0017 rev. 3 precisa ser relida.
+    """
+    for caractere in CIRCULADAS:
+        assert unicodedata.category(caractere) == "So"
+        assert not caractere.isalpha()
+        assert reduz_a_ascii(caractere)
+
+
+@pytest.mark.parametrize(
+    "rotulo, caractere, esperado",
+    [
+        ("circulada", "\u24C5", True),
+        ("largura cheia", "\uFF21", True),
+        ("matematica", "\U0001D400", True),
+        ("sobrescrita", "\u2071", True),
+        ("numeral romano", "\u2160", True),
+        ("acentuada", "\u00E1", False),
+        ("digito de largura cheia", "\uFF11", False),
+        ("marca registrada", "\u2122", False),
+        ("quilograma", "\u338F", False),
+        ("ascii comum", "A", False),
+    ],
+)
+def test_criterio_e_uma_unica_letra_ascii(rotulo, caractere, esperado) -> None:
+    """R1 olha a saida da NFKC, nao a categoria da entrada.
+
+    Digito de largura cheia produz `1`, que nao e letra. Marca registrada produz `TM` e
+    quilograma produz `kg`, que sao duas — expansao de simbolo em palavra, nao variante
+    tipografica de uma letra.
+    """
+    assert reduz_a_ascii(caractere) is esperado, rotulo
+
+
+def test_abreviaturas_de_compatibilidade_nao_viram_ofuscacao() -> None:
+    assert classificar("produto\u2122 marca\u2122 registro\u2122") == TEXTO_SIMPLES
+
+
+def test_digitos_de_largura_cheia_continuam_texto_simples() -> None:
+    """Decisao de 11/09/2026, preservada pela revisao 3."""
+    assert classificar("pedido \uFF11\uFF12\uFF13\uFF14") == TEXTO_SIMPLES

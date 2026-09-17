@@ -41,11 +41,37 @@ em lingua de poucos recursos escrito em alfabeto latino cai em `texto_simples`. 
 `idioma_ou_escrita_distinta` e adaptacao operacional e nao sustenta afirmacao sobre
 lingua. Ver ADR-0017 rev. 2.
 
-LIMITACAO DECLARADA (alcance). R1 fala em **letras**, e este modulo segue a regra a
-risca: `tem_variante_tipografica` so examina caracteres alfabeticos. Digitos e simbolos
-de largura cheia — `１２３４` — nao sao reconhecidos, e um ataque que ofusque apenas
-caracteres nao alfabeticos cai em `texto_simples`. A escolha foi tomada em 11/09/2026 por
-fidelidade ao texto de R1 e fica declarada, nao silenciada.
+REVISAO 3 (ADR-0017 rev. 3). `tem_variante_tipografica` filtrava a entrada com
+`caractere.isalpha()`. `CIRCLED LATIN CAPITAL LETTER P` e categoria `So` — simbolo, nao
+letra — e nunca chegava ao teste, embora a NFKC produza `P`. Tres casos da segunda amostra
+foram reclassificados a mao por causa disso.
+
+O filtro era acrescimo da implementacao, nao de R1, que diz "letras matematicas,
+sobrescritas ou de largura cheia **cuja normalizacao NFKC produz letras latinas comuns**"
+— criterio sobre o que a normalizacao **produz**, nao sobre a categoria da entrada. O
+teste passa a ser exatamente esse.
+
+E a mesma falha da revisao 2 em outro lugar: tecnicalidade Unicode usada como substituto
+de nocao semantica. Primeiro nome de caractere no lugar de Script, depois categoria no
+lugar de "letra".
+
+LIMITACAO DECLARADA (alcance). R1 fala em **letras**, e o criterio olha a saida da NFKC:
+ela precisa ser **uma unica letra ASCII**. Isso exclui, deliberadamente:
+
+- digitos e simbolos de largura cheia (`１` produz `1`, que nao e letra) — decisao de
+  11/09/2026, mantida;
+- abreviaturas de compatibilidade que expandem para varias letras (`™` produz `TM`,
+  `㎏` produz `kg`), porque variante tipografica e substituicao de uma letra por outra
+  representacao dela, e nao expansao de um simbolo em palavra.
+
+LIMITACAO DECLARADA (homoglifo de palavra inteira). Quando **todas** as letras de uma
+palavra latina sao trocadas por sosias de outra escrita, nao sobra caractere latino no
+token e `tem_homoglifo` nao enxerga a mistura: a palavra cai em
+`idioma_ou_escrita_distinta`. Detectar isso exige a tabela de confundiveis do UTS #39, que
+a biblioteca padrao nao expoe; adota-la seria acrescentar uma segunda tabela Unicode
+versionada ao que precisa ser congelado, pelo mesmo motivo que levou a recusar `regex`.
+Fica declarada e registrada como trabalho futuro. Um caso da segunda amostra
+(`ordem` 14) e desse tipo e foi corrigido pela revisao manual.
 
 LIMITACAO DECLARADA (instrumento). A biblioteca padrao do Python nao expoe a propriedade
 Script do UAX #24. O teste de latinidade usa o prefixo do nome do caractere **depois** da
@@ -121,18 +147,20 @@ def eh_latino(caractere: str) -> bool:
 
 @lru_cache(maxsize=None)
 def reduz_a_ascii(caractere: str) -> bool:
-    """A NFKC transforma este caractere numa letra ASCII?
+    """A NFKC transforma este caractere em **uma unica** letra ASCII?
 
-    Esse e o criterio de R1 para variante tipografica. Repare que `a` acentuado nao
-    satisfaz: a NFKC nao o altera, logo nao ha transformacao a detectar.
+    Esse e o criterio de R1 para variante tipografica, e ele olha a saida, nao a entrada:
+    `Ⓟ` e categoria `So` e `𝐏` e categoria `Lu`, mas as duas sao a letra P.
+
+    Tres exclusoes deliberadas, todas por consequencia do criterio e nao por excecao:
+    `á` nao satisfaz porque a NFKC nao o altera — nao ha transformacao a detectar;
+    `１` produz `1`, que nao e letra; `™` produz `TM`, que sao duas — variante tipografica
+    e uma letra escrita de outro jeito, nao um simbolo que expande em palavra.
     """
     normalizado = unicodedata.normalize("NFKC", caractere)
-    if normalizado == caractere:
+    if normalizado == caractere or len(normalizado) != 1:
         return False
-    letras = [c for c in normalizado if c.isalpha()]
-    if not letras:
-        return False
-    return all(c.isascii() for c in letras)
+    return normalizado.isascii() and normalizado.isalpha()
 
 
 # ------------------------------------------------------------------ testes de classe
@@ -165,11 +193,13 @@ def tem_variante_tipografica(texto: str) -> bool:
     R1: "letras matematicas, sobrescritas ou de largura cheia cuja normalizacao NFKC
     produz letras latinas comuns". Exige um minimo de ocorrencias para nao disparar
     com um simbolo isolado num texto por outro lado comum.
+
+    **Nao ha filtro por categoria na entrada** (rev. 3). Filtrar com `isalpha()` descartava
+    as letras circuladas, que sao categoria `So`. Quem decide e `reduz_a_ascii`, que olha o
+    que a normalizacao produz.
     """
     contagem = 0
     for caractere in texto:
-        if not caractere.isalpha():
-            continue
         if reduz_a_ascii(caractere):
             contagem += 1
             if contagem >= MINIMO_VARIANTES:

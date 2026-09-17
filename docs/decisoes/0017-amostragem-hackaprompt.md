@@ -325,3 +325,112 @@ ler depois.
 
 ## Data
 2026-09-17
+
+---
+
+# Revisao 3 - 17/09/2026
+
+## O que falhou
+
+`tem_variante_tipografica` filtrava a entrada com `caractere.isalpha()`. Letras circuladas
+sao categoria `So` — simbolo, nao letra — e nunca chegavam ao teste, embora a NFKC produza
+a letra latina correspondente.
+
+O filtro era acrescimo da implementacao. R1 diz "letras matematicas, sobrescritas ou de
+largura cheia **cuja normalizacao NFKC produz letras latinas comuns**": o criterio e sobre
+o que a normalizacao **produz**, nao sobre a categoria Unicode da entrada.
+
+E a mesma falha da revisao 2 em outro lugar do mesmo modulo: tecnicalidade Unicode usada
+como substituto de nocao semantica. Primeiro nome de caractere no lugar da propriedade
+Script; depois categoria geral no lugar de "letra". O padrao fica registrado porque e ele,
+e nao cada defeito isolado, que explica como os dois passaram.
+
+## Como o defeito foi descoberto
+
+Pela revisao manual dos quarenta casos da segunda amostra, executada em 17/09/2026 pelo
+autor, que produziu tres divergencias:
+
+| `ordem` | Evidencia textual | Regra automatica | Revisao manual |
+|---|---|---|---|
+| 19 | cinco letras latinas circuladas (`So`) mais `е` cirilico | escrita distinta | codificacao |
+| 20 | as mesmas circuladas, mais oito sinais de paragrafo | escrita distinta | codificacao |
+| 14 | cinco maiusculas cirilicas formando uma unica palavra, tres delas sosias de letras latinas | escrita distinta | codificacao |
+
+As tres escrevem a palavra-alvo da competicao com sosias. Duas causas mecanicas distintas:
+as ordens 19 e 20 pelo filtro de categoria; a ordem 14 por substituicao total.
+
+Distribuicao final da segunda amostra apos a revisao: 13 codificacao, 10 texto simples,
+10 unicode invisivel, 7 escrita distinta.
+
+## Correcao
+
+`reduz_a_ascii` passa a exigir que a NFKC altere o caractere **e** produza **exatamente
+uma letra ASCII**, e `tem_variante_tipografica` deixa de filtrar a entrada por categoria.
+
+Tres exclusoes resultam do criterio, e nao de excecao escrita a parte:
+
+| Entrada | NFKC | Decisao | Motivo |
+|---|---|---|---|
+| `á` | inalterado | nao e variante | nao ha transformacao a detectar |
+| `１` | `1` | nao e variante | R1 fala em letras; digito nao e letra (decisao de 11/09, mantida) |
+| `™` | `TM` | nao e variante | duas letras: expansao de simbolo em palavra, nao substituicao de uma letra |
+| `Ⓟ` | `P` | **e variante** | uma letra ASCII |
+
+## Limitacao declarada: homoglifo de palavra inteira
+
+Quando **todas** as letras de uma palavra latina sao trocadas por sosias de outra escrita,
+nao sobra caractere latino no token e `tem_homoglifo` nao enxerga mistura alguma: a palavra
+cai em `idioma_ou_escrita_distinta`. E o caso da `ordem` 14.
+
+Detectar isso exige a tabela de confundiveis do UTS #39, que a biblioteca padrao nao expoe.
+Adota-la acrescentaria uma segunda tabela Unicode versionada ao conjunto do que precisa ser
+fixado para reproduzir o resultado — o mesmo custo que levou a recusar a biblioteca `regex`
+na revisao 2. Recusada pelo mesmo motivo, e registrada como trabalho futuro.
+
+Consequencia assumida: o estrato `idioma_ou_escrita_distinta` contem um numero desconhecido,
+e pequeno, de homoglifos de palavra inteira. A revisao manual os corrige na amostra; o
+tamanho do estrato no universo segue com esse vies.
+
+## Verificacao
+
+`scripts/conferir_reclassificacao.py` sobre as duas amostras ja revistas:
+
+| Amostra | Decisoes humanas | Reproduzidas pela regra da revisao 3 |
+|---|---:|---|
+| Primeira (11/09) | 9 | **9 de 9** |
+| Segunda (17/09) | 3 | **2 de 3** |
+
+A unica divergencia restante e a `ordem` 14 — exatamente a limitacao declarada acima, e
+nao uma surpresa. A correcao da revisao 3 nao desfez nenhum resultado da revisao 2.
+
+## Livro de rotulos
+
+Ate aqui, cada decisao humana de classificacao vivia no CSV de revisao, que a execucao
+seguinte sobrescrevia. Entre 11 e 17/09 isso destruiu ou ameacou decisoes tres vezes.
+
+`conjunto_teste/selecao/rotulos.json` passa a guardar cada decisao indexada pelo **sha256
+do `user_input`**, com classe, data e autor. O arquivo e versionado: contem hashes e
+classes, nunca texto de ataque (ADR-0016).
+
+A justificativa e metodologica, e nao de conveniencia: uma decisao de classificacao e sobre
+**o texto**, nao sobre o sorteio em que ele apareceu. Quando a regra muda e o universo e
+reclassificado, os casos que reaparecem trazem o rotulo que o autor ja lhes deu, com a data
+original preservada, e apenas os ineditos precisam de revisao. A precedencia na
+classificacao final e: decisao desta rodada, depois decisao anterior do livro, depois regra
+automatica.
+
+O livro e semeado com as 71 decisoes distintas ja tomadas — 40 da primeira amostra e 40 da
+segunda, com nove textos em comum.
+
+A guarda de `--aplicar-revisao` passa a exigir `--concordancia-total` apenas quando existem
+casos **ineditos** e nenhum foi anotado. Caso ja decidido antes nao precisa de nova
+declaracao.
+
+## Consequencias sobre a amostra
+
+O universo e reclassificado com a regra da revisao 3 e uma terceira amostra e sorteada, com
+a mesma semente. As selecoes anteriores permanecem versionadas. A revisao manual recai
+somente sobre os casos sem rotulo no livro.
+
+## Data
+2026-09-17

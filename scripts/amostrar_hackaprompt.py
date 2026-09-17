@@ -32,6 +32,7 @@ RAIZ = Path(__file__).resolve().parents[1]
 ORIGEM = RAIZ / "conjunto_teste" / "origem" / "hackaprompt"
 SELECAO = RAIZ / "conjunto_teste" / "selecao"
 REVISAO = RAIZ / "conjunto_teste" / "revisao"
+ROTULOS = SELECAO / "rotulos.json"
 TAMANHO_AMOSTRA = 40
 
 _spec = importlib.util.spec_from_file_location(
@@ -59,6 +60,47 @@ def escrever_texto(caminho: Path, conteudo: str, codificacao: str = "utf-8") -> 
 
 def sha256(texto: str) -> str:
     return hashlib.sha256(texto.encode("utf-8")).hexdigest()
+
+
+def carregar_rotulos() -> dict[str, dict]:
+    """Livro de rotulos: decisao humana indexada pelo hash do texto.
+
+    Uma decisao de classificacao e sobre **o texto**, nao sobre o sorteio em que ele
+    apareceu. Guardada por hash, ela sobrevive a reamostragem: quando a regra muda e o
+    universo e reclassificado, os casos que reaparecem trazem o rotulo que o autor ja
+    lhes deu, com a data, e so os ineditos precisam de revisao.
+
+    Isso resolve o que falhou tres vezes entre 11 e 17/09/2026: a decisao humana morava
+    num CSV que a execucao seguinte sobrescrevia. Aqui ela e versionada — o arquivo tem
+    hashes e classes, nunca o texto do ataque (ADR-0016).
+    """
+    if not ROTULOS.exists():
+        return {}
+    try:
+        return json.loads(ROTULOS.read_text(encoding="utf-8")).get("rotulos", {})
+    except (json.JSONDecodeError, OSError):
+        return {}
+
+
+def gravar_rotulos(rotulos: dict[str, dict]) -> None:
+    escrever_texto(
+        ROTULOS,
+        json.dumps(
+            {
+                "versao": 1,
+                "descricao": (
+                    "Decisoes humanas de classificacao, indexadas pelo sha256 do "
+                    "user_input. Sem texto de ataque (ADR-0016). Reaplicadas "
+                    "automaticamente quando o mesmo caso volta a ser sorteado."
+                ),
+                "rotulos": rotulos,
+            },
+            indent=2,
+            ensure_ascii=False,
+            sort_keys=True,
+        )
+        + "\n",
+    )
 
 
 def carregar_universo():
@@ -118,6 +160,7 @@ def amostrar(semente: int) -> dict:
 
     sorteio = random.Random(semente)
     alocacao = alocar(estratos, TAMANHO_AMOSTRA)
+    rotulos = carregar_rotulos()
 
     selecionados = []
     for classe in sorted(alocacao):
@@ -131,6 +174,9 @@ def amostrar(semente: int) -> dict:
                     "sha256_user_input": sha256(registro["_texto"]),
                     "caracteres": len(registro["_texto"]),
                     "classe_automatica": classe,
+                    "classe_herdada": rotulos.get(
+                        sha256(registro["_texto"]), {}
+                    ).get("classe", ""),
                     "classe_revisada": "",
                     "_texto": registro["_texto"],
                 }
@@ -166,12 +212,16 @@ def escrever(resultado: dict) -> None:
     # Nao versionado: contem o texto, para a revisao manual.
     buffer = io.StringIO(newline="")
     escritor = csv.writer(buffer, delimiter=";", lineterminator="\r\n")
+    # `classe_herdada` e informativa e ja vem preenchida quando o caso tem decisao
+    # anterior; `classe_revisada` fica em branco e so precisa ser tocada para discordar.
     escritor.writerow(
-        ["ordem", "level", "classe_automatica", "classe_revisada", "user_input"]
+        ["ordem", "level", "classe_automatica", "classe_herdada",
+         "classe_revisada", "user_input"]
     )
     for item in resultado["selecionados"]:
         escritor.writerow(
-            [item["ordem"], item["level"], item["classe_automatica"], "",
+            [item["ordem"], item["level"], item["classe_automatica"],
+             item.get("classe_herdada", ""), "",
              item["_texto"].replace("\n", "\\n")]
         )
 
@@ -249,10 +299,16 @@ def aplicar_revisao(concordancia_total: bool = False) -> int:
         return 1
 
     preenchidas = sum(1 for l in linhas if (l.get("classe_revisada") or "").strip())
-    if preenchidas == 0 and not concordancia_total:
+    # Casos ineditos: sem rotulo herdado do livro, logo sem decisao humana anterior.
+    novos = [l for l in linhas if not (l.get("classe_herdada") or "").strip()]
+    novos_preenchidos = sum(
+        1 for l in novos if (l.get("classe_revisada") or "").strip()
+    )
+    if novos and novos_preenchidos == 0 and not concordancia_total:
         print(
-            f"nenhuma linha de {caminho_revisao} tem `classe_revisada` preenchida.\n"
-            "Isso tanto pode significar que voce revisou os 40 e concordou com todos "
+            f"{len(novos)} caso(s) sem rotulo herdado e nenhum com `classe_revisada` "
+            f"preenchida em {caminho_revisao}.\n"
+            "Isso tanto pode significar que voce os revisou e concordou com a regra "
             "quanto que o arquivo nao foi aberto. A ADR-0017 e o RQ-04 exigem revisao "
             "caso a caso com autoria registrada, e o registro nao pode ficar ambiguo.\n"
             "Se revisou e concorda com todos, declare: "
@@ -261,16 +317,28 @@ def aplicar_revisao(concordancia_total: bool = False) -> int:
         )
         return 1
 
+    # Precedencia: decisao desta rodada, depois decisao anterior do livro, depois regra.
     for item in selecao["selecionados"]:
-        item["classe_final"] = item["classe_revisada"] or item["classe_automatica"]
+        item["classe_final"] = (
+            item["classe_revisada"]
+            or item.get("classe_herdada", "")
+            or item["classe_automatica"]
+        )
 
+    # Divergencia e todo rotulo final diferente do que a regra produziu — inclusive o
+    # herdado de uma rodada anterior, que tambem e decisao humana contra a regra.
+    alteradas = sum(
+        1 for i in selecao["selecionados"]
+        if i["classe_final"] != i["classe_automatica"]
+    )
+    herdados = sum(1 for i in selecao["selecionados"] if i.get("classe_herdada"))
     selecao["revisao"] = {
         "data": date.today().isoformat(),
         "classificador": "autor (classificador unico, sem medida de concordancia)",
-        "casos_revistos": len(linhas),
-        "casos_com_rotulo_alterado": sum(
-            1 for i in selecao["selecionados"] if i["classe_revisada"]
-        ),
+        "casos_no_arquivo": len(linhas),
+        "casos_com_rotulo_herdado": herdados,
+        "casos_ineditos": len(novos),
+        "casos_decididos_nesta_rodada": preenchidas,
         "divergencias_da_regra": alteradas,
         "forma": (
             "caso a caso, com divergencias anotadas"
@@ -284,11 +352,29 @@ def aplicar_revisao(concordancia_total: bool = False) -> int:
         distribuicao[item["classe_final"]] = distribuicao.get(item["classe_final"], 0) + 1
     selecao["distribuicao_final"] = distribuicao
 
+    # O livro guarda a decisao humana pelo hash do texto, para sobreviver a reamostragem.
+    rotulos = carregar_rotulos()
+    hoje = date.today().isoformat()
+    for item in selecao["selecionados"]:
+        chave = item["sha256_user_input"]
+        anterior = rotulos.get(chave)
+        if anterior and anterior.get("classe") == item["classe_final"]:
+            continue  # decisao inalterada: preserva a data original
+        rotulos[chave] = {
+            "classe": item["classe_final"],
+            "data": hoje,
+            "autor": "autor (classificador unico)",
+        }
+    gravar_rotulos(rotulos)
+
     escrever_texto(
         caminho_selecao,
         json.dumps(selecao, indent=2, ensure_ascii=False, sort_keys=True) + "\n",
     )
-    print(f"revisao aplicada: {alteradas} divergencias da regra automatica")
+    print(
+        f"revisao aplicada: {alteradas} divergencias da regra automatica "
+        f"({herdados} rotulos herdados, {len(novos)} casos ineditos)"
+    )
     for classe, quantidade in sorted(distribuicao.items()):
         print(f"  {quantidade:>3}  {classe}")
     return 0
@@ -304,6 +390,11 @@ def main() -> int:
     )
     analisador.add_argument("--semente", type=int, default=None)
     analisador.add_argument(
+        "--apenas-estratos",
+        action="store_true",
+        help="classifica o universo e imprime os estratos sem gravar nada",
+    )
+    analisador.add_argument(
         "--refazer",
         action="store_true",
         help="reamostra mesmo que a selecao atual ja tenha revisao manual aplicada",
@@ -312,6 +403,16 @@ def main() -> int:
 
     if argumentos.aplicar_revisao:
         return aplicar_revisao(argumentos.concordancia_total)
+
+    if argumentos.apenas_estratos:
+        quadro, _, _ = carregar_universo()
+        contagem: dict[str, int] = {c: 0 for c in clf.CLASSES}
+        for texto in quadro["_texto"]:
+            contagem[clf.classificar(texto)] += 1
+        print("Estratos no universo (nenhum arquivo gravado):")
+        for classe, quantidade in sorted(contagem.items()):
+            print(f"  {quantidade:>8,}  {classe}")
+        return 0
 
     impedimento = impedir_descarte_de_revisao(argumentos.refazer)
     if impedimento:

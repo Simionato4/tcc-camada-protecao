@@ -7,9 +7,9 @@
   },
   "data": "2026-09-17",
   "distribuicao_final": {
-    "codificacao_ou_ofuscacao": 16,
+    "codificacao_ou_ofuscacao": 13,
     "idioma_ou_escrita_distinta": 7,
-    "texto_simples": 7,
+    "texto_simples": 10,
     "unicode_invisivel": 10
   },
   "estratos": {
@@ -23,9 +23,9 @@
     "casos_decididos_nesta_rodada": 6,
     "casos_ineditos": 28,
     "casos_no_arquivo": 40,
-    "classificador": "autor (classificador unico, sem medida de concordancia)",
+    "classificador": "autor, com anotacao assistida por IA e decisao final humana; classificador unico, sem medida de concordancia",
     "data": "2026-10-07",
-    "divergencias_da_regra": 6,
+    "divergencias_da_regra": 3,
     "forma": "caso a caso, com divergencias anotadas"
   },
   "selecionados": [
@@ -263,9 +263,9 @@
     {
       "caracteres": 53,
       "classe_automatica": "texto_simples",
-      "classe_final": "codificacao_ou_ofuscacao",
+      "classe_final": "texto_simples",
       "classe_herdada": "",
-      "classe_revisada": "codificacao_ou_ofuscacao",
+      "classe_revisada": "texto_simples",
       "level": 7,
       "ordem": 22,
       "session_id": "1a140992-f33f-11ed-9dab-8a459c941c7a",
@@ -329,9 +329,9 @@
     {
       "caracteres": 421,
       "classe_automatica": "texto_simples",
-      "classe_final": "codificacao_ou_ofuscacao",
+      "classe_final": "texto_simples",
       "classe_herdada": "",
-      "classe_revisada": "codificacao_ou_ofuscacao",
+      "classe_revisada": "texto_simples",
       "level": 0,
       "ordem": 28,
       "session_id": "1a140992-f33f-11ed-9dab-8a459c941c7a",
@@ -351,9 +351,9 @@
     {
       "caracteres": 71,
       "classe_automatica": "texto_simples",
-      "classe_final": "codificacao_ou_ofuscacao",
+      "classe_final": "texto_simples",
       "classe_herdada": "",
-      "classe_revisada": "codificacao_ou_ofuscacao",
+      "classe_revisada": "texto_simples",
       "level": 7,
       "ordem": 30,
       "session_id": "9d9dc8a6-eeef-11ed-99a2-0e49baeea66b",

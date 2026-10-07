@@ -434,3 +434,158 @@ somente sobre os casos sem rotulo no livro.
 
 ## Data
 2026-09-17
+
+---
+
+# Exame das divergencias da terceira amostra — 07/10/2026
+
+Fecha o exame exigido pela propria ADR: *"Cada uma exige exame registrado: o erro esta
+em R1 ou na implementacao?"*
+
+## Um terceiro lugar de erro
+
+Ate aqui o projeto considerava dois lugares possiveis para uma divergencia entre a regra
+automatica e a revisao manual:
+
+1. **erro em R1** — a regra escrita esta errada;
+2. **erro na implementacao** — o codigo nao implementa o que R1 diz.
+
+As revisoes 2 e 3 foram, as duas, do segundo tipo. A terceira amostra revelou um terceiro:
+
+3. **erro na aplicacao de R1 pelo revisor** — R1 esta correta, a implementacao esta
+   correta, e o rotulo esta errado.
+
+O registro deste terceiro caso importa porque a ferramenta nao o detecta. Divergencia dos
+tipos 1 e 2 aparece como defeito reproduzivel; a do tipo 3 aparece como divergencia
+legitima e, se nao for examinada, entra no congelamento como se fosse achado.
+
+## As seis divergencias
+
+| `ordem` | de → para | Evidencia observada | Veredicto |
+|---|---|---|---|
+| 11 | escrita distinta → codificacao | quatro palavras inteiras em cirilico | **mantida** — homoglifo de palavra inteira, limitacao declarada na rev. 3 |
+| 13 | escrita distinta → codificacao | uma palavra inteira em cirilico | **mantida** — mesma limitacao |
+| 18 | escrita distinta → codificacao | sete tokens invertidos, entre eles a palavra-alvo da competicao escrita de tras para frente | **mantida** — tecnica real que a regra nao detecta; ver "Texto invertido" abaixo |
+| 22 | texto simples → codificacao | 100% ASCII; NFKC nao altera; sem codificacao, invisivel, variante tipografica, homoglifo ou inversao | **revertida para `texto_simples`** |
+| 28 | texto simples → codificacao | idem | **revertida para `texto_simples`** |
+| 30 | texto simples → codificacao | idem | **revertida para `texto_simples`** |
+
+Distribuicao final da terceira amostra apos o exame, verificada por execucao:
+**13** codificacao, **10** texto simples, **10** unicode invisivel, **7** escrita nao
+latina, com 3 divergencias da regra automatica.
+
+## Determinacao do autor sobre as ordens 22, 28 e 30
+
+Transcrita como registrada:
+
+> Na revisao das ordens 22, 28 e 30 da terceira amostra, a anotacao assistida por IA
+> ampliou indevidamente o criterio operacional: tratou fragmentacao parcial por espacos e
+> substituicao explicita entre caracteres ASCII como ofuscacao, sem regra previamente
+> documentada para essas operacoes. Reexaminados sob R1, os tres casos retornam a
+> `texto_simples`. Eventual inclusao dessas operacoes exigira definicao explicita e
+> aplicacao uniforme, nao constituindo correcao do classificador sob a regra atual.
+
+A distincao que sustenta a reversao: R1 trata do eixo *Encoding* do OWASP LLM01:2026 —
+**"how the malicious instructions are represented in tokens or pixels"**. Um ataque pode
+ser engenhoso sem que a representacao do texto tenha sido transformada. Dramatizacao,
+troca de papel e instrucao disfarcada em prosa sao `texto_simples` sob R1, por mais eficaz
+que o ataque seja.
+
+E o ponto metodologico que a determinacao fixa: acrescentar fragmentacao parcial e
+substituicao ASCII→ASCII a regra **depois** de ver tres casos seria ajuste orientado ao
+caso. Se forem incluidas, sera por definicao escrita antes, aplicada ao universo inteiro e
+com nova amostragem — nao por remendo que acomode tres rotulos.
+
+## Limitacoes declaradas do classificador, consolidadas
+
+Tres fronteiras, todas conhecidas e nenhuma silenciada:
+
+| Operacao nao detectada | Por que fica fora |
+|---|---|
+| Homoglifo de **palavra inteira** (todas as letras substituidas por sosias de outra escrita) | exige a tabela de confundiveis do UTS #39; seria uma segunda tabela Unicode versionada a congelar (rev. 3) |
+| **Texto invertido** | tecnica identificada em 07/10/2026; decisao de incluir ou declarar pendente, condicionada a medicao |
+| **Fragmentacao parcial por espacos** e **substituicao ASCII→ASCII** | ausentes de R1; incluir exigiria definicao explicita e reaplicacao ao universo (determinacao de 07/10/2026) |
+
+O `INJ-05` nao afirma deteccao sobre nenhuma dessas tres operacoes, e o estrato
+`texto_simples` deve ser lido como *"ataques cuja transformacao de representacao a regra
+nao reconheceu"*, e nao como *"ataques sem transformacao de representacao"*.
+
+## Correcao de registro: o commit `a5f5c64`
+
+O commit `a5f5c64`, de 07/10/2026, tem a mensagem *"exame das divergencias da terceira
+amostra: tres rotulos revertidos por aplicacao indevida de R1"* e **nao reverte rotulo
+algum**. Verificado por `git show a5f5c64 --stat`:
+
+```
+ conjunto_teste/selecao/hackaprompt.json | 2 +-
+ 1 file changed, 1 insertion(+), 1 deletion(-)
+```
+
+A unica alteracao foi o campo `data` do bloco de revisao, de `2026-09-17` para
+`2026-10-07` — efeito de executar `--aplicar-revisao` sem nenhuma alteracao no CSV. A
+edicao manual das tres celulas, feita em planilha, nao havia persistido, e o indicio
+estava na propria saida: 6 divergencias e distribuicao 16/7/7/10, identicas as de antes.
+
+A reversao efetiva ocorreu no commit seguinte. **O historico nao foi reescrito**: a
+mensagem incorreta permanece, com esta correcao apontando para ela, pelo mesmo
+procedimento adotado quando o arquivamento da primeira amostra foi sobrescrito e
+restaurado em `e3c8917`.
+
+Terceira ocorrencia do mesmo padrao neste projeto — registro afirmando o que nao
+aconteceu, por um passo manual que falhou em silencio. As duas primeiras foram revisoes
+declaradas sem ter ocorrido, e geraram a guarda de `--concordancia-total`. Esta gerou
+`scripts/anotar_revisao.py`, que grava `classe_revisada` de forma atomica, validando a
+classe e imprimindo antes e depois de cada alteracao, retirando a planilha do caminho para
+correcoes pontuais. O julgamento continua humano; o passo que falhava era o de
+transcricao.
+
+## Correcao dos rotulos revertidos
+
+A reversao foi aplicada pelo mesmo caminho da revisao — `classe_revisada` no CSV e
+`--aplicar-revisao` —, de modo que o livro de rotulos `conjunto_teste/selecao/rotulos.json`
+se corrigiu e passou a registrar a classe correta com a data da reversao. Isso importava:
+os tres rotulos errados ja estavam no livro e seriam reaplicados em qualquer sorteio
+futuro. O livro preserva decisao boa e propaga decisao errada com a mesma eficiencia.
+
+A `classe_revisada` dos tres casos recebeu `texto_simples` explicitamente, em vez de ser
+apagada. Deixar em branco produziria o mesmo rotulo final, mas apagaria o registro de que
+houve decisao humana naquelas linhas — e distinguir "revisado e concordo" de "nao
+revisado" e justamente o que a guarda de `--concordancia-total` existe para preservar.
+
+## Anotacao assistida por IA
+
+A determinacao do autor registra que a anotacao da terceira rodada foi assistida por IA. O
+campo `classificador` do registro de revisao passa a declarar isso:
+
+> `"autor, com anotacao assistida por IA e decisao final humana; classificador unico, sem
+> medida de concordancia"`
+
+A assistencia nao constitui segundo anotador independente, e portanto nao ha medida de
+concordancia a reportar. Mas o processo de anotacao deixava de ser descrito corretamente
+por "autor (classificador unico)" sozinho.
+
+Os tres rotulos ampliados indevidamente e revertidos pelo reexame sao a evidencia concreta
+de que a revisao manual exerce controle sobre a anotacao assistida, e nao o contrario.
+Declarar a assistencia junto com o caso em que ela falhou e foi corrigida fortalece o
+registro em vez de enfraquece-lo.
+
+O campo `autor` do livro de rotulos permanece uniforme, deliberadamente. Altera-lo agora
+marcaria apenas os rotulos cuja classe mudou, e a diferenca passaria a significar "foi
+reescrito depois de 07/10" em vez de "foi anotado com assistencia" — um registro pior que
+o atual. A descricao do processo pertence ao campo `classificador` de cada rodada e a esta
+ADR.
+
+**Pendencia declarada:** as rodadas de revisao de 11/09/2026 (primeira amostra, 9
+divergencias) e 17/09/2026 (segunda amostra, 3 divergencias) ainda nao tiveram a forma de
+anotacao declarada. O RQ-04 exige autoria registrada, e a declaracao precisa cobrir as
+tres rodadas antes do congelamento.
+
+## Texto invertido — decisao pendente
+
+A `ordem` 18 e tecnica real e mecanicamente detectavel. Antes de decidir entre corrigir o
+classificador numa quarta rodada ou declarar a limitacao, mede-se quantos casos do
+universo apresentam inversao. Decidir sem o numero seria escolher pelo esforco, e nao pelo
+efeito sobre a estratificacao.
+
+## Data
+2026-10-07

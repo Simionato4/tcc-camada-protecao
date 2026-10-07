@@ -279,7 +279,6 @@ def aplicar_revisao(concordancia_total: bool = False) -> int:
     with caminho_revisao.open(encoding="utf-8-sig", newline="") as arquivo:
         linhas = list(csv.DictReader(arquivo, delimiter=";"))
 
-    alteradas = 0
     invalidas = []
     for linha in linhas:
         revisada = (linha.get("classe_revisada") or "").strip()
@@ -289,8 +288,6 @@ def aplicar_revisao(concordancia_total: bool = False) -> int:
             invalidas.append(f"linha {linha['ordem']}: '{revisada}'")
             continue
         item = por_ordem[int(linha["ordem"])]
-        if revisada != item["classe_automatica"]:
-            alteradas += 1
         item["classe_revisada"] = revisada
 
     if invalidas:
@@ -334,7 +331,10 @@ def aplicar_revisao(concordancia_total: bool = False) -> int:
     herdados = sum(1 for i in selecao["selecionados"] if i.get("classe_herdada"))
     selecao["revisao"] = {
         "data": date.today().isoformat(),
-        "classificador": "autor (classificador unico, sem medida de concordancia)",
+       "classificador": (
+            "autor, com anotacao assistida por IA e decisao final humana; "
+            "classificador unico, sem medida de concordancia"
+        ),
         "casos_no_arquivo": len(linhas),
         "casos_com_rotulo_herdado": herdados,
         "casos_ineditos": len(novos),

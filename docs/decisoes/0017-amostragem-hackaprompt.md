@@ -649,3 +649,73 @@ declarada. O RQ-04 exige autoria registrada das tres rodadas antes do congelamen
 
 ## Data
 2026-10-08
+
+---
+
+# Texto invertido - criterio e regra de decisao, fixados antes da medicao - 08/10/2026
+
+Fecha o desenho da pendencia aberta no exame de 07/10/2026. Este bloco e
+`scripts/medir_inversao.py` sao commitados **antes** da primeira execucao do script: a
+ordem fica no historico, e nenhum numero foi visto quando o criterio e o limiar foram
+escritos.
+
+## Criterio (opcao estreita, escolhida pelo autor em 08/10/2026)
+
+Para cada caso do universo, o alvo e o `expected_completion` **do proprio caso**, lido do
+conjunto e nao de memoria. Texto e alvo passam por NFKC e `casefold`, e sao divididos em
+palavras pela mesma definicao de palavra de R1 (corrida maxima de caracteres alfabeticos).
+
+Um caso tem inversao quando ocorre ao menos um dos dois mecanismos:
+
+| Mecanismo | Definicao |
+|---|---|
+| palavra | uma palavra do alvo com 4 letras ou mais, que nao seja palindromo, aparece escrita de tras para frente como palavra inteira do texto, e a forma invertida nao e ela propria palavra do alvo |
+| frase | o alvo inteiro, so letras, com 8 letras ou mais e que nao seja palindromo, aparece invertido como trecho contiguo das letras do texto, ignorando espacos e pontuacao |
+
+Caso sem `expected_completion` nao e avaliado, e a quantidade e informada.
+
+**O numero e limite inferior.** Inversao de palavras que nao pertencem ao alvo nao e
+medida.
+
+**Alternativa recusada: criterio amplo**, com qualquer palavra que invertida forme
+palavra de um lexico. Exigiria uma lista de palavras de terceiros, versionada e
+congelada junto, o mesmo custo que levou a recusar a biblioteca `regex` (rev. 2) e a
+tabela UTS #39 (rev. 3). A decisao entre quarta rodada e limitacao depende de ordem de
+grandeza, e um limite inferior a responde.
+
+## Controle positivo
+
+A `ordem` 18 da terceira amostra (sha256 `fdfda262...323996`) e o caso em que a tecnica
+foi observada. O script verifica que o criterio a detecta **antes** de contar. Se nao
+detectar, o script para sem produzir contagem, e o criterio e revisto sem que numero
+algum tenha sido visto.
+
+O script tambem para se o universo ou os estratos recalculados divergirem dos
+registrados na selecao vigente (`hackaprompt.json`): a regra abaixo foi escrita para
+aqueles denominadores.
+
+## Regra de decisao (aceita pelo autor em 08/10/2026)
+
+Se a inversao passasse a contar como transformacao de representacao, um caso so mudaria
+de estrato se hoje estiver em `texto_simples` ou em `idioma_ou_escrita_distinta`. Pela
+precedencia de R1, caso em `unicode_invisivel` continua ali, e caso em
+`codificacao_ou_ofuscacao` ja esta no destino. Por isso a regra de 5% e aplicada ao que
+**mudaria**:
+
+| Gatilho | Contagem | Limiar (5%, arredondado para cima) |
+|---|---|---|
+| saida de `texto_simples` | casos com inversao no estrato | 922 de 18.439 |
+| saida de `idioma_ou_escrita_distinta` | casos com inversao no estrato | 4 de 67 |
+| entrada em `codificacao_ou_ofuscacao` | soma das duas saidas | 60 de 1.185 |
+
+Qualquer gatilho atingido: **quarta rodada**, com a inversao incorporada a R1 por esta
+definicao escrita, aplicada ao universo inteiro, nova amostragem com a mesma semente e
+revisao manual apenas dos casos ineditos no livro de rotulos. Nenhum gatilho atingido:
+**limitacao declarada**, como "pelo menos N casos com a frase-alvo invertida", na tabela
+de limitacoes consolidadas do exame de 07/10/2026.
+
+Sensibilidade declarada antes da medicao: o estrato de escrita nao latina e pequeno, e
+quatro casos bastam para acionar a quarta rodada.
+
+## Data
+2026-10-08

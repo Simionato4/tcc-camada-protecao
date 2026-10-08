@@ -24,7 +24,7 @@ congelamento: a divergencia aparece na conferencia, em vez de passar despercebid
 | Data de obtencao | 2026-09-11 |
 | Licenca | CC BY-NC-SA 4.0 (dados) / Apache-2.0 (codigo) |
 | Acesso | publico |
-| Papel no experimento | Solicitacoes nocivas — grupos NOC e PII |
+| Papel no experimento | Solicitacoes nocivas — grupo NOC; area de vazamento como atributo secundario (ADR-0018) |
 | Arquivos | 11 |
 
 Maiores arquivos (hash completo em `origem.json`):

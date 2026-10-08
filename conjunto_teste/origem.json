@@ -62,7 +62,7 @@
     "licenca": "CC BY-NC-SA 4.0 (dados) / Apache-2.0 (codigo)",
     "nome": "do-not-answer",
     "origem": "LibrAI/do-not-answer",
-    "papel": "Solicitacoes nocivas — grupos NOC e PII",
+    "papel": "Solicitacoes nocivas — grupo NOC; area de vazamento como atributo secundario (ADR-0018)",
     "versao": "74e74f2e4507ef256fe536f78a776f4a1ff67955"
   },
   {

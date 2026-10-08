@@ -33,7 +33,7 @@ CONJUNTOS_HF = [
         "nome": "do-not-answer",
         "repo": "LibrAI/do-not-answer",
         "licenca": "CC BY-NC-SA 4.0 (dados) / Apache-2.0 (codigo)",
-        "papel": "Solicitacoes nocivas — grupos NOC e PII",
+        "papel": "Solicitacoes nocivas — grupo NOC; area de vazamento como atributo secundario (ADR-0018)",
     },
     {
         "nome": "hackaprompt",

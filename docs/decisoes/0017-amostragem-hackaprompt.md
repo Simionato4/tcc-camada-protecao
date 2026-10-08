@@ -920,3 +920,31 @@ e sortear nova amostra, adiando o congelamento sem mudar nenhum rotulo.
 
 ## Data
 2026-10-08
+
+---
+
+# Forma de anotacao da primeira e da segunda amostras - 08/10/2026
+
+Declaracao do autor, em 08/10/2026: as revisoes da primeira amostra (11/09/2026) e da
+segunda amostra (17/09/2026) **foram feitas com ajuda de IA**, com decisao final humana.
+
+| Rodada | Amostra | Forma de anotacao |
+|---|---|---|
+| 1a | primeira | assistida por IA, decisao final humana (declarada em 08/10/2026) |
+| 2a | segunda | assistida por IA, decisao final humana (declarada em 08/10/2026) |
+| 3a | terceira | assistida por IA, decisao final humana (declarada em 07/10/2026) |
+| 4a | quarta | assistida por IA, decisao final humana, com as travas da revisao 4 (declarada antes da revisao) |
+
+As quatro rodadas tem a mesma forma. A declaracao das tres primeiras foi feita depois da
+revisao, e assim fica registrada. So a quarta foi declarada antes. Nenhuma tem segundo
+anotador independente, e nao ha medida de concordancia.
+
+Os arquivos arquivados da primeira e da segunda amostras mantem o campo `classificador`
+anterior a declaracao, por serem evidencia (bloco de correcao de registro de 08/10/2026).
+O campo `autor` do livro de rotulos continua uniforme, pelo motivo registrado no exame de
+07/10/2026.
+
+**A pendencia sobre a autoria das rodadas, exigida pelo RQ-04, esta encerrada.**
+
+## Data
+2026-10-08

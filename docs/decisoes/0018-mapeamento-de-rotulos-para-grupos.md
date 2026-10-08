@@ -172,3 +172,22 @@ simples de verificar.
 
 ## Data
 2026-10-08
+
+---
+
+## Fonte do CTX-02 prevista no rascunho da metodologia - 08/10/2026
+
+O rascunho `metodologiav2.md` (14/08/2026) previa, no quadro de composicao do conjunto de
+teste, "Marcador de verificacao: 20 tentativas" de elaboracao do autor, para detectar
+vazamento do prompt de sistema. A versao final da proposta (23/08/2026) nao traz essa
+linha: fala apenas do marcador inserido no prompt.
+
+A subamostra de 10 casos de nivel 2 do HackAPrompt, decidida neste ADR, nao segue o
+rascunho. Motivo: tentativas escritas pelo autor seriam casos de ataque elaborados por
+quem tambem escreve as regras da camada, que e a circularidade que a propria proposta
+evita ao usar conjuntos publicados ("o uso de conjuntos publicados evita circularidade
+entre as regras e os casos que as verificam"). Registrado para que a diferenca entre o
+rascunho e o que foi feito nao apareca sem explicacao.
+
+### Data
+2026-10-08

@@ -149,3 +149,21 @@ sera transcrito para ca apos a execucao (RQ-16).
 Os hashes por arquivo dos 30 documentos estao em `base_conhecimento/MANIFESTO.md`.
 O hash do prompt viaja em toda resposta do servico do modelo, ligando cada resultado
 a versao do prompt que o produziu.
+
+## Tabela Unicode
+
+A tabela Unicode faz parte da unidade de reproducao do classificador de codificacao
+(`scripts/classificar_codificacao.py`), do mesmo modo que a versao do `fastembed` faz
+parte da unidade de reproducao do indice (ADR-0011): a normalizacao NFKC e os nomes de
+caractere dependem dela.
+
+| Item | Valor | Coletado em |
+|---|---|---|
+| Python | 3.13.2 | 2026-08-31 |
+| `unicodedata.unidata_version` | 15.1.0 | 2026-10-08 |
+| Caracteres nomeados (`unicodedata.name` definido em 0x000000-0x10FFFF) | 143.668 | 2026-10-08 |
+
+Obtido por:
+
+    python -c "import sys, unicodedata; print(sys.version); print(unicodedata.unidata_version)"
+    python -c "import unicodedata; print(sum(1 for cp in range(0x110000) if unicodedata.name(chr(cp), None)))"

@@ -22,9 +22,10 @@ Unicode caia em `idioma_ou_escrita_distinta`. Nove dos quarenta casos revistos a
 foram reclassificados por causa disso.
 
 Alem disso, `COMMON` e `INHERITED` figuravam entre os prefixos aceitos. Sao nomes de
-Script (UAX #24), nao prefixos de nome de caractere: nenhum dos 149.186 caracteres
-nomeados do Unicode 14.0 comeca por qualquer um dos dois. As duas entradas nunca
-casaram com nada.
+Script (UAX #24), nao prefixos de nome de caractere: nenhum dos 143.668 caracteres
+nomeados do Unicode 15.1 comeca por qualquer um dos dois -- verificado por varredura
+dos 1.114.112 codepoints na maquina do experimento em 08/10/2026. As duas entradas
+nunca casaram com nada.
 
 Correcao, seguindo a **Regra de revisao R1** registrada na ADR-0017:
 

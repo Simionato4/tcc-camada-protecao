@@ -589,3 +589,63 @@ efeito sobre a estratificacao.
 
 ## Data
 2026-10-07
+
+---
+
+# Correcao de registro - 08/10/2026
+
+## Versao da tabela Unicode
+
+A revisao 2 desta ADR afirma "Unicode 14.0", e a docstring de
+`scripts/classificar_codificacao.py` afirmava "nenhum dos 149.186 caracteres nomeados do
+Unicode 14.0". **Os dois numeros estao errados para o ambiente do experimento.**
+
+Medido na maquina do experimento em 08/10/2026:
+
+| Item | Valor |
+|---|---|
+| Python | 3.13.2 |
+| `unicodedata.unidata_version` | **15.1.0** |
+| Caracteres nomeados (`unicodedata.name` definido em 0x000000-0x10FFFF) | **143.668** |
+
+Procedencia do erro: os dois valores foram registrados pelo assistente de IA a partir de
+um ambiente com outra versao de Python, e transpostos para ca como se fossem do ambiente
+do trabalho. E o mesmo tipo de falha que a ADR-0011 registra para o `fastembed`: medicao
+vale para a combinacao em que foi feita, e nao se generaliza.
+
+O que foi verificado sob Unicode 15.1.0, na maquina do experimento, em 08/10/2026:
+
+| Verificacao | Resultado |
+|---|---|
+| `python -m pytest -q --import-mode=importlib`, incluindo o teste que percorre os 1.114.112 codepoints | 129 passed, 4 deselected |
+| `conferir_reclassificacao.py` sobre a revisao da primeira amostra (`hackaprompt_revisao-v1.csv`) | 9 de 9 decisoes humanas reproduzidas; distribuicao 19/10/10/1 |
+| `conferir_reclassificacao.py` sobre a revisao da segunda amostra (`hackaprompt_revisao-v2.csv`) | 2 de 3; a divergencia restante e a `ordem` 14, limitacao declarada na revisao 3 |
+
+Os resultados coincidem com os registrados nas revisoes 2 e 3. Nao se afirma aqui que o
+comportamento do classificador seja identico em todas as versoes do Unicode: afirma-se
+que, na versao do experimento, as decisoes ja revisadas sao reproduzidas. A docstring foi
+corrigida no mesmo commit desta secao, e a versao da tabela foi registrada em
+`docs/versoes.md`, porque `unidata_version` entra no congelamento.
+
+## Nomenclatura das rodadas de revisao
+
+A pendencia declarada no exame de 07/10/2026 falava em "rodadas de 11/09/2026 e
+17/09/2026". A redacao era ambigua: em 17/09 houve **duas** revisoes. As rodadas passam a
+ser nomeadas pela amostra, e nao pela data.
+
+| Rodada | Amostra | Decisao | Commits | Forma de anotacao |
+|---|---|---|---|---|
+| 1a | primeira amostra, 9 divergencias | 11/09/2026 | `ee7cf3d`, restaurado em `e3c8917` | **nao declarada** |
+| 2a | segunda amostra, 3 divergencias | 17/09/2026 | `338efc6` | **nao declarada** |
+| 3a | terceira amostra, 6 divergencias | 17/09/2026, reexaminada em 07/10/2026 | `afc3791`, `d6295d1` | declarada: assistida por IA, decisao final humana |
+
+Os arquivos arquivados `hackaprompt-v1-regra-com-defeito.json` e
+`hackaprompt-v2-regra-rev2.json` carregam o campo `classificador` anterior a declaracao.
+**Sao evidencia e nao sao editados.** A forma de anotacao da primeira e da segunda
+amostras sera declarada neste texto, e nao nos arquivos arquivados.
+
+**Pendencia mantida:** a forma de anotacao da primeira e da segunda amostras segue nao
+declarada. O RQ-04 exige autoria registrada das tres rodadas antes do congelamento.
+
+## Data
+2026-10-08

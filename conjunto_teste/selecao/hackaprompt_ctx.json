@@ -1,0 +1,91 @@
+{
+  "atendem_criterio": 2853,
+  "criterio": "level 2; expected_completion presente no prompt e ausente do user_input",
+  "data": "2026-10-08",
+  "descricao": "Subamostra do CTX-02 (ADR-0018). Sem texto de ataque (ADR-0016).",
+  "excluidos_por_estarem_na_amostra_inj": 1,
+  "selecionados": [
+    {
+      "caracteres": 139,
+      "classe_automatica": "texto_simples",
+      "level": 2,
+      "ordem": 1,
+      "session_id": "b305d37e-ee0d-11ed-a168-4e63e346030c",
+      "sha256_user_input": "db7c23bce72cdad8416d0ad9c74e10c163730a27e055e793566e6d1646809c01"
+    },
+    {
+      "caracteres": 19,
+      "classe_automatica": "texto_simples",
+      "level": 2,
+      "ordem": 2,
+      "session_id": "1a140992-f33f-11ed-9dab-8a459c941c7a",
+      "sha256_user_input": "96a989d4a2f55f17947b566cfa1efeb10ead4e59ebbb4413907fa6a551f34be0"
+    },
+    {
+      "caracteres": 480,
+      "classe_automatica": "texto_simples",
+      "level": 2,
+      "ordem": 3,
+      "session_id": "ffdbcb80-fb1f-11ed-932d-063aa719dcfa",
+      "sha256_user_input": "7dffd7d06dbcd611c216d4f1fd44aed9ae8b04febdc69e92618d6e00ec4cba42"
+    },
+    {
+      "caracteres": 133,
+      "classe_automatica": "texto_simples",
+      "level": 2,
+      "ordem": 4,
+      "session_id": "587c75ac-ecfa-11ed-8f80-e694c9b41896",
+      "sha256_user_input": "f023330da60457314d588432601db67ab415f0c0b7d912d6592a5991b5844c34"
+    },
+    {
+      "caracteres": 68,
+      "classe_automatica": "texto_simples",
+      "level": 2,
+      "ordem": 5,
+      "session_id": "9d9dc8a6-eeef-11ed-99a2-0e49baeea66b",
+      "sha256_user_input": "ee826aa0bb3f3c8667b8f8e69f0c223f83edb5cac894ec0ddafb78fe118d445f"
+    },
+    {
+      "caracteres": 259,
+      "classe_automatica": "texto_simples",
+      "level": 2,
+      "ordem": 6,
+      "session_id": "9d9dc8a6-eeef-11ed-99a2-0e49baeea66b",
+      "sha256_user_input": "1b2ac207507d2b63696d2ef67bba41380981f790e87ad7d86e0680d12ea0d73b"
+    },
+    {
+      "caracteres": 275,
+      "classe_automatica": "texto_simples",
+      "level": 2,
+      "ordem": 7,
+      "session_id": "1a140992-f33f-11ed-9dab-8a459c941c7a",
+      "sha256_user_input": "1088a8c847bd06c4dbabe5cb098c532b09b10f93c7daadde9132ab3e712eed84"
+    },
+    {
+      "caracteres": 40,
+      "classe_automatica": "texto_simples",
+      "level": 2,
+      "ordem": 8,
+      "session_id": "587c75ac-ecfa-11ed-8f80-e694c9b41896",
+      "sha256_user_input": "15bb99ab09743ea2f1cee2277770acf910eabdede0db94644efc762f6e91c71d"
+    },
+    {
+      "caracteres": 253,
+      "classe_automatica": "texto_simples",
+      "level": 2,
+      "ordem": 9,
+      "session_id": "9d9dc8a6-eeef-11ed-99a2-0e49baeea66b",
+      "sha256_user_input": "370034e299cef5d708fef31593e79fc67a354ae3e41f984d47d568dc3a9a2e19"
+    },
+    {
+      "caracteres": 38,
+      "classe_automatica": "texto_simples",
+      "level": 2,
+      "ordem": 10,
+      "session_id": "None",
+      "sha256_user_input": "09aa50c6eb3a306edb1c1ac9d7e3f89b2d7c714c7df0952e0c72031483e225f5"
+    }
+  ],
+  "semente": 20260829,
+  "universo": 19803
+}

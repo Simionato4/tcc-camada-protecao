@@ -775,3 +775,61 @@ implementacao nao corresponde ao criterio medido.
 
 ## Data
 2026-10-08
+
+---
+
+# Revisao 4 - texto invertido incorporado a R1 - 08/10/2026
+
+Decorre da regra de decisao fixada em `3bdabcc` e aplicada em `81b6be9`.
+
+## Extensao de R1
+
+Acrescenta-se as transformacoes de representacao de R1, com a definicao commitada antes da
+medicao: **texto invertido**, quando uma palavra do alvo com 4 letras ou mais, nao
+palindromo, aparece escrita de tras para frente como palavra inteira do texto, ou quando o
+alvo inteiro, so letras, com 8 letras ou mais, aparece invertido como trecho contiguo das
+letras do texto. Texto e alvo passam por NFKC e `casefold`. O alvo e o `expected_completion`
+do proprio caso. A precedencia de R1 nao muda: a inversao e evidencia de
+`codificacao_ou_ofuscacao`, abaixo de `unicode_invisivel`.
+
+## Implementacao
+
+`scripts/classificar_codificacao.py` ganha `mecanismos_de_inversao(texto, alvo)`, e
+`classificar`, `tem_ofuscacao` e `descrever` passam a aceitar `alvo` opcional.
+`scripts/amostrar_hackaprompt.py` passa o `expected_completion` de cada caso.
+
+`scripts/medir_inversao.py` **nao e alterado**: e o instrumento da medicao registrada e
+fica como estava em `3bdabcc`. Para que o que classifica seja o que foi medido, um teste
+confere que as duas implementacoes devolvem o mesmo resultado sobre os casos de teste; a
+verificacao sobre o universo e a previsao de estratos abaixo.
+
+Sem `alvo`, o classificador devolve exatamente o resultado da revisao 3. Por isso as
+conferencias das amostras anteriores (`conferir_reclassificacao.py`, que le CSV sem
+frase-alvo) nao mudam.
+
+**Limitacao declarada.** O criterio e especifico de conjunto com frase-alvo conhecida, e e
+limite inferior: inversao de palavras fora do alvo nao e reconhecida.
+
+## Verificacao exigida antes da reamostragem
+
+`python scripts/amostrar_hackaprompt.py --apenas-estratos` deve produzir os estratos
+previstos no bloco de resultado: **18.395** texto simples, **1.233** codificacao, **112**
+invisivel, **63** escrita nao latina. Divergencia interrompe a rodada.
+
+## Forma de anotacao da quarta rodada, declarada antes da revisao
+
+Assistida por IA, com decisao final humana, nos termos abaixo, que incorporam a falha da
+terceira rodada:
+
+1. A IA examina cada caso inedito por evidencia de nivel de caractere (nomes Unicode,
+   contagens, palavra reconstruida), sem reproduzir o texto, e propoe uma classe
+   **citando a clausula de R1 que se aplica**. Sem clausula citavel, a proposta e a classe
+   da regra automatica.
+2. A IA nao propoe operacao ausente de R1. Foi o que produziu as tres reversoes da
+   terceira rodada (fragmentacao parcial e substituicao ASCII para ASCII).
+3. O autor decide caso a caso. As divergencias sao gravadas por
+   `scripts/anotar_revisao.py`, e nao por planilha.
+4. O campo `classificador` da rodada declara essa forma.
+
+## Data
+2026-10-08

@@ -80,6 +80,22 @@ NFKC, que e heuristica. A alternativa seria a biblioteca `regex` e seu `\\p{Scri
 foi recusada para nao acrescentar uma segunda tabela Unicode versionada ao conjunto do
 que precisa ser fixado para reproduzir o resultado. A versao em uso fica registrada em
 `unicodedata.unidata_version` e deve constar do congelamento.
+
+REVISAO 4 (ADR-0017, 08/10/2026). R1 passa a incluir **texto invertido** entre as
+transformacoes de representacao. O criterio e exatamente o que foi medido por
+`scripts/medir_inversao.py` antes desta revisao (commit `3bdabcc`), e cuja regra de
+decisao apontou a quarta rodada: uma palavra do alvo com 4 letras ou mais, nao
+palindromo, escrita de tras para frente como palavra inteira do texto; ou o alvo inteiro,
+so letras, com 8 letras ou mais, invertido como trecho contiguo das letras do texto.
+Texto e alvo passam por NFKC e `casefold`.
+
+LIMITACAO DECLARADA (inversao). O alvo e o `expected_completion` do proprio caso. O
+criterio e portanto **especifico de conjunto com frase-alvo conhecida**: sem alvo,
+`classificar` nao detecta inversao, e por isso o parametro `alvo` e opcional. Inversao de
+palavras que nao pertencem ao alvo nao e reconhecida; o criterio e um limite inferior. A
+alternativa — qualquer palavra que invertida forme palavra de um lexico — exigiria uma
+lista de palavras de terceiros a congelar, e foi recusada pelo mesmo motivo que `regex`
+e UTS #39.
 """
 
 from __future__ import annotations
@@ -233,7 +249,48 @@ def palavras_com_homoglifo(texto: str) -> list[tuple[str, str]]:
     return achados
 
 
-def tem_ofuscacao(texto: str) -> bool:
+# Inversao (revisao 4). Valores fixados na ADR-0017 antes da medicao.
+MINIMO_PALAVRA_INVERTIDA = 4
+MINIMO_FRASE_INVERTIDA = 8
+
+
+def _palavras_nfkc(texto: str) -> list[str]:
+    return PALAVRA.findall(unicodedata.normalize("NFKC", texto).casefold())
+
+
+def mecanismos_de_inversao(texto: str, alvo: object = None) -> set[str]:
+    """Devolve {'palavra', 'frase'} conforme o criterio da revisao 4; vazio se nenhum.
+
+    Mesma definicao de `scripts/medir_inversao.py`, que mediu o universo antes desta
+    revisao. Um teste confere que as duas implementacoes concordam.
+    """
+    if not isinstance(alvo, str) or not alvo.strip():
+        return set()
+    achados: set[str] = set()
+    palavras_texto = _palavras_nfkc(texto)
+    presentes = set(palavras_texto)
+    alvos = {
+        w
+        for w in _palavras_nfkc(alvo)
+        if len(w) >= MINIMO_PALAVRA_INVERTIDA and w != w[::-1]
+    }
+    if any(w[::-1] in presentes and w[::-1] not in alvos for w in alvos):
+        achados.add("palavra")
+    frase = "".join(_palavras_nfkc(alvo))
+    if (
+        len(frase) >= MINIMO_FRASE_INVERTIDA
+        and frase != frase[::-1]
+        and frase[::-1] in "".join(palavras_texto)
+    ):
+        achados.add("frase")
+    return achados
+
+
+def tem_inversao(texto: str, alvo: object = None) -> bool:
+    return bool(mecanismos_de_inversao(texto, alvo))
+
+
+def tem_ofuscacao(texto: str, alvo: object = None) -> bool:
     return (
         tem_base64_decodificavel(texto)
         or len(PERCENTUAL.findall(texto)) >= MINIMO_PERCENTUAL
@@ -241,6 +298,7 @@ def tem_ofuscacao(texto: str) -> bool:
         or bool(INTERCALADO.search(texto))
         or tem_variante_tipografica(texto)
         or tem_homoglifo(texto)
+        or tem_inversao(texto, alvo)
     )
 
 
@@ -265,22 +323,25 @@ def tem_escrita_nao_latina(texto: str, limite: int = MINIMO_ESCRITA_DISTINTA) ->
     return False
 
 
-def classificar(texto: str) -> str:
+def classificar(texto: str, alvo: object = None) -> str:
     """Ordem de precedencia de R1: do sinal mais especifico ao mais geral.
 
     Unicode invisivel vem primeiro porque e o sinal menos ambiguo — ou o codepoint
     esta la, ou nao esta. Texto simples e o padrao, e nao uma deteccao.
+
+    `alvo` e a frase-alvo do caso (revisao 4). Sem ela, a inversao nao e avaliada e o
+    resultado e identico ao da revisao 3.
     """
     if tem_invisivel(texto):
         return INVISIVEL
-    if tem_ofuscacao(texto):
+    if tem_ofuscacao(texto, alvo):
         return CODIFICACAO
     if tem_escrita_nao_latina(texto):
         return ESCRITA_DISTINTA
     return TEXTO_SIMPLES
 
 
-def descrever(texto: str) -> dict[str, object]:
+def descrever(texto: str, alvo: object = None) -> dict[str, object]:
     """Todas as caracteristicas observadas, e nao so a classe atribuida.
 
     R1: "Nos casos mistos, registram-se as caracteristicas secundarias e aplica-se a
@@ -288,7 +349,7 @@ def descrever(texto: str) -> dict[str, object]:
     registro; `classificar` produz apenas o rotulo.
     """
     return {
-        "classe": classificar(texto),
+        "classe": classificar(texto, alvo),
         "invisivel": tem_invisivel(texto),
         "base64": tem_base64_decodificavel(texto),
         "percentual": len(PERCENTUAL.findall(texto)),
@@ -296,6 +357,7 @@ def descrever(texto: str) -> dict[str, object]:
         "intercalado": bool(INTERCALADO.search(texto)),
         "variante_tipografica": tem_variante_tipografica(texto),
         "homoglifos": palavras_com_homoglifo(texto),
+        "inversao": sorted(mecanismos_de_inversao(texto, alvo)),
         "escrita_nao_latina": tem_escrita_nao_latina(texto),
         "reconstruido_nfkc": unicodedata.normalize("NFKC", texto),
         "unidata_version": unicodedata.unidata_version,

@@ -156,7 +156,10 @@ def amostrar(semente: int) -> dict:
 
     estratos: dict[str, list] = {c: [] for c in clf.CLASSES}
     for registro in registros:
-        estratos[clf.classificar(registro["_texto"])].append(registro)
+        # Revisao 4: a frase-alvo do proprio caso entra no criterio de inversao.
+        estratos[
+            clf.classificar(registro["_texto"], registro.get("expected_completion"))
+        ].append(registro)
 
     sorteio = random.Random(semente)
     alocacao = alocar(estratos, TAMANHO_AMOSTRA)
@@ -407,8 +410,8 @@ def main() -> int:
     if argumentos.apenas_estratos:
         quadro, _, _ = carregar_universo()
         contagem: dict[str, int] = {c: 0 for c in clf.CLASSES}
-        for texto in quadro["_texto"]:
-            contagem[clf.classificar(texto)] += 1
+        for texto, alvo in zip(quadro["_texto"], quadro["expected_completion"]):
+            contagem[clf.classificar(texto, alvo)] += 1
         print("Estratos no universo (nenhum arquivo gravado):")
         for classe, quantidade in sorted(contagem.items()):
             print(f"  {quantidade:>8,}  {classe}")

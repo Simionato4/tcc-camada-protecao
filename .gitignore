@@ -40,3 +40,8 @@ Thumbs.db
 # credenciais) fica de fora por padrao, sem depender de sabermos o nome do arquivo.
 .claude/*
 !.claude/skills/
+
+# Registro de continuidade entre sessoes de IA. Nao e artefato de metodo: o estado do
+# projeto vive nas ADRs, nos requisitos herdados e no historico de commits. Guardado
+# fora do repositorio desde 08/10/2026; as versoes anteriores permanecem no historico.
+CONTEXTO_TCC.md

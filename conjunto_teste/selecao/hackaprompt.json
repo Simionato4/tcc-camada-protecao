@@ -5,30 +5,52 @@
     "texto_simples": 10,
     "unicode_invisivel": 10
   },
-  "data": "2026-09-17",
+  "data": "2026-10-08",
   "distribuicao_final": {
-    "codificacao_ou_ofuscacao": 13,
-    "idioma_ou_escrita_distinta": 7,
+    "codificacao_ou_ofuscacao": 10,
+    "idioma_ou_escrita_distinta": 10,
     "texto_simples": 10,
     "unicode_invisivel": 10
   },
   "estratos": {
-    "codificacao_ou_ofuscacao": 1185,
-    "idioma_ou_escrita_distinta": 67,
-    "texto_simples": 18439,
+    "codificacao_ou_ofuscacao": 1233,
+    "idioma_ou_escrita_distinta": 63,
+    "texto_simples": 18395,
     "unicode_invisivel": 112
   },
   "revisao": {
     "casos_com_rotulo_herdado": 12,
-    "casos_decididos_nesta_rodada": 6,
+    "casos_decididos_nesta_rodada": 0,
     "casos_ineditos": 28,
     "casos_no_arquivo": 40,
     "classificador": "autor, com anotacao assistida por IA e decisao final humana; classificador unico, sem medida de concordancia",
-    "data": "2026-10-07",
-    "divergencias_da_regra": 3,
-    "forma": "caso a caso, com divergencias anotadas"
+    "data": "2026-10-08",
+    "divergencias_da_regra": 0,
+    "forma": "caso a caso, concordancia total declarada pelo autor"
   },
   "selecionados": [
+    {
+      "caracteres": 190,
+      "classe_automatica": "codificacao_ou_ofuscacao",
+      "classe_final": "codificacao_ou_ofuscacao",
+      "classe_herdada": "",
+      "classe_revisada": "",
+      "level": 7,
+      "ordem": 1,
+      "session_id": "1a140992-f33f-11ed-9dab-8a459c941c7a",
+      "sha256_user_input": "b1db361e537220aae200fdc5b3963af05347c1b83d4f92bcccdfd180f706c90d"
+    },
+    {
+      "caracteres": 121,
+      "classe_automatica": "codificacao_ou_ofuscacao",
+      "classe_final": "codificacao_ou_ofuscacao",
+      "classe_herdada": "",
+      "classe_revisada": "",
+      "level": 7,
+      "ordem": 2,
+      "session_id": "1a140992-f33f-11ed-9dab-8a459c941c7a",
+      "sha256_user_input": "90bf67ee843c7826c6e4ac548c30a5f6ef62763040883a0828fa988ca4af3fe8"
+    },
     {
       "caracteres": 36,
       "classe_automatica": "codificacao_ou_ofuscacao",
@@ -36,31 +58,9 @@
       "classe_herdada": "",
       "classe_revisada": "",
       "level": 9,
-      "ordem": 1,
-      "session_id": "1a140992-f33f-11ed-9dab-8a459c941c7a",
-      "sha256_user_input": "b6b68bcef4dd20e9eff8fd0457d320b9371f023b34b9fdd9c8a065cbb4990757"
-    },
-    {
-      "caracteres": 106,
-      "classe_automatica": "codificacao_ou_ofuscacao",
-      "classe_final": "codificacao_ou_ofuscacao",
-      "classe_herdada": "",
-      "classe_revisada": "",
-      "level": 9,
-      "ordem": 2,
-      "session_id": "1a140992-f33f-11ed-9dab-8a459c941c7a",
-      "sha256_user_input": "96ea21d004446391bdb4936c040efea50a257f4ff0e45dbd1ba794a9b80b5065"
-    },
-    {
-      "caracteres": 214,
-      "classe_automatica": "codificacao_ou_ofuscacao",
-      "classe_final": "codificacao_ou_ofuscacao",
-      "classe_herdada": "codificacao_ou_ofuscacao",
-      "classe_revisada": "",
-      "level": 9,
       "ordem": 3,
-      "session_id": "ffdbcb80-fb1f-11ed-932d-063aa719dcfa",
-      "sha256_user_input": "1d410188d4c07c40be4a70339164d0615ca270c508c5262f4874a2da3d4a441d"
+      "session_id": "1a140992-f33f-11ed-9dab-8a459c941c7a",
+      "sha256_user_input": "1c18c48bc3616f2e4eeb38bc5d10404882086659ea171bc39dcc4c2f14a148b6"
     },
     {
       "caracteres": 26,
@@ -68,65 +68,10 @@
       "classe_final": "codificacao_ou_ofuscacao",
       "classe_herdada": "",
       "classe_revisada": "",
-      "level": 9,
+      "level": 5,
       "ordem": 4,
-      "session_id": "ffdbcb80-fb1f-11ed-932d-063aa719dcfa",
-      "sha256_user_input": "122ef978ee14f99b795b24cb8f5e5f256f87db34b17961c0be450be98c3d37f5"
-    },
-    {
-      "caracteres": 41,
-      "classe_automatica": "codificacao_ou_ofuscacao",
-      "classe_final": "codificacao_ou_ofuscacao",
-      "classe_herdada": "",
-      "classe_revisada": "",
-      "level": 9,
-      "ordem": 5,
-      "session_id": "9d9dc8a6-eeef-11ed-99a2-0e49baeea66b",
-      "sha256_user_input": "1865fa92857fa5fb3c88ca5949f9af254f968c0575339842a05e6bc3be788b88"
-    },
-    {
-      "caracteres": 37,
-      "classe_automatica": "codificacao_ou_ofuscacao",
-      "classe_final": "codificacao_ou_ofuscacao",
-      "classe_herdada": "",
-      "classe_revisada": "",
-      "level": 9,
-      "ordem": 6,
-      "session_id": "b305d37e-ee0d-11ed-a168-4e63e346030c",
-      "sha256_user_input": "3ea1f534759c117dac9ff7864293c8ceb3df3a74c8e937a5655128086085cb45"
-    },
-    {
-      "caracteres": 294,
-      "classe_automatica": "codificacao_ou_ofuscacao",
-      "classe_final": "codificacao_ou_ofuscacao",
-      "classe_herdada": "",
-      "classe_revisada": "",
-      "level": 9,
-      "ordem": 7,
-      "session_id": "ffdbcb80-fb1f-11ed-932d-063aa719dcfa",
-      "sha256_user_input": "0b184ac4ad7fb4e2c0130f1d4cfcad56c549281e99df56dd1b5184c84ec8a3c5"
-    },
-    {
-      "caracteres": 282,
-      "classe_automatica": "codificacao_ou_ofuscacao",
-      "classe_final": "codificacao_ou_ofuscacao",
-      "classe_herdada": "",
-      "classe_revisada": "",
-      "level": 9,
-      "ordem": 8,
-      "session_id": "ffdbcb80-fb1f-11ed-932d-063aa719dcfa",
-      "sha256_user_input": "0f182547a417027ece6c3c5dbf006bfb42c20ce5de2b9080885ed8130b3b0efb"
-    },
-    {
-      "caracteres": 25,
-      "classe_automatica": "codificacao_ou_ofuscacao",
-      "classe_final": "codificacao_ou_ofuscacao",
-      "classe_herdada": "codificacao_ou_ofuscacao",
-      "classe_revisada": "",
-      "level": 1,
-      "ordem": 9,
       "session_id": "1a140992-f33f-11ed-9dab-8a459c941c7a",
-      "sha256_user_input": "1a098b27a999f53d906db34bb8e7cf2fe6eaacd9c86e74624dbb2f0385033dec"
+      "sha256_user_input": "118b3b7237579f6488934eee4e15321b6161a02ff9780c95804c063635aab247"
     },
     {
       "caracteres": 38,
@@ -135,70 +80,125 @@
       "classe_herdada": "",
       "classe_revisada": "",
       "level": 9,
-      "ordem": 10,
-      "session_id": "45b08f9e-022b-11ee-a9df-b64f8a8da7e0",
-      "sha256_user_input": "48b03aaf87feab03515eaa2a15e37b1d4b194ff43e07e0b08756a630b0254409"
+      "ordem": 5,
+      "session_id": "1a140992-f33f-11ed-9dab-8a459c941c7a",
+      "sha256_user_input": "17a7059bfb0341386eb1ff6839630db73dd6f522c4d6c12ff71602349670e6c7"
     },
     {
-      "caracteres": 246,
-      "classe_automatica": "idioma_ou_escrita_distinta",
+      "caracteres": 36,
+      "classe_automatica": "codificacao_ou_ofuscacao",
       "classe_final": "codificacao_ou_ofuscacao",
       "classe_herdada": "",
-      "classe_revisada": "codificacao_ou_ofuscacao",
-      "level": 8,
-      "ordem": 11,
-      "session_id": "9d9dc8a6-eeef-11ed-99a2-0e49baeea66b",
-      "sha256_user_input": "d9db4e4a733e7213484d3e5a96c8edfb444fb5b3034dd5fd025c5aee45c345cc"
+      "classe_revisada": "",
+      "level": 9,
+      "ordem": 6,
+      "session_id": "1a140992-f33f-11ed-9dab-8a459c941c7a",
+      "sha256_user_input": "3c93d9e7f895c98f6fbbcc9604636a7d15a37944789d5f24d28ba84df0f2e771"
     },
     {
-      "caracteres": 62,
-      "classe_automatica": "idioma_ou_escrita_distinta",
-      "classe_final": "idioma_ou_escrita_distinta",
+      "caracteres": 113,
+      "classe_automatica": "codificacao_ou_ofuscacao",
+      "classe_final": "codificacao_ou_ofuscacao",
+      "classe_herdada": "",
+      "classe_revisada": "",
+      "level": 0,
+      "ordem": 7,
+      "session_id": "ffdbcb80-fb1f-11ed-932d-063aa719dcfa",
+      "sha256_user_input": "0aeff91dddca402226f7efdc71a6b87a859112754fdaa9ce5d4f71f02df72dec"
+    },
+    {
+      "caracteres": 23,
+      "classe_automatica": "codificacao_ou_ofuscacao",
+      "classe_final": "codificacao_ou_ofuscacao",
       "classe_herdada": "",
       "classe_revisada": "",
       "level": 3,
-      "ordem": 12,
+      "ordem": 8,
       "session_id": "1a140992-f33f-11ed-9dab-8a459c941c7a",
-      "sha256_user_input": "486845c2878ab494b29759d9110612853d20620e58b1fda294b094047bb704c0"
+      "sha256_user_input": "0e174e5465edd9be00f6cb95a3e523a6fb2443516c696adf94205554252fdb02"
     },
     {
-      "caracteres": 453,
-      "classe_automatica": "idioma_ou_escrita_distinta",
+      "caracteres": 34,
+      "classe_automatica": "codificacao_ou_ofuscacao",
       "classe_final": "codificacao_ou_ofuscacao",
       "classe_herdada": "",
-      "classe_revisada": "codificacao_ou_ofuscacao",
-      "level": 7,
+      "classe_revisada": "",
+      "level": 9,
+      "ordem": 9,
+      "session_id": "ffdbcb80-fb1f-11ed-932d-063aa719dcfa",
+      "sha256_user_input": "198edfaa5feacc285ea615641be53e4021e80b41d1071cb5b73aa660684f0eca"
+    },
+    {
+      "caracteres": 36,
+      "classe_automatica": "codificacao_ou_ofuscacao",
+      "classe_final": "codificacao_ou_ofuscacao",
+      "classe_herdada": "",
+      "classe_revisada": "",
+      "level": 9,
+      "ordem": 10,
+      "session_id": "1a140992-f33f-11ed-9dab-8a459c941c7a",
+      "sha256_user_input": "fea712aeae1d4fb363e1bcdfc259478d52fcd3d18b02f963e17172c5a9eff1d5"
+    },
+    {
+      "caracteres": 872,
+      "classe_automatica": "idioma_ou_escrita_distinta",
+      "classe_final": "idioma_ou_escrita_distinta",
+      "classe_herdada": "",
+      "classe_revisada": "",
+      "level": 1,
+      "ordem": 11,
+      "session_id": "1a140992-f33f-11ed-9dab-8a459c941c7a",
+      "sha256_user_input": "f7b823ee4f2771aa06596d97b6aa2ef0b9a219da2ad75dcee9d26092edae9267"
+    },
+    {
+      "caracteres": 149,
+      "classe_automatica": "idioma_ou_escrita_distinta",
+      "classe_final": "idioma_ou_escrita_distinta",
+      "classe_herdada": "idioma_ou_escrita_distinta",
+      "classe_revisada": "",
+      "level": 1,
+      "ordem": 12,
+      "session_id": "9d9dc8a6-eeef-11ed-99a2-0e49baeea66b",
+      "sha256_user_input": "28afd69dbec605145c4423a9ad7d1a7ffb1d361ec0843abaa023703dd3d914e6"
+    },
+    {
+      "caracteres": 216,
+      "classe_automatica": "idioma_ou_escrita_distinta",
+      "classe_final": "idioma_ou_escrita_distinta",
+      "classe_herdada": "",
+      "classe_revisada": "",
+      "level": 1,
       "ordem": 13,
       "session_id": "9d9dc8a6-eeef-11ed-99a2-0e49baeea66b",
-      "sha256_user_input": "7bf78fb5eb782dc35e352672ef09ffd19bc3db5957d2fdcfaaa41cc8fa0c6723"
+      "sha256_user_input": "bb53453eb631c6cc562c3e8d59631b80101642faed51d092073801bc349677c5"
     },
     {
-      "caracteres": 988,
+      "caracteres": 354,
       "classe_automatica": "idioma_ou_escrita_distinta",
       "classe_final": "idioma_ou_escrita_distinta",
       "classe_herdada": "",
       "classe_revisada": "",
-      "level": 4,
+      "level": 1,
       "ordem": 14,
       "session_id": "ffdbcb80-fb1f-11ed-932d-063aa719dcfa",
-      "sha256_user_input": "5ed9798f364de156d3f27a593314f395cefae5b6b256c4f63d81f83ac99cc94a"
+      "sha256_user_input": "74c97f096a717642a498e40b9348df194f0d09861fe73c7e0588235b68ae82f6"
     },
     {
-      "caracteres": 397,
+      "caracteres": 881,
       "classe_automatica": "idioma_ou_escrita_distinta",
       "classe_final": "idioma_ou_escrita_distinta",
       "classe_herdada": "",
       "classe_revisada": "",
-      "level": 8,
+      "level": 1,
       "ordem": 15,
-      "session_id": "ffdbcb80-fb1f-11ed-932d-063aa719dcfa",
-      "sha256_user_input": "0beef1d20265ad9b2926981390d9d383b8aacb6fc55168018a571aeea8c3c30d"
+      "session_id": "1a140992-f33f-11ed-9dab-8a459c941c7a",
+      "sha256_user_input": "2652144b8756453b3b175edb5b2677bd5a3d05cbf59e4826ff37c8071814727c"
     },
     {
       "caracteres": 156,
       "classe_automatica": "idioma_ou_escrita_distinta",
       "classe_final": "idioma_ou_escrita_distinta",
-      "classe_herdada": "",
+      "classe_herdada": "idioma_ou_escrita_distinta",
       "classe_revisada": "",
       "level": 4,
       "ordem": 16,
@@ -206,158 +206,191 @@
       "sha256_user_input": "861eec68c47ac9ed05c5e170e791122a17ec2d4543b7c955f6a72a861936f92c"
     },
     {
-      "caracteres": 168,
+      "caracteres": 531,
       "classe_automatica": "idioma_ou_escrita_distinta",
       "classe_final": "idioma_ou_escrita_distinta",
       "classe_herdada": "",
       "classe_revisada": "",
       "level": 1,
       "ordem": 17,
-      "session_id": "9d9dc8a6-eeef-11ed-99a2-0e49baeea66b",
-      "sha256_user_input": "0e6417f5f4de76590f807f6473b48d64f7177d65e58e4438d629dddb7311fcfb"
+      "session_id": "ffdbcb80-fb1f-11ed-932d-063aa719dcfa",
+      "sha256_user_input": "48123f2e5d7d1c4d6fc7ab506db3d43a7e6dab7fc128c9dda90fa04f0f6e38a3"
     },
     {
-      "caracteres": 251,
+      "caracteres": 571,
       "classe_automatica": "idioma_ou_escrita_distinta",
-      "classe_final": "codificacao_ou_ofuscacao",
+      "classe_final": "idioma_ou_escrita_distinta",
       "classe_herdada": "",
-      "classe_revisada": "codificacao_ou_ofuscacao",
+      "classe_revisada": "",
       "level": 1,
       "ordem": 18,
       "session_id": "1a140992-f33f-11ed-9dab-8a459c941c7a",
-      "sha256_user_input": "fdfda262d32c4ab6dc1c1fbbe4ca33e21d72edd75cabcabc283c37b7df323996"
+      "sha256_user_input": "8057a624016904ccae0f6dba54e4826dcab730b4ea8f20fad57031316f5cc17a"
     },
     {
-      "caracteres": 149,
+      "caracteres": 1555,
       "classe_automatica": "idioma_ou_escrita_distinta",
       "classe_final": "idioma_ou_escrita_distinta",
       "classe_herdada": "",
       "classe_revisada": "",
-      "level": 1,
+      "level": 4,
       "ordem": 19,
-      "session_id": "9d9dc8a6-eeef-11ed-99a2-0e49baeea66b",
-      "sha256_user_input": "28afd69dbec605145c4423a9ad7d1a7ffb1d361ec0843abaa023703dd3d914e6"
+      "session_id": "ffdbcb80-fb1f-11ed-932d-063aa719dcfa",
+      "sha256_user_input": "f743fadafd5ad85a98009cb5e08314c66efbe507ae1bdd6bd71c87e8e8bda1a1"
     },
     {
-      "caracteres": 511,
+      "caracteres": 397,
       "classe_automatica": "idioma_ou_escrita_distinta",
       "classe_final": "idioma_ou_escrita_distinta",
-      "classe_herdada": "",
+      "classe_herdada": "idioma_ou_escrita_distinta",
       "classe_revisada": "",
-      "level": 1,
+      "level": 8,
       "ordem": 20,
-      "session_id": "1a140992-f33f-11ed-9dab-8a459c941c7a",
-      "sha256_user_input": "b56fd16f8070e254f3db31947251c38b504b8c9486da3aefe23385a13e765df6"
+      "session_id": "ffdbcb80-fb1f-11ed-932d-063aa719dcfa",
+      "sha256_user_input": "0beef1d20265ad9b2926981390d9d383b8aacb6fc55168018a571aeea8c3c30d"
     },
     {
-      "caracteres": 57,
+      "caracteres": 191,
       "classe_automatica": "texto_simples",
       "classe_final": "texto_simples",
       "classe_herdada": "",
       "classe_revisada": "",
       "level": 0,
       "ordem": 21,
-      "session_id": "08a1d852-eb9b-11ed-85b3-7aa73ac7f62b",
-      "sha256_user_input": "28ee56268d53e4c4386ade88314784d0f8bdf9a76afa7b589db5ea88a04d414c"
+      "session_id": "1a140992-f33f-11ed-9dab-8a459c941c7a",
+      "sha256_user_input": "136bd366ce385ab51652b4a66ec286dd7296493b136613b5ae33eaa7213d0a31"
     },
     {
-      "caracteres": 53,
+      "caracteres": 658,
       "classe_automatica": "texto_simples",
       "classe_final": "texto_simples",
       "classe_herdada": "",
-      "classe_revisada": "texto_simples",
-      "level": 7,
+      "classe_revisada": "",
+      "level": 0,
       "ordem": 22,
       "session_id": "1a140992-f33f-11ed-9dab-8a459c941c7a",
-      "sha256_user_input": "09266bf89bace6327dd120114d294bf62077f67e7d5b5f45302509e1a82e4da3"
+      "sha256_user_input": "476b199a443e23cc3aa557685e868912552f43828035be0d4ecb9ee3b2695ee9"
     },
     {
-      "caracteres": 88,
+      "caracteres": 86,
       "classe_automatica": "texto_simples",
       "classe_final": "texto_simples",
       "classe_herdada": "",
       "classe_revisada": "",
-      "level": 3,
+      "level": 5,
       "ordem": 23,
       "session_id": "1a140992-f33f-11ed-9dab-8a459c941c7a",
-      "sha256_user_input": "8fb73721b1689bf44f5f2ff086051955125949913c62d500872a5b849a52c5c7"
+      "sha256_user_input": "29001c8f534d143cc9103cf68d31397578a4525e9716326a90625c47d26a0042"
     },
     {
-      "caracteres": 105,
+      "caracteres": 58,
       "classe_automatica": "texto_simples",
       "classe_final": "texto_simples",
       "classe_herdada": "",
       "classe_revisada": "",
-      "level": 8,
+      "level": 5,
       "ordem": 24,
-      "session_id": "9d9dc8a6-eeef-11ed-99a2-0e49baeea66b",
-      "sha256_user_input": "7888f64f60fd416702b2cb41d3b25e5581de12f5d840f0f98cc6fa1c20e2dace"
+      "session_id": "ffdbcb80-fb1f-11ed-932d-063aa719dcfa",
+      "sha256_user_input": "092ae38114bb64f78e8dd6b0eab62efa27376a169b27e20aab53937d71cdb7a7"
     },
     {
-      "caracteres": 116,
+      "caracteres": 150,
       "classe_automatica": "texto_simples",
       "classe_final": "texto_simples",
       "classe_herdada": "",
       "classe_revisada": "",
       "level": 3,
       "ordem": 25,
-      "session_id": "587c75ac-ecfa-11ed-8f80-e694c9b41896",
-      "sha256_user_input": "dbab084e0c4c99360f3e076860075f220fbd41927dbb33e48a1fefc3fa8ce72c"
+      "session_id": "b305d37e-ee0d-11ed-a168-4e63e346030c",
+      "sha256_user_input": "8ff3b9d5abb3a29a1e665d75dff05a7f02038b76423404f8c6a88f961463f096"
     },
     {
-      "caracteres": 76,
+      "caracteres": 332,
       "classe_automatica": "texto_simples",
       "classe_final": "texto_simples",
       "classe_herdada": "",
       "classe_revisada": "",
-      "level": 8,
+      "level": 4,
       "ordem": 26,
-      "session_id": "ffdbcb80-fb1f-11ed-932d-063aa719dcfa",
-      "sha256_user_input": "91cf0f372e8934f14e9c63546b6fec827b072a6494516d61a405594787ea0c42"
+      "session_id": "8316d698-ec6b-11ed-a511-b665a7b0d157",
+      "sha256_user_input": "78aa9f95de2458f1acdf3ae3afe151419cb5878a37ca44ab66f1c5daf1f1a6a7"
     },
     {
-      "caracteres": 343,
+      "caracteres": 122,
       "classe_automatica": "texto_simples",
       "classe_final": "texto_simples",
       "classe_herdada": "",
       "classe_revisada": "",
       "level": 1,
       "ordem": 27,
-      "session_id": "9d9dc8a6-eeef-11ed-99a2-0e49baeea66b",
-      "sha256_user_input": "71081bf31cfed2c808ceb030ba5013d2e422fadf99bf5c0ed8aced099ffbf726"
+      "session_id": "1a140992-f33f-11ed-9dab-8a459c941c7a",
+      "sha256_user_input": "dc40b0519391ace94e4f939b3ba8f017648b59e6295d24ff0757f749af6612e8"
     },
     {
-      "caracteres": 421,
+      "caracteres": 274,
       "classe_automatica": "texto_simples",
       "classe_final": "texto_simples",
       "classe_herdada": "",
-      "classe_revisada": "texto_simples",
+      "classe_revisada": "",
       "level": 0,
       "ordem": 28,
       "session_id": "1a140992-f33f-11ed-9dab-8a459c941c7a",
-      "sha256_user_input": "bedf2c487c46d6f5c874691830810e618675cda72a6aa105cb4de6af19c2d405"
+      "sha256_user_input": "920a9e68ff17358de2b2b59452ce7636ccef95acdaec63f5ce77f3723a255aea"
     },
     {
-      "caracteres": 70,
+      "caracteres": 140,
       "classe_automatica": "texto_simples",
       "classe_final": "texto_simples",
       "classe_herdada": "",
       "classe_revisada": "",
       "level": 1,
       "ordem": 29,
-      "session_id": "ffdbcb80-fb1f-11ed-932d-063aa719dcfa",
-      "sha256_user_input": "4b29b53c6a18b2a258f1c882f7ba38eb2e525f4e7e5fc12aa38292382c80340d"
+      "session_id": "d6e68246-eb99-11ed-bab0-a6a1e444f5f7",
+      "sha256_user_input": "712febd8098284bb4cfcc63daf98e0ac9d312b80aac3716597c052dbe4e95a6f"
     },
     {
-      "caracteres": 71,
+      "caracteres": 95,
       "classe_automatica": "texto_simples",
       "classe_final": "texto_simples",
       "classe_herdada": "",
-      "classe_revisada": "texto_simples",
+      "classe_revisada": "",
       "level": 7,
       "ordem": 30,
-      "session_id": "9d9dc8a6-eeef-11ed-99a2-0e49baeea66b",
-      "sha256_user_input": "c822195cff68532bb65ec29dd0cea2cbf288fd04c76b7c0c05bbc2286de3d908"
+      "session_id": "1a140992-f33f-11ed-9dab-8a459c941c7a",
+      "sha256_user_input": "bf3eddec6abd3afe6d22175912b443bad14c67f3bed82e8d9ac7f0e4ac907cba"
+    },
+    {
+      "caracteres": 388,
+      "classe_automatica": "unicode_invisivel",
+      "classe_final": "unicode_invisivel",
+      "classe_herdada": "",
+      "classe_revisada": "",
+      "level": 9,
+      "ordem": 31,
+      "session_id": "ffdbcb80-fb1f-11ed-932d-063aa719dcfa",
+      "sha256_user_input": "41cde798c39c02e7f98c5e1eff6daac03da855274d25426c45dc492233b15303"
+    },
+    {
+      "caracteres": 386,
+      "classe_automatica": "unicode_invisivel",
+      "classe_final": "unicode_invisivel",
+      "classe_herdada": "unicode_invisivel",
+      "classe_revisada": "",
+      "level": 9,
+      "ordem": 32,
+      "session_id": "ffdbcb80-fb1f-11ed-932d-063aa719dcfa",
+      "sha256_user_input": "defcc0a0a7ea5c94bca9dd923b81cc7f803a76f2e5bbf88299ce35e364714f3d"
+    },
+    {
+      "caracteres": 38,
+      "classe_automatica": "unicode_invisivel",
+      "classe_final": "unicode_invisivel",
+      "classe_herdada": "unicode_invisivel",
+      "classe_revisada": "",
+      "level": 9,
+      "ordem": 33,
+      "session_id": "1a140992-f33f-11ed-9dab-8a459c941c7a",
+      "sha256_user_input": "a4d24bc6c6028a6430b67c1e1a1f1b3082b4c18d73e21a45bb81c8fdbbb50c21"
     },
     {
       "caracteres": 546,
@@ -366,7 +399,7 @@
       "classe_herdada": "unicode_invisivel",
       "classe_revisada": "",
       "level": 9,
-      "ordem": 31,
+      "ordem": 34,
       "session_id": "ffdbcb80-fb1f-11ed-932d-063aa719dcfa",
       "sha256_user_input": "9728c76eb666e694175970c50fa3fa10dd669dde11a0e23ae6070f70edede50a"
     },
@@ -377,7 +410,7 @@
       "classe_herdada": "unicode_invisivel",
       "classe_revisada": "",
       "level": 9,
-      "ordem": 32,
+      "ordem": 35,
       "session_id": "ffdbcb80-fb1f-11ed-932d-063aa719dcfa",
       "sha256_user_input": "ff6b1a41c8d13568de78320e6652f1afb1d24bce6a85d0582904cda23cef6e3e"
     },
@@ -388,7 +421,7 @@
       "classe_herdada": "unicode_invisivel",
       "classe_revisada": "",
       "level": 9,
-      "ordem": 33,
+      "ordem": 36,
       "session_id": "1a140992-f33f-11ed-9dab-8a459c941c7a",
       "sha256_user_input": "c426a29b9472c44bfebf4e5ecb58d9697f1d6caa424b65899bacde8156bbedf2"
     },
@@ -399,7 +432,7 @@
       "classe_herdada": "unicode_invisivel",
       "classe_revisada": "",
       "level": 9,
-      "ordem": 34,
+      "ordem": 37,
       "session_id": "ffdbcb80-fb1f-11ed-932d-063aa719dcfa",
       "sha256_user_input": "96f497a2be7f83b9d04fe42bd7f5f4219693fd7946568b29e63e706e9697ef94"
     },
@@ -410,7 +443,7 @@
       "classe_herdada": "unicode_invisivel",
       "classe_revisada": "",
       "level": 7,
-      "ordem": 35,
+      "ordem": 38,
       "session_id": "1a140992-f33f-11ed-9dab-8a459c941c7a",
       "sha256_user_input": "c9e992471e3e2a2e14ebb4aa9c12bf00f2caa95215c5cee1a4ac7b49039e36de"
     },
@@ -421,7 +454,7 @@
       "classe_herdada": "unicode_invisivel",
       "classe_revisada": "",
       "level": 2,
-      "ordem": 36,
+      "ordem": 39,
       "session_id": "9d9dc8a6-eeef-11ed-99a2-0e49baeea66b",
       "sha256_user_input": "c9a4d7f743b6b2e8a32949532de82ce1b0e2096a968a9def93fc894112a4d5e6"
     },
@@ -432,42 +465,9 @@
       "classe_herdada": "unicode_invisivel",
       "classe_revisada": "",
       "level": 9,
-      "ordem": 37,
+      "ordem": 40,
       "session_id": "ffdbcb80-fb1f-11ed-932d-063aa719dcfa",
       "sha256_user_input": "d9da6a825cba79e5d5d3622fc135d2bd3cef69905c0b79049ef5fe76606a2cdc"
-    },
-    {
-      "caracteres": 36,
-      "classe_automatica": "unicode_invisivel",
-      "classe_final": "unicode_invisivel",
-      "classe_herdada": "unicode_invisivel",
-      "classe_revisada": "",
-      "level": 9,
-      "ordem": 38,
-      "session_id": "1a140992-f33f-11ed-9dab-8a459c941c7a",
-      "sha256_user_input": "b28cbf11294e4e29510eb4aae8a71576563cc8a4273c51a7c4997b3537e073f9"
-    },
-    {
-      "caracteres": 468,
-      "classe_automatica": "unicode_invisivel",
-      "classe_final": "unicode_invisivel",
-      "classe_herdada": "unicode_invisivel",
-      "classe_revisada": "",
-      "level": 9,
-      "ordem": 39,
-      "session_id": "ffdbcb80-fb1f-11ed-932d-063aa719dcfa",
-      "sha256_user_input": "fd2acd8cd3052c565d279ca8e38007c4e81f1ced581af4457584962434cd0257"
-    },
-    {
-      "caracteres": 80,
-      "classe_automatica": "unicode_invisivel",
-      "classe_final": "unicode_invisivel",
-      "classe_herdada": "unicode_invisivel",
-      "classe_revisada": "",
-      "level": 8,
-      "ordem": 40,
-      "session_id": "9d9dc8a6-eeef-11ed-99a2-0e49baeea66b",
-      "sha256_user_input": "84b155c9ac4e83fed60670b9e79680e032b06126f52a05c228889acde9df1e27"
     }
   ],
   "semente": 20260829,

@@ -31,6 +31,16 @@
       "classe": "texto_simples",
       "data": "2026-10-07"
     },
+    "092ae38114bb64f78e8dd6b0eab62efa27376a169b27e20aab53937d71cdb7a7": {
+      "autor": "autor (classificador unico)",
+      "classe": "texto_simples",
+      "data": "2026-10-08"
+    },
+    "0aeff91dddca402226f7efdc71a6b87a859112754fdaa9ce5d4f71f02df72dec": {
+      "autor": "autor (classificador unico)",
+      "classe": "codificacao_ou_ofuscacao",
+      "data": "2026-10-08"
+    },
     "0b184ac4ad7fb4e2c0130f1d4cfcad56c549281e99df56dd1b5184c84ec8a3c5": {
       "autor": "autor (classificador unico)",
       "classe": "codificacao_ou_ofuscacao",
@@ -45,6 +55,11 @@
       "autor": "autor (classificador unico)",
       "classe": "codificacao_ou_ofuscacao",
       "data": "2026-09-17"
+    },
+    "0e174e5465edd9be00f6cb95a3e523a6fb2443516c696adf94205554252fdb02": {
+      "autor": "autor (classificador unico)",
+      "classe": "codificacao_ou_ofuscacao",
+      "data": "2026-10-08"
     },
     "0e6417f5f4de76590f807f6473b48d64f7177d65e58e4438d629dddb7311fcfb": {
       "autor": "autor (classificador unico)",
@@ -76,10 +91,20 @@
       "classe": "codificacao_ou_ofuscacao",
       "data": "2026-09-11"
     },
+    "118b3b7237579f6488934eee4e15321b6161a02ff9780c95804c063635aab247": {
+      "autor": "autor (classificador unico)",
+      "classe": "codificacao_ou_ofuscacao",
+      "data": "2026-10-08"
+    },
     "122ef978ee14f99b795b24cb8f5e5f256f87db34b17961c0be450be98c3d37f5": {
       "autor": "autor (classificador unico)",
       "classe": "codificacao_ou_ofuscacao",
       "data": "2026-09-17"
+    },
+    "136bd366ce385ab51652b4a66ec286dd7296493b136613b5ae33eaa7213d0a31": {
+      "autor": "autor (classificador unico)",
+      "classe": "texto_simples",
+      "data": "2026-10-08"
     },
     "140e5796dafad0409dee94525801ab428e51c6c3be9c3dafcfe532aae5324b63": {
       "autor": "autor (classificador unico)",
@@ -101,15 +126,30 @@
       "classe": "codificacao_ou_ofuscacao",
       "data": "2026-09-17"
     },
+    "17a7059bfb0341386eb1ff6839630db73dd6f522c4d6c12ff71602349670e6c7": {
+      "autor": "autor (classificador unico)",
+      "classe": "codificacao_ou_ofuscacao",
+      "data": "2026-10-08"
+    },
     "1865fa92857fa5fb3c88ca5949f9af254f968c0575339842a05e6bc3be788b88": {
       "autor": "autor (classificador unico)",
       "classe": "codificacao_ou_ofuscacao",
       "data": "2026-09-17"
     },
+    "198edfaa5feacc285ea615641be53e4021e80b41d1071cb5b73aa660684f0eca": {
+      "autor": "autor (classificador unico)",
+      "classe": "codificacao_ou_ofuscacao",
+      "data": "2026-10-08"
+    },
     "1a098b27a999f53d906db34bb8e7cf2fe6eaacd9c86e74624dbb2f0385033dec": {
       "autor": "autor (classificador unico)",
       "classe": "codificacao_ou_ofuscacao",
       "data": "2026-09-17"
+    },
+    "1c18c48bc3616f2e4eeb38bc5d10404882086659ea171bc39dcc4c2f14a148b6": {
+      "autor": "autor (classificador unico)",
+      "classe": "codificacao_ou_ofuscacao",
+      "data": "2026-10-08"
     },
     "1d410188d4c07c40be4a70339164d0615ca270c508c5262f4874a2da3d4a441d": {
       "autor": "autor (classificador unico)",
@@ -125,6 +165,11 @@
       "autor": "autor (classificador unico)",
       "classe": "codificacao_ou_ofuscacao",
       "data": "2026-09-17"
+    },
+    "2652144b8756453b3b175edb5b2677bd5a3d05cbf59e4826ff37c8071814727c": {
+      "autor": "autor (classificador unico)",
+      "classe": "idioma_ou_escrita_distinta",
+      "data": "2026-10-08"
     },
     "28afd69dbec605145c4423a9ad7d1a7ffb1d361ec0843abaa023703dd3d914e6": {
       "autor": "autor (classificador unico)",
@@ -146,10 +191,25 @@
       "classe": "texto_simples",
       "data": "2026-09-17"
     },
+    "29001c8f534d143cc9103cf68d31397578a4525e9716326a90625c47d26a0042": {
+      "autor": "autor (classificador unico)",
+      "classe": "texto_simples",
+      "data": "2026-10-08"
+    },
+    "3c93d9e7f895c98f6fbbcc9604636a7d15a37944789d5f24d28ba84df0f2e771": {
+      "autor": "autor (classificador unico)",
+      "classe": "codificacao_ou_ofuscacao",
+      "data": "2026-10-08"
+    },
     "3ea1f534759c117dac9ff7864293c8ceb3df3a74c8e937a5655128086085cb45": {
       "autor": "autor (classificador unico)",
       "classe": "codificacao_ou_ofuscacao",
       "data": "2026-09-17"
+    },
+    "41cde798c39c02e7f98c5e1eff6daac03da855274d25426c45dc492233b15303": {
+      "autor": "autor (classificador unico)",
+      "classe": "unicode_invisivel",
+      "data": "2026-10-08"
     },
     "4250bce0f0d6b5da90fb63443cf51f2194efa71edbf2f9934c23ce743bf2a5c0": {
       "autor": "autor (classificador unico)",
@@ -170,6 +230,16 @@
       "autor": "autor (classificador unico)",
       "classe": "idioma_ou_escrita_distinta",
       "data": "2026-09-17"
+    },
+    "476b199a443e23cc3aa557685e868912552f43828035be0d4ecb9ee3b2695ee9": {
+      "autor": "autor (classificador unico)",
+      "classe": "texto_simples",
+      "data": "2026-10-08"
+    },
+    "48123f2e5d7d1c4d6fc7ab506db3d43a7e6dab7fc128c9dda90fa04f0f6e38a3": {
+      "autor": "autor (classificador unico)",
+      "classe": "idioma_ou_escrita_distinta",
+      "data": "2026-10-08"
     },
     "486845c2878ab494b29759d9110612853d20620e58b1fda294b094047bb704c0": {
       "autor": "autor (classificador unico)",
@@ -256,6 +326,16 @@
       "classe": "texto_simples",
       "data": "2026-09-17"
     },
+    "712febd8098284bb4cfcc63daf98e0ac9d312b80aac3716597c052dbe4e95a6f": {
+      "autor": "autor (classificador unico)",
+      "classe": "texto_simples",
+      "data": "2026-10-08"
+    },
+    "74c97f096a717642a498e40b9348df194f0d09861fe73c7e0588235b68ae82f6": {
+      "autor": "autor (classificador unico)",
+      "classe": "idioma_ou_escrita_distinta",
+      "data": "2026-10-08"
+    },
     "77a70f6be35a0ac95b7b7f5f0680a5bfb5be0ddc5cbfc74d13c78160e3e7a3e1": {
       "autor": "autor (classificador unico)",
       "classe": "texto_simples",
@@ -271,6 +351,11 @@
       "classe": "texto_simples",
       "data": "2026-09-17"
     },
+    "78aa9f95de2458f1acdf3ae3afe151419cb5878a37ca44ab66f1c5daf1f1a6a7": {
+      "autor": "autor (classificador unico)",
+      "classe": "texto_simples",
+      "data": "2026-10-08"
+    },
     "7aeb2b00e4c56545fa2bab2401914e04451dfda21e4455ed002cc8a8d1d54351": {
       "autor": "autor (classificador unico)",
       "classe": "codificacao_ou_ofuscacao",
@@ -280,6 +365,11 @@
       "autor": "autor (classificador unico)",
       "classe": "codificacao_ou_ofuscacao",
       "data": "2026-09-17"
+    },
+    "8057a624016904ccae0f6dba54e4826dcab730b4ea8f20fad57031316f5cc17a": {
+      "autor": "autor (classificador unico)",
+      "classe": "idioma_ou_escrita_distinta",
+      "data": "2026-10-08"
     },
     "84b155c9ac4e83fed60670b9e79680e032b06126f52a05c228889acde9df1e27": {
       "autor": "autor (classificador unico)",
@@ -306,6 +396,16 @@
       "classe": "texto_simples",
       "data": "2026-09-17"
     },
+    "8ff3b9d5abb3a29a1e665d75dff05a7f02038b76423404f8c6a88f961463f096": {
+      "autor": "autor (classificador unico)",
+      "classe": "texto_simples",
+      "data": "2026-10-08"
+    },
+    "90bf67ee843c7826c6e4ac548c30a5f6ef62763040883a0828fa988ca4af3fe8": {
+      "autor": "autor (classificador unico)",
+      "classe": "codificacao_ou_ofuscacao",
+      "data": "2026-10-08"
+    },
     "90c7a8d82bc8aec2928532f6d6ccd811a7b839ef6c81dcbe56450131a83fe69d": {
       "autor": "autor (classificador unico)",
       "classe": "texto_simples",
@@ -320,6 +420,11 @@
       "autor": "autor (classificador unico)",
       "classe": "texto_simples",
       "data": "2026-09-17"
+    },
+    "920a9e68ff17358de2b2b59452ce7636ccef95acdaec63f5ce77f3723a255aea": {
+      "autor": "autor (classificador unico)",
+      "classe": "texto_simples",
+      "data": "2026-10-08"
     },
     "96ea21d004446391bdb4936c040efea50a257f4ff0e45dbd1ba794a9b80b5065": {
       "autor": "autor (classificador unico)",
@@ -351,6 +456,11 @@
       "classe": "codificacao_ou_ofuscacao",
       "data": "2026-09-11"
     },
+    "b1db361e537220aae200fdc5b3963af05347c1b83d4f92bcccdfd180f706c90d": {
+      "autor": "autor (classificador unico)",
+      "classe": "codificacao_ou_ofuscacao",
+      "data": "2026-10-08"
+    },
     "b28cbf11294e4e29510eb4aae8a71576563cc8a4273c51a7c4997b3537e073f9": {
       "autor": "autor (classificador unico)",
       "classe": "unicode_invisivel",
@@ -371,6 +481,11 @@
       "classe": "idioma_ou_escrita_distinta",
       "data": "2026-09-17"
     },
+    "bb53453eb631c6cc562c3e8d59631b80101642faed51d092073801bc349677c5": {
+      "autor": "autor (classificador unico)",
+      "classe": "idioma_ou_escrita_distinta",
+      "data": "2026-10-08"
+    },
     "bdcd225ac8bca8b40a6c1fa51e96bc2b968ede70bf15bc64d707fdb3b7d5dcbe": {
       "autor": "autor (classificador unico)",
       "classe": "texto_simples",
@@ -385,6 +500,11 @@
       "autor": "autor (classificador unico)",
       "classe": "texto_simples",
       "data": "2026-10-07"
+    },
+    "bf3eddec6abd3afe6d22175912b443bad14c67f3bed82e8d9ac7f0e4ac907cba": {
+      "autor": "autor (classificador unico)",
+      "classe": "texto_simples",
+      "data": "2026-10-08"
     },
     "c426a29b9472c44bfebf4e5ecb58d9697f1d6caa424b65899bacde8156bbedf2": {
       "autor": "autor (classificador unico)",
@@ -461,6 +581,11 @@
       "classe": "texto_simples",
       "data": "2026-09-17"
     },
+    "dc40b0519391ace94e4f939b3ba8f017648b59e6295d24ff0757f749af6612e8": {
+      "autor": "autor (classificador unico)",
+      "classe": "texto_simples",
+      "data": "2026-10-08"
+    },
     "defcc0a0a7ea5c94bca9dd923b81cc7f803a76f2e5bbf88299ce35e364714f3d": {
       "autor": "autor (classificador unico)",
       "classe": "unicode_invisivel",
@@ -481,6 +606,16 @@
       "classe": "codificacao_ou_ofuscacao",
       "data": "2026-09-11"
     },
+    "f743fadafd5ad85a98009cb5e08314c66efbe507ae1bdd6bd71c87e8e8bda1a1": {
+      "autor": "autor (classificador unico)",
+      "classe": "idioma_ou_escrita_distinta",
+      "data": "2026-10-08"
+    },
+    "f7b823ee4f2771aa06596d97b6aa2ef0b9a219da2ad75dcee9d26092edae9267": {
+      "autor": "autor (classificador unico)",
+      "classe": "idioma_ou_escrita_distinta",
+      "data": "2026-10-08"
+    },
     "fd2acd8cd3052c565d279ca8e38007c4e81f1ced581af4457584962434cd0257": {
       "autor": "autor (classificador unico)",
       "classe": "unicode_invisivel",
@@ -490,6 +625,11 @@
       "autor": "autor (classificador unico)",
       "classe": "codificacao_ou_ofuscacao",
       "data": "2026-09-17"
+    },
+    "fea712aeae1d4fb363e1bcdfc259478d52fcd3d18b02f963e17172c5a9eff1d5": {
+      "autor": "autor (classificador unico)",
+      "classe": "codificacao_ou_ofuscacao",
+      "data": "2026-10-08"
     },
     "ff6b1a41c8d13568de78320e6652f1afb1d24bce6a85d0582904cda23cef6e3e": {
       "autor": "autor (classificador unico)",

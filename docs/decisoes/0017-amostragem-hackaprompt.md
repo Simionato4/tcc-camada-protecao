@@ -833,3 +833,90 @@ terceira rodada:
 
 ## Data
 2026-10-08
+
+---
+
+# Quarta rodada - resultado - 08/10/2026
+
+## Verificacao da implementacao
+
+`python scripts/amostrar_hackaprompt.py --apenas-estratos`, depois do commit `98bc35d`,
+produziu exatamente os estratos previstos no bloco de resultado da medicao:
+
+| Estrato | Previsto | Obtido |
+|---|---:|---:|
+| `texto_simples` | 18.395 | 18.395 |
+| `codificacao_ou_ofuscacao` | 1.233 | 1.233 |
+| `unicode_invisivel` | 112 | 112 |
+| `idioma_ou_escrita_distinta` | 63 | 63 |
+
+A classificacao corresponde ao criterio medido sobre o universo inteiro, e nao so sobre os
+casos de teste. Suite: 159 passed.
+
+## Amostra e revisao
+
+Terceira amostra arquivada em `2e2cc84` (`hackaprompt-v3-regra-rev3.json`). Quarta amostra
+sorteada com `--refazer` e a mesma semente: 40 casos, 12 com rotulo herdado do livro (em
+todos igual ao automatico) e 28 ineditos.
+
+Revisao na forma declarada na revisao 4. A IA examinou os 28 ineditos por evidencia de
+nivel de caractere, sem reproduzir texto:
+
+| `ordem` | Classe automatica | Evidencia | Clausula de R1 |
+|---|---|---|---|
+| 1, 2, 6, 10 | codificacao | letras `MATHEMATICAL ...`; NFKC produz ASCII | variante tipografica |
+| 3, 4, 5 | codificacao | letras `FULLWIDTH ...`; NFKC produz ASCII | variante tipografica |
+| 9 | codificacao | simbolos `So`, entre eles `CIRCLED LATIN ...` | variante tipografica (rev. 3) |
+| 7 | codificacao | ideogramas CJK colados a palavras latinas | insercao de outra escrita no interior de palavra latina |
+| 8 | codificacao | 100% ASCII; tres sequencias `%XX` | codificacao percentual |
+| 11, 15, 17, 18 | escrita nao latina | palavras inteiras em CJK, hiragana e katakana; nenhum sosia latino | conteudo linguistico em escrita nao latina |
+| 13 | escrita nao latina | uma palavra inteira de cinco letras hiragana | idem |
+| 14, 19 | escrita nao latina | duas palavras inteiras em devanagari | idem |
+| 21-30 | texto simples | 100% ASCII; nenhum sinal de R1 | nenhuma clausula se aplica |
+| 31 | unicode invisivel | invisivel, com variantes matematicas e CJK como caracteristicas secundarias | precedencia |
+
+Nenhuma proposta de mudanca. O autor revisou a tabela e declarou concordancia total,
+aplicada com `--aplicar-revisao --concordancia-total`. Saida:
+
+```
+revisao aplicada: 0 divergencias da regra automatica (12 rotulos herdados, 28 casos ineditos)
+   10  codificacao_ou_ofuscacao
+   10  idioma_ou_escrita_distinta
+   10  texto_simples
+   10  unicode_invisivel
+```
+
+Livro de rotulos: 127 decisoes (99 anteriores mais 28).
+
+## Limitacao declarada: quase-duplicatas
+
+A deduplicacao do universo elimina apenas textos identicos (decisao original desta ADR).
+Variacoes minimas do mesmo ataque sobrevivem. `scripts/medir_similaridade.py`, de leitura
+pura, mede a semelhanca entre os casos de cada estrato da amostra:
+
+| Estrato | Casos | Grupos distintos (razao >= 0,8) | Grupos com mais de um caso |
+|---|---:|---:|---|
+| `codificacao_ou_ofuscacao` | 10 | 10 | - |
+| `texto_simples` | 10 | 10 | - |
+| `idioma_ou_escrita_distinta` | 10 | 8 | 11 e 15 (0,995); 12 e 13 (0,811) |
+| `unicode_invisivel` | 10 | 6 | 31, 32, 34, 37 e 40 (0,803 a 0,997) |
+
+Os rotulos nao sao afetados: cada caso esta corretamente classificado. O que se reduz e o
+numero de ataques distintos por estrato. **O `INJ-05` reporta, junto de cada estrato, o
+numero de grupos distintos**, e o limite 0,8 e descritivo, nao parametro do experimento.
+
+Alternativa recusada (decisao do autor, 08/10/2026): deduplicar por similaridade numa
+quinta rodada. Exigiria fixar um limiar sem base no referencial, reclassificar o universo
+e sortear nova amostra, adiando o congelamento sem mudar nenhum rotulo.
+
+## Limitacoes do classificador, consolidadas apos a quarta rodada
+
+| Operacao | Estado |
+|---|---|
+| Homoglifo de palavra inteira | nao detectado; limitacao (rev. 3) |
+| Texto invertido | **detectado** desde a revisao 4, com frase-alvo do proprio caso; inversao fora do alvo nao detectada |
+| Fragmentacao parcial por espacos e substituicao ASCII para ASCII | ausentes de R1 (determinacao de 07/10/2026) |
+| Quase-duplicatas | nao eliminadas; grupos distintos reportados no `INJ-05` |
+
+## Data
+2026-10-08

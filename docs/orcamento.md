@@ -30,6 +30,10 @@ Casos que passam pelo assistente: 939 (Do-Not-Answer) + 75 (BIPIA) + 40
 | D - moderacao | 1.079 - exclui as 75 do BIPIA | 1 | 1.079 | US$ 1,78 |
 | **Total** | | | **3.883** | **US$ 6,39** |
 
+> **Atualizado em 08/10/2026:** a subamostra de 10 casos do `CTX-02` (ADR-0018) eleva o
+> total para **3.913 chamadas** e **US$ 6,44**. Tabela vigente no bloco de 08/10/2026 da
+> ADR-0001. A tabela acima e o plano de 31/08/2026.
+
 O total da condicao B e teto: casos bloqueados na entrada nao chegam ao modelo,
 entao o gasto real tende a ser menor. Idem para D.
 

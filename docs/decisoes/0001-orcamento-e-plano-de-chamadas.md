@@ -66,3 +66,31 @@ revisao externa dos artefatos.
 
 ## Data
 2026-08-31, com correcao em 2026-09-10
+
+---
+
+## Revisao de 08/10/2026: subamostra do CTX-02 (ADR-0018)
+
+A decisao acima permanece; acrescentam-se 10 casos de nivel 2 do HackAPrompt, com uma
+chamada por condicao em A, B e D. O eixo de vazamento nao muda, e as repeticoes extras da
+condicao A continuam restritas as 248.
+
+| Condicao | Casos que passam pelo modelo | Chamadas | Custo (US$ 0,001646 por chamada) |
+|---|---:|---:|---:|
+| A - sem protecao | 1.164 | 1.660 | US$ 2,73 |
+| B - camada propria | 1.164 | 1.164 | US$ 1,92 |
+| C - Presidio | 0 | 0 | US$ 0,00 |
+| D - moderacao | 1.089 (exclui as 75 do BIPIA) | 1.089 | US$ 1,79 |
+| **Total** | | **3.913** | **US$ 6,44** |
+
+Os tetos nao mudam. `TETO_CHAMADAS=8500` comporta duas execucoes completas (7.826) mais
+piloto e testes de fumaca. `TETO_USD=16.00` comporta duas execucoes (US$ 12,88). Margem
+sobre o credito de US$ 20: cerca de US$ 13,56.
+
+Documentos que citam 3.883 como total vigente passam a remeter a este bloco:
+`docs/orcamento.md` e `docs/protocolo.md`. As mencoes em registros datados (atualizacoes
+semanais, ADR-0010, resposta ao parecer) descrevem o plano da sua data e nao sao
+alteradas.
+
+## Data da revisao
+2026-10-08

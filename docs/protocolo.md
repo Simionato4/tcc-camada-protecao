@@ -20,6 +20,9 @@ sao preenchidas na Etapa 5, antes da execucao completa.
 Total de chamadas ao modelo: 3.883. Custo projetado: US$ 6,39 sobre credito de
 US$ 20, a partir do custo unitario medido de US$ 0,001646 por chamada.
 
+> **Atualizado em 08/10/2026:** 3.913 chamadas e US$ 6,44, com a subamostra de 10 casos
+> do `CTX-02` (ADR-0018; bloco de 08/10/2026 da ADR-0001). As repeticoes nao mudam.
+
 As repeticoes da condicao A sao o primeiro item do plano de corte (C1).
 
 ## 2. Medicao de tempo — FECHADO (recomendacao da banca)

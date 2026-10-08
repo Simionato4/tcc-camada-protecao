@@ -125,3 +125,75 @@ Duas consequencias para o desenho (tarefa 3.5), ainda abertas:
 
 ## Data da revisao
 2026-10-08
+
+---
+
+## Revisao de 08/10/2026 (segundo bloco): gabarito independente da biblioteca
+
+### Decisao (do autor, 08/10/2026)
+Opcao A': cada positivo do corpus precisa ser aceito por **duas implementacoes
+independentes** do digito verificador: a `validate-docbr` 2.0.0, que a camada usa, e
+`scripts/dv_independente.py`, que nao importa a biblioteca e foi escrita a partir das
+fontes abaixo. Motivo: gerar e conferir com a mesma biblioteca usada pelo detector
+avaliado faria um erro dela entrar no gabarito e no detector ao mesmo tempo.
+
+A opcao A original pedia implementacao "a partir da regra oficial". Para parte dos
+documentos a regra oficial completa nao foi localizada; o nivel de cada fonte fica
+declarado.
+
+### Fontes por documento
+
+| Documento | Fonte da implementacao independente | Nivel | Consulta |
+|---|---|---|---|
+| CPF | Receita Federal, Manual de Preenchimento da e-Financeira, Anexo II, `REGRA_VALIDA_CPF` (versao 2.0, dez/2025, p. 34, conforme pesquisa do autor; trecho conferido em captura de tela fornecida pelo autor; o site bloqueia acesso automatizado) | regra oficial | 2026-10-08 |
+| CNPJ numerico | mesmo manual, `REGRA_VALIDA_CNPJ` | regra oficial | 2026-10-08 |
+| CNPJ alfanumerico | Receita Federal, perguntas e respostas sobre o CNPJ alfanumerico, pergunta 14 | regra oficial, sem tratamento do resto 0 ou 1 | 2026-10-08 |
+| PIS/NIT | ANS, "Algoritmos do Aplicativo de Carga", item 7 (`isDvPisPasepValido`), publicado em 06/04/2021: https://www.gov.br/ans/pt-br/centrais-de-conteudo/manuais-do-portal-operadoras/sib-manual-de-instalacao-historico-de-versao-e-outros-arquivos/manual/algoritmos-do-aplicativo-de-carga | documentacao tecnica oficial; a ANS nao e o orgao emissor | 2026-10-08 |
+| CNS | ANS, mesma pagina, item 4 (`validaCns`, `validaCnsProv`); separacao por prefixo pela documentacao de integracao do e-SUS APS v2.1.1 | documentacao tecnica oficial | 2026-10-08 |
+| Titulo de eleitor | estrutura: Resolucao TSE 23.659/2021, art. 36, paragrafo unico (8 + 2 + 2, modulo 11). Pesos e restos: OBMEP, "A Matematica nos Documentos: Titulo de Eleitor": https://clubes.obmep.org.br/blog/a-matematica-nos-documentos-titulo-de-eleitor/ | estrutura oficial; pesos e restos de fonte academica secundaria | 2026-10-08 |
+
+Os exemplos publicados nas fontes sao reproduzidos pela implementacao independente:
+CPF `280012389-38` e CNPJ `18781203/0001-28` (e-Financeira), CNPJ `12.ABC.345/01DE-35`
+(Receita Federal) e titulo `1023 8501 06 71` (OBMEP).
+
+**Pendencia do CNPJ reduzida.** A regra numerica da e-Financeira (DV = resto, resto 10
+vale 0) e a forma "11 - resto" da pergunta 14 deram o mesmo DV em 20.000 bases numericas
+sorteadas: para CNPJ numerico, resto 0 ou 1 resulta em DV 0, por regra oficial. Para
+base com letra, a pergunta 14 continua sem tratar esse caso, e `completar_cnpj` devolve
+None; o corpus nao gera CNPJ alfanumerico nessa situacao.
+
+**A fonte de uma IA foi descartada.** Uma das pesquisas trazidas ao projeto atribuia a
+Resolucao TSE 23.659/2021 os pesos do titulo e uma excecao para SP e MG, e dava regra do
+CNS provisorio diferente da ANS. A resolucao foi lida: nao contem pesos, tratamento de
+resto nem excecao por UF. Nada dessa pesquisa foi usado.
+
+### Achados sobre a biblioteca
+
+`scripts/tests/test_dv_independente.py` confere as duas implementacoes nos dois
+sentidos, com semente fixa: numeros completados aqui sao aceitos pela biblioteca e
+recusados com o ultimo digito alterado; numeros gerados pela biblioteca sao aceitos aqui.
+CPF, CNPJ (numerico e alfanumerico), PIS/NIT e CNS (definitivo e provisorio) concordam.
+O titulo de eleitor tem **duas divergencias**, verificadas no codigo da versao instalada:
+
+1. **A biblioteca nao aplica a excecao de SP (01) e MG (02)** descrita pela OBMEP
+   (resto 0 vale 1). Nos casos em que as duas convencoes diferem, a biblioteca aceita o
+   numero calculado sem a excecao e recusa o calculado com ela. Medido sobre 10.000
+   sequenciais sorteados, **18,7%** dos titulos de SP e MG caem nesse caso. Como a
+   excecao so tem fonte secundaria, nao se decide aqui qual convencao esta certa.
+2. **`generate()` so sorteia UF de 01 a 18**, embora a tabela do TSE va ate 28. Nao
+   afeta a validacao, so a geracao.
+
+Consequencias para o corpus:
+- titulos de SP e MG em que as convencoes divergem (`titulo_ambiguo`) **nao entram como
+  positivos**: nao tem gabarito inequivoco;
+- os titulos do corpus nao sao gerados pela `generate()` da biblioteca, para cobrir as 28
+  UFs;
+- a divergencia entra nas limitacoes: o detector da camada herda a convencao da
+  biblioteca, e titulos reais de SP e MG que sigam a excecao seriam recusados por ele.
+  Isso e propriedade do detector avaliado, medida aqui antes do congelamento, e nao
+  defeito a corrigir na camada depois de ver resultado.
+
+Os testes caracterizam as duas divergencias de forma explicita; nao as escondem.
+
+## Data da revisao
+2026-10-08

@@ -719,3 +719,59 @@ quatro casos bastam para acionar a quarta rodada.
 
 ## Data
 2026-10-08
+
+---
+
+# Texto invertido - resultado da medicao - 08/10/2026
+
+Executado `python scripts/medir_inversao.py` na maquina do experimento, depois do commit
+`3bdabcc`, que fixou criterio e regra. Saida transcrita sem edicao:
+
+```
+controle positivo (ordem 18): detectado por ['frase', 'palavra']
+universo: 19,803 casos; sem expected_completion: 0
+
+estrato                            N  com inversao       %  limiar
+texto_simples                 18,439            44    0.24     922
+codificacao_ou_ofuscacao       1,185            13    1.10      60
+unicode_invisivel                112             0    0.00       6
+idioma_ou_escrita_distinta        67             4    5.97       4
+
+por mecanismo: so palavra 22; so frase 5; ambos 34
+
+casos que migrariam para codificacao_ou_ofuscacao: 48
+regra da ADR-0017 aponta: QUARTA RODADA
+  - saida de idioma_ou_escrita_distinta: 4 >= 4
+Nenhum arquivo gravado.
+```
+
+## Leitura
+
+- A regra fixada antes da medicao aponta **quarta rodada**, por um unico gatilho, atingido
+  no limite exato: 4 casos contra limiar de 4 no estrato de escrita nao latina. Os outros
+  dois gatilhos ficaram longe (44 de 922; 48 de 60).
+- **Um dos 4 casos e a propria `ordem` 18**, o controle positivo: ela e detectada pelo
+  criterio e a regra automatica da revisao 3 a classifica como `idioma_ou_escrita_distinta`.
+  Sem ela, o estrato teria 3 casos e a regra apontaria limitacao. O caso pertence ao
+  universo e conta como qualquer outro; a regra nao e alterada depois de vista a
+  contagem. O fato fica registrado porque o resultado depende dele.
+- A sensibilidade do estrato pequeno foi declarada antes da medicao, no bloco anterior.
+- Os 13 casos com inversao ja classificados como codificacao nao mudam de estrato.
+
+## Previsao verificavel para a quarta rodada
+
+Se a inversao for incorporada a R1 exatamente por este criterio, os estratos do universo
+passam a ser, por aritmetica sobre a saida acima:
+
+| Estrato | Revisao 3 | Revisao 4 prevista |
+|---|---:|---:|
+| `texto_simples` | 18.439 | 18.395 |
+| `codificacao_ou_ofuscacao` | 1.185 | 1.233 |
+| `unicode_invisivel` | 112 | 112 |
+| `idioma_ou_escrita_distinta` | 67 | 63 |
+
+Qualquer diferenca entre estes valores e os que a implementacao produzir indica que a
+implementacao nao corresponde ao criterio medido.
+
+## Data
+2026-10-08

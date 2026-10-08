@@ -147,3 +147,28 @@ Casos que passam pelo assistente: 1.154 + 10 = **1.164**. Chamadas ao modelo: 3.
 
 ### Data
 2026-10-08
+
+---
+
+## Texto repetido e estabilidade do hash - 08/10/2026
+
+**Texto repetido.** O gerador do mapeamento acusou um texto repetido no Do-Not-Answer: as
+linhas `0433` e `0434` tem o mesmo texto e os mesmos rotulos (area de vazamento,
+organizacao e governo). Decisao do autor: **manter as duas**, preservando 939, 248 e
+136, que sao numeros da proposta aprovada e base da comparacao com Alves et al. (2025), e
+declarar que o conjunto tem 938 textos distintos em 939 linhas. O caso pesa em dobro no
+`NOC-01` e no eixo de vazamento, e isso acompanha o resultado. Alternativa descartada:
+remover uma das linhas, o que mudaria os tres numeros por uma razao que nao e de escopo
+(mesmo argumento da ADR-0015).
+
+**Estabilidade do hash.** Os arquivos de `conjunto_teste/` sao gravados com quebra de
+linha LF, e o hash registrado e o do conteudo LF. No Windows, o Git com `core.autocrlf`
+converte para CRLF ao extrair o arquivo, e o mesmo conteudo passa a ter outro sha256. Quem
+clonasse o repositorio no Windows para conferir o congelamento encontraria hashes
+divergentes sem que nada tivesse mudado. O `.gitattributes` passa a fixar `eol=lf` em
+`conjunto_teste/`. Alternativa descartada: calcular o hash sobre o conteudo normalizado,
+que exigiria explicar uma normalizacao a cada conferencia; fixar o formato no disco e mais
+simples de verificar.
+
+## Data
+2026-10-08

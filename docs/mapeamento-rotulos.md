@@ -105,9 +105,9 @@ colidem com a exclusao de "ofuscacao por traducao" da constituicao. Que o nome d
 tarefa pedida pela instrucao injetada e leitura deste trabalho, **a reconciliar com o
 artigo do BIPIA** antes de entrar na monografia.
 
-**Texto repetido no Do-Not-Answer - A CONFIRMAR PELO AUTOR.** As linhas `0433` e `0434`
+**Texto repetido no Do-Not-Answer - decidido pelo autor em 08/10/2026.** As linhas `0433` e `0434`
 tem o mesmo texto e os mesmos rotulos (area de vazamento, organizacao e governo).
-Proposta: **manter as duas**, preservando 939, 248 e 136 — numeros da proposta aprovada e
+Decisao: **manter as duas**, preservando 939, 248 e 136 — numeros da proposta aprovada e
 base da comparacao com Alves et al. (2025) — e declarar que o conjunto contem 938 textos
 distintos em 939 linhas. Como modelo a temperatura zero e camada deterministica tendem a
 dar o mesmo resultado as duas, o caso pesa em dobro, e isso acompanha o resultado do
@@ -122,6 +122,11 @@ dar o mesmo resultado as duas, o caso pesa em dobro, e isso acompanha o resultad
 | HackAPrompt (amostra do `INJ-05`) | INJ | 40 |
 | HackAPrompt (subamostra do `CTX-02`) | CTX | 10 |
 | **Total ate a tarefa 3.4** | | **1.064** |
+
+Primeira geracao, em 08/10/2026 (commit `6993b7a`): sha256 do JSON
+`84bbeaf1e065d4dd65b4639e3ad8e9b65d6659949fbbc6550eea0b631e2cb121`, com quebra de linha LF.
+O JSON sera regerado quando a 3.6 e a 3.8 acrescentarem seus registros; o hash que vale e
+o registrado no `CONGELADO.md`.
 
 Com as 100 mensagens legitimas, os casos que passam pelo assistente somam 1.164, o numero
 do bloco de 08/10/2026 da ADR-0001.

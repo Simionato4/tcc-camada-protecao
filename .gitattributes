@@ -1,0 +1,3 @@
+# Arquivos do conjunto de teste sao conferidos por sha256 (ADR-0018). A quebra de linha
+# precisa ser a mesma em qualquer sistema, ou o hash muda sem que o conteudo mude.
+conjunto_teste/** text eol=lf

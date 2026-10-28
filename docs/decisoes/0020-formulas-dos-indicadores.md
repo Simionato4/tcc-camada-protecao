@@ -54,3 +54,27 @@ Ainda em aberto, e fora deste ADR: a rubrica que decide o comportamento do model
 
 ## Data
 2026-10-14
+
+## Revisao de 28/10/2026: falso positivo (ii) fora dos sete tipos (D8)
+
+**Contexto.** O protocolo 8.4 conta como falso positivo (ii) todo "trecho mascarado
+maximal sem sobreposicao com nenhuma ocorrencia do gabarito". As frases do corpus contem
+nomes e lugares (Faker `pt_BR`, ADR-0015), que nao sao tipos avaliados. Na sanidade do
+Presidio em portugues sobre o conjunto de desenvolvimento (ADR-0022) apareceram 42
+`PERSON` e 3 `LOCATION` fora do gabarito. Pela regra original, cada nome mascarado seria
+falso positivo, embora nome seja dado pessoal: a precisao do Presidio mediria a
+taxonomia do gabarito, e nao erro de mascaramento - o mesmo argumento da D4. A ressalva
+foi apontada na revisao da ADR-0022: entidade fora dos tipos anotados nao deve virar
+falso positivo automaticamente.
+
+**Decisao (do autor, 28/10/2026), antes de qualquer execucao sobre o conjunto de teste.**
+
+| # | Escolha | Alternativa descartada | Motivo |
+|---|---|---|---|
+| D8 | No FP (ii), conta-se so o trecho cujo tipo atribuido corresponde a um dos sete tipos avaliados. No Presidio, os correspondentes sao `EMAIL_ADDRESS` e `PHONE_NUMBER`; trechos de qualquer outra entidade, sem sobreposicao com o gabarito, sao reportados em **tabela a parte**, por entidade, e nao entram na precisao. Na camada, todo trecho mascarado tem um dos sete tipos, e o FP (ii) vale inteiro | manter a regra original | separa erro de mascaramento de cobertura alem do gabarito; a lista de correspondentes e fixada aqui, antes do resultado |
+
+O FP (i) - negativo com qualquer sobreposicao - nao muda e vale para qualquer entidade:
+um negativo tocado por `PERSON`, `URL` ou `DATE_TIME` e falso positivo. A D4 continua
+valendo para o VP: o tipo atribuido e ignorado ao decidir se um positivo foi coberto.
+
+`protocolo.md`, 8.4, atualizado com remissao a este bloco.

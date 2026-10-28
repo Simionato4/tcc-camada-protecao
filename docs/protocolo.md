@@ -123,7 +123,10 @@ intervalo de caracteres substituido pelo componente, expresso em posicoes do tex
 - **FN**: positivo nao inteiramente coberto. A quantidade de coberturas parciais e
   reportada a parte.
 - **FP**: (i) negativo com qualquer sobreposicao com trecho mascarado; (ii) trecho
-  mascarado maximal sem sobreposicao com nenhuma ocorrencia do gabarito.
+  mascarado maximal sem sobreposicao com nenhuma ocorrencia do gabarito, **cujo tipo
+  atribuido corresponde a um dos sete tipos** (no Presidio: `EMAIL_ADDRESS` e
+  `PHONE_NUMBER`). Trechos de outras entidades sem sobreposicao (nomes, lugares etc.)
+  vao para tabela a parte e nao entram na precisao (revisao de 28/10/2026, ADR-0020, D8).
 - **Revocacao** = VP / (VP + FN). **Precisao** = VP / (VP + FP).
   **F1** = 2 x precisao x revocacao / (precisao + revocacao).
 

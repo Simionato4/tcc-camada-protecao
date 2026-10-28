@@ -12,7 +12,11 @@ Garantias, conferidas aqui mesmo antes de gravar:
 - o telefone participa da regra de colisao: celular sem mascara tem 11 digitos, como CPF
   e PIS/NIT;
 - endereco eletronico so em dominio reservado (RFC 2606 e 6761);
-- `texto[inicio:fim] == valor` para toda ocorrencia.
+- `texto[inicio:fim] == valor` para toda ocorrencia;
+- formato de mascara dos positivos de documento em tres partes - completa, ausente e
+  parcial - e o telefone em cinco formatos, o quinto parcial; metade da N1 em formato
+  parcial, para que a formatacao parcial nao seja pista exclusiva de positivo
+  (revisao de 28/10/2026 da ADR-0015).
 
 As frases-modelo foram escritas com assistencia de IA (o corpus e sintetico por desenho);
 nao confundir com as mensagens legitimas da tarefa 3.8, de autoria do autor.
@@ -61,6 +65,12 @@ NATUREZA = {t: "pessoa_natural" for t in TIPOS} | {"cnpj": "pessoa_juridica"}
 BIBLIOTECA = {"cpf": CPF, "cnpj": CNPJ, "cns": CNS, "pis": PIS, "titulo": TituloEleitoral}
 
 POSITIVOS_POR_TIPO = 50
+# Formato da mascara dos positivos de documento (revisao de 28/10/2026, ADR-0015):
+# i % 3 sobre os 50 positivos da 17 completa, 17 ausente e 16 parcial.
+FORMATOS_MASCARA = ("completa", "ausente", "parcial")
+CONTAGEM_FORMATOS = {"completa": 17, "ausente": 17, "parcial": 16}
+FORMATOS_TELEFONE = 5  # 0 a 3 como antes; 4 = parcial
+N1_PARCIAIS = 5  # dos 10 negativos N1 de cada documento
 CLASSES_DOC = ("N1", "N2", "N3", "N4", "N5")
 CLASSES = {d: CLASSES_DOC for d in DOCUMENTOS} | {"telefone": ("T1", "T2"), "email": ("E1", "E2")}
 POR_CLASSE = {d: 10 for d in DOCUMENTOS} | {"telefone": 25, "email": 25}
@@ -139,15 +149,38 @@ def mascarar(tipo: str, n: str) -> str:
     raise ValueError(tipo)
 
 
-def formatar_telefone(n: str, estilo: int) -> str:
+def mascarar_parcial(r: random.Random, tipo: str, n: str) -> str:
+    """Mascara parcial (revisao de 28/10/2026, ADR-0015), regra unica para os cinco
+    documentos: a mascara oficial com pelo menos um separador removido e pelo menos um
+    mantido; ou, quando a mascara nao e so de espacos, todos os separadores trocados por
+    espaco. O resultado nunca e igual a mascara completa nem ao numero sem mascara."""
+    completa = mascarar(tipo, n)
+    separadores = [i for i, c in enumerate(completa) if not c.isalnum()]
+    so_espacos = all(completa[i] == " " for i in separadores)
+    if not so_espacos and r.random() < 0.5:
+        return "".join(" " if i in separadores else c for i, c in enumerate(completa))
+    remover = set(r.sample(separadores, r.randint(1, len(separadores) - 1)))
+    return "".join(c for i, c in enumerate(completa) if i not in remover)
+
+
+def formatar_telefone(n: str, estilo: int, r: random.Random | None = None) -> str:
+    """Estilos 0 a 3 como na versao de 14/10; o 4 e parcial (revisao de 28/10/2026): o
+    estilo 0 sem o espaco, sem o hifen ou sem os parenteses, sorteado."""
     ddd, resto = n[:2], n[2:]
     meio = len(resto) - 4
+    estilo %= FORMATOS_TELEFONE
+    if estilo == 4:
+        return r.choice((
+            f"({ddd}){resto[:meio]}-{resto[meio:]}",
+            f"({ddd}) {resto}",
+            f"{ddd} {resto[:meio]}-{resto[meio:]}",
+        ))
     return (
         f"({ddd}) {resto[:meio]}-{resto[meio:]}",
         f"{ddd}{resto}",
         f"+55 {ddd} {resto[:meio]}-{resto[meio:]}",
         f"{ddd} {resto[:meio]} {resto[meio:]}",
-    )[estilo % 4]
+    )[estilo]
 
 
 # ------------------------------------------------------------- geradores de nucleo
@@ -237,26 +270,32 @@ def positivos(r: random.Random, tipo: str) -> list[dict]:
             saida.append(_ocorrencia(r, FRASES_EMAIL, tipo, valor, "positivo"))
             continue
         if tipo == "telefone":
-            valor = formatar_telefone(nucleo_positivo(r, tipo), i)
-            saida.append(_ocorrencia(r, FRASES_TELEFONE, tipo, valor, "positivo", atributos={"formato": i % 4}))
+            valor = formatar_telefone(nucleo_positivo(r, tipo), i, r)
+            saida.append(_ocorrencia(r, FRASES_TELEFONE, tipo, valor, "positivo",
+                                     atributos={"formato": i % FORMATOS_TELEFONE}))
             continue
         alfa = tipo == "cnpj" and i % 2 == 1
         n = nucleo_positivo(r, tipo, alfanumerico=alfa)
-        com_mascara = (i // 2) % 2 == 0 if tipo == "cnpj" else i % 2 == 0
-        valor = mascarar(tipo, n) if com_mascara else n
-        atributos = {"mascara": com_mascara}
+        formato = FORMATOS_MASCARA[i % 3]
+        if formato == "completa":
+            valor = mascarar(tipo, n)
+        elif formato == "ausente":
+            valor = n
+        else:
+            valor = mascarar_parcial(r, tipo, n)
+        atributos = {"mascara": formato}
         if tipo == "cnpj":
             atributos["formato_cnpj"] = "alfanumerico" if alfa else "numerico"
         saida.append(_ocorrencia(r, FRASES_DOCUMENTO[tipo], tipo, valor, "positivo", atributos=atributos))
     return saida
 
 
-def _negativo_n1(r, tipo, alfa):
+def _negativo_n1(r, tipo, alfa, parcial=False):
     while True:
         n = nucleo_positivo(r, tipo, alfanumerico=alfa)
         trocado = n[:-1] + str((int(n[-1]) + r.randint(1, 9)) % 10)
         if negativo_aceitavel(trocado):
-            return mascarar(tipo, trocado)
+            return mascarar_parcial(r, tipo, trocado) if parcial else mascarar(tipo, trocado)
 
 
 def _negativo_n2(r, tipo, alfa):
@@ -310,7 +349,7 @@ def negativos(r: random.Random, tipo: str) -> list[dict]:
         for _ in range(k):  # T1: quantidade errada de digitos
             while True:  # 7 ou 10 digitos apos o DDD; confere numero e valor formatado
                 nucleo = r.choice(DDDS) + "9" + _digitos(r, r.choice([6, 9]))
-                valor = formatar_telefone(nucleo, r.randrange(4))
+                valor = formatar_telefone(nucleo, r.randrange(FORMATOS_TELEFONE), r)
                 if negativo_aceitavel(nucleo) and valor_negativo_aceitavel(valor):
                     break
             saida.append(_ocorrencia(r, FRASES_TELEFONE, tipo, valor, "negativo", "T1"))
@@ -341,7 +380,10 @@ def negativos(r: random.Random, tipo: str) -> list[dict]:
 
     for j in range(k):
         alfa = tipo == "cnpj" and j % 2 == 1
-        saida.append(_ocorrencia(r, FRASES_DOCUMENTO[tipo], tipo, _negativo_n1(r, tipo, alfa), "negativo", "N1"))
+        parcial = j >= k - N1_PARCIAIS
+        valor = _negativo_n1(r, tipo, alfa, parcial)
+        saida.append(_ocorrencia(r, FRASES_DOCUMENTO[tipo], tipo, valor, "negativo", "N1",
+                                 atributos={"mascara": "parcial" if parcial else "completa"}))
     for j in range(esperado(tipo, "N2")):
         alfa = tipo == "cnpj" and j % 2 == 1
         saida.append(_ocorrencia(r, FRASES_OUTRO_IDENTIFICADOR, tipo, _negativo_n2(r, tipo, alfa), "negativo", "N2"))
@@ -400,6 +442,25 @@ def conferir(textos: list[dict]) -> collections.Counter:
         assert contagem[(tipo, "positivo", None)] == POSITIVOS_POR_TIPO, tipo
         for classe in CLASSES[tipo]:
             assert contagem[(tipo, "negativo", classe)] == esperado(tipo, classe), (tipo, classe)
+
+    formatos = collections.Counter()
+    for t in textos:
+        for o in t["ocorrencias"]:
+            if o["tipo"] in DOCUMENTOS and (o["polaridade"] == "positivo" or o["classe_negativo"] == "N1"):
+                formato = o["atributos"]["mascara"]
+                formatos[(o["tipo"], o["polaridade"], formato)] += 1
+                if formato == "parcial":
+                    nucleo = _so_caracteres(o["valor"])
+                    assert o["valor"] != nucleo, o
+                    assert o["valor"] != mascarar(o["tipo"], nucleo), o
+            if o["tipo"] == "telefone" and o["polaridade"] == "positivo":
+                formatos[("telefone", o["atributos"]["formato"])] += 1
+    for tipo in DOCUMENTOS:
+        for formato, n in CONTAGEM_FORMATOS.items():
+            assert formatos[(tipo, "positivo", formato)] == n, (tipo, formato)
+        assert formatos[(tipo, "negativo", "parcial")] == N1_PARCIAIS, tipo
+    for estilo in range(FORMATOS_TELEFONE):
+        assert formatos[("telefone", estilo)] == POSITIVOS_POR_TIPO // FORMATOS_TELEFONE, estilo
     return contagem
 
 

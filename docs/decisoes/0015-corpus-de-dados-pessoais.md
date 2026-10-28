@@ -479,3 +479,64 @@ do requisito e feita no fechamento da etapa.
 
 ## Data da revisao
 2026-10-14
+
+---
+
+## Revisao de 28/10/2026: formato parcial de mascara
+
+**Contexto.** Na orientacao de 21/10/2026, o orientador perguntou se o sistema aceita
+documento sem pontuacao, formatado e **parcialmente formatado**, e alertou que um dado
+pode vazar justamente por estar parcialmente formatado. O corpus de 14/10 so tinha duas
+formas nos positivos de documento (mascara completa, 25; sem mascara, 25). A N3
+("formato parcial") e outra coisa: documento com um digito a menos. A lacuna era real, e
+o corpus ainda nao estava congelado.
+
+**Decisao do autor, 28/10/2026**, antes de qualquer regra da camada:
+
+- **Regra unica de formato parcial**, para os cinco documentos: a mascara oficial com
+  pelo menos um separador removido e pelo menos um mantido; ou, quando a mascara nao e so
+  de espacos, todos os separadores trocados por espaco. Sorteio com a semente fixa
+  (`mascarar_parcial`). Exemplos de forma: `999.999.99999`, `999999.999-99`,
+  `999 999 999 99`; `9999 99999999` no titulo.
+- **Positivos de documento:** 17 com mascara completa, 17 sem mascara e 16 parciais
+  (`i % 3`). O CNPJ mantem 25 numericos e 25 alfanumericos.
+- **Telefone:** quinto formato, parcial (o formato `(DD) NNNNN-NNNN` sem o espaco, sem o
+  hifen ou sem os parenteses); 10 positivos por formato. O T1 passa a sortear entre os
+  cinco formatos.
+- **N1** (digito verificador invalido): 5 dos 10 de cada documento em formato parcial.
+  Sem isso, "estar parcialmente formatado" seria pista exclusiva de positivo, e um
+  detector ganharia acerto sem merecer.
+- O atributo `mascara` dos positivos de documento e da N1 passa de booleano para
+  `completa`, `ausente` ou `parcial`.
+
+**Alternativas.** (a) So no CPF, o tipo citado na orientacao: mais rapido, mas o alerta
+vale para qualquer documento mascarado. (b) Nao incluir e declarar a limitacao:
+descartada, a lacuna era corrigivel antes do congelamento.
+
+**Consequencia.** O protocolo 8.4 passa a reportar o resultado por formato de mascara
+(completa, ausente, parcial), em vez de "com e sem mascara". Como a ordem dos sorteios
+mudou, todo o corpus foi gerado de novo: numeros e frases diferentes dos de 14/10, com as
+mesmas classes e contagens de ocorrencia.
+
+## Resultado da geracao - 28/10/2026
+
+`python scripts/gerar_corpus_pii.py`, gerado inicialmente em Python 3.10.12.
+
+| Item | Valor |
+|---|---|
+| Arquivo | `conjunto_teste/pii/corpus.jsonl` (LF, 355 linhas) |
+| Semente | 20260829 (`SEMENTE_MESTRA`) |
+| Textos | 355, com 1 a 3 ocorrencias cada |
+| Ocorrencias | 700: 350 positivas e 350 negativas, mesmas classes e contagens de 14/10 |
+| sha256 | `2ed3eb9fc6cba2746ec60c544768d5e42b13eb730c2583e3aafe944c2990a6c7` |
+
+| Formato | Positivos por documento | N1 por documento |
+|---|---:|---:|
+| completa | 17 | 5 |
+| ausente | 17 | - |
+| parcial | 16 | 5 |
+
+CNPJ positivo por formato e natureza: numerico 9 completa, 8 ausente, 8 parcial;
+alfanumerico 8, 9, 8. Telefone positivo: 10 em cada um dos cinco formatos.
+
+O corpus de 14/10 (sha256 `ff21394b...30aa43e`) fica no historico do Git e deixa de valer.

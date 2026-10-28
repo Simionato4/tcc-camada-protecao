@@ -88,3 +88,26 @@ evidencia nesta ADR. A mudanca de estado do requisito e feita no fechamento da e
 
 ## Data
 2026-10-14
+
+## Revisao de 28/10/2026: regeracao pelo formato parcial
+
+O gerador do corpus de documentos ganhou o formato parcial de mascara (revisao de
+28/10/2026 da ADR-0015). A parte A deste conjunto usa o mesmo gerador com a semente
+`SEMENTE_MESTRA + 1`, e foi gerada de novo para manter o mesmo desenho do teste;
+`transformado.jsonl` deriva dela e mudou junto. `injecao/exemplos.jsonl` nao mudou.
+
+| Arquivo | Registros | sha256 |
+|---|---:|---|
+| `pii/corpus.jsonl` | 360 | `f9fab7d57bb68daa09890ea8e892745a62fa2de3bf05249660d01dd3f8091010` |
+| `injecao/exemplos.jsonl` | 120 | `ed218d59366f5ca70f31ed514518381fbeb534aeb511fc7363384734f13bc3d6` |
+| `pii/transformado.jsonl` | 40 | `aa694780939e6ade2ac88839b4f9fa00c23d3cdf6665226be10002c50dddec11` |
+
+**Separacao verificada de novo** (`scripts/verificar_separacao.py`): 1.418 casos distintos do
+teste (1.419 registros do mapeamento, menos a pergunta repetida do Do-Not-Answer) contra
+520 textos do desenvolvimento, **0 textos em comum**; valores de
+documento 628 no teste e 628 no desenvolvimento, **0 em comum** (excluidos os de espaco
+finito, como antes).
+
+A sanidade do Presidio da ADR-0022 rodou sobre a parte A anterior (353 textos), em
+28/10/2026, antes desta regeracao; o registro bruto
+`resultados/sanidade_presidio_pt_2026-10-28.json` se refere a ela.

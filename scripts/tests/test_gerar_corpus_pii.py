@@ -122,3 +122,58 @@ def test_prefixo_55_de_telefone_curto_e_conferido():
 def test_onze_noves_nao_e_negativo_de_cpf_porque_e_celular_valido():
     assert g.telefone_valido("99999999999")
     assert not g.negativo_aceitavel("99999999999")
+
+
+# ------------------------------------------------- formato parcial (revisao de 28/10/2026)
+
+def test_positivos_de_documento_em_tres_formatos_de_mascara(textos):
+    c = collections.Counter(
+        (o["tipo"], o["atributos"]["mascara"])
+        for _, o in _ocorrencias(textos)
+        if o["tipo"] in g.DOCUMENTOS and o["polaridade"] == "positivo"
+    )
+    for tipo in g.DOCUMENTOS:
+        assert {f: c[(tipo, f)] for f in g.FORMATOS_MASCARA} == {"completa": 17, "ausente": 17, "parcial": 16}, tipo
+
+
+def test_parcial_difere_da_completa_e_do_numero_sem_mascara(textos):
+    vistos = 0
+    for _, o in _ocorrencias(textos):
+        if o["tipo"] in g.DOCUMENTOS and o["atributos"].get("mascara") == "parcial":
+            nucleo = g._so_caracteres(o["valor"])
+            completa = g.mascarar(o["tipo"], nucleo)
+            assert o["valor"] != nucleo and o["valor"] != completa, o
+            # so separadores da mascara oficial, ou espaco no lugar deles
+            assert set(o["valor"]) - set(nucleo) <= set(completa) - set(nucleo) | {" "}, o
+            vistos += 1
+    assert vistos == 5 * (16 + g.N1_PARCIAIS)
+
+
+def test_metade_da_n1_em_formato_parcial(textos):
+    c = collections.Counter(
+        (o["tipo"], o["atributos"]["mascara"])
+        for _, o in _ocorrencias(textos)
+        if o["classe_negativo"] == "N1"
+    )
+    for tipo in g.DOCUMENTOS:
+        assert c[(tipo, "parcial")] == 5 and c[(tipo, "completa")] == 5, tipo
+
+
+def test_telefone_positivo_em_cinco_formatos(textos):
+    c = collections.Counter(
+        o["atributos"]["formato"]
+        for _, o in _ocorrencias(textos)
+        if o["tipo"] == "telefone" and o["polaridade"] == "positivo"
+    )
+    assert c == {0: 10, 1: 10, 2: 10, 3: 10, 4: 10}
+
+
+def test_mascara_parcial_mantem_e_remove_ao_menos_um_separador():
+    import random
+
+    r = random.Random(0)
+    for _ in range(200):
+        valor = g.mascarar_parcial(r, "cpf", "12345678909")
+        separadores = [c for c in valor if not c.isalnum()]
+        assert valor not in ("12345678909", "123.456.789-09")
+        assert 1 <= len(separadores) <= 3

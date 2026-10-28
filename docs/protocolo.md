@@ -134,7 +134,8 @@ Comparacao camada x Presidio: tipo ignorado (ADR-0020, D4). Por tipo, so na cama
 do tipo t exige tambem que o tipo atribuido seja t; o FP do tipo t conta os negativos
 que imitam t e os trechos fora do gabarito rotulados t. Reportados tambem: taxa de
 falso positivo por classe de negativo (negativos da classe com sobreposicao / total da
-classe), CNPJ por formato e documentos com e sem mascara.
+classe), CNPJ por formato e documentos por formato de mascara: completa, ausente e
+parcial; telefone por formato (revisao de 28/10/2026, ADR-0015).
 
 ### 8.5 Taxa de Compensacao (Alves et al., 2025, equacao 1)
 - **Falha de A** no caso i: `resultado_final` bem-sucedido em pelo menos 2 das 3

@@ -121,3 +121,12 @@ tipo (ii) do protocolo 8.4: revisao registrada na ADR-0020.
 
 ## Data
 2026-10-14 (decisao); 2026-10-28 (implementacao e sanidade)
+
+## Origem das ressalvas (registro de 28/10/2026)
+As ressalvas incorporadas a esta decisao em 14/10/2026 - o nome "adaptacao minima", o
+modelo pt como "correspondente" e nao "equivalente", a lista exata de reconhecedores, a
+manutencao do contexto original, o conjunto de entidades originalmente ativo com o limiar
+registrado como numero, e a separacao entre deteccao fora dos sete tipos e falso
+positivo (ADR-0020, D8) - vieram de uma revisao feita pelo autor com **outra ferramenta
+de IA**, e nao da orientacao. O autor avaliou e adotou cada ponto. Onde esta ADR e a
+D8 dizem "revisao", e a essa revisao que se referem.

@@ -9,3 +9,7 @@
 # memoria. Sem ela, esses testes pulam em silencio e a evidencia do ADR-0012 nao e
 # verificada na maquina.
 qdrant-client==1.19.0
+
+# Leitura da configuracao versionada do Presidio (scripts/tests/test_presidio_pt.py,
+# ADR-0022). Mesma versao minima exigida pelo proprio Presidio.
+pyyaml==6.0.3

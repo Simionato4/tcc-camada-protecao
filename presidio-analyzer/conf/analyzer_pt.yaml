@@ -1,0 +1,7 @@
+# Configuracao do analisador para a condicao C (ADR-0022).
+# Copia de presidio_analyzer/conf/default_analyzer.yaml da imagem fixada, com UMA
+# alteracao: supported_languages en -> pt. O limiar padrao continua 0 (o analisador
+# devolve toda deteccao, com qualquer escore), registrado como numero em docs/versoes.md.
+supported_languages:
+  - pt
+default_score_threshold: 0

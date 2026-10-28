@@ -47,9 +47,12 @@ services:
       - tcc
 
   # Condicao C, eixo de saida. Imagens atuais do projeto; as antigas em
-  # mcr.microsoft.com estao descontinuadas.
+  # mcr.microsoft.com estao descontinuadas. O analyzer e construido a partir da
+  # imagem fixada por digest, com adaptacao minima para portugues (ADR-0022): o
+  # digest de origem fica no FROM de presidio-analyzer/Dockerfile.
   presidio-analyzer:
-    image: ghcr.io/data-privacy-stack/presidio-analyzer@sha256:ae8f6f111ac2f04e3fec552f7f80edd0dcbfa2dd69ee1b9e030475be31669885
+    build:
+      context: ./presidio-analyzer
     container_name: tcc-presidio-analyzer
     restart: unless-stopped
     ports:

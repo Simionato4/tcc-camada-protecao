@@ -1,0 +1,61 @@
+# Registro de reconhecedores para a condicao C (ADR-0022).
+# Derivado de presidio_analyzer/conf/default_recognizers.yaml da imagem fixada
+# (analyzer 2.2.364). Regra de selecao, decidida antes de qualquer execucao:
+#   entram  - os reconhecedores ATIVOS no original e SEM country_code;
+#   ficam fora - os ativos com country_code (EUA, Reino Unido, Espanha, Italia,
+#             Polonia e o MedicalLicenseRecognizer, marcado us) e todos os desligados.
+# Nenhum reconhecedor brasileiro e acrescentado. Nenhum parametro e alterado: sem
+# context declarado, vale o contexto padrao da classe, que esta em ingles (limitacao
+# declarada). O comportamento dos padroes nao foi traduzido; por exemplo, data por
+# extenso em portugues nao e coberta pelo DateRecognizer por esta configuracao.
+# O reconhecedor de entidades nomeadas do spaCy (SpacyRecognizer) nao e listado aqui:
+# o proprio Presidio o cria para cada idioma do NLP (recognizer_registry_provider.py).
+supported_languages:
+  - pt
+global_regex_flags: 26
+
+recognizers:
+  - name: CreditCardRecognizer
+    supported_languages:
+    - language: pt
+    type: predefined
+
+  - name: CryptoRecognizer
+    supported_languages:
+    - pt
+    type: predefined
+
+  - name: DateRecognizer
+    supported_languages:
+    - pt
+    type: predefined
+
+  - name: EmailRecognizer
+    supported_languages:
+    - pt
+    type: predefined
+
+  - name: IbanRecognizer
+    supported_languages:
+    - pt
+    type: predefined
+
+  - name: IpRecognizer
+    supported_languages:
+    - pt
+    type: predefined
+
+  - name: MacAddressRecognizer
+    supported_languages:
+    - pt
+    type: predefined
+
+  - name: PhoneRecognizer
+    supported_languages:
+    - pt
+    type: predefined
+
+  - name: UrlRecognizer
+    supported_languages:
+    - pt
+    type: predefined

@@ -16,7 +16,7 @@ SERVICOS = [
         "presidio-analyzer",
         "POST",
         "http://localhost:5002/analyze",
-        {"text": "meu nome e Joao", "language": "en"},
+        {"text": "meu nome e Joao", "language": "pt"},  # so pt desde a ADR-0022
     ),
     (
         "presidio-anonymizer",

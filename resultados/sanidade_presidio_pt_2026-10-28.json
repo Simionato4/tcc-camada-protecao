@@ -1,0 +1,3832 @@
+{
+ "url": "http://localhost:5002/analyze",
+ "idioma": "pt",
+ "fonte": "conjunto_desenvolvimento\\pii\\corpus.jsonl",
+ "registros": [
+  {
+   "id": "dev-pii-0001",
+   "deteccoes": [
+    {
+     "analysis_explanation": null,
+     "end": 32,
+     "entity_type": "PHONE_NUMBER",
+     "score": 0.4,
+     "start": 15
+    }
+   ]
+  },
+  {
+   "id": "dev-pii-0002",
+   "deteccoes": [
+    {
+     "analysis_explanation": null,
+     "end": 64,
+     "entity_type": "PERSON",
+     "score": 0.85,
+     "start": 57
+    }
+   ]
+  },
+  {
+   "id": "dev-pii-0003",
+   "deteccoes": []
+  },
+  {
+   "id": "dev-pii-0004",
+   "deteccoes": []
+  },
+  {
+   "id": "dev-pii-0005",
+   "deteccoes": []
+  },
+  {
+   "id": "dev-pii-0006",
+   "deteccoes": [
+    {
+     "analysis_explanation": null,
+     "end": 6,
+     "entity_type": "PERSON",
+     "score": 0.85,
+     "start": 0
+    },
+    {
+     "analysis_explanation": null,
+     "end": 76,
+     "entity_type": "PHONE_NUMBER",
+     "score": 0.4,
+     "start": 61
+    }
+   ]
+  },
+  {
+   "id": "dev-pii-0007",
+   "deteccoes": [
+    {
+     "analysis_explanation": null,
+     "end": 28,
+     "entity_type": "PHONE_NUMBER",
+     "score": 0.4,
+     "start": 17
+    }
+   ]
+  },
+  {
+   "id": "dev-pii-0008",
+   "deteccoes": []
+  },
+  {
+   "id": "dev-pii-0009",
+   "deteccoes": []
+  },
+  {
+   "id": "dev-pii-0010",
+   "deteccoes": []
+  },
+  {
+   "id": "dev-pii-0011",
+   "deteccoes": [
+    {
+     "analysis_explanation": null,
+     "end": 47,
+     "entity_type": "EMAIL_ADDRESS",
+     "score": 1.0,
+     "start": 25
+    },
+    {
+     "analysis_explanation": null,
+     "end": 47,
+     "entity_type": "URL",
+     "score": 0.5,
+     "start": 36
+    }
+   ]
+  },
+  {
+   "id": "dev-pii-0012",
+   "deteccoes": []
+  },
+  {
+   "id": "dev-pii-0013",
+   "deteccoes": [
+    {
+     "analysis_explanation": null,
+     "end": 72,
+     "entity_type": "URL",
+     "score": 0.5,
+     "start": 61
+    }
+   ]
+  },
+  {
+   "id": "dev-pii-0014",
+   "deteccoes": []
+  },
+  {
+   "id": "dev-pii-0015",
+   "deteccoes": [
+    {
+     "analysis_explanation": null,
+     "end": 64,
+     "entity_type": "LOCATION",
+     "score": 0.85,
+     "start": 50
+    },
+    {
+     "analysis_explanation": null,
+     "end": 63,
+     "entity_type": "URL",
+     "score": 0.5,
+     "start": 58
+    },
+    {
+     "analysis_explanation": null,
+     "end": 36,
+     "entity_type": "PHONE_NUMBER",
+     "score": 0.4,
+     "start": 18
+    }
+   ]
+  },
+  {
+   "id": "dev-pii-0016",
+   "deteccoes": []
+  },
+  {
+   "id": "dev-pii-0017",
+   "deteccoes": []
+  },
+  {
+   "id": "dev-pii-0018",
+   "deteccoes": [
+    {
+     "analysis_explanation": null,
+     "end": 105,
+     "entity_type": "LOCATION",
+     "score": 0.85,
+     "start": 98
+    },
+    {
+     "analysis_explanation": null,
+     "end": 40,
+     "entity_type": "PHONE_NUMBER",
+     "score": 0.4,
+     "start": 23
+    },
+    {
+     "analysis_explanation": null,
+     "end": 65,
+     "entity_type": "PHONE_NUMBER",
+     "score": 0.4,
+     "start": 52
+    }
+   ]
+  },
+  {
+   "id": "dev-pii-0019",
+   "deteccoes": [
+    {
+     "analysis_explanation": null,
+     "end": 37,
+     "entity_type": "URL",
+     "score": 0.5,
+     "start": 26
+    }
+   ]
+  },
+  {
+   "id": "dev-pii-0020",
+   "deteccoes": [
+    {
+     "analysis_explanation": null,
+     "end": 78,
+     "entity_type": "EMAIL_ADDRESS",
+     "score": 1.0,
+     "start": 58
+    },
+    {
+     "analysis_explanation": null,
+     "end": 78,
+     "entity_type": "URL",
+     "score": 0.5,
+     "start": 67
+    }
+   ]
+  },
+  {
+   "id": "dev-pii-0021",
+   "deteccoes": [
+    {
+     "analysis_explanation": null,
+     "end": 6,
+     "entity_type": "PERSON",
+     "score": 0.85,
+     "start": 0
+    }
+   ]
+  },
+  {
+   "id": "dev-pii-0022",
+   "deteccoes": [
+    {
+     "analysis_explanation": null,
+     "end": 34,
+     "entity_type": "PERSON",
+     "score": 0.85,
+     "start": 20
+    }
+   ]
+  },
+  {
+   "id": "dev-pii-0023",
+   "deteccoes": []
+  },
+  {
+   "id": "dev-pii-0024",
+   "deteccoes": []
+  },
+  {
+   "id": "dev-pii-0025",
+   "deteccoes": [
+    {
+     "analysis_explanation": null,
+     "end": 65,
+     "entity_type": "PHONE_NUMBER",
+     "score": 0.4,
+     "start": 54
+    }
+   ]
+  },
+  {
+   "id": "dev-pii-0026",
+   "deteccoes": []
+  },
+  {
+   "id": "dev-pii-0027",
+   "deteccoes": []
+  },
+  {
+   "id": "dev-pii-0028",
+   "deteccoes": []
+  },
+  {
+   "id": "dev-pii-0029",
+   "deteccoes": []
+  },
+  {
+   "id": "dev-pii-0030",
+   "deteccoes": [
+    {
+     "analysis_explanation": null,
+     "end": 32,
+     "entity_type": "EMAIL_ADDRESS",
+     "score": 1.0,
+     "start": 13
+    },
+    {
+     "analysis_explanation": null,
+     "end": 32,
+     "entity_type": "URL",
+     "score": 0.5,
+     "start": 21
+    }
+   ]
+  },
+  {
+   "id": "dev-pii-0031",
+   "deteccoes": [
+    {
+     "analysis_explanation": null,
+     "end": 38,
+     "entity_type": "LOCATION",
+     "score": 0.85,
+     "start": 15
+    },
+    {
+     "analysis_explanation": null,
+     "end": 25,
+     "entity_type": "URL",
+     "score": 0.5,
+     "start": 20
+    },
+    {
+     "analysis_explanation": null,
+     "end": 77,
+     "entity_type": "PHONE_NUMBER",
+     "score": 0.4,
+     "start": 67
+    }
+   ]
+  },
+  {
+   "id": "dev-pii-0032",
+   "deteccoes": [
+    {
+     "analysis_explanation": null,
+     "end": 137,
+     "entity_type": "EMAIL_ADDRESS",
+     "score": 1.0,
+     "start": 116
+    },
+    {
+     "analysis_explanation": null,
+     "end": 137,
+     "entity_type": "URL",
+     "score": 0.5,
+     "start": 126
+    },
+    {
+     "analysis_explanation": null,
+     "end": 68,
+     "entity_type": "PHONE_NUMBER",
+     "score": 0.4,
+     "start": 55
+    }
+   ]
+  },
+  {
+   "id": "dev-pii-0033",
+   "deteccoes": []
+  },
+  {
+   "id": "dev-pii-0034",
+   "deteccoes": [
+    {
+     "analysis_explanation": null,
+     "end": 20,
+     "entity_type": "PHONE_NUMBER",
+     "score": 0.4,
+     "start": 8
+    }
+   ]
+  },
+  {
+   "id": "dev-pii-0035",
+   "deteccoes": [
+    {
+     "analysis_explanation": null,
+     "end": 42,
+     "entity_type": "EMAIL_ADDRESS",
+     "score": 1.0,
+     "start": 25
+    },
+    {
+     "analysis_explanation": null,
+     "end": 42,
+     "entity_type": "URL",
+     "score": 0.5,
+     "start": 31
+    },
+    {
+     "analysis_explanation": null,
+     "end": 83,
+     "entity_type": "PHONE_NUMBER",
+     "score": 0.4,
+     "start": 70
+    }
+   ]
+  },
+  {
+   "id": "dev-pii-0036",
+   "deteccoes": []
+  },
+  {
+   "id": "dev-pii-0037",
+   "deteccoes": [
+    {
+     "analysis_explanation": null,
+     "end": 36,
+     "entity_type": "PHONE_NUMBER",
+     "score": 0.4,
+     "start": 23
+    }
+   ]
+  },
+  {
+   "id": "dev-pii-0038",
+   "deteccoes": [
+    {
+     "analysis_explanation": null,
+     "end": 6,
+     "entity_type": "PERSON",
+     "score": 0.85,
+     "start": 0
+    }
+   ]
+  },
+  {
+   "id": "dev-pii-0039",
+   "deteccoes": [
+    {
+     "analysis_explanation": null,
+     "end": 68,
+     "entity_type": "PHONE_NUMBER",
+     "score": 0.4,
+     "start": 55
+    }
+   ]
+  },
+  {
+   "id": "dev-pii-0040",
+   "deteccoes": []
+  },
+  {
+   "id": "dev-pii-0041",
+   "deteccoes": []
+  },
+  {
+   "id": "dev-pii-0042",
+   "deteccoes": [
+    {
+     "analysis_explanation": null,
+     "end": 25,
+     "entity_type": "URL",
+     "score": 0.5,
+     "start": 20
+    }
+   ]
+  },
+  {
+   "id": "dev-pii-0043",
+   "deteccoes": []
+  },
+  {
+   "id": "dev-pii-0044",
+   "deteccoes": []
+  },
+  {
+   "id": "dev-pii-0045",
+   "deteccoes": []
+  },
+  {
+   "id": "dev-pii-0046",
+   "deteccoes": []
+  },
+  {
+   "id": "dev-pii-0047",
+   "deteccoes": [
+    {
+     "analysis_explanation": null,
+     "end": 44,
+     "entity_type": "URL",
+     "score": 0.5,
+     "start": 33
+    }
+   ]
+  },
+  {
+   "id": "dev-pii-0048",
+   "deteccoes": [
+    {
+     "analysis_explanation": null,
+     "end": 66,
+     "entity_type": "EMAIL_ADDRESS",
+     "score": 1.0,
+     "start": 42
+    },
+    {
+     "analysis_explanation": null,
+     "end": 66,
+     "entity_type": "URL",
+     "score": 0.5,
+     "start": 55
+    }
+   ]
+  },
+  {
+   "id": "dev-pii-0049",
+   "deteccoes": [
+    {
+     "analysis_explanation": null,
+     "end": 34,
+     "entity_type": "LOCATION",
+     "score": 0.85,
+     "start": 20
+    }
+   ]
+  },
+  {
+   "id": "dev-pii-0050",
+   "deteccoes": []
+  },
+  {
+   "id": "dev-pii-0051",
+   "deteccoes": [
+    {
+     "analysis_explanation": null,
+     "end": 37,
+     "entity_type": "EMAIL_ADDRESS",
+     "score": 1.0,
+     "start": 18
+    },
+    {
+     "analysis_explanation": null,
+     "end": 37,
+     "entity_type": "URL",
+     "score": 0.5,
+     "start": 26
+    }
+   ]
+  },
+  {
+   "id": "dev-pii-0052",
+   "deteccoes": [
+    {
+     "analysis_explanation": null,
+     "end": 32,
+     "entity_type": "PERSON",
+     "score": 0.85,
+     "start": 29
+    },
+    {
+     "analysis_explanation": null,
+     "end": 25,
+     "entity_type": "PHONE_NUMBER",
+     "score": 0.4,
+     "start": 14
+    },
+    {
+     "analysis_explanation": null,
+     "end": 83,
+     "entity_type": "PHONE_NUMBER",
+     "score": 0.4,
+     "start": 73
+    }
+   ]
+  },
+  {
+   "id": "dev-pii-0053",
+   "deteccoes": [
+    {
+     "analysis_explanation": null,
+     "end": 20,
+     "entity_type": "PHONE_NUMBER",
+     "score": 0.4,
+     "start": 10
+    }
+   ]
+  },
+  {
+   "id": "dev-pii-0054",
+   "deteccoes": [
+    {
+     "analysis_explanation": null,
+     "end": 6,
+     "entity_type": "PERSON",
+     "score": 0.85,
+     "start": 0
+    }
+   ]
+  },
+  {
+   "id": "dev-pii-0055",
+   "deteccoes": [
+    {
+     "analysis_explanation": null,
+     "end": 44,
+     "entity_type": "EMAIL_ADDRESS",
+     "score": 1.0,
+     "start": 25
+    },
+    {
+     "analysis_explanation": null,
+     "end": 44,
+     "entity_type": "URL",
+     "score": 0.5,
+     "start": 33
+    }
+   ]
+  },
+  {
+   "id": "dev-pii-0056",
+   "deteccoes": [
+    {
+     "analysis_explanation": null,
+     "end": 38,
+     "entity_type": "LOCATION",
+     "score": 0.85,
+     "start": 31
+    }
+   ]
+  },
+  {
+   "id": "dev-pii-0057",
+   "deteccoes": []
+  },
+  {
+   "id": "dev-pii-0058",
+   "deteccoes": [
+    {
+     "analysis_explanation": null,
+     "end": 31,
+     "entity_type": "LOCATION",
+     "score": 0.85,
+     "start": 17
+    },
+    {
+     "analysis_explanation": null,
+     "end": 30,
+     "entity_type": "URL",
+     "score": 0.5,
+     "start": 25
+    }
+   ]
+  },
+  {
+   "id": "dev-pii-0059",
+   "deteccoes": []
+  },
+  {
+   "id": "dev-pii-0060",
+   "deteccoes": [
+    {
+     "analysis_explanation": null,
+     "end": 88,
+     "entity_type": "EMAIL_ADDRESS",
+     "score": 1.0,
+     "start": 69
+    },
+    {
+     "analysis_explanation": null,
+     "end": 88,
+     "entity_type": "URL",
+     "score": 0.5,
+     "start": 77
+    }
+   ]
+  },
+  {
+   "id": "dev-pii-0061",
+   "deteccoes": [
+    {
+     "analysis_explanation": null,
+     "end": 78,
+     "entity_type": "PHONE_NUMBER",
+     "score": 0.4,
+     "start": 63
+    }
+   ]
+  },
+  {
+   "id": "dev-pii-0062",
+   "deteccoes": []
+  },
+  {
+   "id": "dev-pii-0063",
+   "deteccoes": [
+    {
+     "analysis_explanation": null,
+     "end": 36,
+     "entity_type": "PHONE_NUMBER",
+     "score": 0.4,
+     "start": 23
+    }
+   ]
+  },
+  {
+   "id": "dev-pii-0064",
+   "deteccoes": []
+  },
+  {
+   "id": "dev-pii-0065",
+   "deteccoes": [
+    {
+     "analysis_explanation": null,
+     "end": 34,
+     "entity_type": "PHONE_NUMBER",
+     "score": 0.4,
+     "start": 23
+    }
+   ]
+  },
+  {
+   "id": "dev-pii-0066",
+   "deteccoes": []
+  },
+  {
+   "id": "dev-pii-0067",
+   "deteccoes": [
+    {
+     "analysis_explanation": null,
+     "end": 29,
+     "entity_type": "PHONE_NUMBER",
+     "score": 0.4,
+     "start": 16
+    },
+    {
+     "analysis_explanation": null,
+     "end": 77,
+     "entity_type": "PHONE_NUMBER",
+     "score": 0.4,
+     "start": 66
+    }
+   ]
+  },
+  {
+   "id": "dev-pii-0068",
+   "deteccoes": [
+    {
+     "analysis_explanation": null,
+     "end": 29,
+     "entity_type": "URL",
+     "score": 0.5,
+     "start": 20
+    }
+   ]
+  },
+  {
+   "id": "dev-pii-0069",
+   "deteccoes": [
+    {
+     "analysis_explanation": null,
+     "end": 74,
+     "entity_type": "PHONE_NUMBER",
+     "score": 0.4,
+     "start": 59
+    }
+   ]
+  },
+  {
+   "id": "dev-pii-0070",
+   "deteccoes": []
+  },
+  {
+   "id": "dev-pii-0071",
+   "deteccoes": [
+    {
+     "analysis_explanation": null,
+     "end": 63,
+     "entity_type": "PHONE_NUMBER",
+     "score": 0.4,
+     "start": 50
+    }
+   ]
+  },
+  {
+   "id": "dev-pii-0072",
+   "deteccoes": []
+  },
+  {
+   "id": "dev-pii-0073",
+   "deteccoes": [
+    {
+     "analysis_explanation": null,
+     "end": 35,
+     "entity_type": "PHONE_NUMBER",
+     "score": 0.4,
+     "start": 24
+    }
+   ]
+  },
+  {
+   "id": "dev-pii-0074",
+   "deteccoes": [
+    {
+     "analysis_explanation": null,
+     "end": 31,
+     "entity_type": "PHONE_NUMBER",
+     "score": 0.4,
+     "start": 14
+    }
+   ]
+  },
+  {
+   "id": "dev-pii-0075",
+   "deteccoes": [
+    {
+     "analysis_explanation": null,
+     "end": 30,
+     "entity_type": "URL",
+     "score": 0.5,
+     "start": 19
+    }
+   ]
+  },
+  {
+   "id": "dev-pii-0076",
+   "deteccoes": [
+    {
+     "analysis_explanation": null,
+     "end": 27,
+     "entity_type": "PHONE_NUMBER",
+     "score": 0.4,
+     "start": 14
+    }
+   ]
+  },
+  {
+   "id": "dev-pii-0077",
+   "deteccoes": [
+    {
+     "analysis_explanation": null,
+     "end": 43,
+     "entity_type": "LOCATION",
+     "score": 0.85,
+     "start": 40
+    },
+    {
+     "analysis_explanation": null,
+     "end": 92,
+     "entity_type": "PHONE_NUMBER",
+     "score": 0.4,
+     "start": 78
+    }
+   ]
+  },
+  {
+   "id": "dev-pii-0078",
+   "deteccoes": [
+    {
+     "analysis_explanation": null,
+     "end": 32,
+     "entity_type": "PHONE_NUMBER",
+     "score": 0.4,
+     "start": 17
+    }
+   ]
+  },
+  {
+   "id": "dev-pii-0079",
+   "deteccoes": [
+    {
+     "analysis_explanation": null,
+     "end": 76,
+     "entity_type": "PERSON",
+     "score": 0.85,
+     "start": 73
+    },
+    {
+     "analysis_explanation": null,
+     "end": 27,
+     "entity_type": "PHONE_NUMBER",
+     "score": 0.4,
+     "start": 14
+    },
+    {
+     "analysis_explanation": null,
+     "end": 69,
+     "entity_type": "PHONE_NUMBER",
+     "score": 0.4,
+     "start": 52
+    }
+   ]
+  },
+  {
+   "id": "dev-pii-0080",
+   "deteccoes": [
+    {
+     "analysis_explanation": null,
+     "end": 34,
+     "entity_type": "EMAIL_ADDRESS",
+     "score": 1.0,
+     "start": 13
+    },
+    {
+     "analysis_explanation": null,
+     "end": 73,
+     "entity_type": "EMAIL_ADDRESS",
+     "score": 1.0,
+     "start": 54
+    },
+    {
+     "analysis_explanation": null,
+     "end": 34,
+     "entity_type": "URL",
+     "score": 0.5,
+     "start": 23
+    },
+    {
+     "analysis_explanation": null,
+     "end": 73,
+     "entity_type": "URL",
+     "score": 0.5,
+     "start": 62
+    }
+   ]
+  },
+  {
+   "id": "dev-pii-0081",
+   "deteccoes": [
+    {
+     "analysis_explanation": null,
+     "end": 41,
+     "entity_type": "EMAIL_ADDRESS",
+     "score": 1.0,
+     "start": 18
+    },
+    {
+     "analysis_explanation": null,
+     "end": 41,
+     "entity_type": "LOCATION",
+     "score": 0.85,
+     "start": 18
+    },
+    {
+     "analysis_explanation": null,
+     "end": 41,
+     "entity_type": "URL",
+     "score": 0.5,
+     "start": 30
+    }
+   ]
+  },
+  {
+   "id": "dev-pii-0082",
+   "deteccoes": [
+    {
+     "analysis_explanation": null,
+     "end": 34,
+     "entity_type": "PHONE_NUMBER",
+     "score": 0.4,
+     "start": 17
+    }
+   ]
+  },
+  {
+   "id": "dev-pii-0083",
+   "deteccoes": []
+  },
+  {
+   "id": "dev-pii-0084",
+   "deteccoes": [
+    {
+     "analysis_explanation": null,
+     "end": 45,
+     "entity_type": "EMAIL_ADDRESS",
+     "score": 1.0,
+     "start": 25
+    },
+    {
+     "analysis_explanation": null,
+     "end": 45,
+     "entity_type": "URL",
+     "score": 0.5,
+     "start": 34
+    },
+    {
+     "analysis_explanation": null,
+     "end": 115,
+     "entity_type": "PHONE_NUMBER",
+     "score": 0.4,
+     "start": 100
+    }
+   ]
+  },
+  {
+   "id": "dev-pii-0085",
+   "deteccoes": [
+    {
+     "analysis_explanation": null,
+     "end": 6,
+     "entity_type": "PERSON",
+     "score": 0.85,
+     "start": 0
+    }
+   ]
+  },
+  {
+   "id": "dev-pii-0086",
+   "deteccoes": []
+  },
+  {
+   "id": "dev-pii-0087",
+   "deteccoes": [
+    {
+     "analysis_explanation": null,
+     "end": 122,
+     "entity_type": "PHONE_NUMBER",
+     "score": 0.4,
+     "start": 111
+    }
+   ]
+  },
+  {
+   "id": "dev-pii-0088",
+   "deteccoes": []
+  },
+  {
+   "id": "dev-pii-0089",
+   "deteccoes": []
+  },
+  {
+   "id": "dev-pii-0090",
+   "deteccoes": [
+    {
+     "analysis_explanation": null,
+     "end": 38,
+     "entity_type": "PHONE_NUMBER",
+     "score": 0.4,
+     "start": 26
+    }
+   ]
+  },
+  {
+   "id": "dev-pii-0091",
+   "deteccoes": []
+  },
+  {
+   "id": "dev-pii-0092",
+   "deteccoes": [
+    {
+     "analysis_explanation": null,
+     "end": 106,
+     "entity_type": "EMAIL_ADDRESS",
+     "score": 1.0,
+     "start": 82
+    },
+    {
+     "analysis_explanation": null,
+     "end": 106,
+     "entity_type": "URL",
+     "score": 0.5,
+     "start": 95
+    }
+   ]
+  },
+  {
+   "id": "dev-pii-0093",
+   "deteccoes": []
+  },
+  {
+   "id": "dev-pii-0094",
+   "deteccoes": []
+  },
+  {
+   "id": "dev-pii-0095",
+   "deteccoes": [
+    {
+     "analysis_explanation": null,
+     "end": 90,
+     "entity_type": "URL",
+     "score": 0.5,
+     "start": 79
+    }
+   ]
+  },
+  {
+   "id": "dev-pii-0096",
+   "deteccoes": []
+  },
+  {
+   "id": "dev-pii-0097",
+   "deteccoes": []
+  },
+  {
+   "id": "dev-pii-0098",
+   "deteccoes": []
+  },
+  {
+   "id": "dev-pii-0099",
+   "deteccoes": [
+    {
+     "analysis_explanation": null,
+     "end": 65,
+     "entity_type": "PERSON",
+     "score": 0.85,
+     "start": 62
+    },
+    {
+     "analysis_explanation": null,
+     "end": 91,
+     "entity_type": "PHONE_NUMBER",
+     "score": 0.4,
+     "start": 80
+    }
+   ]
+  },
+  {
+   "id": "dev-pii-0100",
+   "deteccoes": [
+    {
+     "analysis_explanation": null,
+     "end": 34,
+     "entity_type": "LOCATION",
+     "score": 0.85,
+     "start": 15
+    },
+    {
+     "analysis_explanation": null,
+     "end": 69,
+     "entity_type": "URL",
+     "score": 0.5,
+     "start": 64
+    },
+    {
+     "analysis_explanation": null,
+     "end": 106,
+     "entity_type": "PHONE_NUMBER",
+     "score": 0.4,
+     "start": 94
+    }
+   ]
+  },
+  {
+   "id": "dev-pii-0101",
+   "deteccoes": []
+  },
+  {
+   "id": "dev-pii-0102",
+   "deteccoes": []
+  },
+  {
+   "id": "dev-pii-0103",
+   "deteccoes": [
+    {
+     "analysis_explanation": null,
+     "end": 36,
+     "entity_type": "PHONE_NUMBER",
+     "score": 0.4,
+     "start": 29
+    }
+   ]
+  },
+  {
+   "id": "dev-pii-0104",
+   "deteccoes": [
+    {
+     "analysis_explanation": null,
+     "end": 44,
+     "entity_type": "EMAIL_ADDRESS",
+     "score": 1.0,
+     "start": 25
+    },
+    {
+     "analysis_explanation": null,
+     "end": 73,
+     "entity_type": "LOCATION",
+     "score": 0.85,
+     "start": 63
+    },
+    {
+     "analysis_explanation": null,
+     "end": 44,
+     "entity_type": "URL",
+     "score": 0.5,
+     "start": 33
+    }
+   ]
+  },
+  {
+   "id": "dev-pii-0105",
+   "deteccoes": []
+  },
+  {
+   "id": "dev-pii-0106",
+   "deteccoes": [
+    {
+     "analysis_explanation": null,
+     "end": 80,
+     "entity_type": "CREDIT_CARD",
+     "score": 1.0,
+     "start": 65
+    },
+    {
+     "analysis_explanation": null,
+     "end": 5,
+     "entity_type": "PERSON",
+     "score": 0.85,
+     "start": 2
+    }
+   ]
+  },
+  {
+   "id": "dev-pii-0107",
+   "deteccoes": [
+    {
+     "analysis_explanation": null,
+     "end": 68,
+     "entity_type": "PERSON",
+     "score": 0.85,
+     "start": 58
+    },
+    {
+     "analysis_explanation": null,
+     "end": 63,
+     "entity_type": "URL",
+     "score": 0.5,
+     "start": 58
+    },
+    {
+     "analysis_explanation": null,
+     "end": 36,
+     "entity_type": "PHONE_NUMBER",
+     "score": 0.4,
+     "start": 24
+    }
+   ]
+  },
+  {
+   "id": "dev-pii-0108",
+   "deteccoes": [
+    {
+     "analysis_explanation": null,
+     "end": 35,
+     "entity_type": "PHONE_NUMBER",
+     "score": 0.4,
+     "start": 24
+    }
+   ]
+  },
+  {
+   "id": "dev-pii-0109",
+   "deteccoes": []
+  },
+  {
+   "id": "dev-pii-0110",
+   "deteccoes": [
+    {
+     "analysis_explanation": null,
+     "end": 30,
+     "entity_type": "URL",
+     "score": 0.5,
+     "start": 19
+    }
+   ]
+  },
+  {
+   "id": "dev-pii-0111",
+   "deteccoes": []
+  },
+  {
+   "id": "dev-pii-0112",
+   "deteccoes": []
+  },
+  {
+   "id": "dev-pii-0113",
+   "deteccoes": []
+  },
+  {
+   "id": "dev-pii-0114",
+   "deteccoes": []
+  },
+  {
+   "id": "dev-pii-0115",
+   "deteccoes": [
+    {
+     "analysis_explanation": null,
+     "end": 47,
+     "entity_type": "URL",
+     "score": 0.5,
+     "start": 36
+    }
+   ]
+  },
+  {
+   "id": "dev-pii-0116",
+   "deteccoes": []
+  },
+  {
+   "id": "dev-pii-0117",
+   "deteccoes": []
+  },
+  {
+   "id": "dev-pii-0118",
+   "deteccoes": []
+  },
+  {
+   "id": "dev-pii-0119",
+   "deteccoes": []
+  },
+  {
+   "id": "dev-pii-0120",
+   "deteccoes": []
+  },
+  {
+   "id": "dev-pii-0121",
+   "deteccoes": [
+    {
+     "analysis_explanation": null,
+     "end": 33,
+     "entity_type": "EMAIL_ADDRESS",
+     "score": 1.0,
+     "start": 13
+    },
+    {
+     "analysis_explanation": null,
+     "end": 33,
+     "entity_type": "URL",
+     "score": 0.5,
+     "start": 22
+    },
+    {
+     "analysis_explanation": null,
+     "end": 86,
+     "entity_type": "PHONE_NUMBER",
+     "score": 0.4,
+     "start": 75
+    }
+   ]
+  },
+  {
+   "id": "dev-pii-0122",
+   "deteccoes": []
+  },
+  {
+   "id": "dev-pii-0123",
+   "deteccoes": []
+  },
+  {
+   "id": "dev-pii-0124",
+   "deteccoes": [
+    {
+     "analysis_explanation": null,
+     "end": 29,
+     "entity_type": "PHONE_NUMBER",
+     "score": 0.4,
+     "start": 14
+    }
+   ]
+  },
+  {
+   "id": "dev-pii-0125",
+   "deteccoes": []
+  },
+  {
+   "id": "dev-pii-0126",
+   "deteccoes": [
+    {
+     "analysis_explanation": null,
+     "end": 30,
+     "entity_type": "LOCATION",
+     "score": 0.85,
+     "start": 15
+    },
+    {
+     "analysis_explanation": null,
+     "end": 38,
+     "entity_type": "LOCATION",
+     "score": 0.85,
+     "start": 31
+    }
+   ]
+  },
+  {
+   "id": "dev-pii-0127",
+   "deteccoes": []
+  },
+  {
+   "id": "dev-pii-0128",
+   "deteccoes": [
+    {
+     "analysis_explanation": null,
+     "end": 26,
+     "entity_type": "PHONE_NUMBER",
+     "score": 0.4,
+     "start": 16
+    }
+   ]
+  },
+  {
+   "id": "dev-pii-0129",
+   "deteccoes": [
+    {
+     "analysis_explanation": null,
+     "end": 63,
+     "entity_type": "PHONE_NUMBER",
+     "score": 0.4,
+     "start": 52
+    }
+   ]
+  },
+  {
+   "id": "dev-pii-0130",
+   "deteccoes": []
+  },
+  {
+   "id": "dev-pii-0131",
+   "deteccoes": [
+    {
+     "analysis_explanation": null,
+     "end": 6,
+     "entity_type": "PERSON",
+     "score": 0.85,
+     "start": 0
+    },
+    {
+     "analysis_explanation": null,
+     "end": 46,
+     "entity_type": "PERSON",
+     "score": 0.85,
+     "start": 43
+    },
+    {
+     "analysis_explanation": null,
+     "end": 72,
+     "entity_type": "PHONE_NUMBER",
+     "score": 0.4,
+     "start": 61
+    }
+   ]
+  },
+  {
+   "id": "dev-pii-0132",
+   "deteccoes": [
+    {
+     "analysis_explanation": null,
+     "end": 103,
+     "entity_type": "PERSON",
+     "score": 0.85,
+     "start": 97
+    }
+   ]
+  },
+  {
+   "id": "dev-pii-0133",
+   "deteccoes": [
+    {
+     "analysis_explanation": null,
+     "end": 32,
+     "entity_type": "URL",
+     "score": 0.5,
+     "start": 27
+    }
+   ]
+  },
+  {
+   "id": "dev-pii-0134",
+   "deteccoes": [
+    {
+     "analysis_explanation": null,
+     "end": 30,
+     "entity_type": "PERSON",
+     "score": 0.85,
+     "start": 24
+    }
+   ]
+  },
+  {
+   "id": "dev-pii-0135",
+   "deteccoes": []
+  },
+  {
+   "id": "dev-pii-0136",
+   "deteccoes": [
+    {
+     "analysis_explanation": null,
+     "end": 109,
+     "entity_type": "PERSON",
+     "score": 0.85,
+     "start": 106
+    }
+   ]
+  },
+  {
+   "id": "dev-pii-0137",
+   "deteccoes": []
+  },
+  {
+   "id": "dev-pii-0138",
+   "deteccoes": [
+    {
+     "analysis_explanation": null,
+     "end": 25,
+     "entity_type": "URL",
+     "score": 0.5,
+     "start": 14
+    }
+   ]
+  },
+  {
+   "id": "dev-pii-0139",
+   "deteccoes": [
+    {
+     "analysis_explanation": null,
+     "end": 75,
+     "entity_type": "EMAIL_ADDRESS",
+     "score": 1.0,
+     "start": 52
+    },
+    {
+     "analysis_explanation": null,
+     "end": 75,
+     "entity_type": "URL",
+     "score": 0.5,
+     "start": 64
+    }
+   ]
+  },
+  {
+   "id": "dev-pii-0140",
+   "deteccoes": [
+    {
+     "analysis_explanation": null,
+     "end": 106,
+     "entity_type": "EMAIL_ADDRESS",
+     "score": 1.0,
+     "start": 83
+    },
+    {
+     "analysis_explanation": null,
+     "end": 27,
+     "entity_type": "URL",
+     "score": 0.5,
+     "start": 22
+    },
+    {
+     "analysis_explanation": null,
+     "end": 55,
+     "entity_type": "URL",
+     "score": 0.5,
+     "start": 50
+    },
+    {
+     "analysis_explanation": null,
+     "end": 106,
+     "entity_type": "URL",
+     "score": 0.5,
+     "start": 95
+    }
+   ]
+  },
+  {
+   "id": "dev-pii-0141",
+   "deteccoes": [
+    {
+     "analysis_explanation": null,
+     "end": 53,
+     "entity_type": "PERSON",
+     "score": 0.85,
+     "start": 47
+    }
+   ]
+  },
+  {
+   "id": "dev-pii-0142",
+   "deteccoes": []
+  },
+  {
+   "id": "dev-pii-0143",
+   "deteccoes": [
+    {
+     "analysis_explanation": null,
+     "end": 67,
+     "entity_type": "PHONE_NUMBER",
+     "score": 0.4,
+     "start": 50
+    }
+   ]
+  },
+  {
+   "id": "dev-pii-0144",
+   "deteccoes": []
+  },
+  {
+   "id": "dev-pii-0145",
+   "deteccoes": []
+  },
+  {
+   "id": "dev-pii-0146",
+   "deteccoes": []
+  },
+  {
+   "id": "dev-pii-0147",
+   "deteccoes": []
+  },
+  {
+   "id": "dev-pii-0148",
+   "deteccoes": []
+  },
+  {
+   "id": "dev-pii-0149",
+   "deteccoes": []
+  },
+  {
+   "id": "dev-pii-0150",
+   "deteccoes": [
+    {
+     "analysis_explanation": null,
+     "end": 43,
+     "entity_type": "PERSON",
+     "score": 0.85,
+     "start": 40
+    },
+    {
+     "analysis_explanation": null,
+     "end": 111,
+     "entity_type": "PHONE_NUMBER",
+     "score": 0.4,
+     "start": 100
+    }
+   ]
+  },
+  {
+   "id": "dev-pii-0151",
+   "deteccoes": [
+    {
+     "analysis_explanation": null,
+     "end": 95,
+     "entity_type": "PERSON",
+     "score": 0.85,
+     "start": 89
+    }
+   ]
+  },
+  {
+   "id": "dev-pii-0152",
+   "deteccoes": [
+    {
+     "analysis_explanation": null,
+     "end": 46,
+     "entity_type": "EMAIL_ADDRESS",
+     "score": 1.0,
+     "start": 25
+    },
+    {
+     "analysis_explanation": null,
+     "end": 46,
+     "entity_type": "URL",
+     "score": 0.5,
+     "start": 35
+    }
+   ]
+  },
+  {
+   "id": "dev-pii-0153",
+   "deteccoes": [
+    {
+     "analysis_explanation": null,
+     "end": 36,
+     "entity_type": "PHONE_NUMBER",
+     "score": 0.4,
+     "start": 23
+    }
+   ]
+  },
+  {
+   "id": "dev-pii-0154",
+   "deteccoes": [
+    {
+     "analysis_explanation": null,
+     "end": 39,
+     "entity_type": "PERSON",
+     "score": 0.85,
+     "start": 33
+    },
+    {
+     "analysis_explanation": null,
+     "end": 31,
+     "entity_type": "PHONE_NUMBER",
+     "score": 0.4,
+     "start": 14
+    }
+   ]
+  },
+  {
+   "id": "dev-pii-0155",
+   "deteccoes": [
+    {
+     "analysis_explanation": null,
+     "end": 40,
+     "entity_type": "EMAIL_ADDRESS",
+     "score": 1.0,
+     "start": 18
+    },
+    {
+     "analysis_explanation": null,
+     "end": 85,
+     "entity_type": "LOCATION",
+     "score": 0.85,
+     "start": 71
+    },
+    {
+     "analysis_explanation": null,
+     "end": 121,
+     "entity_type": "LOCATION",
+     "score": 0.85,
+     "start": 102
+    },
+    {
+     "analysis_explanation": null,
+     "end": 40,
+     "entity_type": "URL",
+     "score": 0.5,
+     "start": 29
+    }
+   ]
+  },
+  {
+   "id": "dev-pii-0156",
+   "deteccoes": [
+    {
+     "analysis_explanation": null,
+     "end": 97,
+     "entity_type": "EMAIL_ADDRESS",
+     "score": 1.0,
+     "start": 78
+    },
+    {
+     "analysis_explanation": null,
+     "end": 97,
+     "entity_type": "URL",
+     "score": 0.5,
+     "start": 86
+    },
+    {
+     "analysis_explanation": null,
+     "end": 29,
+     "entity_type": "PHONE_NUMBER",
+     "score": 0.4,
+     "start": 14
+    }
+   ]
+  },
+  {
+   "id": "dev-pii-0157",
+   "deteccoes": [
+    {
+     "analysis_explanation": null,
+     "end": 35,
+     "entity_type": "PHONE_NUMBER",
+     "score": 0.4,
+     "start": 29
+    }
+   ]
+  },
+  {
+   "id": "dev-pii-0158",
+   "deteccoes": []
+  },
+  {
+   "id": "dev-pii-0159",
+   "deteccoes": []
+  },
+  {
+   "id": "dev-pii-0160",
+   "deteccoes": [
+    {
+     "analysis_explanation": null,
+     "end": 64,
+     "entity_type": "PERSON",
+     "score": 0.85,
+     "start": 61
+    }
+   ]
+  },
+  {
+   "id": "dev-pii-0161",
+   "deteccoes": []
+  },
+  {
+   "id": "dev-pii-0162",
+   "deteccoes": [
+    {
+     "analysis_explanation": null,
+     "end": 35,
+     "entity_type": "CREDIT_CARD",
+     "score": 1.0,
+     "start": 20
+    },
+    {
+     "analysis_explanation": null,
+     "end": 43,
+     "entity_type": "PERSON",
+     "score": 0.85,
+     "start": 37
+    }
+   ]
+  },
+  {
+   "id": "dev-pii-0163",
+   "deteccoes": []
+  },
+  {
+   "id": "dev-pii-0164",
+   "deteccoes": []
+  },
+  {
+   "id": "dev-pii-0165",
+   "deteccoes": [
+    {
+     "analysis_explanation": null,
+     "end": 50,
+     "entity_type": "PERSON",
+     "score": 0.85,
+     "start": 44
+    }
+   ]
+  },
+  {
+   "id": "dev-pii-0166",
+   "deteccoes": []
+  },
+  {
+   "id": "dev-pii-0167",
+   "deteccoes": [
+    {
+     "analysis_explanation": null,
+     "end": 37,
+     "entity_type": "EMAIL_ADDRESS",
+     "score": 1.0,
+     "start": 13
+    },
+    {
+     "analysis_explanation": null,
+     "end": 37,
+     "entity_type": "URL",
+     "score": 0.5,
+     "start": 26
+    }
+   ]
+  },
+  {
+   "id": "dev-pii-0168",
+   "deteccoes": [
+    {
+     "analysis_explanation": null,
+     "end": 86,
+     "entity_type": "EMAIL_ADDRESS",
+     "score": 1.0,
+     "start": 66
+    },
+    {
+     "analysis_explanation": null,
+     "end": 86,
+     "entity_type": "LOCATION",
+     "score": 0.85,
+     "start": 66
+    },
+    {
+     "analysis_explanation": null,
+     "end": 86,
+     "entity_type": "URL",
+     "score": 0.5,
+     "start": 75
+    }
+   ]
+  },
+  {
+   "id": "dev-pii-0169",
+   "deteccoes": [
+    {
+     "analysis_explanation": null,
+     "end": 79,
+     "entity_type": "PHONE_NUMBER",
+     "score": 0.4,
+     "start": 68
+    },
+    {
+     "analysis_explanation": null,
+     "end": 115,
+     "entity_type": "PHONE_NUMBER",
+     "score": 0.4,
+     "start": 105
+    }
+   ]
+  },
+  {
+   "id": "dev-pii-0170",
+   "deteccoes": []
+  },
+  {
+   "id": "dev-pii-0171",
+   "deteccoes": []
+  },
+  {
+   "id": "dev-pii-0172",
+   "deteccoes": [
+    {
+     "analysis_explanation": null,
+     "end": 80,
+     "entity_type": "URL",
+     "score": 0.5,
+     "start": 69
+    }
+   ]
+  },
+  {
+   "id": "dev-pii-0173",
+   "deteccoes": []
+  },
+  {
+   "id": "dev-pii-0174",
+   "deteccoes": [
+    {
+     "analysis_explanation": null,
+     "end": 76,
+     "entity_type": "PHONE_NUMBER",
+     "score": 0.4,
+     "start": 59
+    }
+   ]
+  },
+  {
+   "id": "dev-pii-0175",
+   "deteccoes": [
+    {
+     "analysis_explanation": null,
+     "end": 111,
+     "entity_type": "EMAIL_ADDRESS",
+     "score": 1.0,
+     "start": 89
+    },
+    {
+     "analysis_explanation": null,
+     "end": 111,
+     "entity_type": "URL",
+     "score": 0.5,
+     "start": 100
+    }
+   ]
+  },
+  {
+   "id": "dev-pii-0176",
+   "deteccoes": [
+    {
+     "analysis_explanation": null,
+     "end": 28,
+     "entity_type": "PHONE_NUMBER",
+     "score": 0.4,
+     "start": 15
+    }
+   ]
+  },
+  {
+   "id": "dev-pii-0177",
+   "deteccoes": []
+  },
+  {
+   "id": "dev-pii-0178",
+   "deteccoes": [
+    {
+     "analysis_explanation": null,
+     "end": 32,
+     "entity_type": "LOCATION",
+     "score": 0.85,
+     "start": 18
+    }
+   ]
+  },
+  {
+   "id": "dev-pii-0179",
+   "deteccoes": [
+    {
+     "analysis_explanation": null,
+     "end": 37,
+     "entity_type": "PHONE_NUMBER",
+     "score": 0.4,
+     "start": 26
+    },
+    {
+     "analysis_explanation": null,
+     "end": 63,
+     "entity_type": "PHONE_NUMBER",
+     "score": 0.4,
+     "start": 49
+    },
+    {
+     "analysis_explanation": null,
+     "end": 93,
+     "entity_type": "PHONE_NUMBER",
+     "score": 0.4,
+     "start": 80
+    }
+   ]
+  },
+  {
+   "id": "dev-pii-0180",
+   "deteccoes": []
+  },
+  {
+   "id": "dev-pii-0181",
+   "deteccoes": []
+  },
+  {
+   "id": "dev-pii-0182",
+   "deteccoes": []
+  },
+  {
+   "id": "dev-pii-0183",
+   "deteccoes": [
+    {
+     "analysis_explanation": null,
+     "end": 74,
+     "entity_type": "PHONE_NUMBER",
+     "score": 0.4,
+     "start": 61
+    },
+    {
+     "analysis_explanation": null,
+     "end": 115,
+     "entity_type": "PHONE_NUMBER",
+     "score": 0.4,
+     "start": 102
+    }
+   ]
+  },
+  {
+   "id": "dev-pii-0184",
+   "deteccoes": []
+  },
+  {
+   "id": "dev-pii-0185",
+   "deteccoes": []
+  },
+  {
+   "id": "dev-pii-0186",
+   "deteccoes": []
+  },
+  {
+   "id": "dev-pii-0187",
+   "deteccoes": [
+    {
+     "analysis_explanation": null,
+     "end": 79,
+     "entity_type": "EMAIL_ADDRESS",
+     "score": 1.0,
+     "start": 58
+    },
+    {
+     "analysis_explanation": null,
+     "end": 25,
+     "entity_type": "URL",
+     "score": 0.5,
+     "start": 20
+    },
+    {
+     "analysis_explanation": null,
+     "end": 79,
+     "entity_type": "URL",
+     "score": 0.5,
+     "start": 68
+    }
+   ]
+  },
+  {
+   "id": "dev-pii-0188",
+   "deteccoes": [
+    {
+     "analysis_explanation": null,
+     "end": 6,
+     "entity_type": "PERSON",
+     "score": 0.85,
+     "start": 0
+    }
+   ]
+  },
+  {
+   "id": "dev-pii-0189",
+   "deteccoes": [
+    {
+     "analysis_explanation": null,
+     "end": 40,
+     "entity_type": "PHONE_NUMBER",
+     "score": 0.4,
+     "start": 23
+    }
+   ]
+  },
+  {
+   "id": "dev-pii-0190",
+   "deteccoes": [
+    {
+     "analysis_explanation": null,
+     "end": 34,
+     "entity_type": "PHONE_NUMBER",
+     "score": 0.4,
+     "start": 23
+    }
+   ]
+  },
+  {
+   "id": "dev-pii-0191",
+   "deteccoes": [
+    {
+     "analysis_explanation": null,
+     "end": 104,
+     "entity_type": "EMAIL_ADDRESS",
+     "score": 1.0,
+     "start": 84
+    },
+    {
+     "analysis_explanation": null,
+     "end": 104,
+     "entity_type": "URL",
+     "score": 0.5,
+     "start": 93
+    },
+    {
+     "analysis_explanation": null,
+     "end": 69,
+     "entity_type": "PHONE_NUMBER",
+     "score": 0.4,
+     "start": 54
+    }
+   ]
+  },
+  {
+   "id": "dev-pii-0192",
+   "deteccoes": []
+  },
+  {
+   "id": "dev-pii-0193",
+   "deteccoes": [
+    {
+     "analysis_explanation": null,
+     "end": 28,
+     "entity_type": "PHONE_NUMBER",
+     "score": 0.4,
+     "start": 17
+    }
+   ]
+  },
+  {
+   "id": "dev-pii-0194",
+   "deteccoes": [
+    {
+     "analysis_explanation": null,
+     "end": 38,
+     "entity_type": "EMAIL_ADDRESS",
+     "score": 1.0,
+     "start": 13
+    },
+    {
+     "analysis_explanation": null,
+     "end": 66,
+     "entity_type": "PERSON",
+     "score": 0.85,
+     "start": 63
+    },
+    {
+     "analysis_explanation": null,
+     "end": 38,
+     "entity_type": "URL",
+     "score": 0.5,
+     "start": 27
+    }
+   ]
+  },
+  {
+   "id": "dev-pii-0195",
+   "deteccoes": []
+  },
+  {
+   "id": "dev-pii-0196",
+   "deteccoes": [
+    {
+     "analysis_explanation": null,
+     "end": 51,
+     "entity_type": "PERSON",
+     "score": 0.85,
+     "start": 45
+    }
+   ]
+  },
+  {
+   "id": "dev-pii-0197",
+   "deteccoes": [
+    {
+     "analysis_explanation": null,
+     "end": 39,
+     "entity_type": "EMAIL_ADDRESS",
+     "score": 1.0,
+     "start": 13
+    },
+    {
+     "analysis_explanation": null,
+     "end": 39,
+     "entity_type": "URL",
+     "score": 0.5,
+     "start": 28
+    }
+   ]
+  },
+  {
+   "id": "dev-pii-0198",
+   "deteccoes": [
+    {
+     "analysis_explanation": null,
+     "end": 72,
+     "entity_type": "PHONE_NUMBER",
+     "score": 0.4,
+     "start": 59
+    }
+   ]
+  },
+  {
+   "id": "dev-pii-0199",
+   "deteccoes": [
+    {
+     "analysis_explanation": null,
+     "end": 23,
+     "entity_type": "PHONE_NUMBER",
+     "score": 0.4,
+     "start": 10
+    }
+   ]
+  },
+  {
+   "id": "dev-pii-0200",
+   "deteccoes": [
+    {
+     "analysis_explanation": null,
+     "end": 30,
+     "entity_type": "URL",
+     "score": 0.5,
+     "start": 19
+    }
+   ]
+  },
+  {
+   "id": "dev-pii-0201",
+   "deteccoes": []
+  },
+  {
+   "id": "dev-pii-0202",
+   "deteccoes": []
+  },
+  {
+   "id": "dev-pii-0203",
+   "deteccoes": [
+    {
+     "analysis_explanation": null,
+     "end": 38,
+     "entity_type": "PHONE_NUMBER",
+     "score": 0.4,
+     "start": 23
+    }
+   ]
+  },
+  {
+   "id": "dev-pii-0204",
+   "deteccoes": [
+    {
+     "analysis_explanation": null,
+     "end": 132,
+     "entity_type": "EMAIL_ADDRESS",
+     "score": 1.0,
+     "start": 112
+    },
+    {
+     "analysis_explanation": null,
+     "end": 132,
+     "entity_type": "URL",
+     "score": 0.5,
+     "start": 121
+    },
+    {
+     "analysis_explanation": null,
+     "end": 85,
+     "entity_type": "PHONE_NUMBER",
+     "score": 0.4,
+     "start": 71
+    }
+   ]
+  },
+  {
+   "id": "dev-pii-0205",
+   "deteccoes": [
+    {
+     "analysis_explanation": null,
+     "end": 108,
+     "entity_type": "EMAIL_ADDRESS",
+     "score": 1.0,
+     "start": 90
+    },
+    {
+     "analysis_explanation": null,
+     "end": 30,
+     "entity_type": "LOCATION",
+     "score": 0.85,
+     "start": 20
+    },
+    {
+     "analysis_explanation": null,
+     "end": 108,
+     "entity_type": "URL",
+     "score": 0.5,
+     "start": 97
+    },
+    {
+     "analysis_explanation": null,
+     "end": 75,
+     "entity_type": "PHONE_NUMBER",
+     "score": 0.4,
+     "start": 64
+    }
+   ]
+  },
+  {
+   "id": "dev-pii-0206",
+   "deteccoes": []
+  },
+  {
+   "id": "dev-pii-0207",
+   "deteccoes": [
+    {
+     "analysis_explanation": null,
+     "end": 96,
+     "entity_type": "PHONE_NUMBER",
+     "score": 0.4,
+     "start": 85
+    }
+   ]
+  },
+  {
+   "id": "dev-pii-0208",
+   "deteccoes": []
+  },
+  {
+   "id": "dev-pii-0209",
+   "deteccoes": [
+    {
+     "analysis_explanation": null,
+     "end": 41,
+     "entity_type": "EMAIL_ADDRESS",
+     "score": 1.0,
+     "start": 18
+    },
+    {
+     "analysis_explanation": null,
+     "end": 41,
+     "entity_type": "URL",
+     "score": 0.5,
+     "start": 30
+    },
+    {
+     "analysis_explanation": null,
+     "end": 77,
+     "entity_type": "PHONE_NUMBER",
+     "score": 0.4,
+     "start": 66
+    }
+   ]
+  },
+  {
+   "id": "dev-pii-0210",
+   "deteccoes": []
+  },
+  {
+   "id": "dev-pii-0211",
+   "deteccoes": [
+    {
+     "analysis_explanation": null,
+     "end": 29,
+     "entity_type": "PHONE_NUMBER",
+     "score": 0.4,
+     "start": 16
+    }
+   ]
+  },
+  {
+   "id": "dev-pii-0212",
+   "deteccoes": []
+  },
+  {
+   "id": "dev-pii-0213",
+   "deteccoes": [
+    {
+     "analysis_explanation": null,
+     "end": 104,
+     "entity_type": "EMAIL_ADDRESS",
+     "score": 1.0,
+     "start": 84
+    },
+    {
+     "analysis_explanation": null,
+     "end": 104,
+     "entity_type": "URL",
+     "score": 0.5,
+     "start": 93
+    },
+    {
+     "analysis_explanation": null,
+     "end": 69,
+     "entity_type": "PHONE_NUMBER",
+     "score": 0.4,
+     "start": 56
+    }
+   ]
+  },
+  {
+   "id": "dev-pii-0214",
+   "deteccoes": []
+  },
+  {
+   "id": "dev-pii-0215",
+   "deteccoes": []
+  },
+  {
+   "id": "dev-pii-0216",
+   "deteccoes": []
+  },
+  {
+   "id": "dev-pii-0217",
+   "deteccoes": [
+    {
+     "analysis_explanation": null,
+     "end": 64,
+     "entity_type": "LOCATION",
+     "score": 0.85,
+     "start": 61
+    }
+   ]
+  },
+  {
+   "id": "dev-pii-0218",
+   "deteccoes": []
+  },
+  {
+   "id": "dev-pii-0219",
+   "deteccoes": []
+  },
+  {
+   "id": "dev-pii-0220",
+   "deteccoes": [
+    {
+     "analysis_explanation": null,
+     "end": 62,
+     "entity_type": "PHONE_NUMBER",
+     "score": 0.4,
+     "start": 49
+    }
+   ]
+  },
+  {
+   "id": "dev-pii-0221",
+   "deteccoes": [
+    {
+     "analysis_explanation": null,
+     "end": 82,
+     "entity_type": "EMAIL_ADDRESS",
+     "score": 1.0,
+     "start": 58
+    },
+    {
+     "analysis_explanation": null,
+     "end": 82,
+     "entity_type": "URL",
+     "score": 0.5,
+     "start": 71
+    }
+   ]
+  },
+  {
+   "id": "dev-pii-0222",
+   "deteccoes": [
+    {
+     "analysis_explanation": null,
+     "end": 41,
+     "entity_type": "PERSON",
+     "score": 0.85,
+     "start": 38
+    },
+    {
+     "analysis_explanation": null,
+     "end": 91,
+     "entity_type": "URL",
+     "score": 0.5,
+     "start": 86
+    }
+   ]
+  },
+  {
+   "id": "dev-pii-0223",
+   "deteccoes": [
+    {
+     "analysis_explanation": null,
+     "end": 66,
+     "entity_type": "EMAIL_ADDRESS",
+     "score": 1.0,
+     "start": 46
+    },
+    {
+     "analysis_explanation": null,
+     "end": 66,
+     "entity_type": "URL",
+     "score": 0.5,
+     "start": 55
+    },
+    {
+     "analysis_explanation": null,
+     "end": 31,
+     "entity_type": "PHONE_NUMBER",
+     "score": 0.4,
+     "start": 14
+    }
+   ]
+  },
+  {
+   "id": "dev-pii-0224",
+   "deteccoes": []
+  },
+  {
+   "id": "dev-pii-0225",
+   "deteccoes": [
+    {
+     "analysis_explanation": null,
+     "end": 34,
+     "entity_type": "EMAIL_ADDRESS",
+     "score": 1.0,
+     "start": 13
+    },
+    {
+     "analysis_explanation": null,
+     "end": 34,
+     "entity_type": "URL",
+     "score": 0.5,
+     "start": 23
+    }
+   ]
+  },
+  {
+   "id": "dev-pii-0226",
+   "deteccoes": [
+    {
+     "analysis_explanation": null,
+     "end": 30,
+     "entity_type": "PHONE_NUMBER",
+     "score": 0.4,
+     "start": 16
+    }
+   ]
+  },
+  {
+   "id": "dev-pii-0227",
+   "deteccoes": [
+    {
+     "analysis_explanation": null,
+     "end": 6,
+     "entity_type": "PERSON",
+     "score": 0.85,
+     "start": 0
+    }
+   ]
+  },
+  {
+   "id": "dev-pii-0228",
+   "deteccoes": []
+  },
+  {
+   "id": "dev-pii-0229",
+   "deteccoes": []
+  },
+  {
+   "id": "dev-pii-0230",
+   "deteccoes": [
+    {
+     "analysis_explanation": null,
+     "end": 105,
+     "entity_type": "URL",
+     "score": 0.5,
+     "start": 100
+    }
+   ]
+  },
+  {
+   "id": "dev-pii-0231",
+   "deteccoes": []
+  },
+  {
+   "id": "dev-pii-0232",
+   "deteccoes": []
+  },
+  {
+   "id": "dev-pii-0233",
+   "deteccoes": []
+  },
+  {
+   "id": "dev-pii-0234",
+   "deteccoes": [
+    {
+     "analysis_explanation": null,
+     "end": 6,
+     "entity_type": "PERSON",
+     "score": 0.85,
+     "start": 0
+    }
+   ]
+  },
+  {
+   "id": "dev-pii-0235",
+   "deteccoes": [
+    {
+     "analysis_explanation": null,
+     "end": 38,
+     "entity_type": "PHONE_NUMBER",
+     "score": 0.4,
+     "start": 24
+    }
+   ]
+  },
+  {
+   "id": "dev-pii-0236",
+   "deteccoes": []
+  },
+  {
+   "id": "dev-pii-0237",
+   "deteccoes": [
+    {
+     "analysis_explanation": null,
+     "end": 32,
+     "entity_type": "PHONE_NUMBER",
+     "score": 0.4,
+     "start": 17
+    }
+   ]
+  },
+  {
+   "id": "dev-pii-0238",
+   "deteccoes": [
+    {
+     "analysis_explanation": null,
+     "end": 79,
+     "entity_type": "PHONE_NUMBER",
+     "score": 0.4,
+     "start": 66
+    }
+   ]
+  },
+  {
+   "id": "dev-pii-0239",
+   "deteccoes": [
+    {
+     "analysis_explanation": null,
+     "end": 85,
+     "entity_type": "PHONE_NUMBER",
+     "score": 0.4,
+     "start": 74
+    }
+   ]
+  },
+  {
+   "id": "dev-pii-0240",
+   "deteccoes": []
+  },
+  {
+   "id": "dev-pii-0241",
+   "deteccoes": []
+  },
+  {
+   "id": "dev-pii-0242",
+   "deteccoes": []
+  },
+  {
+   "id": "dev-pii-0243",
+   "deteccoes": [
+    {
+     "analysis_explanation": null,
+     "end": 76,
+     "entity_type": "PERSON",
+     "score": 0.85,
+     "start": 69
+    },
+    {
+     "analysis_explanation": null,
+     "end": 63,
+     "entity_type": "URL",
+     "score": 0.5,
+     "start": 58
+    },
+    {
+     "analysis_explanation": null,
+     "end": 36,
+     "entity_type": "PHONE_NUMBER",
+     "score": 0.4,
+     "start": 23
+    }
+   ]
+  },
+  {
+   "id": "dev-pii-0244",
+   "deteccoes": [
+    {
+     "analysis_explanation": null,
+     "end": 40,
+     "entity_type": "EMAIL_ADDRESS",
+     "score": 1.0,
+     "start": 18
+    },
+    {
+     "analysis_explanation": null,
+     "end": 40,
+     "entity_type": "URL",
+     "score": 0.5,
+     "start": 29
+    }
+   ]
+  },
+  {
+   "id": "dev-pii-0245",
+   "deteccoes": []
+  },
+  {
+   "id": "dev-pii-0246",
+   "deteccoes": []
+  },
+  {
+   "id": "dev-pii-0247",
+   "deteccoes": [
+    {
+     "analysis_explanation": null,
+     "end": 42,
+     "entity_type": "EMAIL_ADDRESS",
+     "score": 1.0,
+     "start": 25
+    },
+    {
+     "analysis_explanation": null,
+     "end": 77,
+     "entity_type": "PERSON",
+     "score": 0.85,
+     "start": 74
+    },
+    {
+     "analysis_explanation": null,
+     "end": 42,
+     "entity_type": "URL",
+     "score": 0.5,
+     "start": 31
+    }
+   ]
+  },
+  {
+   "id": "dev-pii-0248",
+   "deteccoes": [
+    {
+     "analysis_explanation": null,
+     "end": 49,
+     "entity_type": "PERSON",
+     "score": 0.85,
+     "start": 46
+    }
+   ]
+  },
+  {
+   "id": "dev-pii-0249",
+   "deteccoes": [
+    {
+     "analysis_explanation": null,
+     "end": 37,
+     "entity_type": "PHONE_NUMBER",
+     "score": 0.4,
+     "start": 26
+    }
+   ]
+  },
+  {
+   "id": "dev-pii-0250",
+   "deteccoes": []
+  },
+  {
+   "id": "dev-pii-0251",
+   "deteccoes": []
+  },
+  {
+   "id": "dev-pii-0252",
+   "deteccoes": [
+    {
+     "analysis_explanation": null,
+     "end": 23,
+     "entity_type": "LOCATION",
+     "score": 0.85,
+     "start": 12
+    },
+    {
+     "analysis_explanation": null,
+     "end": 22,
+     "entity_type": "URL",
+     "score": 0.5,
+     "start": 17
+    }
+   ]
+  },
+  {
+   "id": "dev-pii-0253",
+   "deteccoes": []
+  },
+  {
+   "id": "dev-pii-0254",
+   "deteccoes": [
+    {
+     "analysis_explanation": null,
+     "end": 36,
+     "entity_type": "PHONE_NUMBER",
+     "score": 0.4,
+     "start": 24
+    }
+   ]
+  },
+  {
+   "id": "dev-pii-0255",
+   "deteccoes": []
+  },
+  {
+   "id": "dev-pii-0256",
+   "deteccoes": []
+  },
+  {
+   "id": "dev-pii-0257",
+   "deteccoes": [
+    {
+     "analysis_explanation": null,
+     "end": 83,
+     "entity_type": "EMAIL_ADDRESS",
+     "score": 1.0,
+     "start": 58
+    },
+    {
+     "analysis_explanation": null,
+     "end": 83,
+     "entity_type": "URL",
+     "score": 0.5,
+     "start": 72
+    }
+   ]
+  },
+  {
+   "id": "dev-pii-0258",
+   "deteccoes": []
+  },
+  {
+   "id": "dev-pii-0259",
+   "deteccoes": [
+    {
+     "analysis_explanation": null,
+     "end": 64,
+     "entity_type": "PHONE_NUMBER",
+     "score": 0.4,
+     "start": 50
+    }
+   ]
+  },
+  {
+   "id": "dev-pii-0260",
+   "deteccoes": []
+  },
+  {
+   "id": "dev-pii-0261",
+   "deteccoes": [
+    {
+     "analysis_explanation": null,
+     "end": 75,
+     "entity_type": "PHONE_NUMBER",
+     "score": 0.4,
+     "start": 62
+    }
+   ]
+  },
+  {
+   "id": "dev-pii-0262",
+   "deteccoes": [
+    {
+     "analysis_explanation": null,
+     "end": 66,
+     "entity_type": "PHONE_NUMBER",
+     "score": 0.4,
+     "start": 55
+    }
+   ]
+  },
+  {
+   "id": "dev-pii-0263",
+   "deteccoes": []
+  },
+  {
+   "id": "dev-pii-0264",
+   "deteccoes": [
+    {
+     "analysis_explanation": null,
+     "end": 20,
+     "entity_type": "PHONE_NUMBER",
+     "score": 0.4,
+     "start": 8
+    }
+   ]
+  },
+  {
+   "id": "dev-pii-0265",
+   "deteccoes": [
+    {
+     "analysis_explanation": null,
+     "end": 47,
+     "entity_type": "LOCATION",
+     "score": 0.85,
+     "start": 38
+    }
+   ]
+  },
+  {
+   "id": "dev-pii-0266",
+   "deteccoes": [
+    {
+     "analysis_explanation": null,
+     "end": 40,
+     "entity_type": "PHONE_NUMBER",
+     "score": 0.4,
+     "start": 29
+    }
+   ]
+  },
+  {
+   "id": "dev-pii-0267",
+   "deteccoes": [
+    {
+     "analysis_explanation": null,
+     "end": 43,
+     "entity_type": "PERSON",
+     "score": 0.85,
+     "start": 37
+    }
+   ]
+  },
+  {
+   "id": "dev-pii-0268",
+   "deteccoes": []
+  },
+  {
+   "id": "dev-pii-0269",
+   "deteccoes": []
+  },
+  {
+   "id": "dev-pii-0270",
+   "deteccoes": []
+  },
+  {
+   "id": "dev-pii-0271",
+   "deteccoes": []
+  },
+  {
+   "id": "dev-pii-0272",
+   "deteccoes": [
+    {
+     "analysis_explanation": null,
+     "end": 6,
+     "entity_type": "PERSON",
+     "score": 0.85,
+     "start": 0
+    },
+    {
+     "analysis_explanation": null,
+     "end": 66,
+     "entity_type": "PHONE_NUMBER",
+     "score": 0.4,
+     "start": 55
+    }
+   ]
+  },
+  {
+   "id": "dev-pii-0273",
+   "deteccoes": []
+  },
+  {
+   "id": "dev-pii-0274",
+   "deteccoes": [
+    {
+     "analysis_explanation": null,
+     "end": 30,
+     "entity_type": "PHONE_NUMBER",
+     "score": 0.4,
+     "start": 17
+    }
+   ]
+  },
+  {
+   "id": "dev-pii-0275",
+   "deteccoes": [
+    {
+     "analysis_explanation": null,
+     "end": 42,
+     "entity_type": "EMAIL_ADDRESS",
+     "score": 1.0,
+     "start": 18
+    },
+    {
+     "analysis_explanation": null,
+     "end": 42,
+     "entity_type": "URL",
+     "score": 0.5,
+     "start": 31
+    }
+   ]
+  },
+  {
+   "id": "dev-pii-0276",
+   "deteccoes": [
+    {
+     "analysis_explanation": null,
+     "end": 26,
+     "entity_type": "PHONE_NUMBER",
+     "score": 0.4,
+     "start": 16
+    }
+   ]
+  },
+  {
+   "id": "dev-pii-0277",
+   "deteccoes": []
+  },
+  {
+   "id": "dev-pii-0278",
+   "deteccoes": [
+    {
+     "analysis_explanation": null,
+     "end": 28,
+     "entity_type": "PHONE_NUMBER",
+     "score": 0.4,
+     "start": 18
+    }
+   ]
+  },
+  {
+   "id": "dev-pii-0279",
+   "deteccoes": [
+    {
+     "analysis_explanation": null,
+     "end": 121,
+     "entity_type": "URL",
+     "score": 0.5,
+     "start": 110
+    }
+   ]
+  },
+  {
+   "id": "dev-pii-0280",
+   "deteccoes": []
+  },
+  {
+   "id": "dev-pii-0281",
+   "deteccoes": [
+    {
+     "analysis_explanation": null,
+     "end": 28,
+     "entity_type": "PHONE_NUMBER",
+     "score": 0.4,
+     "start": 17
+    }
+   ]
+  },
+  {
+   "id": "dev-pii-0282",
+   "deteccoes": []
+  },
+  {
+   "id": "dev-pii-0283",
+   "deteccoes": [
+    {
+     "analysis_explanation": null,
+     "end": 42,
+     "entity_type": "LOCATION",
+     "score": 0.85,
+     "start": 36
+    }
+   ]
+  },
+  {
+   "id": "dev-pii-0284",
+   "deteccoes": []
+  },
+  {
+   "id": "dev-pii-0285",
+   "deteccoes": [
+    {
+     "analysis_explanation": null,
+     "end": 67,
+     "entity_type": "URL",
+     "score": 0.5,
+     "start": 56
+    }
+   ]
+  },
+  {
+   "id": "dev-pii-0286",
+   "deteccoes": [
+    {
+     "analysis_explanation": null,
+     "end": 20,
+     "entity_type": "PHONE_NUMBER",
+     "score": 0.4,
+     "start": 10
+    }
+   ]
+  },
+  {
+   "id": "dev-pii-0287",
+   "deteccoes": []
+  },
+  {
+   "id": "dev-pii-0288",
+   "deteccoes": [
+    {
+     "analysis_explanation": null,
+     "end": 20,
+     "entity_type": "PHONE_NUMBER",
+     "score": 0.4,
+     "start": 10
+    }
+   ]
+  },
+  {
+   "id": "dev-pii-0289",
+   "deteccoes": [
+    {
+     "analysis_explanation": null,
+     "end": 6,
+     "entity_type": "PERSON",
+     "score": 0.85,
+     "start": 0
+    }
+   ]
+  },
+  {
+   "id": "dev-pii-0290",
+   "deteccoes": [
+    {
+     "analysis_explanation": null,
+     "end": 87,
+     "entity_type": "EMAIL_ADDRESS",
+     "score": 1.0,
+     "start": 67
+    },
+    {
+     "analysis_explanation": null,
+     "end": 87,
+     "entity_type": "PERSON",
+     "score": 0.85,
+     "start": 67
+    },
+    {
+     "analysis_explanation": null,
+     "end": 87,
+     "entity_type": "URL",
+     "score": 0.5,
+     "start": 76
+    }
+   ]
+  },
+  {
+   "id": "dev-pii-0291",
+   "deteccoes": []
+  },
+  {
+   "id": "dev-pii-0292",
+   "deteccoes": []
+  },
+  {
+   "id": "dev-pii-0293",
+   "deteccoes": [
+    {
+     "analysis_explanation": null,
+     "end": 48,
+     "entity_type": "EMAIL_ADDRESS",
+     "score": 1.0,
+     "start": 25
+    },
+    {
+     "analysis_explanation": null,
+     "end": 48,
+     "entity_type": "URL",
+     "score": 0.5,
+     "start": 37
+    }
+   ]
+  },
+  {
+   "id": "dev-pii-0294",
+   "deteccoes": []
+  },
+  {
+   "id": "dev-pii-0295",
+   "deteccoes": [
+    {
+     "analysis_explanation": null,
+     "end": 29,
+     "entity_type": "PHONE_NUMBER",
+     "score": 0.4,
+     "start": 14
+    }
+   ]
+  },
+  {
+   "id": "dev-pii-0296",
+   "deteccoes": [
+    {
+     "analysis_explanation": null,
+     "end": 39,
+     "entity_type": "PERSON",
+     "score": 0.85,
+     "start": 36
+    },
+    {
+     "analysis_explanation": null,
+     "end": 32,
+     "entity_type": "PHONE_NUMBER",
+     "score": 0.4,
+     "start": 17
+    }
+   ]
+  },
+  {
+   "id": "dev-pii-0297",
+   "deteccoes": [
+    {
+     "analysis_explanation": null,
+     "end": 75,
+     "entity_type": "PHONE_NUMBER",
+     "score": 0.4,
+     "start": 64
+    }
+   ]
+  },
+  {
+   "id": "dev-pii-0298",
+   "deteccoes": [
+    {
+     "analysis_explanation": null,
+     "end": 47,
+     "entity_type": "EMAIL_ADDRESS",
+     "score": 1.0,
+     "start": 25
+    },
+    {
+     "analysis_explanation": null,
+     "end": 47,
+     "entity_type": "URL",
+     "score": 0.5,
+     "start": 36
+    }
+   ]
+  },
+  {
+   "id": "dev-pii-0299",
+   "deteccoes": [
+    {
+     "analysis_explanation": null,
+     "end": 84,
+     "entity_type": "PHONE_NUMBER",
+     "score": 0.4,
+     "start": 70
+    }
+   ]
+  },
+  {
+   "id": "dev-pii-0300",
+   "deteccoes": []
+  },
+  {
+   "id": "dev-pii-0301",
+   "deteccoes": [
+    {
+     "analysis_explanation": null,
+     "end": 78,
+     "entity_type": "PERSON",
+     "score": 0.85,
+     "start": 72
+    }
+   ]
+  },
+  {
+   "id": "dev-pii-0302",
+   "deteccoes": [
+    {
+     "analysis_explanation": null,
+     "end": 6,
+     "entity_type": "PERSON",
+     "score": 0.85,
+     "start": 0
+    },
+    {
+     "analysis_explanation": null,
+     "end": 103,
+     "entity_type": "PHONE_NUMBER",
+     "score": 0.4,
+     "start": 89
+    }
+   ]
+  },
+  {
+   "id": "dev-pii-0303",
+   "deteccoes": [
+    {
+     "analysis_explanation": null,
+     "end": 34,
+     "entity_type": "PHONE_NUMBER",
+     "score": 0.4,
+     "start": 23
+    }
+   ]
+  },
+  {
+   "id": "dev-pii-0304",
+   "deteccoes": [
+    {
+     "analysis_explanation": null,
+     "end": 30,
+     "entity_type": "PHONE_NUMBER",
+     "score": 0.4,
+     "start": 17
+    }
+   ]
+  },
+  {
+   "id": "dev-pii-0305",
+   "deteccoes": []
+  },
+  {
+   "id": "dev-pii-0306",
+   "deteccoes": []
+  },
+  {
+   "id": "dev-pii-0307",
+   "deteccoes": [
+    {
+     "analysis_explanation": null,
+     "end": 70,
+     "entity_type": "URL",
+     "score": 0.5,
+     "start": 65
+    }
+   ]
+  },
+  {
+   "id": "dev-pii-0308",
+   "deteccoes": [
+    {
+     "analysis_explanation": null,
+     "end": 34,
+     "entity_type": "PHONE_NUMBER",
+     "score": 0.4,
+     "start": 17
+    }
+   ]
+  },
+  {
+   "id": "dev-pii-0309",
+   "deteccoes": []
+  },
+  {
+   "id": "dev-pii-0310",
+   "deteccoes": [
+    {
+     "analysis_explanation": null,
+     "end": 112,
+     "entity_type": "PERSON",
+     "score": 0.85,
+     "start": 100
+    },
+    {
+     "analysis_explanation": null,
+     "end": 73,
+     "entity_type": "URL",
+     "score": 0.5,
+     "start": 62
+    },
+    {
+     "analysis_explanation": null,
+     "end": 112,
+     "entity_type": "URL",
+     "score": 0.5,
+     "start": 101
+    }
+   ]
+  },
+  {
+   "id": "dev-pii-0311",
+   "deteccoes": [
+    {
+     "analysis_explanation": null,
+     "end": 31,
+     "entity_type": "PHONE_NUMBER",
+     "score": 0.4,
+     "start": 14
+    }
+   ]
+  },
+  {
+   "id": "dev-pii-0312",
+   "deteccoes": []
+  },
+  {
+   "id": "dev-pii-0313",
+   "deteccoes": [
+    {
+     "analysis_explanation": null,
+     "end": 23,
+     "entity_type": "PERSON",
+     "score": 0.85,
+     "start": 17
+    }
+   ]
+  },
+  {
+   "id": "dev-pii-0314",
+   "deteccoes": []
+  },
+  {
+   "id": "dev-pii-0315",
+   "deteccoes": [
+    {
+     "analysis_explanation": null,
+     "end": 49,
+     "entity_type": "EMAIL_ADDRESS",
+     "score": 1.0,
+     "start": 25
+    },
+    {
+     "analysis_explanation": null,
+     "end": 49,
+     "entity_type": "URL",
+     "score": 0.5,
+     "start": 38
+    }
+   ]
+  },
+  {
+   "id": "dev-pii-0316",
+   "deteccoes": [
+    {
+     "analysis_explanation": null,
+     "end": 27,
+     "entity_type": "PHONE_NUMBER",
+     "score": 0.4,
+     "start": 14
+    }
+   ]
+  },
+  {
+   "id": "dev-pii-0317",
+   "deteccoes": []
+  },
+  {
+   "id": "dev-pii-0318",
+   "deteccoes": []
+  },
+  {
+   "id": "dev-pii-0319",
+   "deteccoes": [
+    {
+     "analysis_explanation": null,
+     "end": 69,
+     "entity_type": "URL",
+     "score": 0.5,
+     "start": 64
+    },
+    {
+     "analysis_explanation": null,
+     "end": 108,
+     "entity_type": "PHONE_NUMBER",
+     "score": 0.4,
+     "start": 98
+    }
+   ]
+  },
+  {
+   "id": "dev-pii-0320",
+   "deteccoes": []
+  },
+  {
+   "id": "dev-pii-0321",
+   "deteccoes": []
+  },
+  {
+   "id": "dev-pii-0322",
+   "deteccoes": [
+    {
+     "analysis_explanation": null,
+     "end": 65,
+     "entity_type": "PERSON",
+     "score": 0.85,
+     "start": 62
+    }
+   ]
+  },
+  {
+   "id": "dev-pii-0323",
+   "deteccoes": [
+    {
+     "analysis_explanation": null,
+     "end": 75,
+     "entity_type": "EMAIL_ADDRESS",
+     "score": 1.0,
+     "start": 58
+    },
+    {
+     "analysis_explanation": null,
+     "end": 82,
+     "entity_type": "PERSON",
+     "score": 0.85,
+     "start": 79
+    },
+    {
+     "analysis_explanation": null,
+     "end": 75,
+     "entity_type": "URL",
+     "score": 0.5,
+     "start": 64
+    },
+    {
+     "analysis_explanation": null,
+     "end": 38,
+     "entity_type": "PHONE_NUMBER",
+     "score": 0.4,
+     "start": 24
+    }
+   ]
+  },
+  {
+   "id": "dev-pii-0324",
+   "deteccoes": [
+    {
+     "analysis_explanation": null,
+     "end": 102,
+     "entity_type": "URL",
+     "score": 0.5,
+     "start": 97
+    }
+   ]
+  },
+  {
+   "id": "dev-pii-0325",
+   "deteccoes": [
+    {
+     "analysis_explanation": null,
+     "end": 6,
+     "entity_type": "PERSON",
+     "score": 0.85,
+     "start": 0
+    }
+   ]
+  },
+  {
+   "id": "dev-pii-0326",
+   "deteccoes": []
+  },
+  {
+   "id": "dev-pii-0327",
+   "deteccoes": [
+    {
+     "analysis_explanation": null,
+     "end": 23,
+     "entity_type": "LOCATION",
+     "score": 0.85,
+     "start": 17
+    }
+   ]
+  },
+  {
+   "id": "dev-pii-0328",
+   "deteccoes": [
+    {
+     "analysis_explanation": null,
+     "end": 77,
+     "entity_type": "PHONE_NUMBER",
+     "score": 0.4,
+     "start": 65
+    }
+   ]
+  },
+  {
+   "id": "dev-pii-0329",
+   "deteccoes": []
+  },
+  {
+   "id": "dev-pii-0330",
+   "deteccoes": []
+  },
+  {
+   "id": "dev-pii-0331",
+   "deteccoes": [
+    {
+     "analysis_explanation": null,
+     "end": 87,
+     "entity_type": "EMAIL_ADDRESS",
+     "score": 1.0,
+     "start": 67
+    },
+    {
+     "analysis_explanation": null,
+     "end": 87,
+     "entity_type": "PERSON",
+     "score": 0.85,
+     "start": 67
+    },
+    {
+     "analysis_explanation": null,
+     "end": 87,
+     "entity_type": "URL",
+     "score": 0.5,
+     "start": 76
+    }
+   ]
+  },
+  {
+   "id": "dev-pii-0332",
+   "deteccoes": []
+  },
+  {
+   "id": "dev-pii-0333",
+   "deteccoes": []
+  },
+  {
+   "id": "dev-pii-0334",
+   "deteccoes": [
+    {
+     "analysis_explanation": null,
+     "end": 22,
+     "entity_type": "URL",
+     "score": 0.5,
+     "start": 17
+    }
+   ]
+  },
+  {
+   "id": "dev-pii-0335",
+   "deteccoes": [
+    {
+     "analysis_explanation": null,
+     "end": 29,
+     "entity_type": "PHONE_NUMBER",
+     "score": 0.4,
+     "start": 14
+    }
+   ]
+  },
+  {
+   "id": "dev-pii-0336",
+   "deteccoes": [
+    {
+     "analysis_explanation": null,
+     "end": 39,
+     "entity_type": "PHONE_NUMBER",
+     "score": 0.4,
+     "start": 26
+    }
+   ]
+  },
+  {
+   "id": "dev-pii-0337",
+   "deteccoes": []
+  },
+  {
+   "id": "dev-pii-0338",
+   "deteccoes": [
+    {
+     "analysis_explanation": null,
+     "end": 30,
+     "entity_type": "URL",
+     "score": 0.5,
+     "start": 19
+    }
+   ]
+  },
+  {
+   "id": "dev-pii-0339",
+   "deteccoes": [
+    {
+     "analysis_explanation": null,
+     "end": 25,
+     "entity_type": "URL",
+     "score": 0.5,
+     "start": 14
+    }
+   ]
+  },
+  {
+   "id": "dev-pii-0340",
+   "deteccoes": [
+    {
+     "analysis_explanation": null,
+     "end": 78,
+     "entity_type": "LOCATION",
+     "score": 0.85,
+     "start": 55
+    }
+   ]
+  },
+  {
+   "id": "dev-pii-0341",
+   "deteccoes": [
+    {
+     "analysis_explanation": null,
+     "end": 77,
+     "entity_type": "PHONE_NUMBER",
+     "score": 0.4,
+     "start": 63
+    }
+   ]
+  },
+  {
+   "id": "dev-pii-0342",
+   "deteccoes": [
+    {
+     "analysis_explanation": null,
+     "end": 22,
+     "entity_type": "PHONE_NUMBER",
+     "score": 0.4,
+     "start": 10
+    }
+   ]
+  },
+  {
+   "id": "dev-pii-0343",
+   "deteccoes": []
+  },
+  {
+   "id": "dev-pii-0344",
+   "deteccoes": [
+    {
+     "analysis_explanation": null,
+     "end": 30,
+     "entity_type": "PHONE_NUMBER",
+     "score": 0.4,
+     "start": 17
+    }
+   ]
+  },
+  {
+   "id": "dev-pii-0345",
+   "deteccoes": [
+    {
+     "analysis_explanation": null,
+     "end": 6,
+     "entity_type": "PERSON",
+     "score": 0.85,
+     "start": 0
+    },
+    {
+     "analysis_explanation": null,
+     "end": 72,
+     "entity_type": "PHONE_NUMBER",
+     "score": 0.4,
+     "start": 55
+    }
+   ]
+  },
+  {
+   "id": "dev-pii-0346",
+   "deteccoes": []
+  },
+  {
+   "id": "dev-pii-0347",
+   "deteccoes": []
+  },
+  {
+   "id": "dev-pii-0348",
+   "deteccoes": [
+    {
+     "analysis_explanation": null,
+     "end": 6,
+     "entity_type": "PERSON",
+     "score": 0.85,
+     "start": 0
+    },
+    {
+     "analysis_explanation": null,
+     "end": 47,
+     "entity_type": "PERSON",
+     "score": 0.85,
+     "start": 41
+    }
+   ]
+  },
+  {
+   "id": "dev-pii-0349",
+   "deteccoes": []
+  },
+  {
+   "id": "dev-pii-0350",
+   "deteccoes": [
+    {
+     "analysis_explanation": null,
+     "end": 70,
+     "entity_type": "PHONE_NUMBER",
+     "score": 0.4,
+     "start": 59
+    }
+   ]
+  },
+  {
+   "id": "dev-pii-0351",
+   "deteccoes": [
+    {
+     "analysis_explanation": null,
+     "end": 45,
+     "entity_type": "PERSON",
+     "score": 0.85,
+     "start": 42
+    }
+   ]
+  },
+  {
+   "id": "dev-pii-0352",
+   "deteccoes": [
+    {
+     "analysis_explanation": null,
+     "end": 44,
+     "entity_type": "EMAIL_ADDRESS",
+     "score": 1.0,
+     "start": 25
+    },
+    {
+     "analysis_explanation": null,
+     "end": 44,
+     "entity_type": "URL",
+     "score": 0.5,
+     "start": 33
+    }
+   ]
+  },
+  {
+   "id": "dev-pii-0353",
+   "deteccoes": []
+  }
+ ]
+}

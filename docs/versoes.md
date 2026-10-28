@@ -43,9 +43,26 @@ mesmo que produziu os resultados.
 |---|---|
 | docker.n8n.io/n8nio/n8n | `sha256:a9e2e3c8006ed453238266669ea1274be7136f515abe290a2f75a0ab9044c93d` |
 | qdrant/qdrant | `sha256:057ee3a8da769fe7310dd3537b4dc7583bf87a95ce8ac43c0af5a46bc580d1fc` |
-| ghcr.io/data-privacy-stack/presidio-analyzer | `sha256:ae8f6f111ac2f04e3fec552f7f80edd0dcbfa2dd69ee1b9e030475be31669885` |
+| ghcr.io/data-privacy-stack/presidio-analyzer (base do `FROM` de `presidio-analyzer/Dockerfile`, ADR-0022) | `sha256:ae8f6f111ac2f04e3fec552f7f80edd0dcbfa2dd69ee1b9e030475be31669885` |
 | ghcr.io/data-privacy-stack/presidio-anonymizer | `sha256:e567013893ebc80994e3799f6f55c86aa1f0b0fadb779571ab346f0ec45365c1` |
 | python (base da camada, do recuperador e do modelo) | `sha256:78387bc3881b8273120a12ebe6c1ab22b018ccc2c9adf565ae1ac9b536e184ea` |
+
+## Condicao C: Presidio com adaptacao minima para portugues (RQ-11, ADR-0022)
+
+Registrado em 28/10/2026, a partir da imagem e da construcao na maquina do experimento.
+
+| Item | Valor |
+|---|---|
+| Presidio analyzer | 2.2.364 (`/app/pyproject.toml` da imagem base) |
+| spaCy | 3.8.13 |
+| Modelo de linguagem | `pt_core_news_lg` 3.8.0, wheel `pt_core_news_lg-3.8.0-py3-none-any.whl` do release oficial `explosion/spacy-models`, sha256 `2561c9a72a938d37141e9694e1a36d25061a44ce7e4f3bad2d3fa3bb836191af`, 568.207.147 bytes, licenca CC BY-SA 4.0 |
+| Idioma | `pt` (NLP, analisador e registro de reconhecedores) |
+| Reconhecedores em `pt` | CreditCard, Crypto, Date, Email, Iban, Ip, MacAddress, Phone, Url e SpacyRecognizer (conferido por `GET /recognizers?language=pt`) |
+| Entidades em `pt` | 12 (conferido por `GET /supportedentities?language=pt`) |
+| Limiar | `default_score_threshold: 0` |
+| Parametros da API | `text` e `language="pt"`; sem `entities` e sem `score_threshold` |
+| Configuracao | `presidio-analyzer/conf/` (`nlp_pt.yaml`, `analyzer_pt.yaml`, `recognizers_pt.yaml`) |
+| Imagem construida | `tcc-camada-protecao-presidio-analyzer`, ID `sha256:893b5feb56c78111f35fd702131e3297e21af0ca66516ac2434b3022d11350b2` (construcao de 28/10/2026) |
 
 ## Servicos
 

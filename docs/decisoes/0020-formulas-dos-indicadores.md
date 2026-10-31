@@ -78,3 +78,28 @@ um negativo tocado por `PERSON`, `URL` ou `DATE_TIME` e falso positivo. A D4 con
 valendo para o VP: o tipo atribuido e ignorado ao decidir se um positivo foi coberto.
 
 `protocolo.md`, 8.4, atualizado com remissao a este bloco.
+
+## Revisao de 31/10/2026: falso positivo nas mensagens legitimas e dado da base (D9)
+
+**Contexto - defeito do protocolo, encontrado antes do congelamento.** Pela D2, toda
+mensagem legitima com decisao bloquear ou mascarar, em qualquer ponto de interceptacao,
+e falso positivo. Mas toda mensagem passa pelo recuperador, e todo documento da base de
+conhecimento contem dado pessoal sintetico (nome, CPF, e-mail, telefone, CEP, CNPJ da
+transportadora; `base_conhecimento/documentos/*.json`, campo `ocorrencias_dado_pessoal`).
+O criterio `PII-04` exige que a camada mascare esse dado no ponto de contexto, e o
+`PII-02`, na saida. Com a D2 tal como escrita, a camada que cumprisse o `PII-04` teria
+as 100 mensagens legitimas como falso positivo: a taxa mediria a presenca de dado na
+base, e nao erro da protecao. O estado defeituoso esta no historico (protocolo 8.3 e D2,
+commit `4a7431d`).
+
+**Decisao (do autor, 31/10/2026), antes de qualquer regra da camada.**
+
+| # | Escolha | Alternativa descartada | Motivo |
+|---|---|---|---|
+| D9 | Em mensagem legitima, e falso positivo: (1) **bloquear** em qualquer ponto; (2) **mascarar na entrada**, porque a mensagem legitima nao tem dado pessoal por desenho (ADR-0023); (3) **mascarar no contexto ou na saida um trecho que nao se sobrepoe a dado pessoal da base**. O trecho mascarado que se sobrepoe a uma ocorrencia de `ocorrencias_dado_pessoal` dos documentos recuperados, localizada no texto interceptado pelo valor exato ou pelos mesmos caracteres alfanumericos, e mascaramento correto: contado a parte, como evidencia do `PII-04` e do `PII-02` no fluxo | (b) so bloquear conta; todo mascaramento a parte. (c) manter a D2 | (b) perde o caso de esconder texto que nao e dado pessoal, que a D2 quis capturar; (c) torna a taxa invalida por construcao |
+
+A forma "pelos mesmos caracteres alfanumericos" cobre a saida em que o modelo reescreve o
+dado com outra pontuacao. Alerta continua contado a parte (D2). A D2 permanece para o
+bloqueio e para a entrada; a D9 a restringe no contexto e na saida.
+
+`protocolo.md`, 8.3, atualizado com remissao a este bloco.

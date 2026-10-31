@@ -47,6 +47,20 @@ mesmo que produziu os resultados.
 | ghcr.io/data-privacy-stack/presidio-anonymizer | `sha256:e567013893ebc80994e3799f6f55c86aa1f0b0fadb779571ab346f0ec45365c1` |
 | python (base da camada, do recuperador e do modelo) | `sha256:78387bc3881b8273120a12ebe6c1ab22b018ccc2c9adf565ae1ac9b536e184ea` |
 
+## Imagens construidas a partir do repositorio
+
+`docker image inspect <imagem> --format "{{.Id}}"`, na maquina do experimento, em
+31/10/2026. Sao construidas a partir dos `Dockerfile` do repositorio, cuja base esta
+fixada por digest (tabela acima). O ID identifica a construcao usada; uma nova construcao
+gera outro ID e e registrada aqui.
+
+| Imagem | ID |
+|---|---|
+| tcc-camada-protecao-recuperador | `sha256:02534c155263139d8fbf69609b0377a5b322eb56ad796b998fc47152f501f956` |
+| tcc-camada-protecao-camada | `sha256:39a6f8e33483bfff1dfc9b34abb28231311033e3fbd76d7d37fee381dd4970a2` (esqueleto da Etapa 0, so encaminhamento; muda quando as regras forem escritas) |
+| tcc-camada-protecao-modelo | `sha256:294779986294a366c8ae59b2bdcd247cb85babcfa3c49c6df4b18e97f459681b` |
+| tcc-camada-protecao-presidio-analyzer | ver a secao da condicao C |
+
 ## Condicao C: Presidio com adaptacao minima para portugues (RQ-11, ADR-0022)
 
 Registrado em 28/10/2026, a partir da imagem e da construcao na maquina do experimento.

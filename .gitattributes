@@ -2,3 +2,11 @@
 # precisa ser a mesma em qualquer sistema, ou o hash muda sem que o conteudo mude.
 conjunto_teste/** text eol=lf
 conjunto_desenvolvimento/** text eol=lf
+# Demais arquivos registrados com hash no CONGELADO.md (scripts/congelar.py): mesma razao.
+base_conhecimento/** text eol=lf
+assistente/** text eol=lf
+presidio-analyzer/conf/** text eol=lf
+docs/protocolo.md text eol=lf
+docs/mapeamento-rotulos.md text eol=lf
+docs/matriz_criterios.md text eol=lf
+docs/guia-mensagens-legitimas.md text eol=lf

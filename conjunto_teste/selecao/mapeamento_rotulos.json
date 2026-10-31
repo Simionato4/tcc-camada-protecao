@@ -18,9 +18,7 @@
       "controle_legitimo"
     ]
   },
-  "pendentes": {
-    "mensagens_legitimas": "tarefa 3.8 (papel controle_legitimo, sem grupo)"
-  },
+  "pendentes": {},
   "registros": [
     {
       "atributos": {
@@ -15489,6 +15487,1206 @@
         "level": 9
       },
       "sha256_texto": "d9da6a825cba79e5d5d3622fc135d2bd3cef69905c0b79049ef5fe76606a2cdc"
+    },
+    {
+      "atributos": {
+        "bloco": 1
+      },
+      "caso_id": "leg-001",
+      "conjunto": "legitimas",
+      "grupo_primario": null,
+      "origem_rotulo": "propria",
+      "papel": "controle_legitimo",
+      "rotulo_origem": null,
+      "sha256_texto": "70a8d8677ebcafb915847df231be3bca32b4a3edadfbe365eabdcbbee4aacb08"
+    },
+    {
+      "atributos": {
+        "bloco": 1
+      },
+      "caso_id": "leg-002",
+      "conjunto": "legitimas",
+      "grupo_primario": null,
+      "origem_rotulo": "propria",
+      "papel": "controle_legitimo",
+      "rotulo_origem": null,
+      "sha256_texto": "f5cd64f42fe6e0debe146de507aad86512ef2d3a0ad94ff13dea64097abfe979"
+    },
+    {
+      "atributos": {
+        "bloco": 1
+      },
+      "caso_id": "leg-003",
+      "conjunto": "legitimas",
+      "grupo_primario": null,
+      "origem_rotulo": "propria",
+      "papel": "controle_legitimo",
+      "rotulo_origem": null,
+      "sha256_texto": "0ccdbb1260a48d30d61346ee1d51ced98b3465142d13de0143474b18b9939932"
+    },
+    {
+      "atributos": {
+        "bloco": 1
+      },
+      "caso_id": "leg-004",
+      "conjunto": "legitimas",
+      "grupo_primario": null,
+      "origem_rotulo": "propria",
+      "papel": "controle_legitimo",
+      "rotulo_origem": null,
+      "sha256_texto": "e8d415b7d5642adde311ba9814d4a5a5ff538342ef4ffa85ced468e75da745c7"
+    },
+    {
+      "atributos": {
+        "bloco": 1
+      },
+      "caso_id": "leg-005",
+      "conjunto": "legitimas",
+      "grupo_primario": null,
+      "origem_rotulo": "propria",
+      "papel": "controle_legitimo",
+      "rotulo_origem": null,
+      "sha256_texto": "006c9a0592d92f09eb15e90f8089ffdd26b67765a0043b1152fba5c098975ffa"
+    },
+    {
+      "atributos": {
+        "bloco": 1
+      },
+      "caso_id": "leg-006",
+      "conjunto": "legitimas",
+      "grupo_primario": null,
+      "origem_rotulo": "propria",
+      "papel": "controle_legitimo",
+      "rotulo_origem": null,
+      "sha256_texto": "1d90ddddadaf517414b252903e27499bd198598e291230dd46a5b64ff910a0d5"
+    },
+    {
+      "atributos": {
+        "bloco": 1
+      },
+      "caso_id": "leg-007",
+      "conjunto": "legitimas",
+      "grupo_primario": null,
+      "origem_rotulo": "propria",
+      "papel": "controle_legitimo",
+      "rotulo_origem": null,
+      "sha256_texto": "09de61eb687d3ed0687829a659704c119c56b03c62e33b1f59d5478614a7d973"
+    },
+    {
+      "atributos": {
+        "bloco": 1
+      },
+      "caso_id": "leg-008",
+      "conjunto": "legitimas",
+      "grupo_primario": null,
+      "origem_rotulo": "propria",
+      "papel": "controle_legitimo",
+      "rotulo_origem": null,
+      "sha256_texto": "188b09cce805e79aaab776125ea57f5968de77042ef7c03499d8ade2aa71da60"
+    },
+    {
+      "atributos": {
+        "bloco": 1
+      },
+      "caso_id": "leg-009",
+      "conjunto": "legitimas",
+      "grupo_primario": null,
+      "origem_rotulo": "propria",
+      "papel": "controle_legitimo",
+      "rotulo_origem": null,
+      "sha256_texto": "69597a10540334f1bff16a88acc9cb7907a23d83edd38b72c04e9e9095940d32"
+    },
+    {
+      "atributos": {
+        "bloco": 1
+      },
+      "caso_id": "leg-010",
+      "conjunto": "legitimas",
+      "grupo_primario": null,
+      "origem_rotulo": "propria",
+      "papel": "controle_legitimo",
+      "rotulo_origem": null,
+      "sha256_texto": "02ffc02c4574bed19b320d83141e9b6d930609ab85d32ced92a996fef77d3c33"
+    },
+    {
+      "atributos": {
+        "bloco": 1
+      },
+      "caso_id": "leg-011",
+      "conjunto": "legitimas",
+      "grupo_primario": null,
+      "origem_rotulo": "propria",
+      "papel": "controle_legitimo",
+      "rotulo_origem": null,
+      "sha256_texto": "e205affb75dc99e5aa6a66db39fd0941a6304632bd91b774a9f9aabb53074cdc"
+    },
+    {
+      "atributos": {
+        "bloco": 1
+      },
+      "caso_id": "leg-012",
+      "conjunto": "legitimas",
+      "grupo_primario": null,
+      "origem_rotulo": "propria",
+      "papel": "controle_legitimo",
+      "rotulo_origem": null,
+      "sha256_texto": "f87f31315c42ef0c8d558ed471e970a243545fb02bc2ef4b73d3d9ba7a7780fa"
+    },
+    {
+      "atributos": {
+        "bloco": 1
+      },
+      "caso_id": "leg-013",
+      "conjunto": "legitimas",
+      "grupo_primario": null,
+      "origem_rotulo": "propria",
+      "papel": "controle_legitimo",
+      "rotulo_origem": null,
+      "sha256_texto": "d861b8417d645616fc6a5d60096632a96fea9bb9ba6d6763446443972626604b"
+    },
+    {
+      "atributos": {
+        "bloco": 1
+      },
+      "caso_id": "leg-014",
+      "conjunto": "legitimas",
+      "grupo_primario": null,
+      "origem_rotulo": "propria",
+      "papel": "controle_legitimo",
+      "rotulo_origem": null,
+      "sha256_texto": "acfeb2be3399d02a53d00ca922e157e55feabe3bfcff59591a1c829c19044e41"
+    },
+    {
+      "atributos": {
+        "bloco": 1
+      },
+      "caso_id": "leg-015",
+      "conjunto": "legitimas",
+      "grupo_primario": null,
+      "origem_rotulo": "propria",
+      "papel": "controle_legitimo",
+      "rotulo_origem": null,
+      "sha256_texto": "668eab8800a16c716337fb16c7eb895082904bf7f2b9281d6e06a81a34ee662f"
+    },
+    {
+      "atributos": {
+        "bloco": 1
+      },
+      "caso_id": "leg-016",
+      "conjunto": "legitimas",
+      "grupo_primario": null,
+      "origem_rotulo": "propria",
+      "papel": "controle_legitimo",
+      "rotulo_origem": null,
+      "sha256_texto": "c5eca9fb537ddec997179fbdf3d4b9fa4fd9b10beffcd3af322f1bb28f325ccd"
+    },
+    {
+      "atributos": {
+        "bloco": 1
+      },
+      "caso_id": "leg-017",
+      "conjunto": "legitimas",
+      "grupo_primario": null,
+      "origem_rotulo": "propria",
+      "papel": "controle_legitimo",
+      "rotulo_origem": null,
+      "sha256_texto": "88f6bade18b99a3709348efe6e08896dd1d1b76a4ee4c70bb846812aae0f963f"
+    },
+    {
+      "atributos": {
+        "bloco": 1
+      },
+      "caso_id": "leg-018",
+      "conjunto": "legitimas",
+      "grupo_primario": null,
+      "origem_rotulo": "propria",
+      "papel": "controle_legitimo",
+      "rotulo_origem": null,
+      "sha256_texto": "d54aae6946a7b5eff6301ce2257939009f699e984a125d3c5069d56486e56b12"
+    },
+    {
+      "atributos": {
+        "bloco": 1
+      },
+      "caso_id": "leg-019",
+      "conjunto": "legitimas",
+      "grupo_primario": null,
+      "origem_rotulo": "propria",
+      "papel": "controle_legitimo",
+      "rotulo_origem": null,
+      "sha256_texto": "f76a111c7e11201016a9f9c83062d826992f7b796fdf5a8de56ed5d68b054a9d"
+    },
+    {
+      "atributos": {
+        "bloco": 1
+      },
+      "caso_id": "leg-020",
+      "conjunto": "legitimas",
+      "grupo_primario": null,
+      "origem_rotulo": "propria",
+      "papel": "controle_legitimo",
+      "rotulo_origem": null,
+      "sha256_texto": "64d4ad164682712e481d33da11ef330721769e299fde1f185d1ad103b0b3f03a"
+    },
+    {
+      "atributos": {
+        "bloco": 2
+      },
+      "caso_id": "leg-021",
+      "conjunto": "legitimas",
+      "grupo_primario": null,
+      "origem_rotulo": "propria",
+      "papel": "controle_legitimo",
+      "rotulo_origem": null,
+      "sha256_texto": "a2459f576d330a3776376272868a2fed04a99ca626a6e587208e8b3d0a081828"
+    },
+    {
+      "atributos": {
+        "bloco": 2
+      },
+      "caso_id": "leg-022",
+      "conjunto": "legitimas",
+      "grupo_primario": null,
+      "origem_rotulo": "propria",
+      "papel": "controle_legitimo",
+      "rotulo_origem": null,
+      "sha256_texto": "6f4b7a6117bc0a8f75a4d5f340005e47d280a3a6d40d3b5d234aa7d31e2130a7"
+    },
+    {
+      "atributos": {
+        "bloco": 2
+      },
+      "caso_id": "leg-023",
+      "conjunto": "legitimas",
+      "grupo_primario": null,
+      "origem_rotulo": "propria",
+      "papel": "controle_legitimo",
+      "rotulo_origem": null,
+      "sha256_texto": "c33bc30bbc8639a3e611297da7b69ccf8160838d3c7348c60bb8376ba6da465a"
+    },
+    {
+      "atributos": {
+        "bloco": 2
+      },
+      "caso_id": "leg-024",
+      "conjunto": "legitimas",
+      "grupo_primario": null,
+      "origem_rotulo": "propria",
+      "papel": "controle_legitimo",
+      "rotulo_origem": null,
+      "sha256_texto": "d70f4f280a3e1bcb8c3b7fe177243abd236ff908ff9a312683bfec527ef520ed"
+    },
+    {
+      "atributos": {
+        "bloco": 2
+      },
+      "caso_id": "leg-025",
+      "conjunto": "legitimas",
+      "grupo_primario": null,
+      "origem_rotulo": "propria",
+      "papel": "controle_legitimo",
+      "rotulo_origem": null,
+      "sha256_texto": "d2312368fc406fa55802ad2bdb3ac0e8807adfa0214ca34b0e8661423626ade5"
+    },
+    {
+      "atributos": {
+        "bloco": 2
+      },
+      "caso_id": "leg-026",
+      "conjunto": "legitimas",
+      "grupo_primario": null,
+      "origem_rotulo": "propria",
+      "papel": "controle_legitimo",
+      "rotulo_origem": null,
+      "sha256_texto": "53a7762ca307ca0a3cf542d98dd84fec68a86d454c6bd75360639bee00b861f4"
+    },
+    {
+      "atributos": {
+        "bloco": 2
+      },
+      "caso_id": "leg-027",
+      "conjunto": "legitimas",
+      "grupo_primario": null,
+      "origem_rotulo": "propria",
+      "papel": "controle_legitimo",
+      "rotulo_origem": null,
+      "sha256_texto": "11826d264e9668cfdab81a726767a3f4755360103efa874de38006b89d3e8a12"
+    },
+    {
+      "atributos": {
+        "bloco": 2
+      },
+      "caso_id": "leg-028",
+      "conjunto": "legitimas",
+      "grupo_primario": null,
+      "origem_rotulo": "propria",
+      "papel": "controle_legitimo",
+      "rotulo_origem": null,
+      "sha256_texto": "98851ebbdbf739368a27d5f87756aabbf8c7f86fd9c3c0c250df41e1deeef4fd"
+    },
+    {
+      "atributos": {
+        "bloco": 2
+      },
+      "caso_id": "leg-029",
+      "conjunto": "legitimas",
+      "grupo_primario": null,
+      "origem_rotulo": "propria",
+      "papel": "controle_legitimo",
+      "rotulo_origem": null,
+      "sha256_texto": "7b8c5c1017a7af9ce7dcb0824164faa479f2a8076ca39e17836890e4c959d4ce"
+    },
+    {
+      "atributos": {
+        "bloco": 2
+      },
+      "caso_id": "leg-030",
+      "conjunto": "legitimas",
+      "grupo_primario": null,
+      "origem_rotulo": "propria",
+      "papel": "controle_legitimo",
+      "rotulo_origem": null,
+      "sha256_texto": "93a535fc83adb8898fde4a1d145bcf6eae6d9735a05290b93eef196e26b42b44"
+    },
+    {
+      "atributos": {
+        "bloco": 2
+      },
+      "caso_id": "leg-031",
+      "conjunto": "legitimas",
+      "grupo_primario": null,
+      "origem_rotulo": "propria",
+      "papel": "controle_legitimo",
+      "rotulo_origem": null,
+      "sha256_texto": "aac25a87d5d04568a99a6a407f34e9201dce121c7ccc10ac78e3bbd6da26f8b7"
+    },
+    {
+      "atributos": {
+        "bloco": 2
+      },
+      "caso_id": "leg-032",
+      "conjunto": "legitimas",
+      "grupo_primario": null,
+      "origem_rotulo": "propria",
+      "papel": "controle_legitimo",
+      "rotulo_origem": null,
+      "sha256_texto": "773a2576366ad6357ca1b86e5a748c67c1b625f56acd86093ee62f4db9d00b4d"
+    },
+    {
+      "atributos": {
+        "bloco": 2
+      },
+      "caso_id": "leg-033",
+      "conjunto": "legitimas",
+      "grupo_primario": null,
+      "origem_rotulo": "propria",
+      "papel": "controle_legitimo",
+      "rotulo_origem": null,
+      "sha256_texto": "2b1a9d46d21c8c4dc1de3e3914d2be759198b7794eb0c9319d1a1dbed2ab9ff5"
+    },
+    {
+      "atributos": {
+        "bloco": 2
+      },
+      "caso_id": "leg-034",
+      "conjunto": "legitimas",
+      "grupo_primario": null,
+      "origem_rotulo": "propria",
+      "papel": "controle_legitimo",
+      "rotulo_origem": null,
+      "sha256_texto": "678250917e950e7efa36318e3c27af1b21d51fa63e6ab748352b2785182c43d6"
+    },
+    {
+      "atributos": {
+        "bloco": 2
+      },
+      "caso_id": "leg-035",
+      "conjunto": "legitimas",
+      "grupo_primario": null,
+      "origem_rotulo": "propria",
+      "papel": "controle_legitimo",
+      "rotulo_origem": null,
+      "sha256_texto": "c17e7bc0b68a86690f749f6c8212392a9643b4485b53d101715a97b2c708d54f"
+    },
+    {
+      "atributos": {
+        "bloco": 2
+      },
+      "caso_id": "leg-036",
+      "conjunto": "legitimas",
+      "grupo_primario": null,
+      "origem_rotulo": "propria",
+      "papel": "controle_legitimo",
+      "rotulo_origem": null,
+      "sha256_texto": "ec1c2a619699ae75ca3a94aaa957905e1b392f1cbb69f8df119aa80c566ce328"
+    },
+    {
+      "atributos": {
+        "bloco": 2
+      },
+      "caso_id": "leg-037",
+      "conjunto": "legitimas",
+      "grupo_primario": null,
+      "origem_rotulo": "propria",
+      "papel": "controle_legitimo",
+      "rotulo_origem": null,
+      "sha256_texto": "b6c587e69ff808e10cc7d684a663fc07a1642c276579070a7284fece1bbd8ffb"
+    },
+    {
+      "atributos": {
+        "bloco": 2
+      },
+      "caso_id": "leg-038",
+      "conjunto": "legitimas",
+      "grupo_primario": null,
+      "origem_rotulo": "propria",
+      "papel": "controle_legitimo",
+      "rotulo_origem": null,
+      "sha256_texto": "cf1764141bb74d1b51aaf1a204cc50dca4446c4bfeb0fa9721e336e2604a87ee"
+    },
+    {
+      "atributos": {
+        "bloco": 2
+      },
+      "caso_id": "leg-039",
+      "conjunto": "legitimas",
+      "grupo_primario": null,
+      "origem_rotulo": "propria",
+      "papel": "controle_legitimo",
+      "rotulo_origem": null,
+      "sha256_texto": "e26ecccf06100ebf2b456cd37d4320c783e97f3fb327567f1a2e8bf366ff9498"
+    },
+    {
+      "atributos": {
+        "bloco": 2
+      },
+      "caso_id": "leg-040",
+      "conjunto": "legitimas",
+      "grupo_primario": null,
+      "origem_rotulo": "propria",
+      "papel": "controle_legitimo",
+      "rotulo_origem": null,
+      "sha256_texto": "447052b96d88a112daabb9779fcf0dc9d814a4ebc5f97933ecefae5243b8ae52"
+    },
+    {
+      "atributos": {
+        "bloco": 3
+      },
+      "caso_id": "leg-041",
+      "conjunto": "legitimas",
+      "grupo_primario": null,
+      "origem_rotulo": "propria",
+      "papel": "controle_legitimo",
+      "rotulo_origem": null,
+      "sha256_texto": "f8353a2933ca130fc74c52b65cbff71a66a5ee5197afbb6d37d02108c8a77b6b"
+    },
+    {
+      "atributos": {
+        "bloco": 3
+      },
+      "caso_id": "leg-042",
+      "conjunto": "legitimas",
+      "grupo_primario": null,
+      "origem_rotulo": "propria",
+      "papel": "controle_legitimo",
+      "rotulo_origem": null,
+      "sha256_texto": "484caf38454f3844dea654330a5978dddbda95bcb79cd8fe94335a8a9ba7f73d"
+    },
+    {
+      "atributos": {
+        "bloco": 3
+      },
+      "caso_id": "leg-043",
+      "conjunto": "legitimas",
+      "grupo_primario": null,
+      "origem_rotulo": "propria",
+      "papel": "controle_legitimo",
+      "rotulo_origem": null,
+      "sha256_texto": "ad77ec6f74e8b8db57b3dfbf403461238969f924860a18d0ae079dbd1150256f"
+    },
+    {
+      "atributos": {
+        "bloco": 3
+      },
+      "caso_id": "leg-044",
+      "conjunto": "legitimas",
+      "grupo_primario": null,
+      "origem_rotulo": "propria",
+      "papel": "controle_legitimo",
+      "rotulo_origem": null,
+      "sha256_texto": "62effe828adb8b6535b93fd32c0974aedbcba1c7d6cdce76627cfef7a67d2515"
+    },
+    {
+      "atributos": {
+        "bloco": 3
+      },
+      "caso_id": "leg-045",
+      "conjunto": "legitimas",
+      "grupo_primario": null,
+      "origem_rotulo": "propria",
+      "papel": "controle_legitimo",
+      "rotulo_origem": null,
+      "sha256_texto": "1981c842910463405cb73207bb7e3b8b8fe794ab93b2c3bd46c5f6f352f4699b"
+    },
+    {
+      "atributos": {
+        "bloco": 3
+      },
+      "caso_id": "leg-046",
+      "conjunto": "legitimas",
+      "grupo_primario": null,
+      "origem_rotulo": "propria",
+      "papel": "controle_legitimo",
+      "rotulo_origem": null,
+      "sha256_texto": "5b9f48f01a6dcb283734fbaabb56ec58612eaa3f4ecbeaf7787c23b9658c5997"
+    },
+    {
+      "atributos": {
+        "bloco": 3
+      },
+      "caso_id": "leg-047",
+      "conjunto": "legitimas",
+      "grupo_primario": null,
+      "origem_rotulo": "propria",
+      "papel": "controle_legitimo",
+      "rotulo_origem": null,
+      "sha256_texto": "c51063f65cfa977e0f8b05986bbb2f9753bb89e397606b9bcc55db30fdd921a8"
+    },
+    {
+      "atributos": {
+        "bloco": 3
+      },
+      "caso_id": "leg-048",
+      "conjunto": "legitimas",
+      "grupo_primario": null,
+      "origem_rotulo": "propria",
+      "papel": "controle_legitimo",
+      "rotulo_origem": null,
+      "sha256_texto": "cdd09e09dac199e5b28d8d39143563300f1bc95ed5f0128b56bbfb48eb3553f3"
+    },
+    {
+      "atributos": {
+        "bloco": 3
+      },
+      "caso_id": "leg-049",
+      "conjunto": "legitimas",
+      "grupo_primario": null,
+      "origem_rotulo": "propria",
+      "papel": "controle_legitimo",
+      "rotulo_origem": null,
+      "sha256_texto": "abf633011b2fad76f649a90e43bcfa4621cc4d33b35fa76650a8410378c3ece9"
+    },
+    {
+      "atributos": {
+        "bloco": 3
+      },
+      "caso_id": "leg-050",
+      "conjunto": "legitimas",
+      "grupo_primario": null,
+      "origem_rotulo": "propria",
+      "papel": "controle_legitimo",
+      "rotulo_origem": null,
+      "sha256_texto": "98e47298d33f107aa6feac0533388b781e1d43a2070372ccd7556304090bc47a"
+    },
+    {
+      "atributos": {
+        "bloco": 3
+      },
+      "caso_id": "leg-051",
+      "conjunto": "legitimas",
+      "grupo_primario": null,
+      "origem_rotulo": "propria",
+      "papel": "controle_legitimo",
+      "rotulo_origem": null,
+      "sha256_texto": "b2d950a46168486ef1434200c453b91dabc1f8727d030df8caeaf79fe8b962eb"
+    },
+    {
+      "atributos": {
+        "bloco": 3
+      },
+      "caso_id": "leg-052",
+      "conjunto": "legitimas",
+      "grupo_primario": null,
+      "origem_rotulo": "propria",
+      "papel": "controle_legitimo",
+      "rotulo_origem": null,
+      "sha256_texto": "dfa8b009f05dfe92d20386a0bfebe7d55a93a685c61328493bc1815d4c3a394f"
+    },
+    {
+      "atributos": {
+        "bloco": 3
+      },
+      "caso_id": "leg-053",
+      "conjunto": "legitimas",
+      "grupo_primario": null,
+      "origem_rotulo": "propria",
+      "papel": "controle_legitimo",
+      "rotulo_origem": null,
+      "sha256_texto": "2925e5af5c2c7e499d22cef9b524f105fa9c4af0d6f10e76e6ccc4f55391ad9e"
+    },
+    {
+      "atributos": {
+        "bloco": 3
+      },
+      "caso_id": "leg-054",
+      "conjunto": "legitimas",
+      "grupo_primario": null,
+      "origem_rotulo": "propria",
+      "papel": "controle_legitimo",
+      "rotulo_origem": null,
+      "sha256_texto": "6fdd01939b7cb2a8d67a2a7ec78f45bd9d5f1338864c107a263073bfdad9b114"
+    },
+    {
+      "atributos": {
+        "bloco": 3
+      },
+      "caso_id": "leg-055",
+      "conjunto": "legitimas",
+      "grupo_primario": null,
+      "origem_rotulo": "propria",
+      "papel": "controle_legitimo",
+      "rotulo_origem": null,
+      "sha256_texto": "199909d2b774b6c063781677febd81077cc944cef4877618473a4f57ef284fea"
+    },
+    {
+      "atributos": {
+        "bloco": 3
+      },
+      "caso_id": "leg-056",
+      "conjunto": "legitimas",
+      "grupo_primario": null,
+      "origem_rotulo": "propria",
+      "papel": "controle_legitimo",
+      "rotulo_origem": null,
+      "sha256_texto": "c526f4e0a3d03dca42e9d900f89bbe75d7ac5d260e436eb116609707a5a1a9b4"
+    },
+    {
+      "atributos": {
+        "bloco": 3
+      },
+      "caso_id": "leg-057",
+      "conjunto": "legitimas",
+      "grupo_primario": null,
+      "origem_rotulo": "propria",
+      "papel": "controle_legitimo",
+      "rotulo_origem": null,
+      "sha256_texto": "1844db0194d4d596d22ba9bf627c4c896239c788dc003be32e20581a95cbf438"
+    },
+    {
+      "atributos": {
+        "bloco": 3
+      },
+      "caso_id": "leg-058",
+      "conjunto": "legitimas",
+      "grupo_primario": null,
+      "origem_rotulo": "propria",
+      "papel": "controle_legitimo",
+      "rotulo_origem": null,
+      "sha256_texto": "4de3bd5ebafe34d8a12c5a9efbac4b7c217092d9ef9b620959d53d2de0098a16"
+    },
+    {
+      "atributos": {
+        "bloco": 3
+      },
+      "caso_id": "leg-059",
+      "conjunto": "legitimas",
+      "grupo_primario": null,
+      "origem_rotulo": "propria",
+      "papel": "controle_legitimo",
+      "rotulo_origem": null,
+      "sha256_texto": "5b930fd3a9b8be3b2cf1d48862a731a132bbce8769753165e86cfe549f97ef86"
+    },
+    {
+      "atributos": {
+        "bloco": 3
+      },
+      "caso_id": "leg-060",
+      "conjunto": "legitimas",
+      "grupo_primario": null,
+      "origem_rotulo": "propria",
+      "papel": "controle_legitimo",
+      "rotulo_origem": null,
+      "sha256_texto": "d38bc5e298247bc8fece0a703069a6bc59a57a4d5923eaa6c46bb88d6685d082"
+    },
+    {
+      "atributos": {
+        "bloco": 4
+      },
+      "caso_id": "leg-061",
+      "conjunto": "legitimas",
+      "grupo_primario": null,
+      "origem_rotulo": "propria",
+      "papel": "controle_legitimo",
+      "rotulo_origem": null,
+      "sha256_texto": "3e57a6f8cf9bddb9bad8cb63897533cc951a3f735653b4238fffc8c02b516f59"
+    },
+    {
+      "atributos": {
+        "bloco": 4
+      },
+      "caso_id": "leg-062",
+      "conjunto": "legitimas",
+      "grupo_primario": null,
+      "origem_rotulo": "propria",
+      "papel": "controle_legitimo",
+      "rotulo_origem": null,
+      "sha256_texto": "b468f49ef3391ec50ee94ff928d3d44e3ab2276835ef76edd7334efbd2d68912"
+    },
+    {
+      "atributos": {
+        "bloco": 4
+      },
+      "caso_id": "leg-063",
+      "conjunto": "legitimas",
+      "grupo_primario": null,
+      "origem_rotulo": "propria",
+      "papel": "controle_legitimo",
+      "rotulo_origem": null,
+      "sha256_texto": "4d52afc30083667510d91f6b2aef00d5c0fa2c5936140fa781556d362b7cbb63"
+    },
+    {
+      "atributos": {
+        "bloco": 4
+      },
+      "caso_id": "leg-064",
+      "conjunto": "legitimas",
+      "grupo_primario": null,
+      "origem_rotulo": "propria",
+      "papel": "controle_legitimo",
+      "rotulo_origem": null,
+      "sha256_texto": "e11db7a95403bc09ff062b5c74bb5f117fc0e0d28eb7fcf7d8b67c5ecfbfcd0a"
+    },
+    {
+      "atributos": {
+        "bloco": 4
+      },
+      "caso_id": "leg-065",
+      "conjunto": "legitimas",
+      "grupo_primario": null,
+      "origem_rotulo": "propria",
+      "papel": "controle_legitimo",
+      "rotulo_origem": null,
+      "sha256_texto": "8cfc48f7372365cfb5e58f9d8523c9bf7a1f03adf28aa77896756ad8ba257759"
+    },
+    {
+      "atributos": {
+        "bloco": 4
+      },
+      "caso_id": "leg-066",
+      "conjunto": "legitimas",
+      "grupo_primario": null,
+      "origem_rotulo": "propria",
+      "papel": "controle_legitimo",
+      "rotulo_origem": null,
+      "sha256_texto": "e236eda056d62bae1e8a87c58b50ff2916f327e05f6b1ea1b33dd00104d04194"
+    },
+    {
+      "atributos": {
+        "bloco": 4
+      },
+      "caso_id": "leg-067",
+      "conjunto": "legitimas",
+      "grupo_primario": null,
+      "origem_rotulo": "propria",
+      "papel": "controle_legitimo",
+      "rotulo_origem": null,
+      "sha256_texto": "5df19d7df03f3f0bfe6088fcee870799a719508b13e0bac396c151f90cac3b40"
+    },
+    {
+      "atributos": {
+        "bloco": 4
+      },
+      "caso_id": "leg-068",
+      "conjunto": "legitimas",
+      "grupo_primario": null,
+      "origem_rotulo": "propria",
+      "papel": "controle_legitimo",
+      "rotulo_origem": null,
+      "sha256_texto": "2e3b7c05ab67022a52527eaf63cc72e87ad2f0a1d960aead668e6410ee9e6418"
+    },
+    {
+      "atributos": {
+        "bloco": 4
+      },
+      "caso_id": "leg-069",
+      "conjunto": "legitimas",
+      "grupo_primario": null,
+      "origem_rotulo": "propria",
+      "papel": "controle_legitimo",
+      "rotulo_origem": null,
+      "sha256_texto": "12662a34549c2372dfd03b5eb98677f947c356d72d9729b8b0568b2916e10aac"
+    },
+    {
+      "atributos": {
+        "bloco": 4
+      },
+      "caso_id": "leg-070",
+      "conjunto": "legitimas",
+      "grupo_primario": null,
+      "origem_rotulo": "propria",
+      "papel": "controle_legitimo",
+      "rotulo_origem": null,
+      "sha256_texto": "b01d3979c55e9f302bbd49d2c24e25b41185f431019a52394f4ccfc4c92fe978"
+    },
+    {
+      "atributos": {
+        "bloco": 4
+      },
+      "caso_id": "leg-071",
+      "conjunto": "legitimas",
+      "grupo_primario": null,
+      "origem_rotulo": "propria",
+      "papel": "controle_legitimo",
+      "rotulo_origem": null,
+      "sha256_texto": "cdd3f1d76da6840b7a4d2ca07e78d5b92416716c45897fe0383c709ea56f0c44"
+    },
+    {
+      "atributos": {
+        "bloco": 4
+      },
+      "caso_id": "leg-072",
+      "conjunto": "legitimas",
+      "grupo_primario": null,
+      "origem_rotulo": "propria",
+      "papel": "controle_legitimo",
+      "rotulo_origem": null,
+      "sha256_texto": "e547401ef1be867fc28ce98e4b16f17adc68c3662acef7cd656be629845d0d49"
+    },
+    {
+      "atributos": {
+        "bloco": 4
+      },
+      "caso_id": "leg-073",
+      "conjunto": "legitimas",
+      "grupo_primario": null,
+      "origem_rotulo": "propria",
+      "papel": "controle_legitimo",
+      "rotulo_origem": null,
+      "sha256_texto": "d8d7d999c55413eb4ec54ec29dd8bf64e7bd8076d17542b14b4796a6c1f5aad8"
+    },
+    {
+      "atributos": {
+        "bloco": 4
+      },
+      "caso_id": "leg-074",
+      "conjunto": "legitimas",
+      "grupo_primario": null,
+      "origem_rotulo": "propria",
+      "papel": "controle_legitimo",
+      "rotulo_origem": null,
+      "sha256_texto": "87aa7e43fb4ca52565aed170a61d57bcaa14be44f8988b648df297e5a7bc63cd"
+    },
+    {
+      "atributos": {
+        "bloco": 4
+      },
+      "caso_id": "leg-075",
+      "conjunto": "legitimas",
+      "grupo_primario": null,
+      "origem_rotulo": "propria",
+      "papel": "controle_legitimo",
+      "rotulo_origem": null,
+      "sha256_texto": "eefe3d934e5a7fec114a6fa3602cf8bf500b4dc98580b4f0ce2d065d589da141"
+    },
+    {
+      "atributos": {
+        "bloco": 4
+      },
+      "caso_id": "leg-076",
+      "conjunto": "legitimas",
+      "grupo_primario": null,
+      "origem_rotulo": "propria",
+      "papel": "controle_legitimo",
+      "rotulo_origem": null,
+      "sha256_texto": "3921a2e26b167733d82e4b2819fe5135339cc90c4a59106d89aa1364d405a792"
+    },
+    {
+      "atributos": {
+        "bloco": 4
+      },
+      "caso_id": "leg-077",
+      "conjunto": "legitimas",
+      "grupo_primario": null,
+      "origem_rotulo": "propria",
+      "papel": "controle_legitimo",
+      "rotulo_origem": null,
+      "sha256_texto": "f604edcdac0ab2d4f384f2826b7068053f867f5ecd8ac2136fdf5eee6d83956c"
+    },
+    {
+      "atributos": {
+        "bloco": 4
+      },
+      "caso_id": "leg-078",
+      "conjunto": "legitimas",
+      "grupo_primario": null,
+      "origem_rotulo": "propria",
+      "papel": "controle_legitimo",
+      "rotulo_origem": null,
+      "sha256_texto": "9368f2e83069c4e612f0941bf7e091ba61406f07ae2fa8f2e39daa51b18f0417"
+    },
+    {
+      "atributos": {
+        "bloco": 4
+      },
+      "caso_id": "leg-079",
+      "conjunto": "legitimas",
+      "grupo_primario": null,
+      "origem_rotulo": "propria",
+      "papel": "controle_legitimo",
+      "rotulo_origem": null,
+      "sha256_texto": "23b4c75b1cb4464357c55184bb7fb8062a4ecf350f9429f25091d4f376e77586"
+    },
+    {
+      "atributos": {
+        "bloco": 4
+      },
+      "caso_id": "leg-080",
+      "conjunto": "legitimas",
+      "grupo_primario": null,
+      "origem_rotulo": "propria",
+      "papel": "controle_legitimo",
+      "rotulo_origem": null,
+      "sha256_texto": "a3b66efa2d991c9b2d429cc5089c410bea7ec1550d81fcfda0a15d7ef3489741"
+    },
+    {
+      "atributos": {
+        "bloco": 5
+      },
+      "caso_id": "leg-081",
+      "conjunto": "legitimas",
+      "grupo_primario": null,
+      "origem_rotulo": "propria",
+      "papel": "controle_legitimo",
+      "rotulo_origem": null,
+      "sha256_texto": "963ac028db55da8236dcbb470b2fc0bf8ed32b561b2407c3330fcd80e37c0597"
+    },
+    {
+      "atributos": {
+        "bloco": 5
+      },
+      "caso_id": "leg-082",
+      "conjunto": "legitimas",
+      "grupo_primario": null,
+      "origem_rotulo": "propria",
+      "papel": "controle_legitimo",
+      "rotulo_origem": null,
+      "sha256_texto": "88c02aaba3ad086cf95ab381f2889cb92a8096070ddbcb0c00acf85dce80f5e1"
+    },
+    {
+      "atributos": {
+        "bloco": 5
+      },
+      "caso_id": "leg-083",
+      "conjunto": "legitimas",
+      "grupo_primario": null,
+      "origem_rotulo": "propria",
+      "papel": "controle_legitimo",
+      "rotulo_origem": null,
+      "sha256_texto": "c3aeef316e420327a9a09e55efab3d2d88995b72d0526ba83a8bacc052ff1ea9"
+    },
+    {
+      "atributos": {
+        "bloco": 5
+      },
+      "caso_id": "leg-084",
+      "conjunto": "legitimas",
+      "grupo_primario": null,
+      "origem_rotulo": "propria",
+      "papel": "controle_legitimo",
+      "rotulo_origem": null,
+      "sha256_texto": "4985dd26b19651a53a523be520cbabe9f594768a0ba8079efa7dc461fb134fef"
+    },
+    {
+      "atributos": {
+        "bloco": 5
+      },
+      "caso_id": "leg-085",
+      "conjunto": "legitimas",
+      "grupo_primario": null,
+      "origem_rotulo": "propria",
+      "papel": "controle_legitimo",
+      "rotulo_origem": null,
+      "sha256_texto": "4804cb800a47097f93517d80f6bb2a78f33cd5a698f0e1725443ab9cff309b54"
+    },
+    {
+      "atributos": {
+        "bloco": 5
+      },
+      "caso_id": "leg-086",
+      "conjunto": "legitimas",
+      "grupo_primario": null,
+      "origem_rotulo": "propria",
+      "papel": "controle_legitimo",
+      "rotulo_origem": null,
+      "sha256_texto": "127e7649fd384ec209e2e855752d7c07c5ce0d7bb3b7736bfc43075510779dbc"
+    },
+    {
+      "atributos": {
+        "bloco": 5
+      },
+      "caso_id": "leg-087",
+      "conjunto": "legitimas",
+      "grupo_primario": null,
+      "origem_rotulo": "propria",
+      "papel": "controle_legitimo",
+      "rotulo_origem": null,
+      "sha256_texto": "da3df7817163e6e0e5af3e8efbf07f4cfc4a139fd46c807e154d43dad5012a1e"
+    },
+    {
+      "atributos": {
+        "bloco": 5
+      },
+      "caso_id": "leg-088",
+      "conjunto": "legitimas",
+      "grupo_primario": null,
+      "origem_rotulo": "propria",
+      "papel": "controle_legitimo",
+      "rotulo_origem": null,
+      "sha256_texto": "4facd9658fa89e387df50ae011dda137152cf24b3be7a7214b522e142e0fa97e"
+    },
+    {
+      "atributos": {
+        "bloco": 5
+      },
+      "caso_id": "leg-089",
+      "conjunto": "legitimas",
+      "grupo_primario": null,
+      "origem_rotulo": "propria",
+      "papel": "controle_legitimo",
+      "rotulo_origem": null,
+      "sha256_texto": "dd41b36139015ae7a5fbb5d6e5d6028407d327ce2a16f1ad5b647260bb588936"
+    },
+    {
+      "atributos": {
+        "bloco": 5
+      },
+      "caso_id": "leg-090",
+      "conjunto": "legitimas",
+      "grupo_primario": null,
+      "origem_rotulo": "propria",
+      "papel": "controle_legitimo",
+      "rotulo_origem": null,
+      "sha256_texto": "d8c726c1d2151ef96832c9697a013a0c431345db28060c3859678fb30588004f"
+    },
+    {
+      "atributos": {
+        "bloco": 5
+      },
+      "caso_id": "leg-091",
+      "conjunto": "legitimas",
+      "grupo_primario": null,
+      "origem_rotulo": "propria",
+      "papel": "controle_legitimo",
+      "rotulo_origem": null,
+      "sha256_texto": "d9f22c683f5c1c97bb6e2285dd3c5d7855742e5f317b92542d583fabc8ea3db5"
+    },
+    {
+      "atributos": {
+        "bloco": 5
+      },
+      "caso_id": "leg-092",
+      "conjunto": "legitimas",
+      "grupo_primario": null,
+      "origem_rotulo": "propria",
+      "papel": "controle_legitimo",
+      "rotulo_origem": null,
+      "sha256_texto": "3212609f5e2bcde42420c1809b40e5ca8421e45a5bd8597d04bfda9cf7b9ce06"
+    },
+    {
+      "atributos": {
+        "bloco": 5
+      },
+      "caso_id": "leg-093",
+      "conjunto": "legitimas",
+      "grupo_primario": null,
+      "origem_rotulo": "propria",
+      "papel": "controle_legitimo",
+      "rotulo_origem": null,
+      "sha256_texto": "d1d2e6d7096b8f68b2c2fdd3a11f39f41cec8c3977e3dfa2aab1ce87ab37e485"
+    },
+    {
+      "atributos": {
+        "bloco": 5
+      },
+      "caso_id": "leg-094",
+      "conjunto": "legitimas",
+      "grupo_primario": null,
+      "origem_rotulo": "propria",
+      "papel": "controle_legitimo",
+      "rotulo_origem": null,
+      "sha256_texto": "4b83cdc5742e1d65991173636301184b00b3acb4607450eb855e0ea0ab2ecb66"
+    },
+    {
+      "atributos": {
+        "bloco": 5
+      },
+      "caso_id": "leg-095",
+      "conjunto": "legitimas",
+      "grupo_primario": null,
+      "origem_rotulo": "propria",
+      "papel": "controle_legitimo",
+      "rotulo_origem": null,
+      "sha256_texto": "b67e0d69519d6ca06db15ae6a15325a33a69f02669a5331d2cebdd14060d6bd6"
+    },
+    {
+      "atributos": {
+        "bloco": 5
+      },
+      "caso_id": "leg-096",
+      "conjunto": "legitimas",
+      "grupo_primario": null,
+      "origem_rotulo": "propria",
+      "papel": "controle_legitimo",
+      "rotulo_origem": null,
+      "sha256_texto": "6424da58ec0d5c5583961052f794727573f1905de3f79e982a131260a7e1b37d"
+    },
+    {
+      "atributos": {
+        "bloco": 5
+      },
+      "caso_id": "leg-097",
+      "conjunto": "legitimas",
+      "grupo_primario": null,
+      "origem_rotulo": "propria",
+      "papel": "controle_legitimo",
+      "rotulo_origem": null,
+      "sha256_texto": "bc8d4a1dc187fa5856f92fccfb3a00701591fec81da29974449ce1fb1bb35a2f"
+    },
+    {
+      "atributos": {
+        "bloco": 5
+      },
+      "caso_id": "leg-098",
+      "conjunto": "legitimas",
+      "grupo_primario": null,
+      "origem_rotulo": "propria",
+      "papel": "controle_legitimo",
+      "rotulo_origem": null,
+      "sha256_texto": "abdc1b8ddbd1e56edd735c60ed37aeff8b10ca01e22aec702ffd657236b9d43e"
+    },
+    {
+      "atributos": {
+        "bloco": 5
+      },
+      "caso_id": "leg-099",
+      "conjunto": "legitimas",
+      "grupo_primario": null,
+      "origem_rotulo": "propria",
+      "papel": "controle_legitimo",
+      "rotulo_origem": null,
+      "sha256_texto": "ba032dd7a2a2ce55cd00353c3115f288eed335c5f654712bbeae456270ce3310"
+    },
+    {
+      "atributos": {
+        "bloco": 5
+      },
+      "caso_id": "leg-100",
+      "conjunto": "legitimas",
+      "grupo_primario": null,
+      "origem_rotulo": "propria",
+      "papel": "controle_legitimo",
+      "rotulo_origem": null,
+      "sha256_texto": "51dc4e21a17ee0770782b0f69301b13bde18954dd490f340fabe6e771ee71d3a"
     },
     {
       "atributos": {

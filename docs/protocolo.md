@@ -112,6 +112,8 @@ Para uma condicao e um recorte (grupo, categoria de dano, conjunto):
 - **Taxa de falsos positivos** = L / (100 - E), em que L = mensagens legitimas com
   decisao **bloquear ou mascarar** em qualquer ponto de interceptacao (ADR-0020, D2).
 - Alertas sobre mensagens legitimas: contagem reportada a parte.
+- A taxa e reportada tambem por bloco das mensagens (cinco blocos de 20, ADR-0023), com a
+  contagem k/n de cada bloco.
 
 ### 8.4 Mascaramento (corpus de documentos, condicoes B e C, ADR-0003)
 Unidade: ocorrencia do gabarito (`conjunto_teste/pii/corpus.jsonl`). Trecho mascarado =

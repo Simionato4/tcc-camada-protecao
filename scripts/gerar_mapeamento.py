@@ -8,8 +8,8 @@ Fontes lidas: `data_en.csv` do Do-Not-Answer, `text_attack_test.json` do BIPIA, 
 duas selecoes versionadas do HackAPrompt (`hackaprompt.json` e `hackaprompt_ctx.json`).
 Nao precisa do parquet.
 
-O corpus de documentos (tarefa 3.6) e as mensagens legitimas (tarefa 3.8) ainda nao
-existem; o arquivo os registra como pendentes, e o esquema ja os comporta.
+Inclui o corpus de documentos (tarefa 3.6, ADR-0015) e as mensagens legitimas (tarefa
+3.8, ADR-0023), lidos dos arquivos versionados em `conjunto_teste/`.
 
 Uso:
     python scripts/gerar_mapeamento.py                 # grava e imprime o sha256
@@ -179,9 +179,34 @@ def corpus_pii() -> list[dict]:
     return registros
 
 
+LEGITIMAS = RAIZ / "conjunto_teste" / "legitimas" / "mensagens.jsonl"
+
+
+def legitimas() -> list[dict]:
+    """As 100 mensagens legitimas: controle de falso positivo, sem grupo (ADR-0018, ADR-0023)."""
+    if not LEGITIMAS.exists():
+        return []
+    registros = []
+    with LEGITIMAS.open(encoding="utf-8") as arquivo:
+        for linha in arquivo:
+            m = json.loads(linha)
+            registros.append({
+                "caso_id": m["id"],
+                "conjunto": "legitimas",
+                "sha256_texto": sha256(m["texto"]),
+                "papel": "controle_legitimo",
+                "grupo_primario": None,
+                "origem_rotulo": "propria",
+                "rotulo_origem": None,
+                "atributos": {"bloco": m["bloco"]},
+            })
+    return registros
+
+
 def montar() -> dict:
     pii = corpus_pii()
-    registros = do_not_answer() + bipia() + hackaprompt_inj() + hackaprompt_ctx() + pii
+    leg = legitimas()
+    registros = do_not_answer() + bipia() + hackaprompt_inj() + hackaprompt_ctx() + pii + leg
     registros.sort(key=lambda r: r["caso_id"])
 
     ids = [r["caso_id"] for r in registros]
@@ -206,7 +231,7 @@ def montar() -> dict:
         },
         "pendentes": (
             {} if pii else {"corpus_documentos": "tarefa 3.6 (grupo PII, origem_rotulo propria)"}
-        ) | {"mensagens_legitimas": "tarefa 3.8 (papel controle_legitimo, sem grupo)"},
+        ) | ({} if leg else {"mensagens_legitimas": "tarefa 3.8 (papel controle_legitimo, sem grupo)"}),
         "textos_repetidos_no_mesmo_conjunto": len(repetidos),
         "registros": registros,
     }
@@ -221,12 +246,12 @@ def main() -> int:
     registros = mapa["registros"]
     print(f"registros: {len(registros)}")
     for (conjunto, grupo), n in sorted(
-        collections.Counter((r["conjunto"], r["grupo_primario"]) for r in registros).items()
+        collections.Counter((r["conjunto"], r["grupo_primario"] or "-") for r in registros).items()
     ):
         print(f"  {n:>4}  {conjunto:<14} {grupo}")
     print("por grupo primario:")
-    for grupo, n in sorted(collections.Counter(r["grupo_primario"] for r in registros).items()):
-        print(f"  {n:>4}  {grupo}")
+    for grupo, n in sorted(collections.Counter(r["grupo_primario"] or "-" for r in registros).items()):
+        print(f"  {n:>4}  {grupo}")  # "-" = sem grupo (controle_legitimo)
     eixos = collections.Counter(
         r["atributos"].get("eixo_vazamento") for r in registros if r["atributos"].get("eixo_vazamento")
     )

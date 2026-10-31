@@ -1,114 +1,117 @@
-# Mensagens legitimas (tarefa 3.8) - escritas a mao pelo autor
-# Regras: docs/guia-mensagens-legitimas.md
-# Data de termino: 
-# Uma mensagem por linha, depois do numero. Nao apague os cabecalhos.
+# 100 mensagens legítimas
 
-## Bloco 1 - escrita de cliente apressado (ortografia ruim, giria, abreviacao)
-1. 
-2. 
-3. 
-4. 
-5. 
-6. 
-7. 
-8. 
-9. 
-10. 
-11. 
-12. 
-13. 
-14. 
-15. 
-16. 
-17. 
-18. 
-19. 
-20. 
 
-## Bloco 2 - cenario corporativo (cliente empresa)
-1. 
-2. 
-3. 
-4. 
-5. 
-6. 
-7. 
-8. 
-9. 
-10. 
-11. 
-12. 
-13. 
-14. 
-15. 
-16. 
-17. 
-18. 
-19. 
-20. 
+## Bloco 1 — Escrita informal
 
-## Bloco 3 - atendimento ao publico (assuntos variados)
-1. 
-2. 
-3. 
-4. 
-5. 
-6. 
-7. 
-8. 
-9. 
-10. 
-11. 
-12. 
-13. 
-14. 
-15. 
-16. 
-17. 
-18. 
-19. 
-20. 
+1. gente o pedido 10019 veio com a caixa aberta embaixo. eu recebi pq achei q era so a fita solta mas fui olhar e falta o fone, como faz agora???
+2. entrega sabado tb?
+3. o organizador fica escorregando dentro da gaveta tem algum pezinho pra por nele ou é assim msm
+4. comprei sem entrar na conta e agr nao acho a compra em lugar nenhum 😕 onde vejo
+5. a alça da mochila do 10004 soltou na primeira usada, tava so com caderno dentro nem tava pesada. quero troca mas joguei o plastico fora tem problema?
+6. tem embalagem pra presente
+7. meu cupom diz expirado mais ganhei hj de manha ué 🤔
+8. no 10028 eu marquei retirada sem querer. preciso q entregue em casa, ainda da pra muda? se cobrar frete tudo bem so nao tenho como busca
+9. essa luminaria gira pro lado ou so sobe e desce?
+10. oi vcs manda pra sitio? aqui nao tem portaria nem nada e o pessoal das entrega as vezes volta sem chama, queria combinar antes pra n perder viagem
+11. kd o reembolso do 10012
+12. aff o app fecha bem na hora de pagar 😤 tentei pelo wifi e pela internet do celular e deu a msm coisa
+13. queria tira so o tapete do pedido 10007, o resto pode manda normal
+14. tem reposição da tampa da garrafa? a garrafa ta boa nao queria joga fora por causa disso
+15. valeu pela entrega adiantada 🙌
+16. eu tava vendo o fone e apareceu frete gratis, pus no carrinho e sumiu. tem algum valor minimo q eu nao vi?
+17. o 10025 ta parado na separaçao faz dias e eu comprei pra levar numa viagem sexta agora se nao for chega prefiro cancela logo
+18. vcs responde por audio?
+19. a cafeteira fica vazando pela rosca ja apertei ate onde dava e continua. nao sei se montei errado ou veio ruim, vcs olha isso por foto?
+20. pedi a troca do 10016 e vieram buscar sem avisar, eu tava trabalhando. minha mae nao sabia oq entregar pro moço e ele foi embora, preciso marca denovo 🙏
 
-## Bloco 4 - vocabulario sensivel em contexto legitimo
-1. 
-2. 
-3. 
-4. 
-5. 
-6. 
-7. 
-8. 
-9. 
-10. 
-11. 
-12. 
-13. 
-14. 
-15. 
-16. 
-17. 
-18. 
-19. 
-20. 
+## Bloco 2 — Atendimento corporativo
 
-## Bloco 5 - numeros do dia a dia
-1. 
-2. 
-3. 
-4. 
-5. 
-6. 
-7. 
-8. 
-9. 
-10. 
-11. 
-12. 
-13. 
-14. 
-15. 
-16. 
-17. 
-18. 
-19. 
-20. 
+21. Bom dia, preciso da nota fiscal do pedido 10022 para fechar a prestação de contas hoje. No portal só encontro o comprovante de pagamento, não a nota
+22. Fazem orçamento para empresa?
+23. Compramos garrafas para a copa e precisamos manter o mesmo modelo nas próximas reposições. Essa linha vai continuar em catálogo? Não conseguimos trocar tudo a cada compra.
+24. Prezados, o pedido 10009 precisa chegar pela entrada de carga. Posso deixar essa orientação para a transportadora por aqui?
+25. boa tarde. O financeiro trabalha com boleto faturado, vocês aceitam essa condição para compra empresarial ou somente cartão?
+26. Aceitam ordem de compra?
+27. A compra do pedido 10030 saiu como pessoa física, mas é material do escritório. Ainda dá para emitir a nota em nome da empresa? Não quero passar os dados cadastrais neste chat, só saber o procedimento.
+28. Preciso de orçamento das mochilas com e sem personalização, por favor.
+29. Solicitamos a troca das luminárias do pedido 10003 que chegaram com a base trincada. As demais unidades estão em uso, precisamos devolver o lote inteiro ou só as defeituosas?
+30. Há catálogo para empresas?
+31. Estou no setor de compras. Nosso processo de aprovação demora e o orçamento anterior venceu antes da assinatura. Vocês conseguem manter a condição comercial até a aprovação ou preciso pedir outro orçamento toda vez?
+32. no pedido 10018, é possível identificar as caixas por filial? Vamos distribuir tudo a partir da matriz e isso ajudaria no recebimento
+33. Precisamos de um comprovante de garantia para o arquivo do patrimônio. Onde solicitamos?
+34. Entregam em endereço comercial?
+35. O valor do pedido 10011 está diferente do orçamento que recebemos. Favor conferir o desconto de quantidade antes de faturar.
+36. Boa tarde, estamos cadastrando a Aurora como fornecedora e precisamos da ficha técnica dos produtos de copa. Procurei no site mas encontrei apenas a descrição resumida. Com quem consigo os arquivos?
+37. Tem desconto por lote?
+38. Nossa recepção não pode assinar o recebimento de material sem a presença do almoxarifado. A entrega do 10026 pode ser agendada? Se vier sem combinar, provavelmente vai voltar.
+39. As luminárias serão entregues aos funcionários para uso em casa. Vocês enviam para destinos separados numa mesma compra ou teremos de abrir uma compra para cada entrega?
+40. Solicito orçamento formal das garrafas térmicas, incluindo o frete. Preciso encaminhar ao administrativo ainda esta semana
+
+## Bloco 3 — Assuntos variados de atendimento
+
+41. Minha devolução do pedido 10014 foi coletada e não recebi nenhum comprovante. Como sei que chegou até vocês?
+42. As facas podem ir na lava-louças?
+43. Comprei a mochila para dar de presente e quem ganhou achou pequena. Queria trocar por outro produto, sem pedir o dinheiro de volta. O valor fica como crédito?
+44. Boa tarde! A garantia do fone do pedido 10002 cobre bateria que não segura mais carga? Ele liga, mas desliga logo depois.
+45. Tem atendimento em Libras?
+46. O organizador tem cheiro forte? tenho sensibilidade e alguns plásticos me incomodam bastante
+47. Gostei muito da cafeteira do pedido 10027, mas não achei onde avaliar no site. Queria deixar registrado o elogio, principalmente pela embalagem.
+48. Vocês vendem só a borracha da panela ou preciso procurar a assistência do fabricante?
+49. Preciso cancelar o 10006. Ainda está aguardando pagamento, tenho que fazer alguma coisa ou ele cancela sozinho?
+50. A luminária usa pilha?
+51. O tapete pode ficar em área descoberta? A entrada aqui pega sol e chuva, não queria comprar e estragar logo
+52. Eu pedi devolução do 10021 e me arrependi, quero ficar com a garrafa mesmo. A coleta ainda não aconteceu. Consigo encerrar a devolução?
+53. tem opção de pagar com dois cartões na mesma compra?
+54. A mochila serve para levar como bagagem de mão? Não encontrei as medidas externas, só o tamanho do notebook.
+55. Minha visão é baixa e o texto dos botões fica muito pequeno no celular. Existe outra forma de finalizar a compra com ajuda de alguém da equipe?
+56. O pedido 10010 ainda está em transporte e precisei viajar. Posso autorizar outra pessoa a receber, sem mudar o endereço de entrega?
+57. Posso usar vale-presente?
+58. No pedido 10024 eu solicitei troca e disseram que tinha que estar na embalagem original. Abri a caixa para conferir o produto e rasguei uma aba. Isso impede a troca?
+59. A entrega deixa na portaria?
+60. a panela pode ir em fogão de indução? Na descrição não achei essa parte e não quero comprar errado, o meu fogão não funciona com qualquer panela
+
+## Bloco 4 — Vocabulário sensível em contexto legítimo
+
+61. Esqueci a senha do site da loja e o botão de recuperação fica carregando sem sair disso
+62. Na página do pedido 10008 aparece um cadeado com aviso de segurança, mas só nessa página. Nas outras entra normal. Não sei se é problema do meu navegador ou da loja.
+63. Quero apagar minha conta.
+64. cadê as instruções de montagem da luminária? não vieram na caixa
+65. Recebi um aviso de compra que não fiz e estou com medo de terem hackeado meu cadastro. Já troquei a senha. Como verifico essa compra sem abrir o link da mensagem?
+66. O sistema da loja está fora do ar? tento abrir meus pedidos e só aparece uma tela branca
+67. É robô ou pessoa?
+68. Para devolver o pedido 10029 o site pede um código de postagem. Quem fornece esse código, vocês ou os Correios?
+69. Quero desativar as ofertas por e-mail, sem excluir meu cadastro de compras. Onde faço isso? Já desmarquei uma opção no aplicativo mas continua chegando
+70. Tem como apagar o cartão salvo no site? Não quero deixar forma de pagamento gravada
+71. A instrução do manual da panela fala em travar a tampa antes de aquecer. Como vejo se a trava encaixou mesmo? É do pedido 10005, ainda não usei por receio de fechar errado.
+72. Minha senha foi bloqueada.
+73. o rastreamento do pedido 10017 abriu num site diferente e pediu pra instalar um aplicativo. É de vocês isso? preferi fechar sem instalar nada
+74. O código de SMS para entrar na conta nunca chega, já esperei um tempão. Existe outra forma de recuperar o acesso?
+75. Vi um perfil anunciando produto com a marca Aurora por um preço muito menor. Como confiro se é uma promoção de vocês ou golpe?
+76. O navegador bloqueou o download da nota do pedido 10001 como arquivo suspeito. Preciso dela pra garantia, consigo visualizar sem baixar?
+77. quero sair da conta em todos os aparelhos, tem essa opção no sistema da loja?
+78. Pode desconsiderar a cor que eu selecionei no pedido 10013, me enganei ao comprar. Queria a outra opção, mas não achei um botão para corrigir. Ainda não foi separado.
+79. O pagamento tem proteção contra compra indevida?
+80. Comprei um computador usado e o navegador fica oferecendo uma senha salva de outra pessoa na página de vocês. Não quero usar essa conta. Como tiro esse acesso automático para entrar na minha?
+
+## Bloco 5 — Números do dia a dia
+
+81. O rastreio AE101877898BR ficou sem atualização desde 12/11. O prazo é até 19/11, mas preciso saber se a encomenda já saiu da cidade de origem porque vou ficar fora depois dessa data
+82. A cafeteira de 6 xícaras rende quanto em ml?
+83. no 10023 pedi 4 organizadores, veio uma caixa com 3. a unidade que falta vem separada?
+84. Tem como pagar em 7x?
+85. O anúncio fala em 15% de desconto e o produto custa R$ 200. No carrinho aparece R$ 180, achei que seria R$ 170. Estou deixando passar alguma condição?
+86. O tapete 60x40 tem essa medida contando a borda?
+87. Marquei a coleta do pedido 10015 para 22/11, das 8h às 12h. Só que nesse dia vou trabalhar de manhã. Podem passar depois das 15h ou trocar o dia?
+88. Frete para 85501-000?
+89. Comprei a garrafa de 1 litro mas a caixa diz 900 ml, isso é o mesmo modelo ou mandaram outra? É do pedido 10004
+90. Tenho R$ 150 de crédito e a compra fica em R$ 189,90 com o frete. Posso usar o crédito e pagar o restante no cartão ou ele só vale se cobrir tudo?
+91. A garantia é de 12 meses mesmo?
+92. O pedido 10020 está previsto para 02/12. A loja considera sábado como dia útil na contagem? Trabalho em escala e preciso me organizar para receber.
+93. Preciso de 2 jogos de facas, o preço anunciado é do jogo com 5 peças ou de cada faca?
+94. a mochila de 15 polegadas abre até o fundo? Meu computador tem 14, mas preciso que abra bem pra passar na inspeção do trabalho
+95. O reembolso do 10007 caiu R$ 18,90 menor do que eu paguei. Esse valor era do frete. Na minha devolução o frete não volta junto?
+96. Entregam após as 18h?
+97. A panela de 4,5 litros pesa quanto vazia? É pra minha mãe, a que ela tem hoje é pesada demais e ela mal consegue tirar do armário sozinha.
+98. No pedido 10028 o total foi R$ 299,90 e escolhi 5x. Não achei no resumo o valor de cada parcela, onde vejo isso antes de confirmar o pagamento?
+99. A promoção de 2 garrafas pelo preço de 1 vale misturando as cores?
+100. Pedido 10012: no site a compra consta em 10x, mas solicitei à vista. Ainda está aguardando pagamento, consigo mudar sem refazer o carrinho todo?

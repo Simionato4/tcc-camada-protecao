@@ -86,11 +86,11 @@ unidade submetida a camada e ao Presidio. Nao ha rotulo de origem: o rotulo e o 
 deste trabalho. O gabarito por ocorrencia (tipo, posicao, polaridade, classe do negativo)
 esta em `conjunto_teste/pii/corpus.jsonl`; o mapeamento registra as contagens.
 
-### Pendente
+### Mensagens legitimas (100) - sem grupo, papel `controle_legitimo`, rotulo proprio
 
-| Conjunto | Grupo | Tarefa |
-|---|---|---|
-| Mensagens legitimas (100) | nenhum; papel `controle_legitimo`, `origem_rotulo = propria` | 3.8 |
+Redigidas a mao pelo autor em 29/10/2026, conforme `docs/guia-mensagens-legitimas.md`, em
+cinco blocos de 20 (ADR-0023). Convertidas e conferidas por `scripts/gerar_legitimas.py`
+para `conjunto_teste/legitimas/mensagens.jsonl`. O bloco fica como atributo.
 
 ## Decisoes de fronteira
 
@@ -128,7 +128,8 @@ dar o mesmo resultado as duas, o caso pesa em dobro, e isso acompanha o resultad
 | HackAPrompt (amostra do `INJ-05`) | INJ | 40 |
 | HackAPrompt (subamostra do `CTX-02`) | CTX | 10 |
 | Corpus de documentos (atualizado em 28/10/2026) | PII | 355 textos |
-| **Total** | | **1.419** |
+| Mensagens legitimas (29/10/2026) | nenhum (`controle_legitimo`) | 100 |
+| **Total** | | **1.519** |
 
 Primeira geracao, em 08/10/2026 (commit `6993b7a`): sha256 do JSON
 `84bbeaf1e065d4dd65b4639e3ad8e9b65d6659949fbbc6550eea0b631e2cb121`, com quebra de linha LF.

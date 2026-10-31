@@ -78,7 +78,7 @@ Plano de chamadas e projecao de custo: `docs/orcamento.md` e ADR-0001.
 
 1. Conjunto de teste congelado, datado e com hash **antes** da primeira regra da camada.
 2. Regra nunca e ajustada a um caso do conjunto congelado. Apos a execucao, desempenho ruim e resultado, nao defeito.
-3. Somente dados sinteticos. Nenhum dado pessoal real, em nenhuma etapa.
+3. Nenhum dado pessoal real, em nenhuma etapa. Os documentos brasileiros, a base de conhecimento e as mensagens legitimas sao sinteticos ou redigidos pelo autor; os conjuntos de ataque publicos sao prompts reais publicados, verificados quanto a dado pessoal (RQ-17, ADR-0024).
 4. Modelo unico, snapshot travado, temperatura zero.
 5. Ataques apenas contra este ambiente local.
 6. O fluxo do assistente e variavel de controle: identico nas quatro condicoes, com os tres nos HTTP presentes desde a condicao A.

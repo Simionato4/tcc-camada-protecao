@@ -50,9 +50,61 @@ CONJUNTOS_HF = [
 CONJUNTO_GIT = {
     "nome": "bipia",
     "url": "https://github.com/microsoft/BIPIA.git",
-    "licenca": "confirmar no arquivo LICENSE do repositorio",
+    # Reconciliada em 17/09/2026 no LICENSE da versao obtida (commit df5b577); o texto da
+    # reconciliacao vai para o ORIGEM.md em NOTA_LICENCA_BIPIA.
+    "licenca": "MIT (Microsoft Corporation), com ressalva para tres conjuntos de terceiros em `benchmark` — ver \"Licenca do BIPIA\" abaixo",
     "papel": "Injecao indireta — grupo INJ",
 }
+
+
+NOTA_LICENCA_BIPIA = """## Licenca do BIPIA — reconciliada em 2026-09-17
+
+Lida no arquivo `LICENSE` da versao obtida (`a004b69ec0dd446e0afd461d98cb5e96e120a5d0`),
+e nao na descricao do repositorio.
+
+O repositorio e **MIT, Microsoft Corporation**, com uma ressalva textual:
+
+> NOTE: This license applies to all parts of this repository except for the datasets
+> specified below. See the respective datasets for their individual licenses.
+
+Os conjuntos de terceiros excetuados estao em `benchmark` e sao **tres, nomeados um a um**:
+
+| Componente | Licenca declarada | Onde |
+|---|---|---|
+| WikiTableQuestions | CC BY-SA 4.0 | tarefa TableQA |
+| Stack Exchange (100 questoes do Stack Overflow) | CC BY-SA 4.0 | tarefa CodeQA |
+| Invoices data do OpenAI Evals | MIT | — |
+
+**O que este trabalho usa:** apenas `benchmark/text_attack_test.json`, o arquivo de cargas
+de ataque de texto — 75 cargas em 15 categorias (ADR-0014). Esse arquivo **nao e** nenhum
+dos tres componentes de terceiros nomeados: e contribuicao propria do BIPIA. Pela leitura
+do texto da licenca, a ressalva e delimitada por componente, e nao pelo diretorio inteiro;
+do contrario os arquivos de ataque ficariam sem licenca alguma, o que contraria a propria
+frase "See the respective datasets for their individual licenses", que pressupoe
+conjuntos identificados. **Conclusao adotada: MIT.**
+
+**Ressalva registrada.** A conclusao acima e leitura do texto da licenca, feita pelo autor
+com apoio de assistente, e nao parecer juridico. O proprio arquivo `LICENSE` adverte que o
+usuario deve consultar a fonte original de cada conjunto. Se a monografia afirmar algo
+sobre a licenca, convem submeter a redacao ao orientador.
+
+**Nao ha redistribuicao.** Os arquivos de origem ficam fora do versionamento (ADR-0016),
+de modo que a questao relevante e o **uso**, nao a redistribuicao. MIT e CC BY-SA 4.0
+permitem o uso feito aqui.
+
+### O clone do BIPIA e incompleto por construcao
+
+`benchmark/qa` e `benchmark/abstract` **nao contem** os arquivos de contexto
+`test.jsonl` e `train.jsonl`. O proprio repositorio declara o motivo — "Due to the license
+issue" — e fornece `process.py`, `index.json` e `md5.txt` para que o usuario os gere a
+partir do NewsQA e do XSum.
+
+Isso **nao bloqueia este trabalho**: as cargas do BIPIA sao embutidas nos 30 documentos
+sinteticos proprios (ADR-0002, ADR-0014), e os arquivos de contexto do BIPIA nao sao
+usados. Fica registrado porque a contagem de 99 arquivos, acima, poderia sugerir que o
+conjunto foi obtido completo.
+
+"""
 
 
 def sha256(caminho: Path) -> str:
@@ -142,10 +194,14 @@ def escrever_texto(caminho: Path, conteudo: str) -> None:
 
 
 def escrever_registro(inventarios: list[dict]) -> None:
-    escrever_texto(
-        ORIGEM.parent / "origem.json",
-        json.dumps(inventarios, indent=2, ensure_ascii=False, sort_keys=True) + "\n",
-    )
+    texto_json, texto_md = renderizar_registro(inventarios)
+    escrever_texto(ORIGEM.parent / "origem.json", texto_json)
+    escrever_texto(REGISTRO, texto_md)
+
+
+def renderizar_registro(inventarios: list[dict]) -> tuple[str, str]:
+    """Conteudo do origem.json e do ORIGEM.md, sem gravar (conferido por teste)."""
+    texto_json = json.dumps(inventarios, indent=2, ensure_ascii=False, sort_keys=True) + "\n"
 
     blocos = []
     for inv in inventarios:
@@ -172,7 +228,7 @@ Maiores arquivos (hash completo em `origem.json`):
 {linhas}
 """)
 
-    escrever_texto(REGISTRO, f"""# Procedencia dos conjuntos publicos
+    texto_md = f"""# Procedencia dos conjuntos publicos
 
 Gerado por `scripts/obter_conjuntos.py`. **Os conjuntos nao sao redistribuidos neste
 repositorio** (ADR-0016): os arquivos ficam em `conjunto_teste/origem/`, fora do
@@ -190,12 +246,13 @@ O hash por arquivo tambem detecta se a fonte alterou o conteudo depois do
 congelamento: a divergencia aparece na conferencia, em vez de passar despercebida.
 
 {chr(10).join(blocos)}
-## Licencas
+{NOTA_LICENCA_BIPIA}## Licencas
 
 Confirme na pagina de cada fonte, no dia do download. A restricao nao comercial do
 Do-Not-Answer acompanha o uso e precisa ser declarada na monografia, junto a
 referencia do conjunto.
-""")
+"""
+    return texto_json, texto_md
 
 
 def conferir(inventarios_salvos: list[dict]) -> int:

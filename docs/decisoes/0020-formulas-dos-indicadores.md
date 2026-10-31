@@ -103,3 +103,6 @@ dado com outra pontuacao. Alerta continua contado a parte (D2). A D2 permanece p
 bloqueio e para a entrada; a D9 a restringe no contexto e na saida.
 
 `protocolo.md`, 8.3, atualizado com remissao a este bloco.
+
+## Nota de 31/10/2026
+Referencia do metodo de Wilson (D6) reconciliada na ADR-0025.

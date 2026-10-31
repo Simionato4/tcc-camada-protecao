@@ -5,7 +5,7 @@ referencial normativo em criterios verificaveis aplicaveis as categorias de risc
 delimitadas.
 
 **Fontes.** OWASP GenAI LLM Top 10 2026, v1.0, 03/08/2026 — entradas `LLM01:2026`,
-`LLM02:2026` e `LLM08:2026`. NIST AI 600-1, jul. 2024 — funcao MEASURE, acoes
+`LLM02:2026` e `LLM08:2026` (citacoes conferidas pagina a pagina em 31/10/2026, ADR-0025). NIST AI 600-1, jul. 2024 — funcao MEASURE, acoes
 etiquetadas com `Information Security` ou `Data Privacy`.
 
 **Origem das linhas.** Extracao e classificacao de escopo de 54 controles em

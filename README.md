@@ -25,12 +25,19 @@ comparativa.** A camada e o instrumento.
 | C | Presidio | saida |
 | D | moderacao de conteudo | entrada |
 
-## Estado atual: Etapa 0 (ambiente)
+## Estado atual
 
-A camada **encaminha e nada mais**. Nao existe uma unica regra de deteccao neste
-repositorio, e nenhuma pode existir antes do congelamento do conjunto de teste.
-Os arquivos `normalizacao.py`, `deteccao.py` e `decisao.py` sao criados apenas na
-Etapa 4, depois de `conjunto_teste/CONGELADO.md` estar datado e com hash.
+Etapas 0 (ambiente), 1 (matriz de criterios) e 2 (assistente de referencia) concluidas.
+Etapa 3 (conjunto de teste) pronta para o congelamento: 1.519 casos mapeados
+(`conjunto_teste/selecao/mapeamento_rotulos.json`), formulas fechadas
+(`docs/protocolo.md`, secao 8) e o congelamento preparado em `scripts/congelar.py`.
+As decisoes estao em `docs/decisoes/` (ADR-0000 a ADR-0025).
+
+A camada **ainda encaminha e nada mais**. Nao existe regra de deteccao neste
+repositorio, e nenhuma pode existir antes do congelamento: os arquivos
+`normalizacao.py`, `deteccao.py` e `decisao.py` so sao criados na Etapa 4, depois de
+`conjunto_teste/CONGELADO.md` estar datado e com hash (`scripts/tests/test_congelado.py`
+falha se existirem antes).
 
 ## Como subir o ambiente
 
@@ -44,8 +51,8 @@ docker compose up -d --build
 python scripts/verificar_servicos.py
 ```
 
-O ambiente inteiro sobe com um comando. `verificar_servicos.py` e a evidencia de
-conclusao da Etapa 0: os cinco servicos precisam responder.
+O ambiente inteiro sobe com um comando. `verificar_servicos.py` confere que os sete
+servicos respondem.
 
 | Servico | Porta local |
 |---|---|
@@ -54,14 +61,22 @@ conclusao da Etapa 0: os cinco servicos precisam responder.
 | Presidio Analyzer | 5002 |
 | Presidio Anonymizer | 5001 |
 | Camada | 8000 (documentacao em `/docs`) |
+| Recuperador | 8100 |
+| Modelo (unico ponto que chama o modelo de linguagem) | 8200 |
+
+O Presidio analyzer e construido a partir da imagem fixada, com adaptacao minima para
+portugues (`presidio-analyzer/`, ADR-0022). Versoes e digests: `docs/versoes.md`.
 
 ## Testes
 
 ```bash
-python -m venv .venv && .venv\Scripts\activate      # PowerShell
-pip install -r camada/requirements.txt -r executor/requirements.txt
-pytest -q
+python -m venv %USERPROFILE%\venvs\tcc-camada     # fora da pasta sincronizada pelo OneDrive
+%USERPROFILE%\venvs\tcc-camada\Scripts\activate
+pip install -r requirements-dev.txt
+python -m pytest -q --import-mode=importlib
 ```
+
+Nenhum teste chama API paga: todos rodam com `MODO_SIMULADO=1`.
 
 ## Orcamento da API
 

@@ -111,3 +111,17 @@ def test_cliente_recusa_guarda_em_modo_divergente(tmp_path, monkeypatch):
     monkeypatch.setenv("MODO_SIMULADO", "1")
     with pytest.raises(RuntimeError, match="modos diferentes"):
         ClienteModelo(guarda(tmp_path, simulado=False))
+
+
+def test_teto_padrao_do_codigo_igual_ao_do_env_example_e_do_compose(tmp_path, monkeypatch):
+    """Regressao: ate 09/11/2026 o padrao do codigo era 4500, enquanto .env.example,
+    docker-compose.yml e ADR-0001 diziam 8500 (a correcao de 10/09 so chegou aos documentos)."""
+    import re
+    from pathlib import Path
+
+    raiz = Path(__file__).resolve().parents[2]
+    no_env = re.search(r"^TETO_CHAMADAS=(\d+)", (raiz / ".env.example").read_text(encoding="utf-8"), re.M)
+    no_compose = re.search(r"TETO_CHAMADAS:-(\d+)", (raiz / "docker-compose.yml").read_text(encoding="utf-8"))
+    monkeypatch.delenv("TETO_CHAMADAS", raising=False)
+    g = GuardaOrcamento(arquivo=str(tmp_path / "consumo.json"), simulado=True)
+    assert g.teto_chamadas == int(no_env.group(1)) == int(no_compose.group(1))

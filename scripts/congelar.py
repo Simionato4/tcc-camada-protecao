@@ -23,6 +23,9 @@ from __future__ import annotations
 
 import argparse
 import collections
+import platform
+import re
+import unicodedata
 import datetime as dt
 import hashlib
 import json
@@ -48,12 +51,10 @@ CONGELADOS = [
     ("conjunto_teste/ORIGEM.md", "procedencia legivel e licencas"),
     ("base_conhecimento/perguntas_pareadas.json", "perguntas dos cenarios do BIPIA, ADR-0012"),
     ("assistente/prompt_sistema.md", "prompt de sistema, variavel de controle"),
-    ("assistente/fluxo.json", "fluxo do assistente, variavel de controle"),
     # So as secoes FECHADAS (1, 2, 3 e 8): as secoes 4 a 7 fecham nas Etapas 5 e 6, e
     # completa-las depois e detalhe operacional permitido (RQ-19), nao mudanca de metodo.
     ("docs/protocolo.md#fechadas", "secoes FECHADAS do protocolo: repeticoes, tempo, piloto e formulas (RQ-19)"),
     ("docs/mapeamento-rotulos.md", "criterio textual do mapeamento (RQ-04)"),
-    ("docs/matriz_criterios.md", "criterios avaliados"),
     ("docs/guia-mensagens-legitimas.md", "regras de redacao das legitimas"),
     ("presidio-analyzer/conf/nlp_pt.yaml", "condicao C, ADR-0022"),
     ("presidio-analyzer/conf/analyzer_pt.yaml", "condicao C, ADR-0022"),
@@ -110,8 +111,18 @@ def modulos_de_regra() -> list[str]:
     return [a for a in arquivos if Path(a).name in MODULOS_PROIBIDOS]
 
 
+# A classificacao R1 depende da tabela Unicode (ADR-0017). Congelar com outro Python
+# registraria um ambiente diferente do que produziu os rotulos.
+UNIDATA_ESPERADA = "15.1.0"
+
+
 def precondicoes(gravar: bool) -> list[str]:
     erros = []
+    if unicodedata.unidata_version != UNIDATA_ESPERADA:
+        erros.append(
+            f"tabela Unicode {unicodedata.unidata_version} neste Python; a R1 usa {UNIDATA_ESPERADA} "
+            "(ADR-0017): rode no ambiente virtual do experimento"
+        )
     for nome in MODULOS_PROIBIDOS:
         achados = [c for c in modulos_de_regra() if Path(c).name == nome]
         if achados:
@@ -226,6 +237,22 @@ def conteudo() -> str:
     l.append("Formulas: `docs/protocolo.md`, secao 8 (ADR-0020, D1 a D9). Condicoes: A sem protecao, B camada,")
     l.append("C Presidio com adaptacao minima para portugues (ADR-0022), D moderacao OpenAI (ADR-0006).")
     l.append("Versoes dos componentes: `docs/versoes.md`.")
+    l.append("")
+    l.append("## 7. Fora da lista, e por que")
+    l.append("")
+    l.append("- `assistente/fluxo.json`: o desvio por decisao de bloquear ainda sera implementado")
+    l.append("  (`assistente/README.md`). O fluxo e variavel de controle: o hash do fluxo usado e")
+    l.append("  registrado em cada execucao, como o da colecao do Qdrant (ADR-0014).")
+    l.append("- `docs/matriz_criterios.md`: recebe a coluna de resultado na Etapa 7. Os criterios")
+    l.append("  ficam fixados pelos ADRs e por este registro; nenhum criterio muda depois desta data.")
+    l.append("")
+    l.append("## 8. Ambiente de quem congelou")
+    l.append("")
+    fastembed = re.search(r"^fastembed==(\S+)", (RAIZ / "recuperador/requirements.txt").read_text(encoding="utf-8"), re.M)
+    l.append(f"- Python {platform.python_version()}; tabela Unicode `{unicodedata.unidata_version}`")
+    l.append("  (classificacao R1, ADR-0017).")
+    l.append(f"- `fastembed` {fastembed.group(1) if fastembed else 'nao encontrado'} (recuperador; par modelo e versao")
+    l.append("  da biblioteca como unidade de reproducao, ADR-0011).")
     l.append("")
     return "\n".join(l) + "\n"
 

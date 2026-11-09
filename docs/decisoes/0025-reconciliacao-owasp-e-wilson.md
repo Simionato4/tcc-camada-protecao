@@ -77,3 +77,11 @@ refazer a extracao de 54 controles sem ganho de validade.
 
 ## Data
 2026-10-31
+
+## Correcao de 09/11/2026: pagina da frase sobre a sucessao
+A frase "What used to be System Prompt Leakage is now Hidden Context Exposure, a broader
+framework for the same failure" esta na **p. 7** do PDF, e nao na p. 6. Na extracao com
+`pdftotext -layout`, o rodape "Page 6" vem antes do trecho, e a leitura de 31/10/2026 o
+atribuiu a pagina errada. A figura 1 ("renamed/re-scoped") esta na p. 6. Apontado por
+revisao externa em 31/10/2026 e conferido no PDF de mesmo sha256. As nove citacoes da
+matriz nao mudam.

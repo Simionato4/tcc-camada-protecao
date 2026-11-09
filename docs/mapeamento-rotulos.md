@@ -133,8 +133,8 @@ dar o mesmo resultado as duas, o caso pesa em dobro, e isso acompanha o resultad
 
 Primeira geracao, em 08/10/2026 (commit `6993b7a`): sha256 do JSON
 `84bbeaf1e065d4dd65b4639e3ad8e9b65d6659949fbbc6550eea0b631e2cb121`, com quebra de linha LF.
-O JSON sera regerado quando a 3.6 e a 3.8 acrescentarem seus registros; o hash que vale e
-o registrado no `CONGELADO.md`.
+O JSON foi regerado com o corpus de documentos (28/10/2026) e com as mensagens legitimas
+(29/10/2026); o hash que vale e o registrado no `CONGELADO.md`.
 
 Com as 100 mensagens legitimas, os casos que passam pelo assistente somam 1.164, o numero
 do bloco de 08/10/2026 da ADR-0001.

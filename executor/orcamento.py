@@ -66,7 +66,7 @@ class GuardaOrcamento:
         self.simulado = (
             simulado if simulado is not None else os.getenv("MODO_SIMULADO", "1") == "1"
         )
-        self.teto_chamadas = teto_chamadas or int(os.getenv("TETO_CHAMADAS", "4500"))
+        self.teto_chamadas = teto_chamadas or int(os.getenv("TETO_CHAMADAS", "8500"))
         self.teto_usd = teto_usd or float(os.getenv("TETO_USD", "16.00"))
         self.preco_entrada = preco_entrada_usd_mtok or float(
             os.getenv("PRECO_ENTRADA_USD_MTOK", "1.0")

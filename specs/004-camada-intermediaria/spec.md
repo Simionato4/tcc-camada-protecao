@@ -2,7 +2,7 @@
 
 **Branch**: `main` (o projeto nao usa branch de funcionalidade)
 **Criada**: 2026-11-09
-**Estado**: Rascunho, aguardando revisao do autor
+**Estado**: Aprovada pelo autor em 09/11/2026; decisoes E1 a E5 na ADR-0027
 **Origem**: constituicao 1.1.0, fluxo item 1 (ADR-0026); matriz de criterios; requisitos herdados da Etapa 4 (RQ-07, RQ-08, RQ-10, RQ-12, RQ-14, RQ-15)
 
 > **Regra que vale para toda esta etapa.** Nenhum codigo de regra (`normalizacao.py`,
@@ -135,19 +135,18 @@ RQ-14 e RQ-15; nao muda a deteccao.
 - **RF-005**: A decisao DEVE ser `mascarar` quando houver dado pessoal confirmado no
   contexto ou na saida; o trecho mascarado DEVE cobrir a ocorrencia inteira (ADR-0020, D3).
 - **RF-006**: A deteccao de injecao DEVE analisar o texto decodificado e encaminhar o
-  texto original (RQ-08), com profundidade maxima de decodificacao de
-  [PRECISA DE DECISAO: proposta 2 niveis] e tamanho maximo do resultado de
-  [PRECISA DE DECISAO: proposta igual ao limite de entrada].
+  texto original (RQ-08), com profundidade maxima de decodificacao de **2 niveis** e
+  resultado de cada nivel limitado ao tamanho maximo da entrada (ADR-0027, E1).
 - **RF-007**: A camada DEVE impedir que o marcador unico chegue ao usuario no ponto
   `saida` (`CTX-02`).
 - **RF-008**: O registro DEVE mascarar dado pessoal antes de gravar (`PII-03`) e conter
   `versao_regras`, ponto, condicao, decisao, deteccoes e tempo.
-- **RF-009**: A requisicao DEVE ter tamanho maximo de texto de
-  [PRECISA DE DECISAO: proposta 20.000 caracteres] e identificador em formato UUID; o
-  identificador serve a rastreabilidade, nao a autenticacao (RQ-14).
+- **RF-009**: A requisicao DEVE ter tamanho maximo de texto de **20.000 caracteres** e
+  identificador em formato UUID; o identificador serve a rastreabilidade, nao a
+  autenticacao (RQ-14; ADR-0027, E2).
 - **RF-010**: Em falha de analise, a resposta DEVE trazer categoria de erro tecnico
-  propria; a politica e [PRECISA DE DECISAO: falhar fechado (bloquear) ou falhar aberto
-  (encaminhar com alerta)] (RQ-10).
+  propria; a politica e **falhar fechado**: decisao `bloquear`, categoria `erro_tecnico`
+  (RQ-10; ADR-0027, E3).
 - **RF-011**: A camada DEVE receber so as variaveis de ambiente que usa, por
   `environment` explicito no compose (RQ-15).
 - **RF-012**: A camada DEVE poder rodar sem o estagio de normalizacao, por configuracao,
@@ -156,11 +155,13 @@ RQ-14 e RQ-15; nao muda a deteccao.
   quando a camada decide `bloquear`, em qualquer ponto. Mudanca no `assistente/fluxo.json`,
   variavel de controle, igual nas quatro condicoes; o hash do fluxo usado e registrado na
   execucao.
-- **RF-014**: Solicitacoes nocivas (grupo NOC): [PRECISA DE DECISAO: a camada tem regra
-  propria para pedido nocivo, ou a contencao no grupo NOC fica com o modelo e a camada
-  so registra? A matriz mede NOC-01 em A, B e D.]
-- **RF-015**: Condicao D: [PRECISA DE DECISAO: a moderacao da OpenAI e chamada pela
-  camada, num modo da condicao D, ou pelo executor? Ver ADR-0006 e RQ-16.]
+- **RF-014**: Solicitacoes nocivas (grupo NOC): a camada **nao** tem regra propria para
+  pedido nocivo; a contencao vem do modelo ou das regras de injecao e contexto que
+  coincidirem, e a camada registra. Expectativa registrada antes: B proximo de A no
+  grupo NOC (ADR-0027, E4).
+- **RF-015**: Condicao D: a moderacao da OpenAI e chamada **pela camada em modo D, no
+  ponto `/entrada`**; em `/contexto` e `/saida` o modo D so encaminha. O identificador do
+  modelo devolvido pela moderacao vai para o registro (RQ-16; ADR-0027, E5).
 
 ### Restricoes
 

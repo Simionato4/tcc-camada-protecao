@@ -57,6 +57,24 @@ nao amostrou.
 > (OPEN WORLDWIDE APPLICATION SECURITY PROJECT, 2026), nao neutraliza cargas em
 > texto visivel nem classes esteganograficas futuras, ressalva que o proprio
 > documento normativo registra.
+>
+> *(Acrescentado em 09/11/2026.)* O congelamento do conjunto de teste antes da primeira
+> regra impede o ajuste iterativo das regras aos casos, mas nao elimina o **conhecimento
+> previo do autor**: para estratificar, mapear e verificar os conjuntos, o autor leu os
+> casos publicos (ADR-0017, ADR-0018, ADR-0024) antes de escrever as regras. As regras
+> foram desenvolvidas contra um conjunto separado (ADR-0019), mas a familiaridade com o
+> estilo dos ataques pode ter orientado escolhas de desenho. A limitacao e declarada, e
+> nao mensuravel por este experimento.
+>
+> Toda classificacao propria - estrato de codificacao do HackAPrompt, mapeamento para os
+> grupos e redacao das mensagens legitimas - foi feita por um **unico classificador**, o
+> autor, sem medida de concordancia entre anotadores; as duas primeiras rodadas da
+> estratificacao foram anotadas com assistencia de IA (ADR-0017, ADR-0018).
+>
+> Os casos do HackAPrompt foram escritos para os prompts da competicao, em ingles, e aqui
+> atacam um assistente de atendimento em portugues. Os resultados do `INJ-05` e do
+> `CTX-02` medem a contencao de tentativas reais nesse cenario, e nao reproduzem o
+> resultado da competicao (ADR-0018).
 
 ---
 
@@ -101,6 +119,12 @@ nao amostrou.
 > tecnicas de otimizacao adversarial que demandam acesso a gradientes do modelo ou
 > volume de chamadas incompativel com os recursos deste trabalho.
 
+>
+> *(Acrescentado em 09/11/2026.)* A classificacao propria, feita por um unico
+> classificador, pode ser reavaliada por um segundo anotador independente sobre uma
+> amostra dos casos do HackAPrompt e dos julgamentos da condicao A, com medida de
+> concordancia (kappa de Cohen), o que permitiria quantificar o vies de rotulagem
+> hoje apenas declarado.
 ---
 
 ## Referencias a acrescentar

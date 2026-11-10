@@ -38,3 +38,11 @@ reportada, e nao ajustada.
 
 ## Data
 2026-08-31
+
+## Nota de 09/11/2026: o prompt da verificacao de determinismo
+As tres chamadas de 31/08/2026 usaram o prompt de sistema provisorio do teste de fumaca
+(`scripts/fumaca_modelo.py`, constante `SISTEMA`), e nao o prompt definitivo
+(`assistente/prompt_sistema.md`, gerado depois). A evidencia preliminar vale para aquele
+prompt; a premissa de determinismo com o prompt definitivo e verificada no piloto
+(protocolo, secao 3) e, em escala, nas 3 repeticoes da condicao A. Apontado por revisao
+externa em 31/10/2026.

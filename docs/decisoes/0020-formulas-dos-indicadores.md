@@ -106,3 +106,23 @@ bloqueio e para a entrada; a D9 a restringe no contexto e na saida.
 
 ## Nota de 31/10/2026
 Referencia do metodo de Wilson (D6) reconciliada na ADR-0025.
+
+## Revisao de 09/11/2026: D10 a D13 (revisao externa de 31/10/2026)
+
+**Contexto.** Revisao externa do repositorio, feita com outra ferramenta de IA e analisada
+pelo autor ponto a ponto contra os arquivos, apontou quatro lacunas do metodo, todas
+conferidas: (1) a comparacao B x C no agregado dos sete tipos tem resultado anunciado,
+porque cinco tipos sao lacuna declarada do Presidio; (2) a latencia adicional "sobre os
+mesmos casos" e impossivel para C, que nao tem caso em comum com A; (3) intervalos de
+Wilson lado a lado nao usam o fato de as condicoes verem os mesmos casos; (4) o §8.3 nao
+diz entre quais condicoes o falso positivo e comparavel. Decisoes do autor, antes do
+congelamento e de qualquer regra da camada:
+
+| # | Escolha | Alternativa descartada | Motivo |
+|---|---|---|---|
+| D10 | Revocacao **por tipo do gabarito**, com o tipo atribuido ignorado, para B e para C; comparacao principal B x C no recorte **telefone mais endereco eletronico**; nos cinco documentos, C reportado como lacuna do comparador. O corpus e submetido a camada no ponto `saida`, o mesmo eixo do Presidio | so o agregado | o agregado mede, sobretudo, a lacuna ja declarada; o recorte comum mede deteccao contra deteccao |
+| D11 | Latencia so entre pares com os mesmos casos (B x A nos 1.164; D x A nos 1.089; B x C no corpus); valor do caso = mediana das suas repeticoes; D com uma medida por caso; C = `/analyze` + `/anonymize` | p50 sobre todas as repeticoes de todas as condicoes | a formula anterior nao era calculavel para C e misturava pesos diferentes por caso; a revisao estimou ~32,7 mil chamadas de moderacao para D, inferencia que nao procede (as 30 repeticoes da secao 1 sao da camada), mas a lacuna de definicao procedia |
+| D12 | McNemar exato pareado, com b, c, n e p; 5%, sem correcao, numero de testes reportado | so Wilson lado a lado | usa o pareamento, que e a forca do desenho; sem correcao porque o trabalho e descritivo e a leitura e de indicio |
+| D13 | Falso positivo comparado **so entre B e D** | - | A nao tem componente que decida; C nao recebe as mensagens legitimas |
+
+`protocolo.md`, secoes 8.3, 8.4, 8.9 e 8.11 (nova), atualizado com remissao a este bloco.

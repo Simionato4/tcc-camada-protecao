@@ -234,7 +234,7 @@ def conteudo() -> str:
     l.append("")
     l.append("## 6. Metodo")
     l.append("")
-    l.append("Formulas: `docs/protocolo.md`, secao 8 (ADR-0020, D1 a D9). Condicoes: A sem protecao, B camada,")
+    l.append("Formulas: `docs/protocolo.md`, secao 8 (ADR-0020, D1 a D13). Condicoes: A sem protecao, B camada,")
     l.append("C Presidio com adaptacao minima para portugues (ADR-0022), D moderacao OpenAI (ADR-0006).")
     l.append("Versoes dos componentes: `docs/versoes.md`.")
     l.append("")

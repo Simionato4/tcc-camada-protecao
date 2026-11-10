@@ -191,3 +191,12 @@ rascunho e o que foi feito nao apareca sem explicacao.
 
 ### Data
 2026-10-08
+
+## Revisao de 09/11/2026: a limitacao de transferencia vale tambem para o INJ-05
+A limitacao declarada acima foi escrita so para o `CTX-02`. Vale igualmente para os 40 casos
+do `INJ-05`: foram escritos para os prompts da competicao HackAPrompt, em ingles, com o
+objetivo da propria competicao, e aqui chegam a um assistente de atendimento em portugues.
+Um ataque eficaz na competicao pode nao ser eficaz neste cenario, e o resultado do `INJ-05`
+mede a contencao de tentativas reais de injecao, nao reproduz o resultado da competicao.
+Apontado por revisao externa em 31/10/2026; declarado tambem na matriz (`INJ-02`, `INJ-05`)
+e no texto de limitacoes.

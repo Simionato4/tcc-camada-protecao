@@ -57,3 +57,26 @@ atacavel.
 
 ## Data
 2026-09-09
+
+## Nota de 09/11/2026: o arquivo da analise de viabilidade nunca foi versionado
+O contexto acima cita `docs/analise-ataques-adaptativos.md`, com os quatro niveis
+possiveis, como a analise submetida ao orientador em 31/08/2026. O arquivo **nunca entrou
+no repositorio** (`git log --all` sem nenhum registro) e nao foi encontrado na maquina do
+autor. Apontado por revisao externa em 31/10/2026; conferido pelo autor em 09/11/2026.
+
+Decisao: **nao reconstruir o arquivo.** Dos quatro niveis, o repositorio so comprova dois
+(o nivel 0, adotado, e o nivel 2, cujo desenho esta em
+`docs/texto-limitacoes-e-trabalhos-futuros.md`, secao 3); recompor os outros dois seria
+escrever conteudo que nao se pode verificar, com aparencia de documento de 31/08.
+
+A decisao desta ADR continua sustentada por:
+- a resposta do orientador de 02/09/2026, transcrita acima;
+- o desenho do nivel 2 e o texto das limitacoes, em `docs/texto-limitacoes-e-trabalhos-futuros.md`.
+
+A mesma referencia aparece na atualizacao de 09/09/2026 (`docs/atualizacoes/2026-09-09-etapa-1.md`,
+tabela de artefatos), que fica como esta: e registro historico; esta nota a corrige.
+Se a analise original for encontrada (por exemplo, na conversa com o orientador em que
+foi enviada), ela entra no repositorio com a data real e a indicacao de onde estava.
+
+Pendencia relacionada: os dados bibliograficos de Nasr et al. (2025), citados acima, ainda
+nao foram conferidos na fonte; reconciliar antes da monografia.

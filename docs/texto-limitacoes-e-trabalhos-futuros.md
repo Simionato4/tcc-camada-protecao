@@ -75,6 +75,10 @@ nao amostrou.
 > atacam um assistente de atendimento em portugues. Os resultados do `INJ-05` e do
 > `CTX-02` medem a contencao de tentativas reais nesse cenario, e nao reproduzem o
 > resultado da competicao (ADR-0018).
+>
+> Toda a avaliacao ocorre em ambiente controlado, com um assistente de referencia e uma
+> base sintetica; o desempenho em cenario real de uso, que o NIST AI 600-1 recomenda
+> verificar (MS-4.2-002), nao e medido.
 
 ---
 
@@ -125,6 +129,13 @@ nao amostrou.
 > amostra dos casos do HackAPrompt e dos julgamentos da condicao A, com medida de
 > concordancia (kappa de Cohen), o que permitiria quantificar o vies de rotulagem
 > hoje apenas declarado.
+>
+> Cinco acoes do NIST AI 600-1 com as etiquetas adotadas ficaram fora do alcance deste
+> protocolo e podem orientar a continuidade (`docs/matriz/01-extracao-bruta.md`, revisao
+> de 09/11/2026). A mais proxima do trabalho e a MS-2.7-004: um conjunto de metricas da
+> eficacia das medidas de seguranca, das quais este trabalho mede apenas desvio e
+> extracao. Avaliacao em cenario real (MS-4.2-002) e testes adversariais em cadencia
+> regular (MS-4.2-001) completam o caminho.
 ---
 
 ## Referencias a acrescentar

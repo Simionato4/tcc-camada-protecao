@@ -119,3 +119,14 @@ sao substanciais e precisam entrar no planejamento dessas etapas.
 
 ## Data
 2026-09-10
+
+## Revisao de 09/11/2026: recontagem do NIST
+A selecao de 21 acoes NIST corrigida acima ainda tinha dois defeitos, apontados em parte
+por revisao externa (31/10/2026) e confirmados por conferencia visual das paginas do PDF:
+tres acoes sem as etiquetas do criterio (MS-2.3-003, MS-2.5-005, MS-2.6-001) e cinco
+acoes etiquetadas nunca examinadas (MS-1.3-003, MS-2.7-004, MS-2.7-008, MS-4.2-001,
+MS-4.2-002). Total correto: **23**. As cinco ficam `fora`; os 14 criterios nao mudam; a
+proporcao passa a 14 de 56. Detalhe e classificacao: `docs/matriz/01-extracao-bruta.md`,
+revisao de 09/11/2026. A licao de 10/09 ("conferencia por identificador, um a um, contra o
+documento original") nao tinha sido aplicada a lista inteira: so a contagem foi conferida.
+Desta vez a conferencia foi visual, pagina a pagina.

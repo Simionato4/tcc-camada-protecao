@@ -8,12 +8,12 @@ delimitadas.
 `LLM02:2026` e `LLM08:2026` (citacoes conferidas pagina a pagina em 31/10/2026, ADR-0025). NIST AI 600-1, jul. 2024 — funcao MEASURE, acoes
 etiquetadas com `Information Security` ou `Data Privacy`.
 
-**Origem das linhas.** Extracao e classificacao de escopo de 54 controles em
-`docs/matriz/01-extracao-bruta.md`. Dos 54, quatorze estao ao alcance do protocolo
-e viram os criterios abaixo. Os quarenta restantes ficam registrados na extracao
-com o motivo da exclusao.
+**Origem das linhas.** Extracao e classificacao de escopo de 56 controles em
+`docs/matriz/01-extracao-bruta.md` (54 ate a recontagem do NIST de 09/11/2026). Dos 56,
+quatorze estao ao alcance do protocolo e viram os criterios abaixo. Os quarenta e dois
+restantes ficam registrados na extracao com o motivo da exclusao.
 
-**O que a proporcao 14 de 54 mede, e o que nao mede.** Ela mede a fracao do
+**O que a proporcao 14 de 56 mede, e o que nao mede.** Ela mede a fracao do
 referencial que este protocolo experimental consegue verificar, e sustenta a
 afirmacao de que a cobertura e amostral e nao exaustiva. **Ela nao mede reducao de
 risco.** Numero de controles atendidos nao e proxy de seguranca obtida, e a

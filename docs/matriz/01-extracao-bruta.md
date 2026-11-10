@@ -110,7 +110,7 @@ enunciado dos criterios desta categoria: mede-se reducao de sucesso, nao prevenc
 
 ---
 
-## NIST AI 600-1, funcao MEASURE — 21 acoes etiquetadas
+## NIST AI 600-1, funcao MEASURE — acoes etiquetadas (23 apos a revisao de 09/11/2026; ver o fim do arquivo)
 
 | Action ID | Acao (resumo) | Etiquetas | Escopo | Metrica ou motivo |
 |---|---|---|---|---|
@@ -118,7 +118,7 @@ enunciado dos criterios desta categoria: mede-se reducao de sucesso, nao prevenc
 | MS-2.6-005 | Verificar que a arquitetura monitora saidas e trata, recupera e repara erros quando anomalias e ameacas de seguranca sao detectadas | Confabulation; Information Integrity; Information Security | parcial | A camada detecta, alerta e registra. Nao ha recuperacao nem reparo no desenho. Verificado apenas quanto a monitoramento e registro |
 | MS-2.6-006 | Verificar que o sistema trata adequadamente consultas que possam dar origem a uso inadequado, malicioso ou ilegal, incluindo manipulacao e ataques | Information Security | **avaliado** | Correspondencia direta com o conjunto Do-Not-Answer. Taxa de bloqueio por tipo de dano |
 | MS-2.6-007 | Avaliar regularmente vulnerabilidades a circunvencao de medidas de seguranca | Information Security | parcial | A circunvencao por ofuscacao e avaliada; a circunvencao adaptativa nao (ADR-0008) |
-| MS-2.7-001 | Avaliar probabilidade e magnitude de ameacas como contorno, extracao e inferencia | fora | A acao lista oito ameacas e o trabalho alcanca uma. A extracao de contexto e coberta pelos criterios do grupo CTX, onde e objeto principal |
+| MS-2.7-001 | Avaliar probabilidade e magnitude de ameacas como contorno, extracao e inferencia | Data Privacy; Information Integrity; Information Security; Value Chain and Component Integration | fora | A acao lista oito ameacas e o trabalho alcanca uma. A extracao de contexto e coberta pelos criterios do grupo CTX, onde e objeto principal |
 | MS-2.7-007 | Realizar red-teaming para avaliar resiliencia contra ataques de IA generativa, entre eles injecao de instrucao | Information Security | parcial | Avaliado por conjuntos publicados, nao por red-teaming adaptativo (ADR-0008) |
 | MS-2.2-001 | Avaliar e gerir vieses estatisticos de procedencia de conteudo | Information Security e outras | fora | Vies e procedencia estao fora do recorte |
 | MS-2.2-003 | Oferecer a titulares opcao de retirar consentimento | Data Privacy | fora | Nao ha titular real; dados sinteticos |
@@ -136,7 +136,7 @@ enunciado dos criterios desta categoria: mede-se reducao de sucesso, nao prevenc
 | MS-2.7-009 | Verificar periodicamente que as medidas permanecem eficazes | Information Security | fora | Processo longitudinal |
 | MS-4.2-005 | Documentar incorporacao de retorno publico estruturado nas decisoes | Information Security | fora | Processo organizacional |
 
-As 21 acoes selecionadas estao integralmente enumeradas acima, uma por linha.
+As acoes acima sao a selecao de 10/09/2026. A revisao de 09/11/2026, no fim do arquivo, retira tres que nao tem as etiquetas e acrescenta cinco que as tem: 23 acoes.
 
 ---
 
@@ -147,10 +147,12 @@ As 21 acoes selecionadas estao integralmente enumeradas acima, uma por linha.
 | OWASP LLM01 | 11 | 1 | 2 | 8 |
 | OWASP LLM02 | 19 | 3 | 1 | 15 |
 | OWASP LLM08 | 3 | 2 | 0 | 1 |
-| NIST MEASURE | 21 | 2 | 3 | 16 |
-| **Total** | **54** | **8** | **6** | **40** |
+| NIST MEASURE | 23 | 2 | 3 | 18 |
+| **Total** | **56** | **8** | **6** | **42** |
 
-Quatorze controles avaliados ou parciais, contra quarenta fora do alcance do
+(Contagens revistas em 09/11/2026; antes, NIST 21 e total 54, com 40 fora.)
+
+Quatorze controles avaliados ou parciais, contra quarenta e dois fora do alcance do
 protocolo. A proporcao e o argumento quantitativo da afirmacao de cobertura
 amostral ja presente na proposta: a maior parte dos controles do referencial e
 arquitetural, organizacional ou atua no ciclo de treinamento, e nenhum experimento
@@ -198,3 +200,39 @@ antes de a extracao ser considerada concluida.
 Na mesma revisao decidiu-se registrar o **tipo de verificacao** de cada criterio,
 uma vez que nem todo controle e verificavel por taxa experimental. Ver
 `docs/matriz_criterios.md`.
+
+## Revisao de 09/11/2026 — recontagem das acoes etiquetadas do NIST
+
+Uma revisao externa (31/10/2026) apontou tres acoes na lista sem as etiquetas do criterio.
+Conferencia **visual** das doze paginas da funcao MEASURE no PDF (p. 28 a 39 da numeracao
+impressa), linha a linha, e nao por extracao de texto, confirmou as tres e encontrou cinco
+acoes etiquetadas que nunca foram examinadas. E o mesmo defeito de metodo registrado em
+10/09/2026: a extracao de texto de tabela de PDF perdeu linhas.
+
+**Sem as etiquetas, saem da selecao** (estavam todas `fora`; nenhum criterio muda):
+
+| Action ID | Etiquetas no PDF |
+|---|---|
+| MS-2.3-003 | Human-AI Configuration |
+| MS-2.5-005 | Information Integrity |
+| MS-2.6-001 | Human-AI Configuration; Obscene, Degrading, and/or Abusive Content; Value Chain and Component Integration; Dangerous, Violent, or Hateful Content |
+
+**Com as etiquetas, entram na selecao** (classificacao do autor, 09/11/2026):
+
+| Action ID | Acao (resumo) | Etiquetas | Escopo | Motivo |
+|---|---|---|---|---|
+| MS-1.3-003 | Quem conduz exercicios estruturados de feedback humano nao participa do desenvolvimento do mesmo modelo | Human-AI Configuration; Data Privacy | fora | Processo organizacional |
+| MS-2.7-004 | Definir metricas da eficacia das medidas de seguranca: tentativas de acesso nao autorizado, inferencia, desvio (bypass), extracao, invasao, verificacao de proveniencia | Information Integrity; Information Security | fora | Pede um conjunto organizacional de metricas. Desvio e extracao sao medidos pelos criterios `INJ-02`, `INJ-04`, `INJ-05` e `CTX-02`, nomeados aqui; o restante (acesso, inferencia, invasao, proveniencia) nao e medido. Candidata a trabalho futuro |
+| MS-2.7-008 | Verificar que o ajuste fino nao compromete os controles de seguranca | Information Integrity; Information Security; Dangerous, Violent, or Hateful Content | fora | Nao ha ajuste fino |
+| MS-4.2-001 | Testes adversariais em cadencia regular, inclusive contra a manipulacao de tecnicas de proveniencia | Information Integrity; Information Security | fora | Cadencia organizacional; proveniencia de conteudo fora do escopo |
+| MS-4.2-002 | Avaliar o desempenho em cenarios reais, que revelam problemas ausentes em ambientes controlados | Human-AI Configuration; Confabulation; Information Security | fora | O experimento e so em ambiente controlado; **declarado como limitacao** |
+
+**As 23 acoes com `Information Security` ou `Data Privacy`:** MS-1.3-003, MS-2.2-001,
+MS-2.2-002, MS-2.2-003, MS-2.2-004, MS-2.3-001, MS-2.3-002, MS-2.3-004, MS-2.5-006,
+MS-2.6-002, MS-2.6-005, MS-2.6-006, MS-2.6-007, MS-2.7-001, MS-2.7-002, MS-2.7-004,
+MS-2.7-006, MS-2.7-007, MS-2.7-008, MS-2.7-009, MS-4.2-001, MS-4.2-002, MS-4.2-005.
+Contagem conferida: 23 identificadores, 23 classificados (5 nesta revisao, 18 na tabela
+acima, menos as tres retiradas).
+
+Efeito: os 14 criterios nao mudam. A proporcao passa de 14 de 54 para **14 de 56**
+(33 do OWASP e 23 do NIST). Registrado tambem na ADR-0010.

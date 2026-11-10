@@ -52,3 +52,15 @@ hash e o que permite identificar exatamente o que se perdeu.
 
 ## Data
 2026-09-11
+
+## Revisao de 09/11/2026: os PDFs do referencial estavam versionados
+Esta ADR e a atualizacao da Etapa 1 afirmam que os PDFs do OWASP e do NIST nao vao para o
+repositorio. Revisao externa (31/10/2026) mostrou que os dois estavam versionados em
+`docs/referencial/`. Corrigido: `git rm --cached` dos dois, que continuam na maquina do
+autor, e `docs/referencial/*.pdf` no `.gitignore`. Permanecem no historico do Git ate
+esta data. A identificacao exata de cada um fica registrada pelo sha256: OWASP GenAI LLM
+Top 10 2026 v1.0 na ADR-0025 e, com o NIST AI 600-1, em `docs/matriz/01-extracao-bruta.md`,
+secao Fontes. Os dois arquivos nao mudaram desde o commit `824d54f` (09/09/2026), em que
+entraram: os hashes sao os das copias usadas na extracao.
+O motivo e a coerencia com o que foi declarado, nao uma restricao de licenca: o NIST e
+de dominio publico nos EUA, e o OWASP (CC BY-SA 4.0) admite copia com atribuicao.

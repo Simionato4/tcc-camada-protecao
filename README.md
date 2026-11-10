@@ -106,7 +106,7 @@ Plano de chamadas e projecao de custo: `docs/orcamento.md` e ADR-0001.
 ## Estrutura
 
 ```
-specs/               artefatos do Spec Kit, por etapa
+specs/               especificacao, plano e tarefas por etapa, da Etapa 4 em diante (ADR-0026)
 docs/decisoes/       ADRs, um arquivo por decisao relevante
 docs/versoes.md      versao exata de cada componente, coletada por comando
 docs/orcamento.md    plano de chamadas e consumo medido
@@ -122,9 +122,11 @@ scripts/             verificacao de servicos, coleta de versoes, teste de fumaca
 
 ## Metodologia
 
-GitHub Spec Kit. Cada etapa produz especificacao, plano tecnico e lista de
-tarefas em markdown, versionados aqui. Decisoes tecnicas relevantes viram ADR em
-`docs/decisoes/` no mesmo dia.
+GitHub Spec Kit como referencia de metodo. Da Etapa 4 em diante, cada etapa produz
+especificacao, plano tecnico e lista de tarefas em markdown, versionados aqui antes da
+implementacao. Nas Etapas 0 a 3 esses artefatos nao foram produzidos, e o registro
+delas esta nos ADRs e nas atualizacoes (emenda da constituicao, ADR-0026). Decisoes
+tecnicas relevantes viram ADR em `docs/decisoes/` no mesmo dia.
 
 ## Licenca
 

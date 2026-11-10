@@ -45,3 +45,7 @@ Thumbs.db
 # projeto vive nas ADRs, nos requisitos herdados e no historico de commits. Guardado
 # fora do repositorio desde 08/10/2026; as versoes anteriores permanecem no historico.
 CONTEXTO_TCC.md
+
+# PDFs do referencial: nao redistribuidos (ADR-0016, revisao de 09/11/2026). URL,
+# versao e sha256 registrados na ADR-0025 e na extracao da matriz.
+docs/referencial/*.pdf

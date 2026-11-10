@@ -117,8 +117,11 @@ de conteudo nocivo alem do necessario para a tarefa tecnica.
 
 ## Fluxo de desenvolvimento
 
-1. Cada etapa produz especificacao, plano tecnico e lista de tarefas em markdown,
-   versionados no repositorio publico antes da implementacao.
+1. Da Etapa 4 em diante, cada etapa produz especificacao, plano tecnico e lista de
+   tarefas em markdown, em `specs/`, versionados no repositorio publico antes da
+   implementacao. Nas Etapas 0 a 3 esses artefatos nao foram produzidos; o registro
+   dessas etapas esta nos ADRs, nas atualizacoes e nos roteiros de `docs/` (emenda de
+   09/11/2026, ADR-0026).
 2. Toda decisao tecnica relevante vira um ADR curto em `docs/decisoes/` no mesmo
    dia, com a alternativa considerada e o motivo do descarte.
 3. Cada estagio da camada e testavel isoladamente, com testes unitarios que
@@ -130,7 +133,9 @@ de conteudo nocivo alem do necessario para a tarefa tecnica.
    linha a uma banca. Nomes em portugues no dominio, em ingles nas convencoes da
    linguagem.
 7. Atualizacao semanal ao orientador, com o que foi feito, decisao tomada,
-   evidencia, dificuldade e proximo passo.
+   evidencia, dificuldade e proximo passo, registrada em `docs/atualizacoes/`. Entre
+   11/09 e 09/11/2026 as atualizacoes nao foram registradas; o periodo e coberto pela
+   atualizacao de 09/11/2026 (ADR-0026).
 8. Se uma etapa consumir a folga do cronograma, aplica-se o plano de corte
    previsto no plano de desenvolvimento, em vez de reduzir rigor.
 
@@ -150,4 +155,4 @@ Conveniencia de prazo nunca e justificativa de emenda. Quando prazo e rigor
 entrarem em conflito, corta-se escopo pelo plano de corte previsto, e a reducao e
 declarada nos resultados.
 
-**Version**: 1.0.0 | **Ratified**: 2026-08-31 | **Last Amended**: 2026-08-31
+**Version**: 1.1.0 | **Ratified**: 2026-08-31 | **Last Amended**: 2026-11-09 (ADR-0026)

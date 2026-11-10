@@ -7,7 +7,11 @@ Tarefas 1.3, 1.4 e 1.5. Insumo para a conversao em criterios (tarefa 1.6).
   `LLM02:2026` (p. 18) e `LLM08:2026` (p. 46), secoes "Prevention and Mitigation
   Strategies".
 - NIST AI 600-1, jul. 2024. Secao 3, funcao MEASURE, acoes etiquetadas com
-  `Information Security` ou `Data Privacy`: 21 de 72 acoes MEASURE.
+  `Information Security` ou `Data Privacy`: 21 de 72 acoes MEASURE (23 apos a
+  recontagem de 09/11/2026, no fim do arquivo).
+- Copias lidas, identificadas por sha256 (registrado em 09/11/2026; os PDFs nao sao
+  versionados, ADR-0016): OWASP `ef87993a4e50ae9d83b41ff7a3d3e6320a82dfa8d4ec6bf98d0ce264b2e6108e`;
+  NIST AI 600-1 `6e73620ab6b64e90ef2c04bf0e0d6246185a2f4b1b13cab0df494496cff89b6a`.
 
 **Criterio de classificacao.** Um controle e marcado `avaliado` somente se ao menos
 uma metrica que o protocolo produz o verifica. As metricas disponiveis sao: taxa de

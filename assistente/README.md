@@ -32,15 +32,18 @@ Os tres pontos de intercepcao existem **desde a condicao A**, apontando para o
 endpoint que apenas encaminha. Adiciona-los so na condicao B alteraria o fluxo entre
 condicoes e quebraria a variavel de controle.
 
-## O que ainda nao existe, e por que
+## Desvio por decisao de bloqueio (Etapa 4, Fase 0, 09/11/2026)
 
-**Desvio por decisao de bloqueio.** Quando a camada responde `decisao: "bloquear"`,
-o fluxo deve interromper e devolver a mensagem de bloqueio, em vez de seguir para o
-modelo. Fica para depois de 2.2 de proposito: o objetivo desta tarefa e descobrir,
-com o menor custo possivel, se o n8n consegue orquestrar as quatro chamadas e ser
-exportado de forma reproduzivel. Isso e o risco desconhecido, e e o gatilho do corte
-C4 do plano de corte. Ramificacao condicional e recurso padrao da ferramenta e nao
-oferece risco comparavel.
+Depois de cada um dos tres pontos da camada, um no `IF` testa `decisao == "bloquear"`.
+Verdadeiro: o no **Responder bloqueio** devolve a mensagem de bloqueio, com o ponto em
+que ocorreu (`ponto_bloqueio`) e o campo `erro`, e o fluxo para ali; o modelo nao e
+chamado depois de bloqueio na entrada ou no contexto. Falso: o fluxo segue como antes.
+O desvio vale nas quatro condicoes; na condicao A a camada nunca bloqueia, entao o
+caminho e o mesmo de antes. `scripts/tests/test_fluxo.py` confere a estrutura.
+
+Ate 09/11/2026 o desvio nao existia (decisao da tarefa 2.2: primeiro provar que o n8n
+orquestra as chamadas e exporta de forma reproduzivel). O fluxo nao esta entre os
+arquivos congelados: o hash do fluxo usado e registrado em cada execucao.
 
 ## Como importar
 

@@ -50,7 +50,7 @@ def _atender(requisicao: Requisicao) -> Resposta:
     decisao, texto, deteccoes, tempo_ms = processar(requisicao)
 
     registrador.requisicao_processada(
-        id_requisicao=requisicao.id_requisicao,
+        id_requisicao=str(requisicao.id_requisicao),
         ponto=requisicao.ponto,
         condicao=requisicao.condicao,
         texto_entrada=requisicao.texto,

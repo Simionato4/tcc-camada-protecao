@@ -147,8 +147,12 @@ services:
     restart: unless-stopped
     ports:
       - "127.0.0.1:8000:8000"
-    env_file:
-      - .env
+    environment:
+      # Menor privilegio (RQ-15): so o que a camada le. Sem `env_file`: o `.env` inteiro
+      # traria credenciais que ela nao usa. O modo da condicao D acrescentara aqui a
+      # chave da moderacao, quando for implementado (ADR-0027, E5).
+      - VERSAO_REGRAS=${VERSAO_REGRAS:-0.0.0-encaminhamento}
+      - ARQUIVO_LOG=${ARQUIVO_LOG:-resultados/camada.jsonl}
     volumes:
       - ./resultados:/app/resultados
     healthcheck:

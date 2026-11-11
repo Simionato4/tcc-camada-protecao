@@ -64,7 +64,9 @@ def test_contrato_completo_em_todas_as_condicoes(condicao: str) -> None:
         "versao_regras",
         "ponto",
         "condicao",
+        "erro",
     }
+    assert corpo["erro"] is None
     assert corpo["tempo_ms"] >= 0
     assert corpo["condicao"] == condicao
 

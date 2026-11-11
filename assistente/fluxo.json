@@ -11,11 +11,11 @@
       "type": "n8n-nodes-base.webhook",
       "typeVersion": 2,
       "position": [
-        3088,
-        544
+        0,
+        0
       ],
       "name": "Entrada do usuario",
-      "id": "788b0cf2-5eb7-4b21-aa99-8e51e2e4d214",
+      "id": "1b391ae6-7f2e-4bd6-a09f-ad4a7dc64cee",
       "webhookId": "8ec9179c-dc53-4478-beb3-19c0a1e197a3"
     },
     {
@@ -30,11 +30,11 @@
       "type": "n8n-nodes-base.httpRequest",
       "typeVersion": 4.2,
       "position": [
-        3312,
-        544
+        224,
+        0
       ],
       "name": "Camada - entrada",
-      "id": "2fd29270-68e3-4c07-82e4-8ea9e7b57cd9"
+      "id": "bcb5768a-c6cb-4ab5-ada6-fe2e27f22c7e"
     },
     {
       "parameters": {
@@ -48,11 +48,11 @@
       "type": "n8n-nodes-base.httpRequest",
       "typeVersion": 4.2,
       "position": [
-        3536,
-        544
+        672,
+        0
       ],
       "name": "Recuperador - buscar",
-      "id": "a75821eb-36f7-4271-ae37-e6633bc9dbc1"
+      "id": "6923af86-ef07-400f-9424-145d246d791f"
     },
     {
       "parameters": {
@@ -61,11 +61,11 @@
       "type": "n8n-nodes-base.code",
       "typeVersion": 2,
       "position": [
-        3760,
-        544
+        896,
+        0
       ],
       "name": "Montar contexto",
-      "id": "d048692d-e387-42a2-a3df-494082da8d76"
+      "id": "ce1b5634-fdf7-4bb0-9fd6-022cdb5992e8"
     },
     {
       "parameters": {
@@ -79,11 +79,11 @@
       "type": "n8n-nodes-base.httpRequest",
       "typeVersion": 4.2,
       "position": [
-        3968,
-        544
+        1120,
+        0
       ],
       "name": "Camada - contexto",
-      "id": "d59fdbda-06ac-45b0-9b54-ba91ccde41c9"
+      "id": "d1161ab5-4500-42fa-bebd-bea8d9ece554"
     },
     {
       "parameters": {
@@ -97,11 +97,11 @@
       "type": "n8n-nodes-base.httpRequest",
       "typeVersion": 4.2,
       "position": [
-        4192,
-        544
+        1568,
+        0
       ],
       "name": "Modelo",
-      "id": "267d785c-68a9-44ff-b80d-452fbd06dc93"
+      "id": "9f1e35a2-bcea-4684-9c01-bd5f21da8d1a"
     },
     {
       "parameters": {
@@ -115,11 +115,11 @@
       "type": "n8n-nodes-base.httpRequest",
       "typeVersion": 4.2,
       "position": [
-        4416,
-        544
+        1792,
+        0
       ],
       "name": "Camada - saida",
-      "id": "a7513deb-490a-49bf-87a6-3d35e758a3e0"
+      "id": "f956864a-f94d-41e4-b977-fc11a624a94d"
     },
     {
       "parameters": {
@@ -130,11 +130,125 @@
       "type": "n8n-nodes-base.respondToWebhook",
       "typeVersion": 1.1,
       "position": [
-        4640,
-        544
+        2240,
+        0
       ],
       "name": "Responder",
-      "id": "c8236439-8573-439b-9ef4-7f6522be3154"
+      "id": "f1ca52c0-5878-46da-8819-681f9ecd87c1"
+    },
+    {
+      "parameters": {
+        "conditions": {
+          "options": {
+            "caseSensitive": true,
+            "leftValue": "",
+            "typeValidation": "strict",
+            "version": 1
+          },
+          "conditions": [
+            {
+              "id": "381868c7-5379-5afe-ab18-14f6c927e0aa",
+              "leftValue": "={{ $json.decisao }}",
+              "rightValue": "bloquear",
+              "operator": {
+                "type": "string",
+                "operation": "equals"
+              }
+            }
+          ],
+          "combinator": "and"
+        },
+        "options": {}
+      },
+      "id": "65c94169-7c75-4c42-a8e1-5fd5a9a03cf1",
+      "name": "Bloqueado na entrada?",
+      "type": "n8n-nodes-base.if",
+      "typeVersion": 2,
+      "position": [
+        448,
+        0
+      ]
+    },
+    {
+      "parameters": {
+        "conditions": {
+          "options": {
+            "caseSensitive": true,
+            "leftValue": "",
+            "typeValidation": "strict",
+            "version": 1
+          },
+          "conditions": [
+            {
+              "id": "e420a66a-1d80-5f2b-bc7b-8cafc5e76710",
+              "leftValue": "={{ $json.decisao }}",
+              "rightValue": "bloquear",
+              "operator": {
+                "type": "string",
+                "operation": "equals"
+              }
+            }
+          ],
+          "combinator": "and"
+        },
+        "options": {}
+      },
+      "id": "e218f37e-16ef-42f5-9539-76bd3a80fc9a",
+      "name": "Bloqueado no contexto?",
+      "type": "n8n-nodes-base.if",
+      "typeVersion": 2,
+      "position": [
+        1344,
+        0
+      ]
+    },
+    {
+      "parameters": {
+        "conditions": {
+          "options": {
+            "caseSensitive": true,
+            "leftValue": "",
+            "typeValidation": "strict",
+            "version": 1
+          },
+          "conditions": [
+            {
+              "id": "9aa8d554-e232-5f05-b9ef-abbceaa911fa",
+              "leftValue": "={{ $json.decisao }}",
+              "rightValue": "bloquear",
+              "operator": {
+                "type": "string",
+                "operation": "equals"
+              }
+            }
+          ],
+          "combinator": "and"
+        },
+        "options": {}
+      },
+      "id": "b630e4b7-60ad-4ec5-9c1a-7c61c7f16b6a",
+      "name": "Bloqueado na saida?",
+      "type": "n8n-nodes-base.if",
+      "typeVersion": 2,
+      "position": [
+        2016,
+        0
+      ]
+    },
+    {
+      "parameters": {
+        "respondWith": "json",
+        "responseBody": "={{ JSON.stringify({ resposta: 'Nao posso atender a esta solicitacao.', decisao: 'bloquear', ponto_bloqueio: $json.ponto, erro: $json.erro, tempo_ms: $json.tempo_ms, versao_regras: $json.versao_regras, id_requisicao: $('Entrada do usuario').item.json.body.id_requisicao, condicao: $('Entrada do usuario').item.json.body.condicao }) }}",
+        "options": {}
+      },
+      "id": "c55681ea-2353-4ebf-824c-10000db2a606",
+      "name": "Responder bloqueio",
+      "type": "n8n-nodes-base.respondToWebhook",
+      "typeVersion": 1.1,
+      "position": [
+        1344,
+        256
+      ]
     }
   ],
   "pinData": {},
@@ -152,6 +266,24 @@
     },
     "Camada - entrada": {
       "main": [
+        [
+          {
+            "node": "Bloqueado na entrada?",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Bloqueado na entrada?": {
+      "main": [
+        [
+          {
+            "node": "Responder bloqueio",
+            "type": "main",
+            "index": 0
+          }
+        ],
         [
           {
             "node": "Recuperador - buscar",
@@ -187,6 +319,24 @@
       "main": [
         [
           {
+            "node": "Bloqueado no contexto?",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Bloqueado no contexto?": {
+      "main": [
+        [
+          {
+            "node": "Responder bloqueio",
+            "type": "main",
+            "index": 0
+          }
+        ],
+        [
+          {
             "node": "Modelo",
             "type": "main",
             "index": 0
@@ -209,6 +359,24 @@
       "main": [
         [
           {
+            "node": "Bloqueado na saida?",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Bloqueado na saida?": {
+      "main": [
+        [
+          {
+            "node": "Responder bloqueio",
+            "type": "main",
+            "index": 0
+          }
+        ],
+        [
+          {
             "node": "Responder",
             "type": "main",
             "index": 0
@@ -222,11 +390,11 @@
     "executionOrder": "v1",
     "binaryMode": "separate"
   },
-  "versionId": "7f8ae66a-fb6e-4633-9dc6-129e166a48b0",
+  "versionId": "863f0c53-6515-4b55-bec8-88fefb58c912",
   "meta": {
     "instanceId": "b52dc35ec807d4a7716353ac8a5103d9f326b34bdad75b76294e27ad0b0da119"
   },
   "nodeGroups": [],
-  "id": "9Z4QsYA43Hc5kog4",
+  "id": "odt6mhAoAVlQxwzi",
   "tags": []
 }

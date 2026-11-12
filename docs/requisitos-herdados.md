@@ -24,7 +24,7 @@ unico e declarado como instrumento de medicao, e nao como segredo operacional.
 Registrar explicitamente que a camada conhece o marcador, o que lhe confere
 vantagem estrutural no criterio `CTX-02`.
 **Aceitacao:** `assistente/prompt_sistema.md` versionado, e a declaracao presente na
-matriz junto ao criterio. **Estado:** aberto.
+matriz junto ao criterio. **Estado:** cumprido (fechamento da Etapa 3, 12/11/2026). Evidencia: `assistente/prompt_sistema.md` versionado e congelado (`conjunto_teste/CONGELADO.md`, secao 2); declaracao do marcador em `docs/matriz_criterios.md`, criterios `PII-05` e `CTX-02`.
 
 ### RQ-18 — Restauracao da base entre cenarios
 **Origem:** revisao externa.
@@ -32,7 +32,7 @@ matriz junto ao criterio. **Estado:** aberto.
 base precisa ser restaurada a um estado conhecido, sob pena de contaminacao
 cruzada entre casos.
 **Aceitacao:** procedimento de restauracao script ado e verificavel por hash da
-colecao indexada. **Estado:** aberto.
+colecao indexada. **Estado:** cumprido (fechamento da Etapa 3, 12/11/2026). Evidencia: `recuperador/app/contaminacao.py` e `recuperador/tests/test_contaminacao.py`; ADR-0014, verificacao de 14/10/2026; `docker compose exec recuperador python -m app.indexar` em 12/11/2026, com hash dos arquivos e hash lido da colecao iguais a `f118bb58...60baa7` e recuperacao 30/30.
 
 ---
 
@@ -50,7 +50,7 @@ contextos multiplos.
 detector que marca toda sequencia numerica obtem revocacao alta, e so os negativos
 o denunciam.
 **Aceitacao:** gabarito versionado, com contagem declarada de positivos e de
-negativos dificeis por tipo. **Estado:** aberto.
+negativos dificeis por tipo. **Estado:** cumprido (fechamento da Etapa 3, 12/11/2026). Evidencia: `conjunto_teste/pii/corpus.jsonl` (355 textos; 50 positivos e 50 negativos dificeis em cada um dos 7 tipos; posicoes do gabarito conferidas contra o texto original, 0 divergencias); ADR-0015.
 
 ### RQ-03 — Recorte e formato dos documentos
 **Origem:** revisao externa.
@@ -60,7 +60,7 @@ brasileiro, com o recorte declarado. Declarar tambem qual formato de CNPJ e
 suportado, uma vez que ja existe emissao em formato alfanumerico, e verificar o
 suporte da biblioteca de validacao.
 **Aceitacao:** declaracao em `CONGELADO.md` e verificacao do suporte por teste
-unitario. **Estado:** aberto.
+unitario. **Estado:** cumprido (fechamento da Etapa 3, 12/11/2026). Evidencia: `conjunto_teste/CONGELADO.md`, secao 5; `scripts/tests/test_suporte_cnpj.py`.
 
 ### RQ-04 — Criterio de rotulacao documentado
 **Origem:** parecer da banca, recomendacao 3.
@@ -68,13 +68,13 @@ unitario. **Estado:** aberto.
 conjunto, o mapeamento de cada rotulo para os quatro grupos da matriz, o criterio
 textual que orientou o mapeamento, e a autoria e data da classificacao, com a
 declaracao de classificador unico.
-**Aceitacao:** secao propria em `CONGELADO.md`. **Estado:** aberto.
+**Aceitacao:** secao propria em `CONGELADO.md`. **Estado:** cumprido (fechamento da Etapa 3, 12/11/2026). Evidencia: `conjunto_teste/CONGELADO.md`, secao 4; `docs/mapeamento-rotulos.md`.
 
 ### RQ-05 — Versao, data e hash dos conjuntos publicos
 **Origem:** parecer da banca, recomendacao 4.
 **Requisito:** para Do-Not-Answer, BIPIA e HackAPrompt, registrar versao ou
 identificador de commit, data de obtencao, hash SHA-256 dos arquivos e licenca.
-**Aceitacao:** tabela em `CONGELADO.md`. **Estado:** aberto.
+**Aceitacao:** tabela em `CONGELADO.md`. **Estado:** cumprido (fechamento da Etapa 3, 12/11/2026). Evidencia: `conjunto_teste/CONGELADO.md`, secao 3; `conjunto_teste/origem.json`.
 
 ### RQ-06 — Conjunto de desenvolvimento separado do conjunto congelado
 **Origem:** revisao externa.
@@ -84,7 +84,7 @@ antes das regras nao elimina, sozinho, o vies de desenvolvimento: e preciso que 
 exemplos de trabalho sejam outros, e que isso seja verificavel.
 **Aceitacao:** as duas pastas existem, e nenhum caso do conjunto congelado aparece
 no de desenvolvimento — verificado por comparacao de hash caso a caso.
-**Estado:** aberto.
+**Estado:** cumprido (fechamento da Etapa 3, 12/11/2026). Evidencia: `python scripts/verificar_separacao.py` em 12/11/2026: 0 textos em comum e 0 valores de documento em comum; ADR-0019.
 
 ### RQ-17 — Precisao da restricao sobre dados sinteticos
 **Origem:** revisao externa.
@@ -92,8 +92,7 @@ no de desenvolvimento — verificado por comparacao de hash caso a caso.
 publicos sao prompts reais publicados, e nao texto sintetico. Corrigir a redacao na
 constituicao, no README e na monografia, e verificar o conteudo e a licenca de cada
 conjunto quanto a presenca de dados pessoais.
-**Aceitacao:** redacao corrigida e verificacao registrada. **Estado:** cumprido
-parcialmente — constituicao corrigida em 10/09; verificacao dos conjuntos pendente.
+**Aceitacao:** redacao corrigida e verificacao registrada. **Estado:** cumprido (fechamento da Etapa 3, 12/11/2026) quanto a constituicao, ao README e a verificacao dos conjuntos (ADR-0024, 1.064 casos). A redacao na monografia fica para a escrita do texto, junto do RQ-20.
 
 ---
 
@@ -144,14 +143,14 @@ contribuicao do estagio que sustenta a tese do trabalho.
 identificador. O UUID serve a rastreabilidade, nao a autenticacao nem a
 autorizacao, e isso deve estar declarado.
 **Aceitacao:** validacao no contrato Pydantic e teste que confere a recusa.
-**Estado:** aberto.
+**Estado:** aberto. Nota de 12/11/2026: implementado na Fase 0 da Etapa 4 (commit `3780d93`); o estado muda no fechamento da Etapa 4.
 
 ### RQ-15 — Menor privilegio nas variaveis de ambiente
 **Origem:** revisao externa.
 **Requisito:** a camada recebe hoje o `.env` inteiro, incluindo credenciais de que
 nao precisa. Cada servico recebe apenas as variaveis que usa.
 **Aceitacao:** `docker-compose.yml` com `environment` explicito por servico, sem
-`env_file` global na camada. **Estado:** aberto.
+`env_file` global na camada. **Estado:** aberto. Nota de 12/11/2026: implementado na Fase 0 da Etapa 4 (commit `3780d93`); o estado muda no fechamento da Etapa 4.
 
 ---
 
@@ -187,7 +186,7 @@ adequada ao portugues: comparar a camada em portugues com o comparador configura
 para ingles invalida a condicao C. O teste de fumaca da Etapa 0, que enviou texto em
 portugues com `language="en"`, comprova resposta HTTP e nada mais.
 **Aceitacao:** configuracao versionada e registrada em `docs/versoes.md`; execucao
-de sanidade em portugues antes do congelamento. **Estado:** aberto.
+de sanidade em portugues antes do congelamento. **Estado:** aberto. Nota de 12/11/2026: a parte exigida antes do congelamento esta feita (configuracao versionada e congelada, `docs/versoes.md`, sanidade em portugues, ADR-0022); o estado muda no fechamento da Etapa 5.
 
 ### RQ-16 — Versao efetiva do servico de moderacao
 **Origem:** revisao externa.
@@ -203,7 +202,7 @@ congelamento; apos ele, so se completam detalhes operacionais. Fechar as formula
 bloqueio, falso positivo, falso negativo, precisao, revocacao, F1 por tipo e Taxa de
 Compensacao.
 **Aceitacao:** secao 8 de `docs/protocolo.md` fechada antes de `CONGELADO.md`.
-**Estado:** aberto.
+**Estado:** cumprido (fechamento da Etapa 3, 12/11/2026). Evidencia: `docs/protocolo.md`, secao 8, fechada em 14/10/2026 (ADR-0020), com hash em `conjunto_teste/CONGELADO.md` (`docs/protocolo.md#fechadas`).
 
 ---
 

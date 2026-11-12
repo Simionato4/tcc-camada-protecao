@@ -240,9 +240,10 @@ def conteudo() -> str:
     l.append("")
     l.append("## 7. Fora da lista, e por que")
     l.append("")
-    l.append("- `assistente/fluxo.json`: o desvio por decisao de bloquear ainda sera implementado")
-    l.append("  (`assistente/README.md`). O fluxo e variavel de controle: o hash do fluxo usado e")
-    l.append("  registrado em cada execucao, como o da colecao do Qdrant (ADR-0014).")
+    l.append("- `assistente/fluxo.json`: cada exportacao do n8n gera de novo os identificadores e as")
+    l.append("  posicoes dos nos, e o hash mudaria sem mudanca de comportamento. O fluxo e variavel de")
+    l.append("  controle: o hash do fluxo usado e registrado em cada execucao, como o da colecao do")
+    l.append("  Qdrant (ADR-0014).")
     l.append("- `docs/matriz_criterios.md`: recebe a coluna de resultado na Etapa 7. Os criterios")
     l.append("  ficam fixados pelos ADRs e por este registro; nenhum criterio muda depois desta data.")
     l.append("")
@@ -274,7 +275,7 @@ def main() -> int:
         return 1
     if not argumentos.gravar:
         print("Pre-condicoes atendidas. Pre-visualizacao apenas: nada gravado.")
-        print("Para congelar, depois da revisao do orientador: python scripts/congelar.py --gravar")
+        print("Para congelar (ADR-0028): python scripts/congelar.py --gravar")
         return 0
     DESTINO.write_text(texto, encoding="utf-8", newline="\n")
     print(f"gravado: {DESTINO.relative_to(RAIZ)}  sha256 {sha(DESTINO)}")

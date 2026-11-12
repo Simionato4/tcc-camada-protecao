@@ -1,11 +1,11 @@
-"""Camada intermediaria de protecao - esqueleto da Etapa 0.
+"""Camada intermediaria de protecao.
 
-ESTADO ATUAL: encaminhamento puro. Nenhuma regra de deteccao existe neste
-repositorio, e nenhuma pode existir antes do congelamento do conjunto de teste
-(Etapa 3). Os arquivos normalizacao.py, deteccao.py e decisao.py sao criados
-somente depois que CONGELADO.md estiver datado e com hash.
+ESTADO ATUAL (Etapa 4, Fase 1, em construcao): o estagio de normalizacao esta ligado ao
+fluxo, mas ainda nao ha deteccao nem decisao; a camada continua so encaminhando, e o
+texto encaminhado e sempre o ORIGINAL. As regras sao posteriores ao congelamento do
+conjunto de teste (`conjunto_teste/CONGELADO.md`, 12/11/2026).
 
-Por que os tres endpoints ja existem: o fluxo do assistente e variavel de
+Por que os tres endpoints existem desde a Etapa 0: o fluxo do assistente e variavel de
 controle e precisa ser identico nas quatro condicoes. Se os nos HTTP fossem
 adicionados so na condicao B, o fluxo mudaria entre condicoes e a diferenca
 observada deixaria de ser atribuivel a estrategia de protecao.
@@ -17,9 +17,26 @@ import time
 from fastapi import FastAPI
 
 from .contrato import Requisicao, Resposta
+from .normalizacao import normalizar
 from .registro import registrador
 
 VERSAO_REGRAS = os.getenv("VERSAO_REGRAS", "0.0.0-encaminhamento")
+
+
+def ler_normalizacao(valor: str) -> bool:
+    """Le a configuracao do estagio de normalizacao (RF-012, RQ-12).
+
+    So aceita `ligada` ou `desligada`. Valor desconhecido impede a camada de subir: uma
+    ablacao rodada com a configuracao errada sem ninguem perceber invalidaria a medida.
+    """
+    if valor == "ligada":
+        return True
+    if valor == "desligada":
+        return False
+    raise ValueError(f"NORMALIZACAO deve ser 'ligada' ou 'desligada'; recebido: {valor!r}")
+
+
+NORMALIZACAO_ATIVA = ler_normalizacao(os.getenv("NORMALIZACAO", "ligada"))
 
 app = FastAPI(
     title="Camada intermediaria de protecao",
@@ -37,7 +54,11 @@ def processar(requisicao: Requisicao) -> tuple[str, str, list, float]:
     """
     inicio = time.perf_counter()
 
-    # Etapa 0: passagem pura, identica nas quatro condicoes.
+    # Estagio 1: normalizacao. A deteccao (ainda inexistente) rodara sobre
+    # `normalizado.texto`, e as posicoes voltam ao original por `intervalo_original`.
+    normalizado = normalizar(requisicao.texto, ativa=NORMALIZACAO_ATIVA)  # noqa: F841
+
+    # Sem deteccao nem decisao ainda: passagem pura, com o texto ORIGINAL.
     decisao = "encaminhar"
     texto = requisicao.texto
     deteccoes: list = []
@@ -92,4 +113,8 @@ def interceptar_saida(requisicao: Requisicao) -> Resposta:
 
 @app.get("/saude")
 def saude() -> dict:
-    return {"estado": "ok", "versao_regras": VERSAO_REGRAS}
+    return {
+        "estado": "ok",
+        "versao_regras": VERSAO_REGRAS,
+        "normalizacao": "ligada" if NORMALIZACAO_ATIVA else "desligada",
+    }

@@ -153,6 +153,8 @@ services:
       # chave da moderacao, quando for implementado (ADR-0027, E5).
       - VERSAO_REGRAS=${VERSAO_REGRAS:-0.0.0-encaminhamento}
       - ARQUIVO_LOG=${ARQUIVO_LOG:-resultados/camada.jsonl}
+      # Ablacao (RQ-12): `desligada` tira so o estagio de normalizacao.
+      - NORMALIZACAO=${NORMALIZACAO:-ligada}
     volumes:
       - ./resultados:/app/resultados
     healthcheck:

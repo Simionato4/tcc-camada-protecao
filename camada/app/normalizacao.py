@@ -67,8 +67,16 @@ class Normalizado:
         return self.mapa[inicio], self.mapa[fim - 1] + 1
 
 
-def normalizar(texto: str) -> Normalizado:
-    """Remove os invisiveis da RF-003, aplica NFKC e devolve texto e mapa."""
+def normalizar(texto: str, ativa: bool = True) -> Normalizado:
+    """Remove os invisiveis da RF-003, aplica NFKC e devolve texto e mapa.
+
+    Com `ativa=False` o estagio e desligado: devolve o proprio texto com o mapa
+    identidade. Existe para a ablacao (RF-012, RQ-12), que mede quanto a normalizacao
+    contribui mantendo o resto da camada identico.
+    """
+    if not ativa:
+        return Normalizado(texto=texto, mapa=tuple(range(len(texto))))
+
     # Passo 1: descarta os invisiveis, guardando de onde veio cada caractere mantido.
     mantidos = [(indice, c) for indice, c in enumerate(texto) if not _invisivel(c)]
 

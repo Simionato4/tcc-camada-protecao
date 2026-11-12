@@ -540,3 +540,51 @@ CNPJ positivo por formato e natureza: numerico 9 completa, 8 ausente, 8 parcial;
 alfanumerico 8, 9, 8. Telefone positivo: 10 em cada um dos cinco formatos.
 
 O corpus de 14/10 (sha256 `ff21394b...30aa43e`) fica no historico do Git e deixa de valer.
+
+---
+
+## Revisao de 12/11/2026: digito verificador proprio da camada e titulo de SP e MG
+
+### O que mudou em relacao ao bloco de 08/10
+O bloco de 08/10 diz que a camada usa a `validate-docbr` e herda a convencao dela para o
+titulo de eleitor. O plano da Etapa 4 (`specs/004-camada-intermediaria/plan.md`, secao
+"Independencia", aprovado em 09/11/2026) decidiu o contrario: a camada tem implementacao
+**propria** do digito verificador, em `camada/app/documentos.py`, e nao importa a
+`validate-docbr` nem `scripts/dv_independente.py`. Motivo: se a camada usasse o codigo que
+produziu o gabarito, um erro comum aos dois seria invisivel na medicao. Vale o plano; as
+frases do bloco de 08/10 sobre a camada usar a biblioteca ficam superadas.
+
+### Decisao (do autor, 12/11/2026)
+Para titulo de eleitor de **SP (01) e MG (02)**, a camada aceita o numero que fechar em
+**qualquer uma** das duas convencoes, cada uma aplicada ao numero inteiro:
+- sem excecao (resto 0 vale 0), a da `validate-docbr`;
+- com excecao (resto 0 vale 1), a descrita pela OBMEP.
+
+Nas demais UFs so vale a convencao sem excecao.
+
+| Alternativa descartada | Por que nao |
+|---|---|
+| So sem excecao | Um titulo real de SP ou MG que siga a excecao passaria sem mascara |
+| So com excecao | Aposta em fonte secundaria e recusa o que a biblioteca aceita |
+
+Motivo: nao se sabe qual convencao e a oficial (a Resolucao TSE 23.659/2021 nao traz a
+regra), e numa camada de protecao deixar passar um documento real e pior do que mascarar
+um numero a mais.
+
+### Por que nao e ajuste ao resultado
+Decidido depois do congelamento (12/11/2026) e antes de qualquer execucao. Os titulos em
+que as convencoes divergem (`titulo_ambiguo`) **nao estao no corpus congelado**, nem como
+positivo nem como negativo (bloco de 14/10): a escolha nao altera nenhum numero medido
+sobre os positivos. Efeito possivel sobre negativos: uma sequencia de 12 digitos com UF 01
+ou 02 tem um pouco mais de chance de fechar a conta; se ocorrer, e falso positivo contado
+como resultado.
+
+### Limitacao que substitui a de 08/10
+A camada nao recusa titulo real de SP ou MG por causa da convencao; em troca, aceita nas
+duas UFs numeros que so uma das convencoes consideraria validos.
+
+CNPJ alfanumerico com resto 0 ou 1: a camada **recusa**, porque a regra oficial nao trata
+o caso (bloco de 08/10) e o corpus nao tem nenhum.
+
+## Data da revisao
+2026-11-12

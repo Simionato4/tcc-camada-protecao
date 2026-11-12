@@ -1,9 +1,13 @@
 """Camada intermediaria de protecao.
 
-ESTADO ATUAL (Etapa 4, Fase 1, em construcao): o estagio de normalizacao esta ligado ao
-fluxo, mas ainda nao ha deteccao nem decisao; a camada continua so encaminhando, e o
-texto encaminhado e sempre o ORIGINAL. As regras sao posteriores ao congelamento do
-conjunto de teste (`conjunto_teste/CONGELADO.md`, 12/11/2026).
+ESTADO ATUAL (Etapa 4, Fase 1, em construcao): tres estagios ligados para dado pessoal —
+normalizacao, deteccao e decisao. Marcador, injecao, falha fechada e registro mascarado
+sao as tarefas seguintes. As regras sao posteriores ao congelamento do conjunto de teste
+(`conjunto_teste/CONGELADO.md`, 12/11/2026).
+
+As regras valem so na **condicao B**. Nas condicoes A, C e D a camada encaminha o texto
+sem alterar: e isso que torna a diferenca medida atribuivel a camada. (O modo da condicao
+D no `/entrada` e a tarefa T026.)
 
 Por que os tres endpoints existem desde a Etapa 0: o fluxo do assistente e variavel de
 controle e precisa ser identico nas quatro condicoes. Se os nos HTTP fossem
@@ -17,6 +21,8 @@ import time
 from fastapi import FastAPI
 
 from .contrato import Requisicao, Resposta
+from .decisao import decidir
+from .deteccao import detectar_dados_pessoais
 from .normalizacao import normalizar
 from .registro import registrador
 
@@ -54,14 +60,17 @@ def processar(requisicao: Requisicao) -> tuple[str, str, list, float]:
     """
     inicio = time.perf_counter()
 
-    # Estagio 1: normalizacao. A deteccao (ainda inexistente) rodara sobre
-    # `normalizado.texto`, e as posicoes voltam ao original por `intervalo_original`.
-    normalizado = normalizar(requisicao.texto, ativa=NORMALIZACAO_ATIVA)  # noqa: F841
-
-    # Sem deteccao nem decisao ainda: passagem pura, com o texto ORIGINAL.
-    decisao = "encaminhar"
-    texto = requisicao.texto
-    deteccoes: list = []
+    if requisicao.condicao != "B":
+        # Condicoes A, C e D: passagem pura.
+        decisao, texto, deteccoes = "encaminhar", requisicao.texto, []
+    else:
+        # Estagio 1: normalizacao, com o mapa de posicoes para o texto original.
+        normalizado = normalizar(requisicao.texto, ativa=NORMALIZACAO_ATIVA)
+        # Estagio 2: deteccao sobre o texto normalizado; posicoes ja no original.
+        encontradas = detectar_dados_pessoais(normalizado)
+        # Estagio 3: decisao e mascaramento sobre o texto ORIGINAL.
+        resultado = decidir(requisicao.ponto, requisicao.texto, encontradas)
+        decisao, texto, deteccoes = resultado.decisao, resultado.texto, resultado.deteccoes
 
     tempo_ms = (time.perf_counter() - inicio) * 1000
     return decisao, texto, deteccoes, tempo_ms

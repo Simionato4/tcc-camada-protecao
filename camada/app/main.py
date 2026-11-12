@@ -18,7 +18,9 @@ observada deixaria de ser atribuivel a estrategia de protecao.
 import os
 import time
 
-from fastapi import FastAPI
+from fastapi import FastAPI, Request
+from fastapi.exceptions import RequestValidationError
+from fastapi.responses import JSONResponse
 
 from .contrato import Requisicao, Resposta
 from .decisao import decidir
@@ -66,6 +68,23 @@ app = FastAPI(
     description="Interceptacao de entrada, contexto e saida de um assistente com LLM.",
     version=VERSAO_REGRAS,
 )
+
+
+@app.exception_handler(RequestValidationError)
+async def requisicao_invalida(_requisicao: Request, erro: RequestValidationError) -> JSONResponse:
+    """Recusa por validacao (HTTP 422) **sem devolver o conteudo recebido**.
+
+    O tratamento padrao do FastAPI copia a entrada invalida para a resposta. Isso tem dois
+    problemas: devolve em claro o texto recusado (que pode trazer dado pessoal), e quebra
+    com erro 500 quando o texto nao e Unicode valido (substituto UTF-16 solto), porque a
+    propria resposta de erro deixa de ser serializavel. Aqui a resposta traz so o tipo, o
+    campo e a mensagem de cada erro.
+    """
+    detalhes = [
+        {"type": e.get("type"), "loc": list(e.get("loc", ())), "msg": e.get("msg")}
+        for e in erro.errors()
+    ]
+    return JSONResponse(status_code=422, content={"detail": detalhes})
 
 
 def processar(requisicao: Requisicao) -> tuple[str, str, list, float]:

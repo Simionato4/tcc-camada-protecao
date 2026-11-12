@@ -123,12 +123,22 @@ def test_texto_invalido_nunca_e_encaminhado_nem_derruba_a_camada(registro) -> No
         f'"id_requisicao": "{uuid.uuid4()}", "condicao": "B"}}'
     ).encode("ascii")
     resposta = cliente.post("/entrada", content=bruto, headers={"Content-Type": "application/json"})
-    assert resposta.status_code in (200, 422)
-    if resposta.status_code == 200:
-        corpo = resposta.json()
-        assert corpo["decisao"] == "bloquear"
-        assert corpo["erro"] == "erro_tecnico"
-        assert corpo["texto"] == ""
+    # Recusado na validacao do contrato, antes de qualquer analise: nada e encaminhado.
+    assert resposta.status_code == 422
+    assert resposta.json()["detail"][0]["loc"] == ["body", "texto"]
+    assert registro() == []
+
+
+def test_recusa_por_validacao_nao_devolve_o_texto_recebido() -> None:
+    """A resposta de erro nao pode ecoar a entrada: um texto recusado por tamanho pode
+    trazer dado pessoal."""
+    from camada.app.contrato import TAMANHO_MAXIMO_TEXTO
+
+    texto = "CPF 123.456.789-09 " + "a" * TAMANHO_MAXIMO_TEXTO
+    resposta = cliente.post("/saida", json=_corpo("saida", texto))
+    assert resposta.status_code == 422
+    assert "123.456.789-09" not in resposta.text
+    assert "input" not in resposta.json()["detail"][0]
 
 
 @pytest.mark.parametrize("condicao", ["A", "C", "D"])

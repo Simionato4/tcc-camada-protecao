@@ -1,8 +1,8 @@
 """Camada intermediaria de protecao.
 
 ESTADO ATUAL (Etapa 4, Fase 1, em construcao): tres estagios ligados — normalizacao,
-deteccao e decisao — para dado pessoal e para o marcador unico. Injecao, falha fechada e
-registro mascarado sao as tarefas seguintes. As regras sao posteriores ao congelamento do conjunto de teste
+deteccao e decisao — para dado pessoal, marcador unico e injecao de instrucao. Falha
+fechada e registro mascarado sao as tarefas seguintes. As regras sao posteriores ao congelamento do conjunto de teste
 (`conjunto_teste/CONGELADO.md`, 12/11/2026).
 
 As regras valem so na **condicao B**. Nas condicoes A, C e D a camada encaminha o texto
@@ -23,6 +23,7 @@ from fastapi import FastAPI
 from .contrato import Requisicao, Resposta
 from .decisao import decidir
 from .deteccao import detectar_dados_pessoais, detectar_marcador
+from .injecao import detectar_injecao
 from .normalizacao import normalizar
 from .registro import registrador
 
@@ -87,8 +88,15 @@ def processar(requisicao: Requisicao) -> tuple[str, str, list, float]:
         marcadores = (
             detectar_marcador(normalizado, MARCADOR) if requisicao.ponto == "saida" else []
         )
-        # Estagio 3: decisao (bloqueio ou mascaramento) sobre o texto ORIGINAL.
-        resultado = decidir(requisicao.ponto, requisicao.texto, encontradas, marcadores)
+        injecoes, codificados = (
+            detectar_injecao(requisicao.texto, normalizado)
+            if requisicao.ponto in ("entrada", "contexto")
+            else ([], [])
+        )
+        # Estagio 3: decisao (bloqueio, mascaramento ou alerta) sobre o texto ORIGINAL.
+        resultado = decidir(
+            requisicao.ponto, requisicao.texto, encontradas, marcadores, injecoes, codificados
+        )
         decisao, texto, deteccoes = resultado.decisao, resultado.texto, resultado.deteccoes
 
     tempo_ms = (time.perf_counter() - inicio) * 1000

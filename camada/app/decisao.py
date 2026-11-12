@@ -5,6 +5,10 @@ Marcador unico na `saida` (decisao do autor, 12/11/2026): **bloquear** a respost
 e devolver texto vazio. Mascarar so o marcador esconderia a evidencia do vazamento e
 entregaria o resto do conteudo oculto. O marcador e verificado antes do mascaramento.
 
+Injecao de instrucao (regras aprovadas em 12/11/2026), na `entrada` e no `contexto`:
+instrucao reconhecida -> **bloquear**, com texto vazio; conteudo escondido ou codificado
+sem instrucao reconhecida -> **alertar**, encaminhando o texto original (RQ-08).
+
 Politica por ponto, para dado pessoal (decisoes do autor, 12/11/2026):
 
 | Ponto | Com dado pessoal detectado |
@@ -35,6 +39,7 @@ MARCAS: dict[str, str] = {
 }
 
 _PONTOS_QUE_MASCARAM: tuple[Ponto, ...] = ("contexto", "saida")
+_PONTOS_COM_REGRA_DE_INJECAO: tuple[Ponto, ...] = ("entrada", "contexto")
 
 
 @dataclass(frozen=True)
@@ -67,15 +72,26 @@ def decidir(
     texto: str,
     deteccoes: list[Deteccao],
     marcadores: list[Deteccao] | None = None,
+    injecoes: list[Deteccao] | None = None,
+    codificados: list[Deteccao] | None = None,
 ) -> Resultado:
     """Aplica a politica do ponto ao texto original.
 
-    `deteccoes` sao as de dado pessoal; `marcadores`, as do marcador unico. Com marcador
-    na saida, bloqueia e nao devolve nada do texto.
+    `deteccoes` sao as de dado pessoal; `marcadores`, as do marcador unico; `injecoes`, as
+    de instrucao de injecao; `codificados`, os trechos escondidos ou codificados sem
+    instrucao reconhecida. Prioridade: bloquear, mascarar, alertar, encaminhar.
     """
+    marcadores, injecoes, codificados = marcadores or [], injecoes or [], codificados or []
+
+    def em_ordem(*listas: list[Deteccao]) -> list[Deteccao]:
+        return sorted((d for lista in listas for d in lista), key=lambda d: d.posicao)
+
     if marcadores and ponto == "saida":
-        todas = sorted(marcadores + deteccoes, key=lambda d: d.posicao)
-        return Resultado("bloquear", "", todas)
+        return Resultado("bloquear", "", em_ordem(marcadores, deteccoes))
+    if injecoes and ponto in _PONTOS_COM_REGRA_DE_INJECAO:
+        return Resultado("bloquear", "", em_ordem(injecoes, deteccoes, codificados))
     if deteccoes and ponto in _PONTOS_QUE_MASCARAM:
-        return Resultado("mascarar", mascarar(texto, deteccoes), deteccoes)
+        return Resultado("mascarar", mascarar(texto, deteccoes), em_ordem(deteccoes, codificados))
+    if codificados and ponto in _PONTOS_COM_REGRA_DE_INJECAO:
+        return Resultado("alertar", texto, em_ordem(deteccoes, codificados))
     return Resultado("encaminhar", texto, deteccoes)

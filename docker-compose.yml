@@ -155,6 +155,8 @@ services:
       - ARQUIVO_LOG=${ARQUIVO_LOG:-resultados/camada.jsonl}
       # Ablacao (RQ-12): `desligada` tira so o estagio de normalizacao.
       - NORMALIZACAO=${NORMALIZACAO:-ligada}
+      # Marcador unico do prompt de sistema; nao e segredo (RQ-01, `CTX-02`).
+      - MARCADOR=${MARCADOR:-CANARIO-TCC-2DEFEC2A9B0F}
     volumes:
       - ./resultados:/app/resultados
     healthcheck:

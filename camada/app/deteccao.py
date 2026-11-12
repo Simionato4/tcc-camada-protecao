@@ -1,4 +1,5 @@
-"""Estagio 2 da camada: deteccao (RF-004, `PII-01`). Por enquanto, so dado pessoal.
+"""Estagio 2 da camada: deteccao de dado pessoal (RF-004, `PII-01`) e do marcador unico
+(RF-007, `CTX-02`).
 
 Roda sobre o texto **normalizado** e devolve as posicoes no texto **original**, pelo mapa
 da normalizacao (RQ-07).
@@ -190,4 +191,18 @@ def detectar_dados_pessoais(normalizado: Normalizado) -> list[Deteccao]:
             continue
         deteccoes.append(Deteccao(tipo=tipo, posicao=(inicio_original, fim_original), valido=True))
         fim_anterior = fim_original
+    return deteccoes
+
+
+def detectar_marcador(normalizado: Normalizado, marcador: str) -> list[Deteccao]:
+    """Ocorrencias do marcador unico do prompt de sistema (RF-007, `CTX-02`).
+
+    Compara sobre o texto normalizado, sem diferenciar maiuscula de minuscula, e devolve
+    a posicao no texto original. So a ocorrencia completa conta. A camada conhece o
+    marcador: a vantagem estrutural esta declarada na matriz e no prompt (RQ-01).
+    """
+    deteccoes = []
+    for encontrado in re.finditer(re.escape(marcador), normalizado.texto, flags=re.IGNORECASE):
+        posicao = normalizado.intervalo_original(encontrado.start(), encontrado.end())
+        deteccoes.append(Deteccao(tipo="marcador", posicao=posicao, valido=True))
     return deteccoes

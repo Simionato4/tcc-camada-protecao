@@ -1,4 +1,9 @@
-"""Estagio 3 da camada: decisao e mascaramento (RF-005, `PII-01`, `PII-02`).
+"""Estagio 3 da camada: decisao e mascaramento (RF-005, RF-007; `PII-01`, `PII-02`,
+`CTX-02`).
+
+Marcador unico na `saida` (decisao do autor, 12/11/2026): **bloquear** a resposta inteira
+e devolver texto vazio. Mascarar so o marcador esconderia a evidencia do vazamento e
+entregaria o resto do conteudo oculto. O marcador e verificado antes do mascaramento.
 
 Politica por ponto, para dado pessoal (decisoes do autor, 12/11/2026):
 
@@ -57,8 +62,20 @@ def mascarar(texto: str, deteccoes: list[Deteccao]) -> str:
     return "".join(partes)
 
 
-def decidir(ponto: Ponto, texto: str, deteccoes: list[Deteccao]) -> Resultado:
-    """Aplica a politica do ponto ao texto original e as deteccoes de dado pessoal."""
+def decidir(
+    ponto: Ponto,
+    texto: str,
+    deteccoes: list[Deteccao],
+    marcadores: list[Deteccao] | None = None,
+) -> Resultado:
+    """Aplica a politica do ponto ao texto original.
+
+    `deteccoes` sao as de dado pessoal; `marcadores`, as do marcador unico. Com marcador
+    na saida, bloqueia e nao devolve nada do texto.
+    """
+    if marcadores and ponto == "saida":
+        todas = sorted(marcadores + deteccoes, key=lambda d: d.posicao)
+        return Resultado("bloquear", "", todas)
     if deteccoes and ponto in _PONTOS_QUE_MASCARAM:
         return Resultado("mascarar", mascarar(texto, deteccoes), deteccoes)
     return Resultado("encaminhar", texto, deteccoes)

@@ -1,8 +1,8 @@
 """Camada intermediaria de protecao.
 
-ESTADO ATUAL (Etapa 4, Fase 1, em construcao): tres estagios ligados para dado pessoal —
-normalizacao, deteccao e decisao. Marcador, injecao, falha fechada e registro mascarado
-sao as tarefas seguintes. As regras sao posteriores ao congelamento do conjunto de teste
+ESTADO ATUAL (Etapa 4, Fase 1, em construcao): tres estagios ligados — normalizacao,
+deteccao e decisao — para dado pessoal e para o marcador unico. Injecao, falha fechada e
+registro mascarado sao as tarefas seguintes. As regras sao posteriores ao congelamento do conjunto de teste
 (`conjunto_teste/CONGELADO.md`, 12/11/2026).
 
 As regras valem so na **condicao B**. Nas condicoes A, C e D a camada encaminha o texto
@@ -22,7 +22,7 @@ from fastapi import FastAPI
 
 from .contrato import Requisicao, Resposta
 from .decisao import decidir
-from .deteccao import detectar_dados_pessoais
+from .deteccao import detectar_dados_pessoais, detectar_marcador
 from .normalizacao import normalizar
 from .registro import registrador
 
@@ -43,6 +43,22 @@ def ler_normalizacao(valor: str) -> bool:
 
 
 NORMALIZACAO_ATIVA = ler_normalizacao(os.getenv("NORMALIZACAO", "ligada"))
+
+# Marcador unico do prompt de sistema (`assistente/prompt_sistema.md`, congelado). Nao e
+# segredo (RQ-01): e instrumento de medicao do criterio `CTX-02`.
+MARCADOR_PADRAO = "CANARIO-TCC-2DEFEC2A9B0F"
+
+
+def ler_marcador(valor: str) -> str:
+    """Le o marcador unico. Vazio ou curto impede a camada de subir: sem ele a regra do
+    `CTX-02` ficaria desligada em silencio, e um valor curto casaria com texto comum."""
+    valor = valor.strip()
+    if len(valor) < 16:
+        raise ValueError("MARCADOR vazio ou curto demais (minimo de 16 caracteres)")
+    return valor
+
+
+MARCADOR = ler_marcador(os.getenv("MARCADOR", MARCADOR_PADRAO))
 
 app = FastAPI(
     title="Camada intermediaria de protecao",
@@ -68,8 +84,11 @@ def processar(requisicao: Requisicao) -> tuple[str, str, list, float]:
         normalizado = normalizar(requisicao.texto, ativa=NORMALIZACAO_ATIVA)
         # Estagio 2: deteccao sobre o texto normalizado; posicoes ja no original.
         encontradas = detectar_dados_pessoais(normalizado)
-        # Estagio 3: decisao e mascaramento sobre o texto ORIGINAL.
-        resultado = decidir(requisicao.ponto, requisicao.texto, encontradas)
+        marcadores = (
+            detectar_marcador(normalizado, MARCADOR) if requisicao.ponto == "saida" else []
+        )
+        # Estagio 3: decisao (bloqueio ou mascaramento) sobre o texto ORIGINAL.
+        resultado = decidir(requisicao.ponto, requisicao.texto, encontradas, marcadores)
         decisao, texto, deteccoes = resultado.decisao, resultado.texto, resultado.deteccoes
 
     tempo_ms = (time.perf_counter() - inicio) * 1000

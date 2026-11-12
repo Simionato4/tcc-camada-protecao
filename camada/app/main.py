@@ -1,8 +1,8 @@
 """Camada intermediaria de protecao.
 
 ESTADO ATUAL (Etapa 4, Fase 1, em construcao): tres estagios ligados — normalizacao,
-deteccao e decisao — para dado pessoal, marcador unico e injecao de instrucao. Falha
-fechada e registro mascarado sao as tarefas seguintes. As regras sao posteriores ao congelamento do conjunto de teste
+deteccao e decisao — para dado pessoal, marcador unico e injecao de instrucao, com falha
+fechada e registro sem texto. As regras sao posteriores ao congelamento do conjunto de teste
 (`conjunto_teste/CONGELADO.md`, 12/11/2026).
 
 As regras valem so na **condicao B**. Nas condicoes A, C e D a camada encaminha o texto
@@ -104,19 +104,22 @@ def processar(requisicao: Requisicao) -> tuple[str, str, list, float]:
 
 
 def _atender(requisicao: Requisicao) -> Resposta:
-    decisao, texto, deteccoes, tempo_ms = processar(requisicao)
-
-    registrador.requisicao_processada(
-        id_requisicao=str(requisicao.id_requisicao),
-        ponto=requisicao.ponto,
-        condicao=requisicao.condicao,
-        texto_entrada=requisicao.texto,
-        texto_saida=texto,
-        decisao=decisao,
-        quantidade_deteccoes=len(deteccoes),
-        tempo_ms=tempo_ms,
-        versao_regras=VERSAO_REGRAS,
-    )
+    """Processa, registra e responde. **Falha fechada** (RF-010; RQ-10; ADR-0027, E3):
+    qualquer erro na analise ou no registro vira `bloquear`, com texto vazio e
+    `erro = erro_tecnico`. Nunca encaminhamento sem inspecao, nunca erro HTTP 500."""
+    normalizacao = "ligada" if NORMALIZACAO_ATIVA else "desligada"
+    inicio = time.perf_counter()
+    try:
+        decisao, texto, deteccoes, tempo_ms = processar(requisicao)
+        erro = None
+        _registrar(requisicao, texto, decisao, deteccoes, erro, normalizacao, tempo_ms)
+    except Exception:  # noqa: BLE001 - falhar fechado vale para qualquer erro
+        decisao, texto, deteccoes, erro = "bloquear", "", [], "erro_tecnico"
+        tempo_ms = (time.perf_counter() - inicio) * 1000
+        try:
+            _registrar(requisicao, texto, decisao, deteccoes, erro, normalizacao, tempo_ms)
+        except Exception:  # noqa: BLE001 - sem registro, a resposta ainda e o bloqueio
+            pass
 
     return Resposta(
         decisao=decisao,
@@ -126,6 +129,32 @@ def _atender(requisicao: Requisicao) -> Resposta:
         versao_regras=VERSAO_REGRAS,
         ponto=requisicao.ponto,
         condicao=requisicao.condicao,
+        erro=erro,
+    )
+
+
+def _registrar(
+    requisicao: Requisicao,
+    texto_saida: str,
+    decisao: str,
+    deteccoes: list,
+    erro: str | None,
+    normalizacao: str,
+    tempo_ms: float,
+) -> None:
+    registrador.requisicao_processada(
+        id_requisicao=str(requisicao.id_requisicao),
+        ponto=requisicao.ponto,
+        condicao=requisicao.condicao,
+        texto_entrada=requisicao.texto,
+        texto_saida=texto_saida,
+        decisao=decisao,
+        # So tipo e posicao: o trecho detectado nunca vai para o registro (`PII-03`).
+        deteccoes=[{"tipo": d.tipo, "posicao": list(d.posicao)} for d in deteccoes],
+        erro=erro,
+        normalizacao=normalizacao,
+        tempo_ms=tempo_ms,
+        versao_regras=VERSAO_REGRAS,
     )
 
 

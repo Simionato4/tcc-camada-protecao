@@ -7,18 +7,18 @@ passando antes do estagio seguinte.
 
 ## Fase 0 — Antes do congelamento (sem regra)
 
-- [ ] T001 [US1] `camada/app/contrato.py`: `Deteccao.posicao` passa a ser no texto **original**; docstring corrigida (RQ-07). Teste em `camada/tests/test_contrato.py`
-- [ ] T002 [US5] `camada/app/contrato.py`: texto ate 20.000 caracteres; `id_requisicao` em UUID; teste de recusa (RQ-14; ADR-0027, E2)
-- [ ] T003 [US5] `camada/app/contrato.py`: campo de categoria de erro na resposta (`erro_tecnico`), sem comportamento ainda (RQ-10)
-- [ ] T004 [P] [US5] `docker-compose.yml`: camada com `environment` explicito, sem `env_file` (RQ-15); teste que procura `env_file` no servico da camada
-- [ ] T005 [P] [US1] `assistente/fluxo.json` e `assistente/README.md`: desvio por decisao `bloquear` nos tres pontos (RF-013). Conferido com a camada atual forcando `bloquear` por variavel de teste, nunca por regra
-- [ ] T006 Suite completa passando; commit
+- [x] T001 [US1] `camada/app/contrato.py`: `Deteccao.posicao` passa a ser no texto **original**; docstring corrigida (RQ-07). Teste em `camada/tests/test_contrato.py`
+- [x] T002 [US5] `camada/app/contrato.py`: texto ate 20.000 caracteres; `id_requisicao` em UUID; teste de recusa (RQ-14; ADR-0027, E2)
+- [x] T003 [US5] `camada/app/contrato.py`: campo de categoria de erro na resposta (`erro_tecnico`), sem comportamento ainda (RQ-10)
+- [x] T004 [P] [US5] `docker-compose.yml`: camada com `environment` explicito, sem `env_file` (RQ-15); teste que procura `env_file` no servico da camada
+- [ ] T005 [P] [US1] `assistente/fluxo.json` e `assistente/README.md`: desvio por decisao `bloquear` nos tres pontos (RF-013). Conferido com a camada atual forcando `bloquear` por variavel de teste, nunca por regra **Estado em 12/11/2026 (parcial):** nos e ligacoes feitos e conferidos por `scripts/tests/test_fluxo.py`; ramo falso exercitado pelo webhook em 11/11 (`decisao: encaminhar`). O **ramo de bloqueio nao foi exercitado**: a variavel de teste para forcar `bloquear` nao foi criada. Fica para a Fase 1, com a primeira regra que bloquear, pelo webhook (commit `3780d93`)
+- [x] T006 Suite completa passando; commit (`3780d93`, 263 testes)
 
 ## Congelamento
 
-- [ ] T007 Retorno do orientador incorporado
-- [ ] T008 `python scripts/congelar.py --gravar` (Python 3.13, Unicode 15.1.0); commit do `CONGELADO.md`
-- [ ] T009 Fechamento da Etapa 3 (estados dos requisitos herdados)
+- [ ] T007 Retorno do orientador incorporado **Nao cumprida, substituida em 12/11/2026:** o congelamento foi feito sem a revisao do orientador (ADR-0028)
+- [x] T008 `python scripts/congelar.py --gravar` (Python 3.13, Unicode 15.1.0); commit do `CONGELADO.md` (`b3faabd`, 12/11/2026)
+- [x] T009 Fechamento da Etapa 3 (estados dos requisitos herdados) (`eb26f30`, 12/11/2026)
 
 ## Fase 1 — Regras v0.1 (so depois de T008)
 

@@ -54,10 +54,13 @@ mesmo que produziu os resultados.
 fixada por digest (tabela acima). O ID identifica a construcao usada; uma nova construcao
 gera outro ID e e registrada aqui.
 
+Conferencia de 12/11/2026, pelo mesmo comando: recuperador e modelo com o mesmo ID de
+31/10; camada com ID novo.
+
 | Imagem | ID |
 |---|---|
 | tcc-camada-protecao-recuperador | `sha256:02534c155263139d8fbf69609b0377a5b322eb56ad796b998fc47152f501f956` |
-| tcc-camada-protecao-camada | `sha256:39a6f8e33483bfff1dfc9b34abb28231311033e3fbd76d7d37fee381dd4970a2` (esqueleto da Etapa 0, so encaminhamento; muda quando as regras forem escritas) |
+| tcc-camada-protecao-camada | `sha256:230e87774761c2b1ca25ecd7d3d5baf4abe02ed1e26ab38854408dd3dd8d0a25` (construcao de 11/11/2026, Fase 0 da Etapa 4, commit `3780d93`: contrato novo, ainda so encaminhamento; muda quando as regras forem escritas). Anterior: `sha256:39a6f8e33483bfff1dfc9b34abb28231311033e3fbd76d7d37fee381dd4970a2`, esqueleto da Etapa 0, registrada em 31/10/2026 |
 | tcc-camada-protecao-modelo | `sha256:294779986294a366c8ae59b2bdcd247cb85babcfa3c49c6df4b18e97f459681b` |
 | tcc-camada-protecao-presidio-analyzer | ver a secao da condicao C |
 

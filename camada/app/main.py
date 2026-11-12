@@ -1,6 +1,6 @@
 """Camada intermediaria de protecao.
 
-ESTADO ATUAL (Etapa 4, Fase 1, em construcao): tres estagios ligados — normalizacao,
+ESTADO ATUAL (Etapa 4, regras v0.1.0): tres estagios ligados — normalizacao,
 deteccao e decisao — para dado pessoal, marcador unico e injecao de instrucao, com falha
 fechada e registro sem texto. As regras sao posteriores ao congelamento do conjunto de teste
 (`conjunto_teste/CONGELADO.md`, 12/11/2026).
@@ -29,7 +29,10 @@ from .injecao import detectar_injecao
 from .normalizacao import normalizar
 from .registro import registrador
 
-VERSAO_REGRAS = os.getenv("VERSAO_REGRAS", "0.0.0-encaminhamento")
+# Versao das regras. E constante do codigo, e nao variavel de ambiente: as regras SAO o
+# codigo, e um rotulo configuravel por fora poderia dizer uma versao que nao e a que roda.
+# Muda junto com qualquer alteracao de regra, e vai em toda resposta e em todo registro.
+VERSAO_REGRAS = "0.1.0"
 
 
 def ler_normalizacao(valor: str) -> bool:

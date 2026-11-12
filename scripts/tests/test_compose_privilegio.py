@@ -35,4 +35,4 @@ def test_chave_da_anthropic_so_no_servico_modelo():
 
 
 def test_camada_recebe_so_o_que_le():
-    assert _variaveis(_servicos()["camada"]) == {"VERSAO_REGRAS", "ARQUIVO_LOG", "NORMALIZACAO", "MARCADOR"}
+    assert _variaveis(_servicos()["camada"]) == {"ARQUIVO_LOG", "NORMALIZACAO", "MARCADOR"}

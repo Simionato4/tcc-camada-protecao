@@ -151,7 +151,7 @@ services:
       # Menor privilegio (RQ-15): so o que a camada le. Sem `env_file`: o `.env` inteiro
       # traria credenciais que ela nao usa. O modo da condicao D acrescentara aqui a
       # chave da moderacao, quando for implementado (ADR-0027, E5).
-      - VERSAO_REGRAS=${VERSAO_REGRAS:-0.0.0-encaminhamento}
+      # A versao das regras e constante do codigo (`camada/app/main.py`), nao variavel.
       - ARQUIVO_LOG=${ARQUIVO_LOG:-resultados/camada.jsonl}
       # Ablacao (RQ-12): `desligada` tira so o estagio de normalizacao.
       - NORMALIZACAO=${NORMALIZACAO:-ligada}

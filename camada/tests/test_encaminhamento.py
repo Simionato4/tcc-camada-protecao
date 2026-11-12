@@ -88,3 +88,15 @@ def test_saude_responde() -> None:
     resposta = cliente.get("/saude")
     assert resposta.status_code == 200
     assert resposta.json()["estado"] == "ok"
+
+
+def test_versao_das_regras_e_constante_do_codigo() -> None:
+    """A versao nao vem do ambiente: as regras sao o codigo, e um rotulo configuravel por
+    fora poderia informar uma versao que nao e a que roda (Etapa 4, T025)."""
+    import inspect
+
+    from camada.app import main
+
+    assert main.VERSAO_REGRAS == "0.1.0"
+    assert 'getenv("VERSAO_REGRAS"' not in inspect.getsource(main)
+    assert cliente.get("/saude").json()["versao_regras"] == "0.1.0"

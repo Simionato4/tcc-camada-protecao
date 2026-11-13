@@ -170,6 +170,7 @@ CAMPOS = {
     "quantidade_deteccoes",
     "erro",
     "normalizacao",
+    "moderacao",
     "tempo_ms",
     "versao_regras",
 }

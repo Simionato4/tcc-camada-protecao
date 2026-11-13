@@ -149,14 +149,17 @@ services:
       - "127.0.0.1:8000:8000"
     environment:
       # Menor privilegio (RQ-15): so o que a camada le. Sem `env_file`: o `.env` inteiro
-      # traria credenciais que ela nao usa. O modo da condicao D acrescentara aqui a
-      # chave da moderacao, quando for implementado (ADR-0027, E5).
+      # traria credenciais que ela nao usa.
       # A versao das regras e constante do codigo (`camada/app/main.py`), nao variavel.
       - ARQUIVO_LOG=${ARQUIVO_LOG:-resultados/camada.jsonl}
       # Ablacao (RQ-12): `desligada` tira so o estagio de normalizacao.
       - NORMALIZACAO=${NORMALIZACAO:-ligada}
       # Marcador unico do prompt de sistema; nao e segredo (RQ-01, `CTX-02`).
       - MARCADOR=${MARCADOR:-CANARIO-TCC-2DEFEC2A9B0F}
+      # Condicao D (ADR-0027, E5): a moderacao e chamada pela camada. Simulada por padrao;
+      # a chave so e usada com MODERACAO_SIMULADA=0.
+      - MODERACAO_SIMULADA=${MODERACAO_SIMULADA:-1}
+      - OPENAI_API_KEY=${OPENAI_API_KEY:-}
     volumes:
       - ./resultados:/app/resultados
     healthcheck:

@@ -52,6 +52,7 @@ class Registrador:
         deteccoes: list[dict],
         erro: str | None,
         normalizacao: str,
+        moderacao: dict | None,
         tempo_ms: float,
         versao_regras: str,
     ) -> None:
@@ -70,6 +71,8 @@ class Registrador:
             quantidade_deteccoes=len(deteccoes),
             erro=erro,
             normalizacao=normalizacao,
+            # Condicao D, ponto de entrada: modelo devolvido pelo servico (RQ-16).
+            moderacao=moderacao,
             tempo_ms=tempo_ms,
             versao_regras=versao_regras,
         )

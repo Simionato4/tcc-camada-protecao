@@ -5,9 +5,9 @@ deteccao e decisao — para dado pessoal, marcador unico e injecao de instrucao,
 fechada e registro sem texto. As regras sao posteriores ao congelamento do conjunto de teste
 (`conjunto_teste/CONGELADO.md`, 12/11/2026).
 
-As regras valem so na **condicao B**. Nas condicoes A, C e D a camada encaminha o texto
-sem alterar: e isso que torna a diferenca medida atribuivel a camada. (O modo da condicao
-D no `/entrada` e a tarefa T026.)
+As regras valem so na **condicao B**. Nas condicoes A e C a camada encaminha o texto sem
+alterar: e isso que torna a diferenca medida atribuivel a camada. Na condicao D, so no
+ponto `entrada`, a camada chama a moderacao da OpenAI (`moderacao.py`; ADR-0027, E5).
 
 Por que os tres endpoints existem desde a Etapa 0: o fluxo do assistente e variavel de
 controle e precisa ser identico nas quatro condicoes. Se os nos HTTP fossem
@@ -22,10 +22,11 @@ from fastapi import FastAPI, Request
 from fastapi.exceptions import RequestValidationError
 from fastapi.responses import JSONResponse
 
-from .contrato import Requisicao, Resposta
+from .contrato import Deteccao, Requisicao, Resposta
 from .decisao import decidir
 from .deteccao import detectar_dados_pessoais, detectar_marcador
 from .injecao import detectar_injecao
+from .moderacao import moderar
 from .normalizacao import normalizar
 from .registro import registrador
 
@@ -66,6 +67,19 @@ def ler_marcador(valor: str) -> str:
 
 MARCADOR = ler_marcador(os.getenv("MARCADOR", MARCADOR_PADRAO))
 
+
+def ler_moderacao_simulada(valor: str) -> bool:
+    """Modo da moderacao da condicao D: `1` simulado (padrao), `0` real. Chamar um
+    servico externo exige gesto explicito; valor desconhecido impede a camada de subir."""
+    if valor == "1":
+        return True
+    if valor == "0":
+        return False
+    raise ValueError(f"MODERACAO_SIMULADA deve ser '1' ou '0'; recebido: {valor!r}")
+
+
+MODERACAO_SIMULADA = ler_moderacao_simulada(os.getenv("MODERACAO_SIMULADA", "1"))
+
 app = FastAPI(
     title="Camada intermediaria de protecao",
     description="Interceptacao de entrada, contexto e saida de um assistente com LLM.",
@@ -90,8 +104,9 @@ async def requisicao_invalida(_requisicao: Request, erro: RequestValidationError
     return JSONResponse(status_code=422, content={"detail": detalhes})
 
 
-def processar(requisicao: Requisicao) -> tuple[str, str, list, float]:
-    """Aplica a politica ao texto e devolve (decisao, texto, deteccoes, tempo_ms).
+def processar(requisicao: Requisicao) -> tuple[str, str, list, float, dict | None]:
+    """Aplica a politica ao texto e devolve (decisao, texto, deteccoes, tempo_ms,
+    moderacao). `moderacao` so vem preenchida na condicao D, no ponto `entrada`.
 
     O cronometro envolve apenas o processamento. Serializacao HTTP e rede ficam
     de fora, porque a metrica de latencia definida no protocolo e o tempo interno
@@ -99,8 +114,25 @@ def processar(requisicao: Requisicao) -> tuple[str, str, list, float]:
     """
     inicio = time.perf_counter()
 
-    if requisicao.condicao != "B":
-        # Condicoes A, C e D: passagem pura.
+    moderacao = None
+    if requisicao.condicao == "D" and requisicao.ponto == "entrada":
+        # Condicao D (ADR-0027, E5): a moderacao externa decide, e so na entrada. O tempo
+        # medido inclui a rede, limitacao declarada na ADR-0009.
+        resultado_d = moderar(
+            requisicao.texto, simulado=MODERACAO_SIMULADA, chave=os.getenv("OPENAI_API_KEY")
+        )
+        moderacao = {
+            "modelo": resultado_d.modelo,
+            "sinalizado": resultado_d.sinalizado,
+            "simulado": resultado_d.simulado,
+        }
+        if resultado_d.sinalizado:
+            marca = Deteccao(tipo="moderacao", posicao=(0, len(requisicao.texto)), valido=True)
+            decisao, texto, deteccoes = "bloquear", "", [marca]
+        else:
+            decisao, texto, deteccoes = "encaminhar", requisicao.texto, []
+    elif requisicao.condicao != "B":
+        # Condicoes A e C, e condicao D fora da entrada: passagem pura.
         decisao, texto, deteccoes = "encaminhar", requisicao.texto, []
     else:
         # Estagio 1: normalizacao, com o mapa de posicoes para o texto original.
@@ -122,7 +154,7 @@ def processar(requisicao: Requisicao) -> tuple[str, str, list, float]:
         decisao, texto, deteccoes = resultado.decisao, resultado.texto, resultado.deteccoes
 
     tempo_ms = (time.perf_counter() - inicio) * 1000
-    return decisao, texto, deteccoes, tempo_ms
+    return decisao, texto, deteccoes, tempo_ms, moderacao
 
 
 def _atender(requisicao: Requisicao) -> Resposta:
@@ -132,14 +164,14 @@ def _atender(requisicao: Requisicao) -> Resposta:
     normalizacao = "ligada" if NORMALIZACAO_ATIVA else "desligada"
     inicio = time.perf_counter()
     try:
-        decisao, texto, deteccoes, tempo_ms = processar(requisicao)
+        decisao, texto, deteccoes, tempo_ms, moderacao = processar(requisicao)
         erro = None
-        _registrar(requisicao, texto, decisao, deteccoes, erro, normalizacao, tempo_ms)
+        _registrar(requisicao, texto, decisao, deteccoes, erro, normalizacao, tempo_ms, moderacao)
     except Exception:  # noqa: BLE001 - falhar fechado vale para qualquer erro
         decisao, texto, deteccoes, erro = "bloquear", "", [], "erro_tecnico"
         tempo_ms = (time.perf_counter() - inicio) * 1000
         try:
-            _registrar(requisicao, texto, decisao, deteccoes, erro, normalizacao, tempo_ms)
+            _registrar(requisicao, texto, decisao, deteccoes, erro, normalizacao, tempo_ms, None)
         except Exception:  # noqa: BLE001 - sem registro, a resposta ainda e o bloqueio
             pass
 
@@ -163,6 +195,7 @@ def _registrar(
     erro: str | None,
     normalizacao: str,
     tempo_ms: float,
+    moderacao: dict | None,
 ) -> None:
     registrador.requisicao_processada(
         id_requisicao=str(requisicao.id_requisicao),
@@ -175,6 +208,7 @@ def _registrar(
         deteccoes=[{"tipo": d.tipo, "posicao": list(d.posicao)} for d in deteccoes],
         erro=erro,
         normalizacao=normalizacao,
+        moderacao=moderacao,
         tempo_ms=tempo_ms,
         versao_regras=VERSAO_REGRAS,
     )
@@ -204,4 +238,5 @@ def saude() -> dict:
         "estado": "ok",
         "versao_regras": VERSAO_REGRAS,
         "normalizacao": "ligada" if NORMALIZACAO_ATIVA else "desligada",
+        "moderacao": "simulada" if MODERACAO_SIMULADA else "real",
     }

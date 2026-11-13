@@ -35,4 +35,16 @@ def test_chave_da_anthropic_so_no_servico_modelo():
 
 
 def test_camada_recebe_so_o_que_le():
-    assert _variaveis(_servicos()["camada"]) == {"ARQUIVO_LOG", "NORMALIZACAO", "MARCADOR"}
+    assert _variaveis(_servicos()["camada"]) == {
+        "ARQUIVO_LOG",
+        "NORMALIZACAO",
+        "MARCADOR",
+        "MODERACAO_SIMULADA",
+        "OPENAI_API_KEY",
+    }
+
+
+def test_chave_da_openai_so_no_servico_camada():
+    # A moderacao da condicao D e chamada pela camada (ADR-0027, E5).
+    com_chave = {n for n, s in _servicos().items() if "OPENAI_API_KEY" in _variaveis(s)}
+    assert com_chave == {"camada"}

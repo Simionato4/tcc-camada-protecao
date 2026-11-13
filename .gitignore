@@ -22,6 +22,8 @@ resultados/consumo*.json
 # experimento sao gravados pelo executor com nome proprio por execucao e ESSES
 # sim vao para o repositorio: sao a evidencia.
 resultados/camada.jsonl
+# Gravacoes da demonstracao (scripts/demonstracao.ps1): saida de tela, estado local.
+resultados/demonstracao-*.txt
 
 # Conjuntos publicos: NAO sao redistribuidos (ADR-0016). Cada um tem licenca propria,
 # e o Do-Not-Answer usa CC BY-NC-SA, incompativel com a licenca MIT declarada neste

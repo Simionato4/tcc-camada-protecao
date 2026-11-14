@@ -50,9 +50,9 @@ passando antes do estagio seguinte.
 
 ## Fase 2 — Modo D e demonstracao
 
-- [ ] T026 [US3] `camada/app/moderacao.py`: modo D no `/entrada`, com teste em modo simulado; identificador do modelo devolvido no registro (RQ-16; ADR-0027, E5)
-- [ ] T027 Roteiro da demonstracao: mesma pergunta, documento contaminado e dado pessoal, sem e com a camada, com exemplos do conjunto de desenvolvimento
-- [ ] T028 Fechamento da Etapa 4
+- [x] T026 [US3] `camada/app/moderacao.py`: modo D no `/entrada`, com teste em modo simulado; identificador do modelo devolvido no registro (RQ-16; ADR-0027, E5) (`3ecf760` (testes) e `62c1d08`, em modo simulado. **Pendente:** chamada ao servico real, que depende de chave (RQ-16))
+- [x] T027 Roteiro da demonstracao: mesma pergunta, documento contaminado e dado pessoal, sem e com a camada, com exemplos do conjunto de desenvolvimento (`ba2c28c`: `scripts/demonstracao.ps1` e `docs/roteiro-demonstracao.md`; ensaio com o modelo real em 12/11/2026)
+- [x] T028 Fechamento da Etapa 4 (14/11/2026: ADR-0029 (piloto no inicio da Etapa 5), ADR-0030 (decisoes das regras v0.1), requisitos herdados e atualizacao de 14/11)
 
 ## Dependencias
 - Fase 0 nao depende do congelamento; Fase 1 depende de T008.

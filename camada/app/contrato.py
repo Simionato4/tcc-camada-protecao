@@ -53,6 +53,13 @@ class Requisicao(BaseModel):
 
 
 class Resposta(BaseModel):
+    """`texto` e o que segue adiante no fluxo. Politica de decodificacao (RQ-08; ADR-0027,
+    E1): a camada decodifica base64, codificacao percentual e bloco de tag so para
+    **analisar**, ate 2 niveis, com cada resultado limitado ao tamanho maximo da entrada.
+    O que ela encaminha e sempre o texto ORIGINAL (inteiro em `encaminhar` e `alertar`;
+    com os trechos de dado pessoal trocados em `mascarar`), nunca o decodificado nem o
+    normalizado. Em `bloquear`, `texto` vem vazio."""
+
     decisao: Decisao
     texto: str
     deteccoes: list[Deteccao] = Field(default_factory=list)

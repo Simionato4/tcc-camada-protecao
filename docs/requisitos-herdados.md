@@ -107,7 +107,7 @@ revocacao ficam incorretas.
 **Aceitacao:** a normalizacao devolve, alem do texto, o mapeamento indice a indice;
 teste unitario com caso que altera comprimento — remocao de invisivel, remocao de
 separador — conferindo que a posicao devolvida aponta para o trecho correto do
-texto original. **Estado:** aberto.
+texto original. **Estado:** cumprido (fechamento da Etapa 4, 14/11/2026). Evidencia: `camada/app/normalizacao.py` devolve o texto e o mapa indice a indice; `camada/tests/test_normalizacao.py` (remocao de invisivel, caractere que vira varios, cenario do documento com largura zero) e `camada/tests/test_deteccao_pii.py` (posicao exata no original com mascara completa, parcial, ausente e com um espaco entre cada digito). Nota de desenho: os separadores nao sao removidos pela normalizacao; a deteccao os trata como parte da sequencia, e a posicao devolvida cobre a sequencia inteira no original (ADR-0030, R3). Conjunto de desenvolvimento: 350 de 350 positivos com posicao exata.
 
 ### RQ-08 — Politica de decodificacao
 **Origem:** revisao externa.
@@ -117,7 +117,7 @@ codificada — a camada faria o trabalho do atacante. Politica: a analise ocorre
 o texto decodificado; o encaminhamento preserva o texto original. Definir
 profundidade maxima de decodificacao e tamanho maximo do resultado.
 **Aceitacao:** politica escrita no contrato da camada e teste unitario que confere
-que o texto encaminhado e o original. **Estado:** aberto.
+que o texto encaminhado e o original. **Estado:** cumprido (fechamento da Etapa 4, 14/11/2026). Evidencia: politica em `camada/app/contrato.py` (campo `texto` da resposta), em `camada/app/decodificacao.py` e na ADR-0027, E1 (ate 2 niveis; cada resultado limitado a 20.000 caracteres); `camada/tests/test_decodificacao.py` (niveis e limite) e `camada/tests/test_injecao.py` (o texto encaminhado e o original, nao o decodificado).
 
 ### RQ-10 — Comportamento em falha dos filtros
 **Origem:** revisao externa.
@@ -127,7 +127,7 @@ registro: **nunca e contado como bloqueio correto, e nunca resulta em
 encaminhamento silencioso sem inspecao.** Declarar se a politica e falhar fechado
 ou falhar aberto, e justificar.
 **Aceitacao:** politica no protocolo, campo proprio no registro bruto, teste
-unitario por modo de falha. **Estado:** aberto.
+unitario por modo de falha. **Estado:** cumprido na parte da camada; o restante **movido para a Etapa 5** (fechamento da Etapa 4, 14/11/2026). Feito: politica de falhar fechado (ADR-0027, E3); campo `erro` na resposta e no registro da camada; teste por modo de falha, um por estagio e por ponto, mais falha do registro e falha da moderacao (`camada/tests/test_falha_e_registro.py`, `camada/tests/test_moderacao.py`). Falta, e depende do executor: a politica escrita no protocolo (secao 6, a fechar na Etapa 5), o campo no registro bruto e o comportamento em indisponibilidade do Presidio (condicao C).
 
 ### RQ-12 — Ablacao da normalizacao
 **Origem:** revisao externa. **Melhor relacao custo-beneficio do parecer.**
@@ -135,7 +135,7 @@ unitario por modo de falha. **Estado:** aberto.
 normalizacao, mantendo o restante identico. Custo de API: zero. Isola a
 contribuicao do estagio que sustenta a tese do trabalho.
 **Aceitacao:** tabela de revocacao com e sem normalizacao, por tipo de documento.
-**Estado:** aberto.
+**Estado:** **movido para a Etapa 6** (fechamento da Etapa 4, 14/11/2026). Motivo: a aceitacao e uma tabela de revocacao sobre o corpus de 350 ocorrencias, que e o corpus congelado; executar a camada sobre ele antes da execucao valida seria ver resultado antes da hora. A Etapa 4 entrega o mecanismo: configuracao `NORMALIZACAO` (ligada ou desligada), registrada em cada linha do registro, e testes de que desligar o estagio nao muda mais nada (`camada/tests/test_ablacao.py`). Nota para a analise: o disfarce por espaco entre digitos e coberto pela deteccao, e nao pela normalizacao; a diferenca entre os dois modos vem dos invisiveis e das variantes tipograficas.
 
 ### RQ-14 — Limites de entrada
 **Origem:** revisao externa.
@@ -143,14 +143,14 @@ contribuicao do estagio que sustenta a tese do trabalho.
 identificador. O UUID serve a rastreabilidade, nao a autenticacao nem a
 autorizacao, e isso deve estar declarado.
 **Aceitacao:** validacao no contrato Pydantic e teste que confere a recusa.
-**Estado:** aberto. Nota de 12/11/2026: implementado na Fase 0 da Etapa 4 (commit `3780d93`); o estado muda no fechamento da Etapa 4.
+**Estado:** cumprido (fechamento da Etapa 4, 14/11/2026). Evidencia: `camada/app/contrato.py` (texto ate 20.000 caracteres, `id_requisicao` em UUID, com a declaracao de que serve a rastreabilidade); `camada/tests/test_contrato.py` (recusa); recusa sem eco do conteudo em `camada/tests/test_falha_e_registro.py` (ADR-0030, R17).
 
 ### RQ-15 — Menor privilegio nas variaveis de ambiente
 **Origem:** revisao externa.
 **Requisito:** a camada recebe hoje o `.env` inteiro, incluindo credenciais de que
 nao precisa. Cada servico recebe apenas as variaveis que usa.
 **Aceitacao:** `docker-compose.yml` com `environment` explicito por servico, sem
-`env_file` global na camada. **Estado:** aberto. Nota de 12/11/2026: implementado na Fase 0 da Etapa 4 (commit `3780d93`); o estado muda no fechamento da Etapa 4.
+`env_file` global na camada. **Estado:** cumprido (fechamento da Etapa 4, 14/11/2026). Evidencia: `docker-compose.yml` sem `env_file` em nenhum servico, com `environment` explicito na camada; `scripts/tests/test_compose_privilegio.py` (a camada recebe so `ARQUIVO_LOG`, `NORMALIZACAO`, `MARCADOR`, `MODERACAO_SIMULADA` e `OPENAI_API_KEY`; a chave da Anthropic so vai para o servico do modelo).
 
 ---
 
@@ -193,7 +193,7 @@ de sanidade em portugues antes do congelamento. **Estado:** aberto. Nota de 12/1
 **Requisito:** `omni-moderation-latest` e referencia mutavel. O executor grava, em
 cada registro bruto, o identificador de modelo devolvido pela propria resposta.
 **Aceitacao:** campo no registro bruto e transcricao para `docs/versoes.md` apos a
-execucao. **Estado:** aberto.
+execucao. **Estado:** aberto. Nota de 14/11/2026: a camada grava no registro o campo `model` devolvido pela moderacao (`camada/app/moderacao.py`, commit `62c1d08`), testado so em modo simulado. **Pendencia:** a referencia oficial nao garante que esse campo traga a versao datada; o exemplo dela repete o apelido `omni-moderation-latest`. So uma chamada real mostra o que vem. Se vier o apelido, o requisito e reescrito na Etapa 5.
 
 ### RQ-19 — Formulas dos indicadores fechadas antes do congelamento
 **Origem:** revisao externa.

@@ -10,9 +10,10 @@ https://developers.openai.com/api/reference/resources/moderations.md -
 resposta com `id`, `model` e `results`, e em cada resultado o campo `flagged`.
 
 RQ-16: `omni-moderation-latest` e referencia mutavel. O campo `model` devolvido pela
-resposta vai para o registro. **Pendencia declarada:** a referencia nao diz se esse campo
-traz a versao datada ou repete o apelido; o exemplo dela repete o apelido. So uma chamada
-real mostra o que vem, e ela depende de chave.
+resposta vai para o registro. **Verificado em 15/11/2026**, com chamada real feita na
+maquina do experimento: o servico devolve `model = "omni-moderation-latest"`, isto e,
+**repete o apelido e nao informa a versao datada**. O campo, portanto, nao fixa a versao
+do modelo de moderacao; a limitacao esta em `docs/requisitos-herdados.md` (RQ-16).
 
 O modo simulado e o padrao: nenhuma requisicao sai da maquina, e nada e sinalizado.
 A biblioteca padrao basta (`urllib`); a camada nao ganha dependencia nova.

@@ -193,7 +193,7 @@ de sanidade em portugues antes do congelamento. **Estado:** aberto. Nota de 12/1
 **Requisito:** `omni-moderation-latest` e referencia mutavel. O executor grava, em
 cada registro bruto, o identificador de modelo devolvido pela propria resposta.
 **Aceitacao:** campo no registro bruto e transcricao para `docs/versoes.md` apos a
-execucao. **Estado:** aberto. Nota de 14/11/2026: a camada grava no registro o campo `model` devolvido pela moderacao (`camada/app/moderacao.py`, commit `62c1d08`), testado so em modo simulado. **Pendencia:** a referencia oficial nao garante que esse campo traga a versao datada; o exemplo dela repete o apelido `omni-moderation-latest`. So uma chamada real mostra o que vem. Se vier o apelido, o requisito e reescrito na Etapa 5.
+execucao. **Estado:** aberto. Nota de 14/11/2026: a camada grava no registro o campo `model` devolvido pela moderacao (`camada/app/moderacao.py`, commit `62c1d08`). **Verificado em 15/11/2026**, com chamada real ao servico na maquina do experimento (pergunta comum de cliente, escrita para o teste): resposta com `model = "omni-moderation-latest"` e `flagged = false`; a conta nao exigiu pagamento. **O servico repete o apelido e nao informa a versao datada: o requisito, como escrito, nao fixa a versao.** A reescrita fica para a especificacao da Etapa 5; o que se pode registrar e o apelido devolvido, o identificador e o instante de cada chamada, com a limitacao declarada de que a versao efetiva do modelo de moderacao nao e observavel pela resposta.
 
 ### RQ-19 — Formulas dos indicadores fechadas antes do congelamento
 **Origem:** revisao externa.

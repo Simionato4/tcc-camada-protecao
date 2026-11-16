@@ -171,6 +171,11 @@ mensagens cobrindo os quatro grupos de criterios, e o que fixa o valor.
 bruto, o identificador de modelo devolvido pela propria resposta da API, e esse valor
 sera transcrito para ca apos a execucao (RQ-16).
 
+**Verificacao de 15/11/2026** (chamada real, maquina do experimento): a resposta traz
+`model = "omni-moderation-latest"`. O servico repete o apelido e nao informa a versao
+datada; o que se registra na execucao e o apelido, o identificador e o instante de cada
+chamada (RQ-16, com a limitacao declarada em `docs/requisitos-herdados.md`).
+
 ## Artefatos versionados com hash
 
 | Artefato | Valor |
